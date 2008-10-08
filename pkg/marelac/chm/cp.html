@@ -1,0 +1,77 @@
+<html><head><title>Heat capacity of sea water</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>cp(marelac)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   cp">
+<param name="keyword" value=" Heat capacity of sea water">
+</object>
+
+
+<h2>Heat capacity of sea water</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Estimates the heat capacity of seawater, using the UNESCO 1983 polynomial
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>cp(S=35, T=25, P=0)</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>S </code></td>
+<td>
+Salinity, -</td></tr>
+<tr valign="top"><td><code>T </code></td>
+<td>
+Temperature, dgC</td></tr>
+<tr valign="top"><td><code>P </code></td>
+<td>
+Pressure, bar</td></tr>
+</table>
+
+<h3>Value</h3>
+
+<p>
+Heat capacity, in <i>J kg^{-1} dgC^{-1}</i></p>
+
+<h3>Note</h3>
+
+<p>
+cp for S=40, T=40, P=1000 is 3849.5 J/(kg dgC)
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Karline Soetaert &lt;k.soetaert@nioo.knaw.nl&gt;
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Fofonoff, P. and Millard, R.C. Jr. Unesco 1983. Algorithms for computation of fundamental properties of
+seawater. Unesco Tech. Pap. in Mar. Sci., No. 44, 53 pp.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>cp(S=40,T=40,P=1000)</pre>
+
+
+
+<hr><div align="center">[Package <em>marelac</em> version 1.1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

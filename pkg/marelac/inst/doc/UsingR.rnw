@@ -279,14 +279,14 @@ Learning how to create these variables, how to address them and modify them is
 essential if you want the make good use of the \R software.
 
 \subsection{Numbers, vectors, matrices and arrays}
+\subsubsection{Assignment}
+When variables are used, they need to be initialised with numbers.
+<<>>=
+A <- 1
+B <- 2
+A+B
+@
 R can take as arguments for its functions single numbers, vectors, matrices, or arrays.
-Apart from integers, real and complex numbers, \R also recognizes infinity (Inf) and Not a Number (NaN). Try:
-\begin{verbatim}
-> 1/0
-> 0/0
-> 1e-8 * 1000
-\end{verbatim}
- (where the \code{e-8} notation denotes $10^{-8}$).
 
 <<>>=
 V<-factorial(10)
@@ -305,6 +305,13 @@ Alternatively, we may assign the result of calculations to a variable AND view t
 <<>>=
  (X <- sin(3/2*pi) )
 @
+Apart from integers, real and complex numbers, \R also recognizes infinity (Inf) and Not a Number (NaN). Try:
+\begin{verbatim}
+> 1/0
+> 0/0
+> 1e-8 * 1000
+\end{verbatim}
+ (where the \code{e-8} notation denotes $10^{-8}$).
 
 \subsubsection{Vectors}
 Vectors can be created in many ways:
@@ -355,6 +362,12 @@ V <- vector(length=10)
 FF<- vector()
 @
 generate a vector V comprising 10 elements, and a vector FF of unknown length.
+
+Note: a peculiar feature of \R is that the elements of a vector can also be given \code{names}:
+<<>>=
+(fruit <- c(banana=1, apple=2, orange =3))
+names(fruit)
+@
 \subsubsection{Matrices}
 Matrices can also be created in several ways:
 \begin{itemize}
@@ -690,7 +703,7 @@ We will now work on a data set consisting of nematode species densities, found i
 
 Nematodes are small (<1mm) worms, and they are generally very abundant in all marine sediments.
 
-The data (from \citep{Soetaert91}, originally present in an ACCESS database, have been exported as a table in a comma-delimited (so-called csv) format. This format has the advantage that it can easily be read by text editors (such as the TINN-R editor) as well as in spreadsheet programs.
+The data (from \citep{Soetaert91}, originally present in an ACCESS database, have been exported as a table in a comma-separated-values (so-called csv) format. This format has the advantage that it can easily be read by text editors (such as the TINN-R editor) as well as in spreadsheet programs.
 
 Open the file "nemaspec.csv" in Tinn-R\footnote{: if you do not have this file, it can be found in the \pkg{marelac} package directory.
 Within R, type:
@@ -712,7 +725,7 @@ If the file called "nemaspec.csv" is not in this directory, you may need to chan
 (do not forget that \R requires "/" where windows uses " $\backslash$") .
 
 Make a script file in which you write the next steps; submit each line to \R to check its correctness.
-Read the comma-delimited file, using R-command \code{read.csv}.
+Read the comma-delimited file, using R-command \code{read.csv}. Type \code{?read.csv} if you need help.
 
 Specify that the first row is the heading (\code{header=TRUE}) and the first column contains the rownames (\code{row.names=1}).
 
@@ -2000,9 +2013,11 @@ scatterplot3d(out$x,out$y,out$z,type="l",
 \section{Finally}
 
 \subsection{The questions}
-These lecture notes have been generated with LaTeX and making use of R-package \pkg{Sweave} \citep{Leisch02}, which allows to merge LaTeX with R-code.
+These lecture notes have been generated with LaTeX and making use of R-package \pkg{Sweave} \citep{Leisch02},
+which allows to merge LaTeX with R-code.
 
-If you do not like the layout a PDF version ("UsingR.pdf") made with WORD (Microsoft) version can be found in the /inst/lecture subdirectory of package \pkg{marelac}.
+If you do not like the layout a PDF version ("ScientificComputing.pdf") made with WORD (Microsoft)
+can be found in the /inst/lecture subdirectory of package \pkg{marelac}.
 
 \subsection{The answers}
 The answers to the questions in this course are present as an R-vignette in package "marelac".

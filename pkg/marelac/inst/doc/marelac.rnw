@@ -26,11 +26,14 @@
 
 
 \author{Karline Soetaert\\
-Centre for Estuarine and Marine Ecology\\
-Netherlands Institute of Ecology\\
-The Netherlands}
+NIOO-CEME\\
+The Netherlands
+\And
+Filip Meysman\\
+VUB\\
+Belgium}
 
-\Plainauthor{Karline Soetaert}
+\Plainauthor{Karline Soetaert and Filip Meysman}
 
 \Abstract{ \R package \m \citep{marelac} contains datasets, chemical and physical constants
 and functions, routines for unit conversion, and other utilities useful for marine (oceans, seas) and lacustrine (lakes) sciences.
@@ -45,9 +48,16 @@ The package also contains lecture notes for novice R-users.
   Karline Soetaert\\
   Centre for Estuarine and Marine Ecology (CEME)\\
   Netherlands Institute of Ecology (NIOO)\\
-  4401 NT Yerseke, Netherlands
+  4401 NT Yerseke, Netherlands\\
   E-mail: \email{k.soetaert@nioo.knaw.nl}\\
   URL: \url{http://www.nioo.knaw.nl/ppages/ksoetaert}\\
+\\
+Filip Meysman\\
+Laboratory of Analytical and Environmental Chemistry\\
+Vrije Universiteit Brussel (VUB)\\
+Pleinlaan 2\\
+1050 Brussel, Belgium.\\
+E-mail: \email{filip.meysman@vub.ac.be}
 }
 
 

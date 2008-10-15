@@ -111,12 +111,11 @@ image(Bathymetry$x,Bathymetry$y,Bathymetry$z,col=femmecol(100),
       asp=TRUE,xlab="dg",ylab="dg")
 contour(Bathymetry$x,Bathymetry$y,Bathymetry$z,asp=TRUE,add=TRUE)
 
-# remove land
+# remove land and only contours.
 zz     <- Bathymetry$z
 zz[zz>0]<-0
 
-image(Bathymetry$x,Bathymetry$y,zz,col=c(femmecol(100),"black"),asp=TRUE)
-contour(Bathymetry$x,Bathymetry$y,zz,asp=TRUE,add=TRUE)
+contour(Bathymetry$x,Bathymetry$y,zz,asp=TRUE)
 par(mfrow=c(1,1))
 par(mar=c(5.1,4.1,4.1,2.1))
 @

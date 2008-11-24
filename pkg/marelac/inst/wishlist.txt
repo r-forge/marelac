@@ -1,0 +1,12 @@
+Thomas' Wishlist
+
+
+
+- add word limnology to descriptions and titles where appropriate (DESCRIPTION, marelac.Rd)
+
+  - suggestion: simply change "marine and lacustrine sciences" to "marine and limnological sciences",
+  - mention the word "lacustrine" elsewhere.
+
+- marelac is currently a mix of untility functions and teaching tutorials. Is this appropriate?
+
+  

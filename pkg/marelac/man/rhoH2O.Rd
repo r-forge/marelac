@@ -34,7 +34,7 @@ Millero, F. J. and Poisson, A. (1981). International one-atmosphere equation of 
 of seawater. Deep-Sea Research 28A, 625-629.
 }
 
-\seealso{\code{\link[seacarb]{rho} in package seacarb.)}
+\seealso{\code{\link[seacarb]{rho}} in package seacarb.}
 \examples{
 rhoH2O(T=4)
 T <- 0:30

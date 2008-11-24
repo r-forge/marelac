@@ -6,21 +6,25 @@
   Empirical formulae that can be used to compute saturation concentration of
   oxygen in water in \eqn{mg/L}{mg L^{-1}}
 }
+% Note the default value of S. Should we change it to 35?
 \usage{
-O2sat(Tc = T - 273.15, T = Tc + 273.15, NN = 0, S = 0, method = c("APHA", "Weiss", "Paul"))
+O2sat(S = 0, T = K - 273.15, K = T + 273.15, NN = 0, method = c("Weiss", "APHA", "Paul"))
 }
 
 \arguments{
-  \item{Tc}{Temperature in degrees centigrade,}
-  \item{T}{Temperature in degrees Kelvin,}
-  \item{NN}{height above sea level (for method "Paul" only),}
   \item{S}{salinity in PSU (for method "Weiss" only),}
+  \item{T}{Temperature in degrees centigrade,}
+  \item{K}{absolute Temperature in degrees Kelvin,}
+  \item{NN}{height above sea level (for method "Paul" only),}
   \item{method}{formula to be used, see references for correct application.}
 }
+% Karline, correct this statement if wrong
 \details{
-  Method APHA is the standard formula in Limnology, method Weiss may be the 
+  Method APHA is the standard formula in Limnology, method Weiss possibly the
   standard formula in marine sciences. The method after Paul is a 
   simple formula fitted on available tables.
+  To avoid confusion between the arguments (S, T, K, NN) it is advisable to use
+  named arguments in general (e.g. \code{O2sat(T=4)}.
 }
 \value{
   Vector with oxygen saturation concentration in mg/L.
@@ -56,9 +60,11 @@ Vom Wasser 53, S. 283-285.
 
 
 \examples{
-  Tc <- seq(0, 30, 0.1)
-  plot(Tc, O2sat(Tc), type="l", ylim=c(0,15))
-  lines(Tc, O2sat(Tc, S=30, method="Weiss"))
+  O2sat(T=20)
+  T <- seq(0, 30, 0.1)
+  plot(T, O2sat(T=T), type="l", ylim=c(0,15), lwd=2)
+  lines(T, O2sat(S=0, T=T, method="Weiss"), col="yellow", lwd=2, lty="dashed")
+  lines(T, O2sat(S=35, T=T, method="Weiss"), col="red", lwd=2)
 }
 \keyword{ misc }
 

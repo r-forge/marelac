@@ -1,10 +1,9 @@
 \name{limnotools-internal}
 \alias{rhoH2O_Chen}
-\alias{sv_Fofonoff}
 
-\title{Internal functions of the limnotools package}
+\title{Internal Functions of the marelac Package}
 \description{
-  Internal limnotools functions
+  Internal functions of package marelac.
 }
 \details{
   These are not to be called by the user.

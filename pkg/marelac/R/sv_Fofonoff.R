@@ -1,6 +1,7 @@
 `sv_Fofonoff` <-
-function(T, p=0, S=0) {
+function(S=35, T=25, P=0) {
   # see also http://www.satlab.hawaii.edu/ocn620/hydro/sv.m
+  # original function was as follows; note changed measurement units
   # function y = sv(p,t,s)
   #   specific volume (m^3/kg) from
   #   pressure (dbar), temperature (C), salinity (PSS-78)
@@ -23,8 +24,7 @@ function(T, p=0, S=0) {
   # SCKennan(20apr95)
 
 
-  p <- p / 10
-
+  #P <- P / 10
   a0 <- 999.842594
   a1 <- 0.06793952
   a2 <- -0.00909529
@@ -90,8 +90,8 @@ function(T, p=0, S=0) {
   a <- Aw + (i0 + i1 * T + i2 * T ^ 2) * S + j0 * S ^ (3 / 2)
   B <- Bw + (m0 + m1 * T + m2 * T ^ 2) * S
 
-  K <- K + a * p + B * (p ^ 2)
+  K <- K + a * P + B * (P ^ 2)
 
-  (1 - p / K) / R
+  (1 - P / K) / R
 }
 

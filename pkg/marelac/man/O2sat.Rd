@@ -58,13 +58,14 @@ Ergebnisse einer Umfrage (Berichtigung und Erg{\"a}nzung zur Ver{\"o}ffentlichun
 Vom Wasser 53, S. 283-285. 
 }
 
+\seealso{\code{\link{satconc}}}
 
 \examples{
-  O2sat(T=20)
+  O2sat(T = 20)
   T <- seq(0, 30, 0.1)
-  plot(T, O2sat(T=T), type="l", ylim=c(0,15), lwd=2)
-  lines(T, O2sat(S=0, T=T, method="Weiss"), col="yellow", lwd=2, lty="dashed")
-  lines(T, O2sat(S=35, T=T, method="Weiss"), col="red", lwd=2)
+  plot(T, O2sat(T = T), type = "l", ylim = c(0, 15), lwd=2)
+  lines(T, O2sat(S = 0, T = T, method = "Weiss"), col = "yellow", lwd = 2, lty = "dashed")
+  lines(T, O2sat(S = 35, T = T, method = "Weiss"), col = "red", lwd = 2)
 }
 \keyword{ misc }
 

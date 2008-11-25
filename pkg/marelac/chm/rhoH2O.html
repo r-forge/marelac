@@ -1,0 +1,111 @@
+<html><head><title>Density of Water</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>rhoH2O(marelac)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   rhoH2O">
+<param name="keyword" value=" Density of Water">
+</object>
+
+
+<h2>Density of Water</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Density of water in <i>kg m^{-3}</i>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+rhoH2O(S=35, T=25, P=0, method=c("Millero", "Chen", "marine", "limnological"))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>S</code></td>
+<td>
+salinity in PSU,</td></tr>
+<tr valign="top"><td><code>T</code></td>
+<td>
+temperature in degree centigrade,</td></tr>
+<tr valign="top"><td><code>P</code></td>
+<td>
+Hydrostatic pressure in bar (surface =0),</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+"Millero" for marine systems (default), "Chen" for the limnological
+range (i.e. fresh water systems). Abbreviation (e.g. "M" or "m")
+is possible.</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+To avoid confusion between the arguments (S, T, P) it is advisable to use
+named arguments in general (e.g. <code>rho(T=4, method="Chen")</code>.
+The marine formula is imported from package <span class="pkg">seacarb</span>.)
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+Density of water in <i>kg m^{-3}</i>.</p>
+
+<h3>References</h3>
+
+<p>
+Chen, Ch.-T. and F.J. Millero (1986). Precise thermodynamic properties of natural 
+waters covering only the limnological range. Limnol. Oceanogr. 31 No. 3, 657 - 662.
+</p>
+<p>
+Fofonoff N.P. and R.C. Millard (1983). Algorithms for computation of fundamental
+properties of seawater. UNESCO technical papers in marine science, 44, 53 pp.
+</p>
+<p>
+Millero, F. J. and Poisson, A. (1981). International one-atmosphere equation of state
+of seawater. Deep-Sea Research 28A, 625-629.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a onclick="findlink('seacarb', 'rho.html')" style="text-decoration: underline; color: blue; cursor: hand">rho</a></code> in package seacarb.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+rhoH2O(T=4)
+T &lt;- 0:30
+plot(T, rhoH2O(T=T))
+S &lt;- 0:40
+plot(S, rhoH2O(S=S, T=4, method="Millero"))
+lines(S, rhoH2O(S=S, T=4, method="Chen"))
+
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>marelac</em> version 1.3 <a href="00Index.html">Index]</a></div>
+
+</body></html>

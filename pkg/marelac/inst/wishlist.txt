@@ -1,6 +1,10 @@
-Thomas' Wishlist
+Thomas' ToDo and Wishlist
 
 
+- solve inconsistencies between saturation formulae:
+  - satconc: mu mol/L      N2, O2, Ar
+  - O2sat: mg / L          only O2
+  - note also that rho(seacarb) and rhoH2O use kg/m3
 
 - add word limnology to descriptions and titles where appropriate (DESCRIPTION, marelac.Rd)
 

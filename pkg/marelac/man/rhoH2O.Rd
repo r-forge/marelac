@@ -12,7 +12,8 @@ rhoH2O(S=35, T=25, P=0, method=c("Millero", "Chen", "marine", "limnological"))
   \item{T}{temperature in degree centigrade,}
   \item{P}{Hydrostatic pressure in bar (surface =0),}
   \item{method}{"Millero" for marine systems (default), "Chen" for the limnological
-                range (i.e. fresh water systems).}
+                range (i.e. fresh water systems). Abbreviation (e.g. "M" or "m")
+                is possible.}
 }
 
 \value{
@@ -40,7 +41,7 @@ rhoH2O(T=4)
 T <- 0:30
 plot(T, rhoH2O(T=T))
 S <- 0:40
-plot(S, rhoH2O(S=S, T=4, method="Fofonoff"))
+plot(S, rhoH2O(S=S, T=4, method="Millero"))
 lines(S, rhoH2O(S=S, T=4, method="Chen"))
 
 }

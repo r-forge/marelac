@@ -16,6 +16,7 @@ AtomicWeight.html
 Bathymetry.html
 Constants.html
 Nemaspec.html
+O2sat.html
 SCOC.html
 Zoogrowth.html
 coriolis.html
@@ -23,11 +24,16 @@ cp.html
 diffcoeff.html
 g2mol.html
 l2mol.html
+marelac-internal.html
 marelac.html
 mol.vol.html
 mol.weight.html
 mol2l.html
+redfield.html
+rhoH2O.html
 sal2cl.html
 salconc.html
 satconc.html
+ssd2rad.html
+vertmean.html
 viscosity.html

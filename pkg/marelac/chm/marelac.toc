@@ -66,6 +66,22 @@
 <param name="Local" value="Nemaspec.html">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
+<param name="Name" value="O2sat">
+<param name="Local" value="O2sat.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="redfield">
+<param name="Local" value="redfield.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="rhoH2O">
+<param name="Local" value="rhoH2O.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="rhoH2O_Chen">
+<param name="Local" value="marelac-internal.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
 <param name="Name" value="sal2cl">
 <param name="Local" value="sal2cl.html">
 </OBJECT>
@@ -80,6 +96,14 @@
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="SCOC">
 <param name="Local" value="SCOC.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="ssd2rad">
+<param name="Local" value="ssd2rad.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="vertmean">
+<param name="Local" value="vertmean.html">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="viscosity">
@@ -115,8 +139,20 @@
 <param name="Local" value="marelac.html">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Density of Water">
+<param name="Local" value="rhoH2O.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Estimate Global Radiation from Measured Sunshine Duration Time">
+<param name="Local" value="ssd2rad.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
 <param name="Name" value="Heat capacity of sea water">
 <param name="Local" value="cp.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Internal Functions of the marelac Package">
+<param name="Local" value="marelac-internal.html">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="liter to mol conversion for a gas">
@@ -143,12 +179,20 @@
 <param name="Local" value="Nemaspec.html">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Redfield Ratio Calculator">
+<param name="Local" value="redfield.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
 <param name="Name" value="Salinity-chlorinity conversion">
 <param name="Local" value="sal2cl.html">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="Saturated concentrations for oxygen, N2 and Ar">
 <param name="Local" value="satconc.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Saturation concentration of oxygen in water">
+<param name="Local" value="O2sat.html">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="shear viscosity of water">
@@ -165,6 +209,10 @@
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="Useful physical and chemical constants">
 <param name="Local" value="Constants.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Vertical Volumetric Weighted Mean of Matter Concentrations in Water Bodies">
+<param name="Local" value="vertmean.html">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="World bathymetric data">

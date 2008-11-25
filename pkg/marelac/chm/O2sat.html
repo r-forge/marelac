@@ -1,0 +1,125 @@
+<html><head><title>Saturation concentration of oxygen in water</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>O2sat(marelac)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   O2sat">
+<param name="keyword" value=" Saturation concentration of oxygen in water">
+</object>
+
+
+<h2>Saturation concentration of oxygen in water</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Empirical formulae that can be used to compute saturation concentration of
+oxygen in water in <i>mg L^{-1}</i>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+O2sat(S = 0, T = K - 273.15, K = T + 273.15, NN = 0, method = c("Weiss", "APHA", "Paul"))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>S</code></td>
+<td>
+salinity in PSU (for method "Weiss" only),</td></tr>
+<tr valign="top"><td><code>T</code></td>
+<td>
+Temperature in degrees centigrade,</td></tr>
+<tr valign="top"><td><code>K</code></td>
+<td>
+absolute Temperature in degrees Kelvin,</td></tr>
+<tr valign="top"><td><code>NN</code></td>
+<td>
+height above sea level (for method "Paul" only),</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+formula to be used, see references for correct application.</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+Method APHA is the standard formula in Limnology, method Weiss possibly the
+standard formula in marine sciences. The method after Paul is a 
+simple formula fitted on available tables.
+To avoid confusion between the arguments (S, T, K, NN) it is advisable to use
+named arguments in general (e.g. <code>O2sat(T=4)</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+Vector with oxygen saturation concentration in mg/L.</p>
+
+<h3>References</h3>
+
+<p>
+American Public Health Association, Inc. (1985): Standard Methods for the 
+Examination of Water and Wastewater. 18th edition, 1992.
+</p>
+<p>
+Benson B. B. and Krause, D. (1980): The concentration and isotopic fractionation 
+of gases dissolved in freshwater in equilibrium with the atmosphere. I. Oxygen. 
+Limnology and Oceanography 25, 662-671.
+</p>
+<p>
+Brown, L.C. and Barnwell, T. O. Jr. (1987): The Enhanced Stream Water Quality 
+Models QUAL2E and QUAL2E-UNCAS: Documentation and User Manual. U.S. Environmental 
+Protection Agency, Athens, Georgia. EPA/600/3-87/007, p. 41. http://www.epa.gov)
+</p>
+<p>
+DIN 38408-23, Ausgabe:1987-11: Deutsche Einheitsverfahren zur Wasser-, Abwasser- 
+und Schlammuntersuchung; Gasf{"o}rmige Bestandteile (Gruppe G); Bestimmung des
+Sauerstoffs{"a}ttigungsindex (G 23). <a href="http://www.din.de">http://www.din.de</a>
+</p>
+<p>
+Paul, L. (1985). Das thermische Regime der Talsperre Saidenbach und einige 
+Beziehungen zwischen abiotischen und biotischen Komponenten. Dissertation, 
+TU Dresden, Fakult{"a}t Bau-, Wasser- und Forstwesen. 84 pp.
+</p>
+<p>
+Weiss, R. (1970). The solubility of nitrogen, oxygen, and argon in water and
+seawater. Deep-Sea Res. 17: 721-35.
+</p>
+<p>
+Wagner, R. (1979): Die Praxis der Bestimmung des biochemischen Sauerstoffbedarfs - 
+Ergebnisse einer Umfrage (Berichtigung und Erg{"a}nzung zur Ver{"o}ffentlichung).
+Vom Wasser 53, S. 283-285.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="satconc.html">satconc</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+  O2sat(T = 20)
+  T &lt;- seq(0, 30, 0.1)
+  plot(T, O2sat(T = T), type = "l", ylim = c(0, 15), lwd=2)
+  lines(T, O2sat(S = 0, T = T, method = "Weiss"), col = "yellow", lwd = 2, lty = "dashed")
+  lines(T, O2sat(S = 35, T = T, method = "Weiss"), col = "red", lwd = 2)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>marelac</em> version 1.3 <a href="00Index.html">Index]</a></div>
+
+</body></html>

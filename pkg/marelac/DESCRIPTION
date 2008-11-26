@@ -1,8 +1,9 @@
 Package: marelac
-Version: 1.3
+Version: 1.4
 Title: Datasets, constants, conversion factors, utilities for the marine and lacustrine sciences
 Author: Karline Soetaert <k.soetaert@nioo.knaw.nl>,
-  Filip Meysman <filip.meysman@vub.ac.be>
+        Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>,
+        Filip Meysman <filip.meysman@vub.ac.be>
 Maintainer: Karline Soetaert <k.soetaert@nioo.knaw.nl>
 Depends: R (>= 2.01), shape, deSolve, rootSolve, scatterplot3d, seacarb
 Description: Datasets, chemical and physical constants and functions, routines for unit conversions, etc, for the marine and lacustrine sciences

@@ -46,7 +46,9 @@ or type \code{vignette("UsingR")} which will open a LaTeX-generated file.
 }
 \author{
   Karline Soetaert (Maintainer)
-  
+
+  Thomas Petzoldt
+
   Filip Meysman
 }
 %\references{

@@ -1,5 +1,9 @@
 Thomas' ToDo and Wishlist
+***Karline's remarks****
 
+***For density one has to use kg/m3, but for concentrations, molar units
+are preferred (even for biologists). I am not used to think in g/m3,
+and for modelling this really complicates things. So I suggest to use moles. ****
 
 - solve inconsistencies between saturation formulae:
   - satconc: mu mol/L      N2, O2, Ar
@@ -7,10 +11,14 @@ Thomas' ToDo and Wishlist
   - note also that rho(seacarb) and rhoH2O use kg/m3
 
 - add word limnology to descriptions and titles where appropriate (DESCRIPTION, marelac.Rd)
-
+*** So we should change the name then: Marelim - sounds nice, why not
+(marelac is the name of the masters in which I teach ecological modelling and R-intro) ***
   - suggestion: simply change "marine and lacustrine sciences" to "marine and limnological sciences",
   - mention the word "lacustrine" elsewhere.
 
 - marelac is currently a mix of untility functions and teaching tutorials. Is this appropriate?
-
+*** Clearly you find it inappropriate;
+it is true, it is an ambivalent package.
+ we can use marelac for the teaching, and create marelim for the science.
+Sounds good?  ****
   

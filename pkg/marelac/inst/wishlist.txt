@@ -5,6 +5,9 @@ Thomas' ToDo and Wishlist
 are preferred (even for biologists). I am not used to think in g/m3,
 and for modelling this really complicates things. So I suggest to use moles. ****
 
+ThPe: mg/L is common in Limnology :-( and engineering, but you are right mol is better
+      suggestion, I make mol the default and add an optinal argument
+
 - solve inconsistencies between saturation formulae:
   - satconc: mu mol/L      N2, O2, Ar
   - O2sat: mg / L          only O2
@@ -13,6 +16,9 @@ and for modelling this really complicates things. So I suggest to use moles. ***
 - add word limnology to descriptions and titles where appropriate (DESCRIPTION, marelac.Rd)
 *** So we should change the name then: Marelim - sounds nice, why not
 (marelac is the name of the masters in which I teach ecological modelling and R-intro) ***
+
+ThPe: because marelac is a better google keyword
+
   - suggestion: simply change "marine and lacustrine sciences" to "marine and limnological sciences",
   - mention the word "lacustrine" elsewhere.
 
@@ -21,4 +27,10 @@ and for modelling this really complicates things. So I suggest to use moles. ***
 it is true, it is an ambivalent package.
  we can use marelac for the teaching, and create marelim for the science.
 Sounds good?  ****
+
+ThPe: Yes at a first look, but not so good at the second.
+
+Or, what about: marelac is your course (with docs, and which loads the other)
+and the science goes to mareLimTools or marelimtools ??
+
   

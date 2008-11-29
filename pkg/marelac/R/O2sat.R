@@ -9,7 +9,7 @@ O2sat <- function(S=0, T = K - 273.15, K = T+273.15, NN = 0, method=c("Weiss", "
              (862194900000/K^4)),
      # Weiss, R. (1970). "The solubility of nitrogen, oxygen, and argon 
      # in water and seawater". Deep-Sea Res. 17: 721-35.
-     Weiss = 1.426 * exp(-173.4292 + 249.6339 * 100 / K +
+     Weiss = 1.4276 * exp(-173.4292 + 249.6339 * 100 / K +
              143.3483 * log(K / 100) - 21.8492 * K / 100 +
              S * (-0.033096 + 0.014259 * K / 100 + - 0.001700 * (K / 100)^2)),
      # Paul, L. approximation that respects height above see level

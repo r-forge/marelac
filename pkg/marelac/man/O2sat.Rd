@@ -1,3 +1,4 @@
+\encoding{latin1}
 \name{O2sat}
 \alias{O2sat}
 
@@ -24,7 +25,7 @@ O2sat(S = 0, T = K - 273.15, K = T + 273.15, NN = 0, method = c("Weiss", "APHA",
   standard formula in marine sciences. The method after Paul is a 
   simple formula fitted on available tables.
   To avoid confusion between the arguments (S, T, K, NN) it is advisable to use
-  named arguments in general (e.g. \code{O2sat(T=4)}.
+  named arguments in general, e.g. \code{O2sat(T=4)}.
 }
 \value{
   Vector with oxygen saturation concentration in mg/L.
@@ -43,19 +44,19 @@ Models QUAL2E and QUAL2E-UNCAS: Documentation and User Manual. U.S. Environmenta
 Protection Agency, Athens, Georgia. EPA/600/3-87/007, p. 41. http://www.epa.gov)
 
 DIN 38408-23, Ausgabe:1987-11: Deutsche Einheitsverfahren zur Wasser-, Abwasser- 
-und Schlammuntersuchung; Gasf{\"o}rmige Bestandteile (Gruppe G); Bestimmung des
-Sauerstoffs{\"a}ttigungsindex (G 23). \url{http://www.din.de}
+und Schlammuntersuchung; Gasf\enc{ö}{oe}rmige Bestandteile (Gruppe G); Bestimmung des
+Sauerstoffs\enc{ä}{ae}ttigungsindex (G 23).
 
 Paul, L. (1985). Das thermische Regime der Talsperre Saidenbach und einige 
 Beziehungen zwischen abiotischen und biotischen Komponenten. Dissertation, 
-TU Dresden, Fakult{\"a}t Bau-, Wasser- und Forstwesen. 84 pp.
+TU Dresden, Fakult\enc{ä}{ae}t Bau-, Wasser- und Forstwesen. 84 pp.
 
 Weiss, R. (1970). The solubility of nitrogen, oxygen, and argon in water and
 seawater. Deep-Sea Res. 17: 721-35.
 
 Wagner, R. (1979): Die Praxis der Bestimmung des biochemischen Sauerstoffbedarfs - 
-Ergebnisse einer Umfrage (Berichtigung und Erg{\"a}nzung zur Ver{\"o}ffentlichung).
-Vom Wasser 53, S. 283-285. 
+Ergebnisse einer Umfrage (Berichtigung und Erg\enc{ä}{ae}nzung zur
+Ver\enc{ö}{oe}ffentlichung). Vom Wasser 53, S. 283-285.
 }
 
 \seealso{\code{\link{satconc}}}

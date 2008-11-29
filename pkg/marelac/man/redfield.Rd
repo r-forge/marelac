@@ -14,7 +14,7 @@ redfield(element, x, method = c("mol", "mass"))
   \item{method}{measurement unit ("mol" or "mass").}
 }
 \details{
-  The Redfield ratio is C106 H80 O45 N16 P1.
+  The Redfield ratio is \eqn{C_{106}H_{80}O_{45}N_{16}P_{1}}{C106 H80 O45 N16 P1}.
 }
 \value{
   Estimated ratio of the main elements.

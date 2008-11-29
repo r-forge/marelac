@@ -4,7 +4,8 @@
 \description{Calculates the molecular weight of chemical species}
 \usage{mol.weight2(species)}
 \arguments{
-  \item{species }{chemical species whose molecular weight should be estimated}
+  \item{species }{string with chemical species whose molecular
+    weight should be estimated}
 }
 \value{
   the molecular weight in g/mol

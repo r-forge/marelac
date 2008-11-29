@@ -23,7 +23,7 @@ redfield(element, x, method = c("mol", "mass"))
 % Add **original** reference here, and not only N:P
 \references{Redfield A.C. (1934). On the proportions of organic derivations
   in sea water and their relation to the composition of plankton.
-  In James Johnstone Memorial Volume. (ed. R.J. Daniel).
+  In: James Johnstone Memorial Volume. (ed. R.J. Daniel).
   University Press of Liverpool, 177-192.
 }
 
@@ -40,11 +40,9 @@ redfield("P", 2, "mass")
 x <- redfield("P", 1, "mass")
 x / sum(x)
 
-# approximate fresh mass (in mg) formed by 1 microgram P
+# rule of thumb for fresh mass (in mg) formed by 1 microgram P
 redfield("P", 1, "mass")["C"] * 2 * 10 / 1000
 
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{ misc}
 

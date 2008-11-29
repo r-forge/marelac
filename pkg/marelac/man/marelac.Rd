@@ -26,7 +26,7 @@ as an introduction to R for students that follow our course in ecological modell
   \tabular{ll}{
     Package: \tab marelac\cr
     Type: \tab Package\cr
-    Version: \tab 1.2\cr
+    Version: \tab 1.4\cr
     Date: \tab 2008-11-031\cr
     License: \tab GNU Public License 2 or above\cr
   }

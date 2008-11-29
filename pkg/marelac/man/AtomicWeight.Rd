@@ -13,7 +13,7 @@
   compositions, depending on geology, industrial processes or biological activity.
   Please consult the IUPAC Technical report about the details.
   The data set contains NA for elements which have no stable isotopes
-  (except U, Th, Pa, U).
+  (except U, Th, Pa).
 }
 \seealso{\code{\link{mol.weight}}, \code{\link{mol.weight2}}}
 \examples{AtomicWeight

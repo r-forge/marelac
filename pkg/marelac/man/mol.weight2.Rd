@@ -4,11 +4,11 @@
 \description{Calculates the molecular weight of chemical species}
 \usage{mol.weight2(species)}
 \arguments{
-  \item{species }{string with chemical species whose molecular
+  \item{species }{character vector with chemical species whose molecular
     weight should be estimated}
 }
 \value{
-  the molecular weight in g/mol
+  vector with the molecular weights in g/mol
 }
 \details{
   Molecular weights of chemical elements may vary due to different isotope
@@ -27,8 +27,8 @@
   to the original function in this package)!
 }
 \examples{
-mol.weight("CO3")
-mol.weight2("CO3")
+mol.weight("CO2")
+mol.weight2("CO2")
 
 mol.weight("HCO3")
 mol.weight2("HCO3")
@@ -39,20 +39,21 @@ mol.weight2("H")
 mol.weight("H3PO4")
 mol.weight2("H3PO4")
 
-mol.weight2("H2O")
-
 mol.weight2("NaHCO3")
 mol.weight2("C6H12O6")
 mol.weight2("Ca(HCO3)2")
 
 mol.weight2("Pb(NO3)2")
 mol.weight2("(NH4)2SO4")
-mol.weight2("C2H5OH")
+
 mol.weight2("CH3CH2CHCHCH2CHCHCH2CHCHCH2CHCHCH2CHCH(CH2)3COOH")
 mol.weight2("C20H30O2")
 
 mol.weight("SiOH4")
 mol.weight2("SiOH4")
+
+# works also with vectors
+mol.weight2(c("C2H5OH", "CO2", "H2O"))
 
 # the old function is not case sensitive
 mol.weight("Co2")
@@ -61,7 +62,6 @@ mol.weight("CO2")
 ## but the new function is (and must be!)
 mol.weight2("Co") # cobalt
 mol.weight2("CO") # carbon monoxide
-
 }
 
 \keyword{utilities}

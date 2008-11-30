@@ -1,32 +1,32 @@
-
-# converts from mol to g
+# converts from mol to g, works with vectors and simple lists
 mol.weight2 <- function(species) {
-  with(AtomicWeight, {
-    trace = FALSE # for debugging, lines have to be removed in production versions
-    # insert * before number (with one or more digits)
-    s1 <- gsub("([0-9]+)", "\\*\\1\\+", species)
-    if (trace) cat(s1, "\n")
-    # insert + after capital letters
-    s1 <- gsub("([a-z,A-Z])", "\\1\\+", s1, perl=TRUE)
-    if (trace) cat(s1, "\n")
-    # remove + before lower case letters
-    s1 <- gsub("\\+([a-z])", "\\1", s1, perl=TRUE)
-    if (trace) cat(s1, "\n")
-    # replace +* with only *
-    s1 <- gsub("\\+\\*", "\\*", s1, perl=TRUE)
-    if (trace) cat(s1, "\n")
-    # remove trailing +
-    s1 <- gsub("\\+$", "", s1, perl=TRUE)
-    if (trace) cat(s1, "\n")
-    # remove trailing +)
-    s1 <- gsub("\\+\\)", "\\)", s1, perl=TRUE)
-    if (trace) cat(s1, "\n")
-    # calculate molar mass
-    eval(parse(text=s1))
-  })
+  if (!is.vector(species)) stop("species must be a vector")
+  if (!is.character(unlist(species))) stop("species must be character")
+  molweight <- function(species) {
+    with(AtomicWeight, {
+      trace = FALSE # for debugging, lines have to be removed in production versions
+      # insert * before number (with one or more digits)
+      s1 <- gsub("([0-9]+)", "*\\1+", species)
+      if (trace) cat(s1, "\n")
+      # insert + after capital letters
+      s1 <- gsub("([a-z,A-Z])", "\\1+", s1, perl=TRUE)
+      if (trace) cat(s1, "\n")
+      # remove + before lower case letters
+      s1 <- gsub("\\+([a-z])", "\\1", s1, perl=TRUE)
+      if (trace) cat(s1, "\n")
+      # replace +* with only *
+      s1 <- gsub("+*", "*", s1, fixed = TRUE)
+      if (trace) cat(s1, "\n")
+      # remove trailing +
+      s1 <- gsub("\\+$", "", s1)
+      if (trace) cat(s1, "\n")
+      # remove trailing +)
+      s1 <- gsub("\\+\\)", ")", s1)
+      if (trace) cat(s1, "\n")
+      # calculate molar mass
+      eval(parse(text=s1))
+    })
+  }
+  sapply(species, molweight)
 }
-
-
-
-
 

@@ -196,7 +196,7 @@ satconc(S=35,T=seq(0,20,by=5))
 gram to moles
 <<>>=
 g2mol("CO3")
-g2mol("hCO3")
+g2mol("HCO3")
 g2mol("H")
 @
 liter to moles

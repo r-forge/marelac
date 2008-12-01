@@ -15,7 +15,7 @@
   The data set contains NA for elements which have no stable isotopes
   (except U, Th, Pa).
 }
-\seealso{\code{\link{mol.weight}}, \code{\link{mol.weight2}}}
+\seealso{\code{\link{mol.weight}}, \code{\link{g2mol}}}
 \examples{AtomicWeight
 AtomicWeight$H
 (W_H2O<- with (AtomicWeight, 2 * H + O))

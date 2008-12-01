@@ -11,7 +11,7 @@
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{g2mol("CO3")
-g2mol("hCO3")
+g2mol("HCO3")
 g2mol("H")}
 \note{This function includes only some biogeochemically active species}
 \keyword{utilities}

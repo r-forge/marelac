@@ -1,0 +1,89 @@
+<html><head><title>a Sediment Community Oxygen Consumption (SCOC) dataset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>SCOC(marelacTeaching)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   SCOC">
+<param name="keyword" value=" a Sediment Community Oxygen Consumption (SCOC) dataset">
+</object>
+
+
+<h2>a Sediment Community Oxygen Consumption (SCOC) dataset</h2>
+
+
+<h3>Description</h3>
+
+<p>
+This literature dataset, compiled by Andersson et al. (2004) contains 584 measurements
+of sediment community oxygen consumption rates, as a function of water depth, and performed in deep-water sediments, either by in situ incubations or via modelling of oxygen microprofiles.
+</p>
+<p>
+It is used in the book to demonstrate how one can obtain order-of-magnitude estimates
+of model parameters (i.c. sediment oxygen consumption rate, a measure of deposition flux) by
+performing log-log regression with water depth.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>SCOC</pre>
+
+
+<h3>Format</h3>
+
+<p>
+a dataframe with 584 rows, and with following columns:
+<br> Depth.m, the water depth at which the measurement was performed.
+<br> SCOC.mmol/m2/d, the oxygen consumption rate of the sediment, [mmolO2/m2/d]
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Karline Soetaert &lt;k.soetaert@nioo.knaw.nl&gt;
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Andersson, H., Wijsman, J., Herman, P., Middelburg, J., Soetaert, K., Heip, C., 2004. Respiration patterns in the deep ocean. Geophysical Research Letters 31, LO3304.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="Zoogrowth.html">Zoogrowth</a></code>, a dataset containing zooplankton maximal growth rates
+<br> see the paper of Andersson et al. for a description of the original literature sources of this dataset
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>plot(SCOC[,1],SCOC[,2],log="xy",xlab="water depth, m",ylab="" ,
+     main="SCOC, mmol O2/m2/d",pch=16,xaxt="n",yaxt="n",cex.main=1)
+
+axis(1,at=c(0.5,5,50,500,5000),labels=c("0.5","5","50","500","5000"))
+axis(2,at=c(0.1,1,10,100),labels=c("0.1","1","10","100"))
+
+ll &lt;- lm(log(SCOC[,2])~ log(SCOC[,1]))
+rr &lt;- summary(ll)$r.squared
+A  &lt;- exp(coef(ll)[1])
+B  &lt;- (coef(ll)[2])
+curve(A*x^B,add=TRUE,lwd=2)
+AA &lt;- round(A*100)/100
+BB &lt;- round(B*100)/100
+expr &lt;- substitute(y==A*x^B,list(A=AA,B=BB))
+text(1,.1,expr,adj=0)
+expr2 &lt;- substitute(r^2==rr,list(rr=round(rr*100)/100))
+text(1,0.04,expr2, adj=0)</pre>
+
+
+
+<hr><div align="center">[Package <em>marelacTeaching</em> version 1.0 <a href="00Index.html">Index]</a></div>
+
+</body></html>

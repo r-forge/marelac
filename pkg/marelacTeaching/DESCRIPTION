@@ -1,0 +1,11 @@
+Package: marelacTeaching
+Version: 1.0
+Title: Datasets and tutorials for use in the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences
+Author: Karline Soetaert <k.soetaert@nioo.knaw.nl>,
+        Filip Meysman <filip.meysman@vub.ac.be>
+Maintainer: Karline Soetaert <k.soetaert@nioo.knaw.nl>
+Depends: R (>= 2.01), shape, deSolve, rootSolve, scatterplot3d, seacarb
+Description: Datasets and tutorials for use in the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences
+License: GPL
+LazyData: yes
+Packaged: Sat Sep  20 2008; KarlineS

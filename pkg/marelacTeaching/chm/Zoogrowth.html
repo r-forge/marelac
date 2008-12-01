@@ -1,0 +1,97 @@
+<html><head><title>a zooplankton growth dataset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>Zoogrowth(marelacTeaching)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   Zoogrowth">
+<param name="keyword" value=" a zooplankton growth dataset">
+</object>
+
+
+<h2>a zooplankton growth dataset</h2>
+
+
+<h3>Description</h3>
+
+<p>
+This literature dataset, compiled by Hansen et al. (1997) contains 84 measurements
+of maximal growth rates as a function of organism volume and temperature for
+various species of zooplankton. The maximal growth rates were obtained from laboratory experiments.
+</p>
+<p>
+It is used in the book to demonstrate how one can obtain order-of-magnitude estimates
+of model parameters (i.c. maximal growth) via allometric relations, i.e. by
+performing log-log regression of organism rates versus size.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>Zoogrowth</pre>
+
+
+<h3>Format</h3>
+
+<p>
+a dataframe with 84 rows, and with following columns:
+<li>Volume, the volume in [um 3].
+<li>Mumax, the maximal growht rate, [/hour]
+<li>Species, the name of reared zooplankton species
+<li>Temp, the rearing temperature, [dg C]
+<li>Group, the systematic group to which the organism belongs, one of Nanoflagellate,
+Dinoflagellate, Ciliate, Rotifer, Meroplankton, Copepod
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Karline Soetaert &lt;k.soetaert@nioo.knaw.nl&gt;
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Hansen PJ, Bjornsen PK, Hansen BW, 1997. Zooplankton grazing and growth: Scaling within the 2-2,000-mu m body size range. Limnology and Oceanograpy 42: 687-704.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="SCOC.html">SCOC</a></code>, a dataset containing sediment community oxygen consumption rates
+</p>
+<p>
+see the paper of Hansen et al. 1997 for a description of the original literature sources of this dataset
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+plot(Zoogrowth$Volume,Zoogrowth$Mumax,log="xy",
+      xlab="zooplankton volume, micrometer ^ 3",
+      ylab="maximal growth rate, /hr",main="Zoogrowth",cex=2,
+      pch=(15:20)[Zoogrowth$Group],col=(1:6)[Zoogrowth$Group])
+legend("topright",legend=levels(Zoogrowth$Group),col=1:6,pch=15:20)
+
+ll &lt;- lm(log(Zoogrowth[,2])~ log(Zoogrowth[,1]))
+rr &lt;- summary(ll)$r.squared
+A  &lt;- exp(coef(ll)[1])
+B  &lt;- (coef(ll)[2])
+curve(A*x^B,add=TRUE,lwd=2)
+AA &lt;- round(A*100)/100
+BB &lt;- round(B*100)/100
+expr &lt;- substitute(y==A*x^B,list(A=AA,B=BB))
+text(100,.0035,expr,adj=0)
+expr2 &lt;- substitute(r^2==rr,list(rr=round(rr*100)/100))
+text(100,0.002,expr2, adj=0)</pre>
+
+
+
+<hr><div align="center">[Package <em>marelacTeaching</em> version 1.0 <a href="00Index.html">Index]</a></div>
+
+</body></html>

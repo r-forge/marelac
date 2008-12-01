@@ -1,0 +1,75 @@
+<html><head><title>World bathymetric data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>Bathymetry(marelacTeaching)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   Bathymetry">
+<param name="keyword" value=" World bathymetric data">
+</object>
+
+
+<h2>World bathymetric data</h2>
+
+
+<h3>Description</h3>
+
+<p>
+This dataset, as used by Andersson et al. (2004) contains elevations, m of
+the world at 1 dg intervals.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>Bathymetry</pre>
+
+
+<h3>Format</h3>
+
+<p>
+a list with the bathymetry (depth) and hypsometry (altitude) of the world. It contains:
+<li>x, the latitude
+<li>y, the longitude
+<li>z, the height (m)
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Karline Soetaert &lt;k.soetaert@nioo.knaw.nl&gt;
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Andersson, H., Wijsman, J., Herman, P., Middelburg, J., Soetaert, K., Heip, C., 2004.
+Respiration patterns in the deep ocean. Geophysical Research Letters 31, LO3304.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+par(mar=c(2,2,2,2))
+image(Bathymetry$x,Bathymetry$y,Bathymetry$z,col=femmecol(100),
+      asp=TRUE,xlab="dg",ylab="dg")
+contour(Bathymetry$x,Bathymetry$y,Bathymetry$z,asp=TRUE,add=TRUE)
+
+# remove land
+zz     &lt;- Bathymetry$z
+zz[zz&gt;0]&lt;-0
+
+image(Bathymetry$x,Bathymetry$y,zz,col=c(femmecol(100),"black"),asp=TRUE)
+contour(Bathymetry$x,Bathymetry$y,zz,asp=TRUE,add=TRUE)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>marelacTeaching</em> version 1.0 <a href="00Index.html">Index]</a></div>
+
+</body></html>

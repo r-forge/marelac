@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HEAD></HEAD><HTML><BODY>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Package marelacTeaching:  Contents">
+<param name="Local" value="00Index.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Package marelacTeaching:  R objects">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="marelacTeaching-package">
+<param name="Local" value="marelacTeaching.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Bathymetry">
+<param name="Local" value="Bathymetry.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="marelacTeaching">
+<param name="Local" value="marelacTeaching.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Nemaspec">
+<param name="Local" value="Nemaspec.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="SCOC">
+<param name="Local" value="SCOC.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Zoogrowth">
+<param name="Local" value="Zoogrowth.html">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Package marelacTeaching:  Titles">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="a Sediment Community Oxygen Consumption (SCOC) dataset">
+<param name="Local" value="SCOC.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="a zooplankton growth dataset">
+<param name="Local" value="Zoogrowth.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Datasets and tutorials for use in the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences ">
+<param name="Local" value="marelacTeaching.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Nematode species composition of 6 deep-sea sediments in the Mediterranean">
+<param name="Local" value="Nemaspec.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="World bathymetric data">
+<param name="Local" value="Bathymetry.html">
+</OBJECT>
+</UL>
+</UL>
+</BODY></HTML>

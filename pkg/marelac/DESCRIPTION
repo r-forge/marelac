@@ -1,7 +1,6 @@
 Package: marelac
 Version: 1.4
-Title: Datasets, constants, conversion factors, utilities for MArine, Riverine,
-       Estuarine, LAcustrine and Coastal science
+Title: Constants, conversion factors, utilities for the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences
 Author: Karline Soetaert <k.soetaert@nioo.knaw.nl>,
         Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>,
         Filip Meysman <filip.meysman@vub.ac.be>

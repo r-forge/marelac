@@ -16,30 +16,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \newcommand{\m}{\textbf{\textsf{marelac }}}
 \newcommand{\R}{\proglang{R}}
-\title{\proglang{R}-package \m: utilities for the marine and lacustrine sciences }
+\title{\proglang{R}-package \m: utilities for the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences }
 \Plaintitle{marelac}
 
-\Keywords{marine, lacustrine, science, datasets, constants, conversion,
+\Keywords{marine, riverine, estuarine, lacustrine, coastal science, utilities, constants,
   \proglang{R}}
 
-\Plainkeywords{marine, lacustrine, science, datasets, constants, conversion, R}
+\Plainkeywords{marine, riverine, estuarine, lacustrine, coastal science, utilities, constants, R}
 
 
 \author{Karline Soetaert\\
 NIOO-CEME\\
 The Netherlands
 \And
+Thomas Petzoldt\\
+Technische Universit\"at Dresden\\
+Germany
+\And
 Filip Meysman\\
 VUB\\
 Belgium}
 
-\Plainauthor{Karline Soetaert and Filip Meysman}
+\Plainauthor{Karline Soetaert, Thomas Petzoldt and Filip Meysman}
 
-\Abstract{ \R package \m \citep{marelac} contains datasets, chemical and physical constants
-and functions, routines for unit conversion, and other utilities useful for marine (oceans, seas) and lacustrine (lakes) sciences.
-
-The package also contains lecture notes for novice R-users.
-
+\Abstract{ \R package \m \citep{marelac} contains chemical and physical constants
+and functions, routines for unit conversion, and other utilities useful for
+MArine, Riverine, Estuarine, LAcustrine and Coastal sciences.
 }
 
 %% The address of (at least) one author should be given
@@ -51,6 +53,13 @@ The package also contains lecture notes for novice R-users.
   4401 NT Yerseke, Netherlands\\
   E-mail: \email{k.soetaert@nioo.knaw.nl}\\
   URL: \url{http://www.nioo.knaw.nl/ppages/ksoetaert}\\
+  \\
+  Thomas Petzoldt\\
+  Institut f\"ur Hydrobiologie\\
+  Technische Universit\"at Dresden\\
+  01062 Dresden, Germany\\
+  E-mail: \email{thomas.petzoldt@tu-dresden.de}\\
+  URL: \url{http://tu-dresden.de/Members/thomas.petzoldt/}\\
 \\
 Filip Meysman\\
 Laboratory of Analytical and Environmental Chemistry\\
@@ -78,170 +87,16 @@ options(prompt = "> ")
 \maketitle
 
 \section{Introduction}
-Whereas \R is predominantly used as a statistical package, it is also very well
-suited for scientific computing, e.g. \citep{Soetaert08}.
-
-\R-package \m has been designed as a tool for use by scientists working in the marine and
-lacustrine sciences.
+\R-package \m has been designed as a tool for use by scientists working in the
+MArine, Riverine, Estuarine, LAcustrine and Coastal sciences.
 
 It contains:
 \begin{itemize}
-\item data sets. These are mainly used in the lecture notes "Using R for scientific computing" \citep{lecture}, written
-as an introductory course for students that follow our course in ecological modelling, taught at the universities of
-Ghent and Brussels (by Filip Meysman and myself).
 \item chemical and physical constants, e.g. atomic weights, gas constants.
 \item conversion factors, e.g. gram to mol to liter conversions.
 \item functions, e.g. to estimate concentrations of conservative substances as a function of salinity, ...
 \end{itemize}
 
-
-\section{data sets}
-To date, there are  3 datasets
-\subsection{Bathymetry}
-
-This dataset, as used by \citep{Andersson04} contains elevations, in metres of the world at 1 dg intervals.
-Positive values are altitudes, negative values are ocean depths.
-
-Used to demonstrate \R's image and contouring capabilities:
-
-<<label=Bath, include=FALSE >>=
-par(mfrow=c(2,1))
-par(mar=c(2,2,2,2))
-image(Bathymetry$x,Bathymetry$y,Bathymetry$z,col=femmecol(100),
-      asp=TRUE,xlab="dg",ylab="dg")
-contour(Bathymetry$x,Bathymetry$y,Bathymetry$z,asp=TRUE,add=TRUE)
-
-# remove land and only contours.
-zz     <- Bathymetry$z
-zz[zz>0]<-0
-
-contour(Bathymetry$x,Bathymetry$y,zz,asp=TRUE)
-par(mfrow=c(1,1))
-par(mar=c(5.1,4.1,4.1,2.1))
-@
-
-\setkeys{Gin}{width=1\textwidth}
-\begin{figure}
-\centering
-<<label=figbat,fig=TRUE,echo=FALSE>>=
-<<Bath>>
-@
-\caption{Bathymetry and hypsometry of the world's ocean.}
-\label{fig:bat}
-\end{figure}
-
-\subsection{SCOC}
-
-This literature dataset, as compiled by \citep{Andersson04} contains
-584 measurements of sediment community oxygen consumption rates, as a function of water depth,
-and performed in deep-water sediments, either by in situ incubations or via modelling of oxygen microprofiles.
-
-These SCOC values are good estimates of organic matter deposition to the ocean floor.
-It is used to demonstrate the order-of-magnitude of deposition flux with water depth.
-
-A log-log regression with water depth explains the data quite well.
-
-<<label=SCOC,include=FALSE>>=
-plot(SCOC[,1],SCOC[,2],log="xy",xlab="water depth, m",ylab="" ,
-     main="SCOC, mmol O2/m2/d",pch=16,xaxt="n",yaxt="n",cex.main=1)
-
-axis(1,at=c(0.5,5,50,500,5000),labels=c("0.5","5","50","500","5000"))
-axis(2,at=c(0.1,1,10,100),labels=c("0.1","1","10","100"))
-
-ll <- lm(log(SCOC[,2])~ log(SCOC[,1]))
-rr <- summary(ll)$r.squared
-A  <- exp(coef(ll)[1])
-B  <- (coef(ll)[2])
-curve(A*x^B,add=TRUE,lwd=2)
-AA <- round(A*100)/100
-BB <- round(B*100)/100
-expr <- substitute(y==A*x^B,list(A=AA,B=BB))
-text(1,.1,expr,adj=0)
-expr2 <- substitute(r^2==rr,list(rr=round(rr*100)/100))
-text(1,0.04,expr2, adj=0)
-@
-
-\setkeys{Gin}{width=0.8\textwidth}
-\begin{figure}
-\centering
-<<label=figscoc,fig=TRUE,echo=FALSE>>=
-<<SCOC>>
-@
-\caption{Sediment community oxygen consumption rate as a function of water depth}
-\label{fig:scoc}
-\end{figure}
-
-\subsection{Zoogrowth}
-
-This literature dataset, as compiled by \citep{Hansen97} contains 84 measurements
-of maximal growth rates as a function of organism volume and temperature for various species of zooplankton.
-The maximal growth rates were obtained from laboratory experiments.
-
-It is used to demonstrate \R's graphical capabilities.
-
-<<label=Zoo,include=FALSE>>=
-plot(Zoogrowth$Volume,Zoogrowth$Mumax,log="xy",
-      xlab="zooplankton volume, micrometer ^ 3",
-      ylab="maximal growth rate, /hr",main="Zoogrowth",cex=2,
-      pch=(15:20)[Zoogrowth$Group],col=(1:6)[Zoogrowth$Group])
-legend("topright",legend=levels(Zoogrowth$Group),col=1:6,pch=15:20)
-
-ll <- lm(log(Zoogrowth[,2])~ log(Zoogrowth[,1]))
-rr <- summary(ll)$r.squared
-A  <- exp(coef(ll)[1])
-B  <- (coef(ll)[2])
-curve(A*x^B,add=TRUE,lwd=2)
-AA <- round(A*100)/100
-BB <- round(B*100)/100
-expr <- substitute(y==A*x^B,list(A=AA,B=BB))
-text(100,.0035,expr,adj=0)
-expr2 <- substitute(r^2==rr,list(rr=round(rr*100)/100))
-text(100,0.002,expr2, adj=0)
-@
-
-\setkeys{Gin}{width=0.8\textwidth}
-\begin{figure}
-\centering
-<<label=figZoo,fig=TRUE,echo=FALSE>>=
-<<Zoo>>
-@
-\caption{maximal growth rates of zooplankton as a function of body volume}
-\label{fig:Zoo}
-\end{figure}
-
-\subsection{Nemaspec}
-
-Dataset of \citep{Soetaert91} with nematode species densities in Mediterranean deep-sea sediments, at depths ranging from 160 m to 1220 m.
-
-The densities are expressed in individuals per 10 cm2.
-
-Nematodes are small free-living worms (<1mm long), generally very abundant in all aquatic sediments.
-
-This data set is used in the lecture notes, to estimate diversity indices.
-
-As an example here, we use it to draw species-dominance curves.
-
-<<>>=
-head(Nemaspec)
-# select densities of species present in M160b
-st160b<-data.frame(Nemaspec$SPECIES,dens=Nemaspec$M160b)
-st160b<-st160b[st160b$dens!=0,]
-@
-
-<<label=Nema,include=FALSE>>=
-plot(cumsum(rev(sort(st160b$dens)/sum(st160b$dens))),main="dominance curve",
-     xlab="species rank",ylab="cum freq")
-@
-
-\setkeys{Gin}{width=0.6\textwidth}
-\begin{figure}
-\centering
-<<label=figNem,fig=TRUE,echo=FALSE>>=
-<<Nema>>
-@
-\caption{Species dominance curves for a sediment at 160 m depth in the Mediterranean Sea}
-\label{fig:Nema}
-\end{figure}
 
 \section{constants}
 \subsection{AtomicWeight}

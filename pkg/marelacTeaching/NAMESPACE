@@ -1,4 +1,4 @@
-export()
+export(.Last.lib) # needs to be exported, see Writing R Extensions
 
-export()
+export(addMarelacMenu, remMarelacMenu, sethelp)
 

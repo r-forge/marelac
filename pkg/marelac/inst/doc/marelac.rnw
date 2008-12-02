@@ -72,7 +72,7 @@ E-mail: \email{filip.meysman@vub.ac.be}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% R/Sweave specific LaTeX commands.
 %% need no \usepackage{Sweave}
-%\VignetteIndexEntry{marine and lacustrine sciences}
+%\VignetteIndexEntry{R-package marelac: utilities for the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin of the document
 \begin{document}

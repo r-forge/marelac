@@ -54,7 +54,7 @@ The lecture notes are based on a book \citep{Soetaert08} about ecological modell
 in which \R is extensively used for developing, applying and visualizing simulation models.
 
 There are many excellent sources for learning the \R (or S) language.
-R comes with several manuals that can be consulted from
+\R comes with several manuals that can be consulted from
 the main \R program (Help/Manuals). R-intro.pdf is a good start.
 Many other good introductions to \R are available, some freely on the web, and accessible via the \R web site (www.r-project.org).
 My favorite is the \R introduction by Petra Kuhnert and Bill Venables \citep{Kuhnert05},
@@ -76,7 +76,7 @@ but beware: this "introduction" comprises more than 300 pages!
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% R/Sweave specific LaTeX commands.
 %% need no \usepackage{Sweave}
-%\VignetteIndexEntry{usingR}
+%\VignetteIndexEntry{Lecture notes: usingR}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin of the document
 \begin{document}

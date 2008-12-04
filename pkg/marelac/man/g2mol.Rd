@@ -4,15 +4,26 @@
 \description{Converts gram to mol of a chemical species}
 \usage{g2mol(species)}
 \arguments{
-  \item{species }{grams of a chemical species whose weight must be converted to mol}
+  \item{species }{character vector with chemical species whose
+    weight must be converted to mol}
 }
 \value{
   mol/g
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
-\examples{g2mol("CO3")
+\seealso{\code{\link{mol.weight}} the inverse function}
+\examples{
+g2mol("CO3")
 g2mol("HCO3")
-g2mol("H")}
-\note{This function includes only some biogeochemically active species}
+g2mol("H")
+g2mol("H3PO4")
+
+# works also with vectors
+g2mol(c("C2H5OH", "CO2", "H2O"))
+
+## Note that chemical formulae are case-sensitive
+g2mol("Co") # cobalt
+g2mol("CO") # carbon monoxide
+}
+\note{See \code{\link{mol.weight}} for more information}
 \keyword{utilities}
 

@@ -132,7 +132,7 @@ coriolis <- function (lat)  # latitude in degrees north (-90:+90)
 # Saturated concentrations for oxygen, N2 and Ar
 ##########################################################################
 
-satconc <- function (S=35,        # Salinity
+satconc2 <- function (S=35,        # Salinity
                      T=25,        # Temperature
                      P=1)         # Pressure (atm)
 {

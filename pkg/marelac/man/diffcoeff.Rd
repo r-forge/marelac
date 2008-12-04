@@ -5,11 +5,11 @@
  for several species at given salinity (S) temperature (T) and pressure (P).
 
  Based on the code "CANDI" by B.P. Boudreau}
-\usage{diffcoeff(S=35, T=25, P=1)}
+\usage{diffcoeff(S=35, T=25, P=0)}
 \arguments{
   \item{S }{Salinity, -}
   \item{T }{Temperature, degrees C}
-  \item{P }{Pressure, atm}
+  \item{P }{hydrostatic pressure, atm}
 }
 \value{
    a data.frame with the diffusion coefficients (cm2//hour) of:

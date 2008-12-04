@@ -13,6 +13,7 @@
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{mol.vol() # 24.46559
 plot(0:30,mol.vol(T=0:30),xlab="Temperature, dgC",ylab="Molar volume")}
-\seealso{\code{\link{mol2l}} and \code{\link{l2mol}} which converts from mol to liter and vice versa for any gas}
+\seealso{\code{\link{mol2l}} and \code{\link{l2mol}} which converts from mol to
+liter and vice versa for any gas}
 \keyword{utilities}
 

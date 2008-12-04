@@ -8,7 +8,7 @@
 \arguments{
   \item{S }{Salinity, -}
   \item{T }{Temperature, degrees C}
-  \item{P }{Pressure, atm}
+  \item{P }{hydrostatic pressure, atm}
 }
 \value{
   shear visocisity in centipoise

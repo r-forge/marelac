@@ -12,7 +12,7 @@
 
 diffcoeff <- function(S=35,      # Salinity, ppt
                       T=25,      # Temperture, degrees C
-                      P=1)       # Pressure, atm
+                      P=0)       # Pressure, atm
 
 {
 

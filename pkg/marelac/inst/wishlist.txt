@@ -1,36 +1,44 @@
-Thomas' ToDo and Wishlist
-***Karline's remarks****
 
-***For density one has to use kg/m3, but for concentrations, molar units
-are preferred (even for biologists). I am not used to think in g/m3,
-and for modelling this really complicates things. So I suggest to use moles. ****
 
-ThPe: mg/L is common in Limnology :-( and engineering, but you are right mol is better
-      suggestion, I make mol the default and add an optinal argument
 
-- solve inconsistencies between saturation formulae:
-  - satconc: mu mol/L      N2, O2, Ar
-  - O2sat: mg / L          only O2
-  - note also that rho(seacarb) and rhoH2O use kg/m3
+date 4 -12-08
 
-- add word limnology to descriptions and titles where appropriate (DESCRIPTION, marelac.Rd)
-*** So we should change the name then: Marelim - sounds nice, why not
-(marelac is the name of the masters in which I teach ecological modelling and R-intro) ***
+Inconsistency satconc solved.
+Added new satconcs and solubility, added gas transfer velocities (marine only).
 
-ThPe: because marelac is a better google keyword
 
-  - suggestion: simply change "marine and lacustrine sciences" to "marine and limnological sciences",
-  - mention the word "lacustrine" elsewhere.
+TO DO
 
-- marelac is currently a mix of untility functions and teaching tutorials. Is this appropriate?
-*** Clearly you find it inappropriate;
-it is true, it is an ambivalent package.
- we can use marelac for the teaching, and create marelim for the science.
-Sounds good?  ****
+**** Thomas **** :
 
-ThPe: Yes at a first look, but not so good at the second.
+1.  these arguments are dangerous:
+... T = K - 273.15, K = T+273.15,...
+if T nor K are specified, it gives a weird error ("..promise already under evaluation.."),
+because it cannot resolve which is the Temperature to use.
 
-Or, what about: marelac is your course (with docs, and which loads the other)
-and the science goes to mareLimTools or marelimtools ??
+I (KS) Suggest to take T=25 the default (as in seacarb), e.g.
+..., T = 25, K = T+273.15 ,....
 
+
+2.  update vignette with your functions.
+
+
+**** All**** : Check **Pressure**:
+
+  true atmospheric pressure or hydrostatic pressure,
+  units of atmosphere, bar, decibar.
   
+  
+Decide which is most appropriate for each function!...
+
+
+**** Karline/Filip **** viscosity and diffusion coefficients;
+now function estimates all of them, should allow to select one..
+
+
+QUESTION
+
+Functions solubility and schmidt use a table of coefficients.
+
+Is it wise to have the table of coefficients part of the function or would it be better
+to make it a (private) dataset (and is this possible).

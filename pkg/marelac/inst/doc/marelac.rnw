@@ -94,14 +94,15 @@ It contains:
 \begin{itemize}
 \item chemical and physical constants, e.g. atomic weights, gas constants.
 \item conversion factors, e.g. gram to mol to liter conversions.
-\item functions, e.g. to estimate concentrations of conservative substances as a function of salinity, ...
+\item functions, e.g. to estimate concentrations of conservative substances as a function of salinity,
+gas transfer coefficients, diffusion coefficients, ...
 \end{itemize}
 
 
 \section{constants}
 \subsection{AtomicWeight}
 <<>>=
-AtomicWeight
+unlist(AtomicWeight)
 AtomicWeight$H
 (W_H2O<- with (AtomicWeight, 2*H + O))
 @
@@ -152,7 +153,7 @@ matplot(0:30,difftemp,xlab="temperature",ylab="cm2/hour",
 legend("topleft",ncol=2,cex=0.8,title="mean",col=1:13,lty=1:13,
         legend=cbind(names(difftemp),format(colMeans(difftemp),digits=4)))
 @
-\setkeys{Gin}{width=0.8\textwidth}
+\setkeys{Gin}{width=0.6\textwidth}
 \begin{figure}
 \centering
 <<label=figdif,fig=TRUE,echo=FALSE>>=
@@ -174,7 +175,7 @@ plot(0:30,viscosity(S=35,T=0:30,P=1),xlab="temperature",ylab="centipoise",
         legend=c("S=35,P=1","S=0,P=1","S=35,P=100"))
 @
 @
-\setkeys{Gin}{width=0.8\textwidth}
+\setkeys{Gin}{width=0.6\textwidth}
 \begin{figure}
 \centering
 <<label=figshear,fig=TRUE,echo=FALSE>>=
@@ -183,6 +184,110 @@ plot(0:30,viscosity(S=35,T=0:30,P=1),xlab="temperature",ylab="centipoise",
 \caption{shear viscosity of water as a function of temperature}
 \label{fig:diff}
 \end{figure}
+\subsection{saturated oxygen concentrations}
+<<>>=
+O2sat(T = 20)
+T <- seq(0, 30, 0.1)
+@
+<<label=o2sat,include=FALSE>>=
+  plot(T, O2sat(T = T), type = "l", ylim = c(0, 15), lwd=2)
+  lines(T, O2sat(S = 0, T = T, method = "Weiss"), col = "yellow",
+        lwd = 2, lty = "dashed")
+  lines(T, O2sat(S = 35, T = T, method = "Weiss"), col = "red", lwd = 2)
+@
+\setkeys{Gin}{width=0.6\textwidth}
+\begin{figure}
+\centering
+<<label=figo2sat,fig=TRUE,echo=FALSE>>=
+<<o2sat>>
+@
+\caption{Oxygen saturated concentration as a function of temperature, and for different salinities}
+\label{fig:o2sat}
+\end{figure}
+
+\subsection{solubilities and saturated concentrations}
+<<>>=
+satconc(gas="O2")
+Temp<-seq(from=0,to=30,by=0.1)
+Sal <- seq(from=0,to=35,by=0.1)
+@
+<<label=solub,include=FALSE>>=
+mf  <-par(mfrow=c(2,2))
+plot(Temp,solubility(T=Temp,gas="CCl4"),xlab="temperature",
+     ylab="mmol/m3/atm",main="solubility (S=35)",type="l",lwd=2,ylim=c(0,100000))
+lines(Temp,solubility(T=Temp,gas="CO2"),col="red",lwd=2)
+lines(Temp,solubility(T=Temp,gas="N2O"),col="blue",lwd=2)
+lines(Temp,solubility(T=Temp,gas="Rn"),col="green",lwd=2)
+lines(Temp,solubility(T=Temp,gas="CCl2F2"),col="yellow",lwd=2)
+
+legend("topright",col=c("black","red","blue","green","yellow"),lwd=2,
+       legend=c("CCl4","CO2","N2O","Rn","CCl2F2"))
+
+plot(Temp,solubility(T=Temp,gas="Kr"),xlab="temperature",
+     ylab="mmol/m3/atm",main="solubility (S=35)",type="l",lwd=2,ylim=c(0,4000))
+lines(Temp,solubility(T=Temp,gas="CH4"),col="red",lwd=2)
+lines(Temp,solubility(T=Temp,gas="Ar"),col="blue",lwd=2)
+lines(Temp,solubility(T=Temp,gas="O2"),col="green",lwd=2)
+lines(Temp,solubility(T=Temp,gas="N2"),col="yellow",lwd=2)
+lines(Temp,solubility(T=Temp,gas="Ne"),col="grey",lwd=2)
+
+legend("topright",col=c("black","red","blue","green","yellow","grey"),lwd=2,
+       legend=c("Kr","CH4","Ar","O2","N2","Ne"))
+
+plot(Temp,satconc(T=Temp,gas="N2"),xlab="temperature",log="y",
+     ylab="mmol/m3",main="Saturated conc (S=35)",type="l",lwd=2,ylim=c(1,700))
+lines(Temp,satconc(T=Temp,gas="CO2"),col="red",lwd=2)
+lines(Temp,satconc(T=Temp,gas="O2"),col="blue",lwd=2)
+lines(Temp,satconc(T=Temp,gas="CH4"),col="green",lwd=2)
+lines(Temp,satconc(T=Temp,gas="N2O"),col="yellow",lwd=2)
+
+plot(Sal,satconc(S=Sal,gas="N2"),xlab="salinity",log="y",
+     ylab="mmol/m3",main="Saturated conc (T=20)",type="l",lwd=2,ylim=c(1e-3,700))
+lines(Sal,satconc(S=Sal,gas="CO2"),col="red",lwd=2)
+lines(Sal,satconc(S=Sal,gas="O2"),col="blue",lwd=2)
+lines(Sal,satconc(S=Sal,gas="CH4"),col="green",lwd=2)
+lines(Sal,satconc(S=Sal,gas="N2O"),col="yellow",lwd=2)
+legend("right",col=c("black","red","blue","green","yellow"),lwd=2,
+       legend=c("N2","CO2","O2","NH4","N2O"))
+
+par("mfrow"=mf)
+@
+\setkeys{Gin}{width=0.8\textwidth}
+\begin{figure}
+\centering
+<<label=figsolub,fig=TRUE,echo=FALSE>>=
+<<solub>>
+@
+\caption{Saturated concentrations and solubility as a function of temperature and salinity, and for different species}
+\label{fig:solub}
+\end{figure}
+
+\subsection{Schmidt number and gas transfer velocity}
+<<>>=
+schmidt(gas="CO2",T=20)
+
+useq <- 0:15
+@
+<<label=transfer,include=FALSE>>=
+plot(useq,gastransfer(u10=useq),type="l",lwd=2,xlab="u10,m/s",
+     ylab="cm/hr", main="O2 gas transfer velocity",ylim=c(0,75))
+lines(useq,gastransfer(u10=useq,method="Nightingale"),lwd=2,lty=2)
+lines(useq,gastransfer(u10=useq,method="Wanninkhof1"),lwd=2,lty=3)
+lines(useq,gastransfer(u10=useq,method="Wanninkhof2"),lwd=2,lty=4)
+
+legend("topleft",lty=1:4,lwd=2,legend=c("Liss and Merlivat 1986",
+"Nightingale et al. 2000","Wanninkhof 1992","Wanninkhof and McGills 1999"))
+@
+\setkeys{Gin}{width=0.6\textwidth}
+\begin{figure}
+\centering
+<<label=figtransfer,fig=TRUE,echo=FALSE>>=
+<<transfer>>
+@
+\caption{gas transfer velocity for seawater}
+\label{fig:transfer}
+\end{figure}
+
 \subsection{Concentration of conservative species in seawater}
 <<>>=
 salconc(S=seq(0,35,by=5))
@@ -193,27 +298,24 @@ satconc(S=35,T=seq(0,20,by=5))
 @
 \section{conversions}
 \subsection{gram, mol, liter conversions}
-gram to moles
+gram to moles and vice versa
 <<>>=
 g2mol("CO3")
 g2mol("HCO3")
-g2mol("H")
+g2mol(c("C2H5OH", "CO2", "H2O"))
+
+mol.weight(c("SiOH4", "NaHCO3", "C6H12O6", "Ca(HCO3)2", "Pb(NO3)2", "(NH4)2SO4"))
 @
-liter to moles
+liter to moles and vice versa
 <<>>=
-l2mol(x=8,a=1.382,b=0.03186,T=0)*1000
-l2mol(x=1:6)
+l2mol(gas="O2",T=0)*1000
+l2mol(x=1:6,T=0)
+mol2l(T=1:10,gas="O2")
 @
 molar volume of an ideal gas
 <<>>=
 mol.vol()
 mol.vol(T=1:10)
-@
-molecular weight of a chemical species
-<<>>=
-mol.weight("CO3")
-mol.weight("HCO3")
-mol.weight("H")
 @
 \subsection{salinity and chlorinity}
 <<>>=

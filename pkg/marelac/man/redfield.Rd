@@ -1,23 +1,23 @@
 \name{redfield}
 \alias{redfield}
-%- Also NEED an '\alias' for EACH other topic documented here.
+
 \title{Redfield Ratio Calculator}
 \description{
   Estimate elemental composition of biomass (or media) according to the Redfield ratio.
 }
 \usage{
-redfield(element, x, method = c("mol", "mass"))
+redfield(x, element, method = c("mol", "mass"))
 }
 \arguments{
-  \item{element}{The element that is given ("C", "H", "O", "N", "P"),}
   \item{x}{amount of substance of that element (in mol or mass units),}
+  \item{element}{The element that is given ("C", "H", "O", "N", "P"),}
   \item{method}{measurement unit ("mol" or "mass").}
 }
 \details{
   The Redfield ratio is \eqn{C_{106}H_{80}O_{45}N_{16}P_{1}}{C106 H80 O45 N16 P1}.
 }
 \value{
-  Estimated ratio of the main elements.
+  A data frame with the estimated ratio of the main elements.
 }
 
 % Add **original** reference here, and not only N:P
@@ -30,18 +30,19 @@ redfield(element, x, method = c("mol", "mass"))
 \seealso{\code{\link{mol.weight}}}
 \examples{
 # Redfield ratio
-redfield("P", 1)
+redfield(1, "P")
 # returns the molar Redfield ratio, rescaled to nitrogen
-redfield("N", 1)
+redfield(1, "N")
 # how many mass units are related to 2 mass units (e.g. mg) P
-redfield("P", 2, "mass")
+redfield(2, "P", "mass")
+redfield(c(1, 2, 3), "N", "mass")
 
 # mass percentage of elements
-x <- redfield("P", 1, "mass")
+x <- redfield(1, "P", "mass")
 x / sum(x)
 
 # rule of thumb for fresh mass (in mg) formed by 1 microgram P
-redfield("P", 1, "mass")["C"] * 2 * 10 / 1000
+redfield(1, "P", "mass")$C * 2 * 10 / 1000
 
 }
 \keyword{ misc}

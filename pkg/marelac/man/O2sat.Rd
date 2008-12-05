@@ -9,7 +9,7 @@
 }
 % Note the default value of S. Should we change it to 35?
 \usage{
-O2sat(S = 0, T = K - 273.15, K = T + 273.15, NN = 0, method = c("Weiss", "APHA", "Paul"))
+O2sat(S = 0, T = NULL, K = NULL, NN = 0, method = c("Weiss", "APHA", "Paul"))
 }
 
 \arguments{

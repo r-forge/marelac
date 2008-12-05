@@ -1,10 +1,10 @@
 \name{solubility}
 \alias{solubility}
 \title{Solubility parameters}
-\description{Solubility parameters SA, mmol/m3/atm, calculated from The Bunsen solubility coefficients
+\description{Solubility parameters SA, mmol/m3/atm, calculated from the Bunsen solubility coefficients
 and the volumetric solubility coefficients.
 }
-\usage{solubility(S=35,T=25,K=273.15+T,P=1,gas="O2")}
+\usage{solubility(S = 35, T = NULL, K = NULL, P = 1, gas = "O2")}
 \arguments{
   \item{S }{Salinity, -}
   \item{T }{Temperature, dgC}
@@ -51,7 +51,7 @@ is the ideal gas value of 22.4136 l/mol.}
 
 who cite:
 
-for he and Ne: Weiss, R. 1971. Solubility of helium and neon in water and seawater. Journ. Chem. Eng. Data 16, 235-241.
+for He and Ne: Weiss, R. 1971. Solubility of helium and neon in water and seawater. Journ. Chem. Eng. Data 16, 235-241.
 
 N2, O2 and Ar: Weiss, R. 1970. The solubility of nitrogen, oxygen, and argon in water and seawater. Deep-Sea Res. 17: 721-35.
 

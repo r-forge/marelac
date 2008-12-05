@@ -1,4 +1,5 @@
-redfield <- function(element, x, method=c("mol", "mass")) {
+redfield <- function(x, element, method=c("mol", "mass")) {
+  if (!is.numeric(x)) stop("x must be numeric")
   method   <- match.arg(method)
   ratio    <- c(C=106, H=180, O=45, N=16, P=1)
   elements <- names(ratio)
@@ -10,6 +11,6 @@ redfield <- function(element, x, method=c("mol", "mass")) {
     })
   }
   p <- match(element, elements)
-  x * ratio / ratio[p]
+  as.data.frame(x %o% ratio / ratio[p])
 }
 

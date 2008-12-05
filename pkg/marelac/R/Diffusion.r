@@ -12,8 +12,11 @@
 
 diffcoeff <- function(S=35,      # Salinity, ppt
                       T=25,      # Temperture, degrees C
-                      P=0)       # Pressure, atm
-
+                      P=0,       # Pressure, atm
+                      x=c("O2","CO2","NH3","H2S","CH4","HCO3","CO3","NH4",
+      "HS","NO3","H2PO4","HPO4","PO4","H","OH","Ca","Mg","Fe","Mn",
+      "SO4","H3PO4","BOH3","B0H4","H4SiO4")
+                      )
 {
 
 #---------------------------------------------------------------------
@@ -25,6 +28,7 @@ diffcoeff <- function(S=35,      # Salinity, ppt
 # Based on the original fortran code of B. Boudreau (1996)
 #---------------------------------------------------------------------
       TK  <- T + 273.15   # Temperature, Kelvin
+      x   <- match.arg(x, several.ok = TRUE)
 
 #  The viscosity for the true sample conditions.
       H2OViscosity <- viscosity(S,T,P)
@@ -150,7 +154,7 @@ diffcoeff <- function(S=35,      # Salinity, ppt
       B0H4 = D_B0H4,
       H4SiO4 = D_H4SiO4)
 #    unit = "cm2/hr"
-      return(diffc)
+      return(diffc[x])
 
 } #   END DIFFCOEFF
 

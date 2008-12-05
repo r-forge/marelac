@@ -5,53 +5,37 @@
  for several species at given salinity (S) temperature (T) and pressure (P).
 
  Based on the code "CANDI" by B.P. Boudreau}
-\usage{diffcoeff(S=35, T=25, P=0)}
+\usage{diffcoeff(S=35, T=25, P=0, x=c("O2","CO2","NH3","H2S",
+      "CH4","HCO3","CO3","NH4","HS","NO3","H2PO4",
+      "HPO4","PO4","H","OH","Ca","Mg","Fe","Mn",
+      "SO4","H3PO4","BOH3","B0H4","H4SiO4"))}
 \arguments{
   \item{S }{Salinity, -}
   \item{T }{Temperature, degrees C}
   \item{P }{hydrostatic pressure, atm}
+  \item{x }{character vector with species whose diffusion coefficients should be estimated }
+  
 }
 \value{
-   a data.frame with the diffusion coefficients (cm2//hour) of:
-  \item{O2 }{ oxygen   }
-  \item{CO2 }{carbon dioxide   }
-  \item{NH3 }{ammonia }
-  \item{H2S }{ sulfide  }
-  \item{CH4 }{ methane  }
-  \item{HCO3 }{bicarbonate ion  }
-  \item{CO3 }{ carbonate ion  }
-  \item{NH4 }{ ammonium ion  }
-  \item{HS }{  sulfide ion  }
-  \item{NO3 }{ nitrate ion  }
-  \item{H2PO4 }{phosphate ion \eqn{H_2PO_4^-} }
-  \item{HPO4 }{ phosphate ion \eqn{HPO_4^{2-}}  }
-  \item{PO4 }{ \eqn{PO_4^{3-}}  }
-  \item{H }{  proton   }
-  \item{OH }{ hydroxyl ion   }
-  \item{Ca }{ calcium ion  }
-  \item{Mg }{ magnesium ion  }
-  \item{Fe }{ iron ion   }
-  \item{Mn }{ manganese ion   }
-  \item{SO4 }{ sulphate ion  }
-  \item{H3PO4 }{phosphate }
-  \item{BOH3 }{borate ion  }
-  \item{B0H4 }{borate  }
-  \item{H4SiO4 }{silicate}
+   a data.frame with the diffusion coefficients (cm2//hour) of the selected species
 }
+
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
 diffcoeff(S=15,T=15)*24  # cm2/day
-diffcoeff(T=10)$O2
+diffcoeff(T=10,x="O2")
 difftemp <- diffcoeff(T=0:30)[,1:13]
 matplot(0:30,difftemp,xlab="temperature",ylab="cm2/hour",
          main="Molecular/ionic diffusion",type="l")
 legend("topleft",ncol=2,cex=0.8,title="mean",col=1:13,lty=1:13,
          legend=cbind(names(difftemp),format(colMeans(difftemp),digits=4)))
-diffsal <- diffcoeff(S=0:35)[,1:13]
+
+select <- c("O2","CO2","NH3","NH4","NO3")
+diffsal <- diffcoeff(S=0:35,x=select)
 matplot(0:35,diffsal,xlab="salinity",ylab="cm2/hour",
          main="Molecular/ionic diffusion",type="l")
-legend("topleft",ncol=2,cex=0.8,title="mean",col=1:13,lty=1:13,
-         legend=cbind(names(diffsal),format(colMeans(diffsal),digits=4)))}
+legend("topleft",ncol=2,cex=0.8,title="mean",col=1:length(select),lty=1:length(select),
+         legend=cbind(select,format(colMeans(diffsal),digits=4)))}
 \references{Based on the FORTRAN implementation of the diagenetic model "CANDI" of B.P. Boudreau:
 
 Boudreau BP, 1996.

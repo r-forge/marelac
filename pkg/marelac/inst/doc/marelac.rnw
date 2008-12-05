@@ -162,7 +162,7 @@ legend("topleft",ncol=2,cex=0.8,title="mean",col=1:13,lty=1:13,
 \caption{molecular diffusion coefficients as a function of temperature}
 \label{fig:diff}
 \end{figure}
-\subsection{molecular diffusion coefficients}
+\subsection{shear viscosity of water}
 Calculates the shear viscosity of water, in centipoise. Valid for 0<T<30 and 0<S<36.
 
 Based on the code "CANDI" by Bernie Boudreau \citep{Boudreau96}.
@@ -184,6 +184,11 @@ plot(0:30,viscosity(S=35,T=0:30,P=1),xlab="temperature",ylab="centipoise",
 \caption{shear viscosity of water as a function of temperature}
 \label{fig:diff}
 \end{figure}
+\subsection{atmospheric composition}
+<<>>=
+atmComp("O2")
+atmComp()
+@
 \subsection{saturated oxygen concentrations}
 <<>>=
 O2sat(T = 20)
@@ -292,10 +297,6 @@ legend("topleft",lty=1:4,lwd=2,legend=c("Liss and Merlivat 1986",
 <<>>=
 salconc(S=seq(0,35,by=5))
 @
-\subsection{Saturated concentration of O2, N2 and Ar}
-<<>>=
-satconc(S=35,T=seq(0,20,by=5))
-@
 \section{conversions}
 \subsection{gram, mol, liter conversions}
 gram to moles and vice versa
@@ -317,6 +318,11 @@ molar volume of an ideal gas
 mol.vol()
 mol.vol(T=1:10)
 @
+\subsection{pressure conversions}
+<<>>=
+baroconv(1, "atm")
+@
+
 \subsection{salinity and chlorinity}
 <<>>=
 sal2cl(S=35)

@@ -2,7 +2,7 @@
 \alias{satconc}
 \title{Saturated concentrations of gasses in water}
 \description{Calculates the saturated concentration of several gasses in water for s given temperature, salinity and pressure}
-\usage{satconc(S=35,T=25,K=273.15+T,P=1,gas="O2", atm=AtmComp[[gas]])}
+\usage{satconc(S=35,T=25,K=273.15+T,P=1,gas="O2", atm=atmComp(gas))}
 \arguments{
   \item{S }{Salinity, -}
   \item{T }{Temperature, dgC}
@@ -49,6 +49,10 @@ A <- data.frame(rbind( T=Temp,
             CO2=satconc(T=Temp,gas="CO2"),
             Ar=satconc(T=Temp,gas="Ar")))
 format(A,digits=4)
+# table values at 20 dg C:
+# 425.7   230.5  11.61  11.29
+# note the deviations for CO2 !
+
 # saturated concentrations in micromol/m3
 AA <- data.frame(rbind( T=Temp,
             N2O=satconc(T=Temp,gas="N2O")*1000,
@@ -57,6 +61,9 @@ AA <- data.frame(rbind( T=Temp,
             CH4=satconc(T=Temp,gas="CH4")*1000,
             He=satconc(T=Temp,gas="He")*1000))
 format(AA,digits=4)
+# table values at 20 dgC:
+# 7.16  6.94  2.50  2.12  1.70
+# Note: different for N2O
 
 }
 \note{Compared to the table in Sarmiento and Gruber, there is a slight deviation for N2O ,and He;

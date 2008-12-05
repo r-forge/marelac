@@ -37,7 +37,7 @@ solubility <- function (S=35,T=NULL,K=NULL, P=1,gas="O2")
     type =rep(2,6),
     Accur=c(0.003,0.0014,0.015,0.015,0.02,0.025)
   )
-  rownames(VolumeSolubCoeff)<-c("CO2","N2O","CCl2F2","CCL3F","SF6","CCl4")
+  rownames(VolumeSolubCoeff)<-c("CO2","N2O","CCl2F2","CCl3F","SF6","CCl4")
 
   SolubCoeff <- rbind(BunsenSolubCoeff,VolumeSolubCoeff)
 
@@ -46,9 +46,9 @@ solubility <- function (S=35,T=NULL,K=NULL, P=1,gas="O2")
   bet <- Sb$A1+Sb$A2*(100/K)+Sb$A3*log(K/100)+Sb$A4*(K/100)^2+S*(
          Sb$B1+Sb$B2*K/100+Sb$B3*(K/100)^2)
 
-  if (Sb$type==1) SA  <- exp(bet)/22.4136*10^6  else  #mmol/m3/atm
-                 SA  <- exp(bet)/P/(1-vapor(T=T,S=S))*10^6    #mmol/m3/atm
-  SA<- SA*(1-vapor(T=T,S=S))
+  if (Sb$type==1) SA  <- exp(bet)/22.4136*10^6  else           #mmol/m3/atm
+                  SA  <- exp(bet)/P/(1-vapor(T=T,S=S))*10^6    #mmol/m3/atm
+
   SA
 
 }

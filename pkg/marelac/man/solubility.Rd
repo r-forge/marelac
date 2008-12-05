@@ -44,9 +44,45 @@ legend("topright",col=c("black","red","blue","green","yellow","grey"),lwd=2,
 
 par(mfrow=mf)
 
+# generate table 3.2.3 from Sarmiento and Gruber
+Temp <- seq (0,30,by=5)
+# saturated concentrations in mmol/m3
+A <- data.frame(rbind( T=Temp,
+            He=solubility(T=Temp,gas="He"),
+            Ne=solubility(T=Temp,gas="Ne"),
+            N2=solubility(T=Temp,gas="N2"),
+            O2=solubility(T=Temp,gas="O2"),
+            Ar=solubility(T=Temp,gas="Ar"),
+            Kr=solubility(T=Temp,gas="Kr"),
+            Rn=solubility(T=Temp,gas="Rn"))  )
+format(A,digits=4)
+# table values at 20 dg C:
+# 332.9   390.7   557.9  1126  1236  2241  14130
+# note the slight deviations for Rn
+
+# saturated concentrations in micromol/m3
+AA <- data.frame(rbind( T=Temp,
+            CH4=solubility(T=Temp,gas="CH4"),
+            CO2=solubility(T=Temp,gas="CO2"),
+            N2O=solubility(T=Temp,gas="N2O"),
+            CCL2F2=solubility(T=Temp,gas="CCl2F2"),
+            CCL3F=solubility(T=Temp,gas="CCl3F"),
+            SF6=solubility(T=Temp,gas="SF6"),
+            CCl4=solubility(T=Temp,gas="CCl4")))
+format(AA,digits=4)
+
+# Table values at 20 dgC:
+# 1241  33110 23870  2566  9242   195.8, 30307
+# Note: there are slight deviations for CO2, N2O and He!
+
 }
 \note{The molar volume used for the Bensen coefficient conversion
-is the ideal gas value of 22.4136 l/mol.}
+is the ideal gas value of 22.4136 l/mol.
+
+These coefficients are to be used with pAmoist, the partial
+pressure of the gas in moist air.
+
+To convert them for use with partial pressure in dry air, divide by (1-vapor(S,T))}
 \references{Sarmiento J.L. and N. Gruber, 2006. Ocean Biogeochemical Dynamics. Princeton University Press, Princeton. p 74
 
 who cite:

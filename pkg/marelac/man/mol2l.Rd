@@ -18,10 +18,14 @@
 \examples{#22.4 Liters of Oxygen = 1.00 moles of Oxygen
 mol2l(a=1.382,b=0.03186,T=0)
 
-mol2l(T=0,gas="O2")
+mol2l(T = 0, gas = "O2")
 
 # the same but with standard coefficients
-mol2l(T=0)}
+mol2l(T=0)
+
+# table for different pressures
+mol2l(T = 1:10, P = 1:5, gas = "O2")
+}
 
 \seealso{\code{\link{l2mol}} the inverse function}
 \note{the coefficients a and b are species-specific; values of 0 assume an ideal gas and

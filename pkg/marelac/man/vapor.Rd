@@ -5,11 +5,11 @@
 \description{The partial pressure of water in saturated air, as in Weiss and Price (1980)
 
 =pH20/P, where P is the total atmospheric pressure, in atmosphere, and pH2O is the partial pressure of the water vapor.}
-\usage{vapor(S=35,T=25,K=273.15+T)}
+\usage{vapor(S=35, T=25)}
 \arguments{
   \item{S }{Salinity, -}
   \item{T }{Temperature, dgC}
-  \item{K }{Temperature, dgK}
+  %\item{K }{Temperature, dgK}
 }
 \value{
   the saturation vapor pressure,(-) }

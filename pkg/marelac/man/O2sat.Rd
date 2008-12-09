@@ -9,13 +9,13 @@
 }
 % Note the default value of S. Should we change it to 35?
 \usage{
-O2sat(S = 0, T = NULL, K = NULL, NN = 0, method = c("Weiss", "APHA", "Paul"))
+O2sat(S = 0, T = 25, NN = 0, method = c("Weiss", "APHA", "Paul"))
 }
 
 \arguments{
-  \item{S}{salinity in PSU (for method "Weiss" only),}
+  \item{S}{salinity (dimensionless, for method "Weiss" only),}
   \item{T}{Temperature in degrees centigrade,}
-  \item{K}{absolute Temperature in degrees Kelvin,}
+  %\item{K}{absolute Temperature in degrees Kelvin,}
   \item{NN}{height above sea level (for method "Paul" only),}
   \item{method}{formula to be used, see references for correct application.}
 }
@@ -24,7 +24,7 @@ O2sat(S = 0, T = NULL, K = NULL, NN = 0, method = c("Weiss", "APHA", "Paul"))
   Method APHA is the standard formula in Limnology, method Weiss possibly the
   standard formula in marine sciences. The method after Paul is a 
   simple formula fitted on available tables.
-  To avoid confusion between the arguments (S, T, K, NN) it is advisable to use
+  To avoid confusion between the arguments (S, T, NN) it is advisable to use
   named arguments in general, e.g. \code{O2sat(T=4)}.
 }
 \value{
@@ -64,7 +64,7 @@ Ver\enc{ö}{oe}ffentlichung). Vom Wasser 53, S. 283-285.
 \examples{
   O2sat(T = 20)
   T <- seq(0, 30, 0.1)
-  plot(T, O2sat(T = T), type = "l", ylim = c(0, 15), lwd=2)
+  plot(T, O2sat(T = T, method="APHA"), type = "l", ylim = c(0, 15), lwd=2)
   lines(T, O2sat(S = 0, T = T, method = "Weiss"), col = "yellow", lwd = 2, lty = "dashed")
   lines(T, O2sat(S = 35, T = T, method = "Weiss"), col = "red", lwd = 2)
 }

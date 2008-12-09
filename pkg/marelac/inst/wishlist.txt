@@ -6,6 +6,10 @@ date 4 -12-08
 Inconsistency satconc solved.
 Added new satconcs and solubility, added gas transfer velocities (marine only).
 
+2008-12-09
+
+ThPe: T = 25 is now the default, argument K= ... removed
+
 
 TO DO
 
@@ -19,6 +23,7 @@ because it cannot resolve which is the Temperature to use.
 I (KS) Suggest to take T=25 the default (as in seacarb), e.g.
 ..., T = 25, K = T+273.15 ,....
 
+==> solved, see 2008-12-09
 
 2.  update vignette with your functions.
 
@@ -28,12 +33,18 @@ I (KS) Suggest to take T=25 the default (as in seacarb), e.g.
   true atmospheric pressure or hydrostatic pressure,
   units of atmosphere, bar, decibar.
   
+ThPe:
+  - suggestion: use consistently bar or Pa
+  - note function "baroconv"
+  
   
 Decide which is most appropriate for each function!...
 
 
 **** Karline/Filip **** viscosity and diffusion coefficients;
 now function estimates all of them, should allow to select one..
+
+Please document function "gastransfer" (see empty .Rd template)
 
 
 QUESTION

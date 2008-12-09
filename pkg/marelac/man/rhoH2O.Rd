@@ -17,7 +17,7 @@ rhoH2O(S=35, T=25, P=0, method=c("Millero", "Chen", "marine", "limnological"))
 }
 
 \value{
-  Density of water in \eqn{kg m^{-3}}{kg m^{-3}}.
+  Density of water in \eqn{kg m^{-3}}{kg m^-3}.
 }
 \details{
   To avoid confusion between the arguments (S, T, P) it is advisable to use

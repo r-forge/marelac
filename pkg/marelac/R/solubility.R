@@ -1,10 +1,7 @@
-solubility <- function (S=35,T=NULL,K=NULL, P=1,gas="O2")
+solubility <- function (S = 35, T = 25, P = 1, gas = "O2")
 {
 
-  tempargs <- is.null(T) + is.null(K)
-  if (tempargs ==2)  stop("One of T or K must be specified.")
-  if (tempargs ==0)   stop("One of T or K must be specified, but not both.")
-  if (is.null(K)) K <-  T + 273.15 else  T <- K - 273.15
+  K <-  T + 273.15
 
   #Coefficients for the fit of solubility to the following equations:
   #ln(x)=A1+A2(100/T)+A3ln(T/100)+A4(T/100)^2+S[B1+B2(T/100)+B3(T/100)^2]

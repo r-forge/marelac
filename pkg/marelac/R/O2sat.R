@@ -1,9 +1,6 @@
-O2sat <- function(S=0, T = NULL, K = NULL, NN = 0, method=c("Weiss", "APHA", "Paul")) {
-  tempargs <- is.null(T) + is.null(K)
+O2sat <- function(S=0, T = 25, NN = 0, method=c("Weiss", "APHA", "Paul")) {
 
-  if (tempargs ==2)  stop("One of T or K must be specified.")
-  if (tempargs ==0)   stop("One of T or K must be specified, but not both.")
-  if (is.null(K)) K <-  T + 273.15 else  T <- K - 273.15
+  K <-  T + 273.15
 
   log10 <- function(x) log(x)/log(10)
   method <- match.arg(method)

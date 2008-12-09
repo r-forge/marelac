@@ -1,6 +1,7 @@
-\name{limnotools-internal}
+\name{marelac-internal}
 \alias{rhoH2O_Chen}
 \alias{AtomicWeightIUPAC}
+\alias{waalscoef}
 
 \title{Internal Functions of the marelac Package}
 \description{

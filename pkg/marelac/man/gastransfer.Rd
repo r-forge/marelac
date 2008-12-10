@@ -1,57 +1,50 @@
 \name{gastransfer}
 \alias{gastransfer}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
-\description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+\title{The gas transfer coefficient, in cm/hr}
+\description{The gas transfer coefficient, in cm/hr, for certain gases in seawater (S=35)}
+\usage{gastransfer(T=25,u10=1,gas="O2",
+      method=c("Liss","Nightingale","Wanninkhof1","Wanninkhof2"),
+      Schmidt=schmidt(T=T,gas=gas))
 }
-\usage{
-gastransfer(T = 25, u10 = 1, gas = "O2", method = c("Liss", "Nightingale", "Wanninkhof1", "Wanninkhof2"), Schmidt = schmidt(T = T, gas = gas))
-}
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{T}{ ~~Describe \code{T} here~~ }
-  \item{u10}{ ~~Describe \code{u10} here~~ }
-  \item{gas}{ ~~Describe \code{gas} here~~ }
-  \item{method}{ ~~Describe \code{method} here~~ }
-  \item{Schmidt}{ ~~Describe \code{Schmidt} here~~ }
-}
-\details{
-  ~~ If necessary, more details than the description above ~~
+  \item{T }{Temperature, dgC}
+  \item{u10 }{wind speed, in m/sec at a nominal height of 10 m above sea level}
+  \item{gas }{The gas, one of "He","Ne","N2","O2","Ar","Kr","Rn","CH4","CO2","N2O","CCl2F2","CCL3F","SF6","CCl4"}
+  \item{method}{one of "Liss", for Liss and Merlivat, 1986; "Nightingale", for Nightingale et al., 2000;
+  "Wanninkhof1", for Wanninkhof 1992, or "Wanninkhof2" for Wanninkhof and McGills 1999.}
+  \item{Schmidt}{the Schmidt number, when given this overrules the arguments \code{gas} and \code{T}}
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
-}
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+The gas transfer velocity, for seawater, in cm/hr }
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
+\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+useq <- 0:15
+plot(useq,gastransfer(u10=useq),type="l",lwd=2,xlab="u10,m/s",
+     ylab="cm/hr", main="O2 gas transfer velocity",ylim=c(0,75))
+lines(useq,gastransfer(u10=useq,method="Nightingale"),lwd=2,lty=2)
+lines(useq,gastransfer(u10=useq,method="Wanninkhof1"),lwd=2,lty=3)
+lines(useq,gastransfer(u10=useq,method="Wanninkhof2"),lwd=2,lty=4)
 
-## The function is currently defined as
-function (T=25,u10=1,gas="O2",method=c("Liss","Nightingale","Wanninkhof1","Wanninkhof2"),
-           Schmidt=schmidt(T=T,gas=gas))
-{
- method <- match.arg(method)
- S600<-Schmidt/600
- tr <- switch(method, Liss =
- ifelse (u10<3.6,0.17*u10*Schmidt^(-2/3),ifelse (u10<=13, (u10-3.4)*2.8/sqrt(S600),
- (u10-8.4)*5.9/sqrt(S600))), Nightingale = (0.33*u10+0.222*u10*u10)/sqrt(S600),
-  Wanninkhof1=0.31*u10^2*sqrt(S600),Wanninkhof2=0.0283*u10^3/sqrt(S600))
- attr(tr, "unit") = "cm/hr"
- tr
-  }
-}
+legend("topleft",lty=1:4,lwd=2,legend=c("Liss and Merlivat 1986","Nightingale et al. 2000",
+ "Wanninkhof 1992","Wanninkhof and McGills 1999"))
+ }
+\references{
 
-\keyword{ misc }
+Sarmiento J.L. and N. Gruber, 2006. Ocean Biogeochemical Dynamics. Princeton University Press, Princeton. p 85.
+Liss P.S. and L. Merlivat, 1986. Air-sea gas exchange rates: introduction and synthesis.
+In: the role of air-sea exchange in Geochemical cycling, edited by P. Buat-Menard, pp 113-127.
+D. Reidel, Dordrecht, the Netherlands.
+
+Nightingale et al. 2000. In situ evaluation of air-sea gas exchnage prameterizations using novel
+conservatie and volatile tracers. Global biogeochemical cycles 14, 373-387.
+
+Wanninkhof R. 1992. Relationship between wind speed and gas exchange over the ocean. Journ. Geophys. Res. 97, 7373-7383.
+
+Wanninkhof R. and W. McGillis 1999. A cubic relationshp between ari-sea CO2 exchange and wind speed.
+Geophys. Res. Lett. 26, 1889-1892. }
+
+\seealso{\code{\link{schmidt}}}
+
+\keyword{utilities}
 

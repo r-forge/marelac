@@ -1,13 +1,14 @@
 \name{gastransfer}
 \alias{gastransfer}
-\title{The gas transfer coefficient, in cm/hr}
+%% ThPe: hour is not a SI unit   !
+\title{The Gas Transfer Coefficient in \eqn{cm h^{-1}}{cm/hr}}
 \description{The gas transfer coefficient, in cm/hr, for certain gases in seawater (S=35)}
 \usage{gastransfer(T=25,u10=1,gas="O2",
       method=c("Liss","Nightingale","Wanninkhof1","Wanninkhof2"),
       Schmidt=schmidt(T=T,gas=gas))
 }
 \arguments{
-  \item{T }{Temperature, dgC}
+  \item{T }{Temperature in \eqn{^\circ}{degrees }C,}
   \item{u10 }{wind speed, in m/sec at a nominal height of 10 m above sea level}
   \item{gas }{The gas, one of "He","Ne","N2","O2","Ar","Kr","Rn","CH4","CO2","N2O","CCl2F2","CCL3F","SF6","CCl4"}
   \item{method}{one of "Liss", for Liss and Merlivat, 1986; "Nightingale", for Nightingale et al., 2000;

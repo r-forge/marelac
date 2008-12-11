@@ -13,7 +13,7 @@ Schmidt numbers are used to estimate the gas transfer velocity.
 }
 \usage{schmidt(T = 25, gas = "O2")}
 \arguments{
-  \item{T }{Temperature, dgC,}
+  \item{T }{Temperature in \eqn{^\circ}{degrees }C,}
   \item{gas }{The gas, one of "He", "Ne", "N2", "O2", "Ar", "Kr", "Rn", "CH4",
   "CO2", "N2O", "CCl2F2", "CCL3F", "SF6", "CCl4".}
 }

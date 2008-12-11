@@ -10,7 +10,9 @@
 \value{
   mol/g
 }
-\seealso{\code{\link{mol.weight}} the inverse function}
+\seealso{\code{\link{mol.weight}} the inverse function and
+  \code{\link{AtomicWeight}} for atomic weights of the elements.
+}
 \examples{
 g2mol("CO3")
 g2mol("HCO3")

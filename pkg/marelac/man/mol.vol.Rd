@@ -4,7 +4,7 @@
 \description{Calculates the molar volume of an ideal gas for given temperature and salinity}
 \usage{mol.vol(T=25, P=1)}
 \arguments{
-  \item{T }{temperature, dg celsius}
+  \item{T }{temperature, \eqn{^\circ}{degrees }C}
   \item{P }{pressure, atmosphere}
 }
 \value{

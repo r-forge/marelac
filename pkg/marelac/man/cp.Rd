@@ -5,7 +5,7 @@
 \usage{cp(S=35, T=25, P=0)}
 \arguments{
   \item{S }{Salinity, -}
-  \item{T }{Temperature, dgC}
+  \item{T }{Temperature, \eqn{^\circ}{degrees }C}
   \item{P }{Pressure, bar}
 }
 \value{

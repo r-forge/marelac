@@ -1,11 +1,11 @@
 \name{mol2l}
 \alias{mol2l}
-\title{mol to liter conversion for a gas}
+\title{Mol to Liter Conversion for a Gas}
 \description{Converts from liter to moles for a gas}
 \usage{mol2l(x=1, T=25, P=1, gas=NULL, a=0, b=0)}
 \arguments{
   \item{x }{mol of the gas}
-  \item{T }{temperature, dg celsius}
+  \item{T }{temperature, \eqn{^\circ}{degrees }C}
   \item{P }{pressure, atmosphere}
   \item{gas}{the gas, if NULL then the coefficients a and b are used, if specified, one of "O2","He","N2" or "H2"}
   \item{a }{Van der Waals constant a, a species-specific coefficient, \eqn{dm^6*bar/mol^2}}

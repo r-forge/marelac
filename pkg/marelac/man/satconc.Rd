@@ -4,11 +4,11 @@
 \description{Calculates the saturated concentration of several gasses in water for s given temperature, salinity and pressure}
 \usage{satconc(S = 35, T = 25, P = 1, gas = "O2", atm = atmComp(gas))}
 \arguments{
-  \item{S }{Salinity, -}
-  \item{T }{Temperature, dgC}
+  \item{S }{Salinity (dimensionless),}
+  \item{T }{Temperature, \eqn{^\circ}{degrees }C,}
   %\item{K }{Temperature, dgK}
-  \item{P }{Pressure, atm}
-  \item{gas }{The gas, one of "He","Ne","N2","O2","Ar","Kr","CH4","CO2","N2O"}
+  \item{P }{Pressure, atm,}
+  \item{gas }{The gas, one of "He","Ne","N2","O2","Ar","Kr","CH4","CO2","N2O",}
   \item{atm }{the number of moles of the gas per unit mole of air, the "mixing ratio".
   When present, this overrules the \code{gas} argument. When
   unspecified, the value from \code{AtmComp} for the gas is taken.}

@@ -4,7 +4,7 @@ Title: Datasets and tutorials for use in the MArine, Riverine, Estuarine, LAcust
 Author: Karline Soetaert <k.soetaert@nioo.knaw.nl>,
         Filip Meysman <filip.meysman@vub.ac.be>
 Maintainer: Karline Soetaert <k.soetaert@nioo.knaw.nl>
-Depends: R (>= 2.01), shape, deSolve, rootSolve, scatterplot3d, seacarb
+Depends: R (>= 2.01), shape, deSolve, rootSolve, scatterplot3d, seacarb, marelac
 Description: Datasets and tutorials for use in the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences
 License: GPL
 LazyData: yes

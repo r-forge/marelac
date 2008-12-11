@@ -9,7 +9,7 @@ rhoH2O(S=35, T=25, P=0, method=c("Millero", "Chen", "marine", "limnological"))
 }
 \arguments{
   \item{S}{salinity in PSU,}
-  \item{T}{temperature in degree centigrade,}
+  \item{T}{temperature in \eqn{^\circ}{degrees }C,}
   \item{P}{Hydrostatic pressure in bar (surface =0),}
   \item{method}{"Millero" for marine systems (default), "Chen" for the limnological
                 range (i.e. fresh water systems). Abbreviation (e.g. "M" or "m")

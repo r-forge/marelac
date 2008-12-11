@@ -14,9 +14,9 @@ O2sat(S = 0, T = 25, NN = 0, method = c("Weiss", "APHA", "Paul"))
 
 \arguments{
   \item{S}{salinity (dimensionless, for method "Weiss" only),}
-  \item{T}{Temperature in degrees centigrade,}
+  \item{T}{Temperature in \eqn{^\circ}{degrees }C,}
   %\item{K}{absolute Temperature in degrees Kelvin,}
-  \item{NN}{height above sea level (for method "Paul" only),}
+  \item{NN}{height above sea level (in m, for method "Paul" only),}
   \item{method}{formula to be used, see references for correct application.}
 }
 % Karline, correct this statement if wrong
@@ -28,7 +28,7 @@ O2sat(S = 0, T = 25, NN = 0, method = c("Weiss", "APHA", "Paul"))
   named arguments in general, e.g. \code{O2sat(T=4)}.
 }
 \value{
-  Vector with oxygen saturation concentration in mg/L.
+  Vector with oxygen saturation concentration in \eqn{mg L^{-1}}{mg/L}.
 }
 \references{
 

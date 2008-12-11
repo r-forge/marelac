@@ -1,13 +1,15 @@
 \name{solubility}
 \alias{solubility}
-\title{Solubility parameters}
-\description{Solubility parameters SA, mmol/m3/atm, calculated from the Bunsen solubility coefficients
+\title{Solubility Parameters}
+% should we really use atm?
+\description{Solubility parameters SA, \eqn{mmol m^{-3} atm^{-3}}{mmol/m3/atm},
+calculated from the Bunsen solubility coefficients
 and the volumetric solubility coefficients.
 }
 \usage{solubility(S = 35, T = 25, P = 1, gas = "O2")}
 \arguments{
   \item{S }{Salinity, -}
-  \item{T }{Temperature, dgC}
+  \item{T }{Temperature, \eqn{^\circ}{degrees }C}
   %\item{K }{Temperature, dgK}
   \item{P }{Pressure, atm}
   \item{gas }{The gas, one of "He","Ne","N2","O2","Ar","Kr","Rn","CH4","CO2","N2O","CCl2F2","CCL3F","SF6","CCl4"}

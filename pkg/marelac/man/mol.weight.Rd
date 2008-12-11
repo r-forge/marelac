@@ -25,6 +25,9 @@
   This function is not restricted to a pre-defined set of biologically active species.
   As it uses text parsing of chemical formula, it is strictly case sensitive.
 }
+\seealso{\code{\link{g2mol}} the inverse function
+  and \code{\link{AtomicWeight}} for atomic weights of the elements.
+}
 \examples{
 
 mol.weight("CO2")

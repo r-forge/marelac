@@ -1,110 +1,5 @@
 
 ##########################################################################
-#  Heat Capacity of sea water
-##########################################################################
-
-cp <- function (S=35 ,# -
-                T=25, # dgC
-                P=0)  # bar
-
-#=========================================================================
-# using UNESCO 1983 polynomial.
-#
-# units in J kg-1 dgC^-1
-# REFERENCES:
-#    Fofonoff, P. and Millard, R.C. Jr
-#    Unesco 1983. Algorithms for computation of fundamental properties of
-#    seawater, 1983. _Unesco Tech. Pap. in Mar. Sci._, No. 44, 53 pp.
-#=========================================================================
-# Check: CPSW = 3849.500 J/(kg dg.C) for S = 40, T=40, P=10000
-{
-
-S3_2  = S*sqrt(S)
-
-# eqn 26 p.32
-# specific heat for P=0
-c0 = 4217.4
-c1 =   -3.720283
-c2 =    0.1412855
-c3 =   -2.654387e-3
-c4 =    2.093236e-5
-
-a0 = -7.64357
-a1 =  0.1072763
-a2 = -1.38385e-3
-
-b0 =  0.1770383
-b1 = -4.07718e-3
-b2 =  5.148e-5
-
-Cpst0 =  c0 + c1*T + c2*T^2 + c3*T^3 + c4*T^4 +
-        (a0 + a1*T + a2*T^2)*S +
-      	(b0 + b1*T + b2*T^2)*S*sqrt(S)
-
-# eqn 28 p.33
-# pressure and temperature terms for S=0
-a0 = -4.9592e-1
-a1 =  1.45747e-2
-a2 = -3.13885e-4
-a3 =  2.0357e-6
-a4 =  1.7168e-8
-
-b0 =  2.4931e-4
-b1 = -1.08645e-5
-b2 =  2.87533e-7
-b3 = -4.0027e-9
-b4 =  2.2956e-11
-
-c0 = -5.422e-8
-c1 =  2.6380e-9
-c2 = -6.5637e-11
-c3 =  6.136e-13
-
-del_Cp0t0 =  (a0 + a1*T + a2*T^2 + a3*T^3 + a4*T^4)*P +
-	           (b0 + b1*T + b2*T^2 + b3*T^3 + b4*T^4)*P^2 +
-             (c0 + c1*T + c2*T^2 + c3*T^3)*P^3
-
-# eqn 29 p.34
-# pressure and temperature terms for S>0
-
-d0 =  4.9247e-3
-d1 = -1.28315e-4
-d2 =  9.802e-7
-d3 =  2.5941e-8
-d4 = -2.9179e-10
-
-e0 = -1.2331e-4
-e1 = -1.517e-6
-e2 =  3.122e-8
-
-f0 = -2.9558e-6
-f1 =  1.17054e-7
-f2 = -2.3905e-9
-f3 =  1.8448e-11
-
-g0 =  9.971e-8
-
-h0 =  5.540e-10
-h1 = -1.7682e-11
-h2 =  3.513e-13
-
-j1 = -1.4300e-12
-
-
-del_Cpstp = ((d0 + d1*T + d2*T^2 + d3*T^3 + d4*T^4)*S +
-             (e0 + e1*T + e2*T^2)*S3_2)*P             +
-	          ((f0 + f1*T + f2*T^2 + f3*T^3)*S          +
-	            g0*S3_2)*P^2                            +
-            ((h0 + h1*T + h2*T^2)*S                   +
-	            j1*T*S3_2)*P^3
-
-# specific heat
-cp = Cpst0 + del_Cp0t0 + del_Cpstp
-
-return(cp)
-}
-
-##########################################################################
 # Coriolis factor as a function of latitude
 ##########################################################################
 
@@ -125,81 +20,65 @@ coriolis <- function (lat)  # latitude in degrees north (-90:+90)
 #   "Atmosphere-Ocean Dynamics"
 #   Academic Press: New York.  ISBN: 0-12-283522-0
 #=========================================================================
-  
-
 
 ##########################################################################
-# Saturated concentrations for oxygen, N2 and Ar
+# velocity of sound
 ##########################################################################
 
-satconc2 <- function (S=35,        # Salinity
-                     T=25,        # Temperature
-                     P=1)         # Pressure (atm)
-{
+soundvel <- function (T=25, S=35, P=1.013253, hydroP=max(0,P-1.013253))
 #=========================================================================
-# calculates the saturated concentration (solubility) of oxygen,
-# for given temperature and salinity
-# return in µmol/l 
+# using UNESCO 1983 polynomial.
+#
+# units in m/sec
 # REFERENCES:
-#    Weiss, R. F. 1970
-#    "The solubility of nitrogen, oxygen and argon in water and seawater."
-#    Deap-Sea Research., 1970, Vol 17, pp721-735.
+#    Fofonoff, P. and Millard, R.C. Jr
+#    Unesco 1983. Algorithms for computation of fundamental properties of
+#    seawater, 1983. _Unesco Tech. Pap. in Mar. Sci._, No. 44, 53 pp.
 #=========================================================================
-
-#  T in degrees Kelvin
-
-TT= 273.15 + T
-
-# constants for Eqn (4) of Weiss 1970
-#      O2,             N2              Ar
-a1 = c(-173.4292   , -172.4965   ,  -173.5146   )
-a2 = c( 249.6339   ,  248.4262   ,   245.4510   )
-a3 = c( 143.3483   ,  143.0738   ,   141.8222   )
-a4 = c( -21.8492   ,  -21.7120   ,   -21.8020   )
-b1 = c(  -0.033096 ,   -0.049781 ,    -0.034474 )
-b2 = c(   0.014259 ,    0.025018 ,     0.014934 )
-b3 = c(  -0.0017000,   -0.0034861,    -0.0017729)
-
-# Eqn (4) of Weiss 1970
-sat <- NULL
-
-for (i in 1:3)
 {
-lnC = a1[i] + a2[i]*(100/TT) + a3[i]*log(TT/100) + a4[i]*(TT/100) +
-      S*( b1[i] + b2[i]*(TT/100) + b3[i]*((TT/100)^2) )
-sat  = cbind(sat,exp(lnC))
+    P = hydroP  # P is used in code as synonym for hydroP
+
+    P2 <- P*P
+    P3 <- P2*P
+    Cw <- 1402.388 + (5.03711   + (-5.80852e-2 + (3.3420e-4 + (-1.47800e-6 + 3.1464e-9*T)*T)*T)*T)*T   +
+       + (0.153563 + (6.8982e-4 + (-8.1788e-6  + (1.3621e-7 -6.1185e-10*T)*T)*T)*T)*P          +
+       + (3.1260e-5 +(-1.7107e-6+ (2.5974e-8 + (-2.5335e-10 + 1.0405e-12*T)*T)*T)*T)*P2        +
+       + (-9.7729e-9+(3.8504e-10 -2.3643e-12*T)*T)*P3
+
+    A <- 1.389      + (-1.262e-2  + (7.164e-5    + (2.006e-6  -3.21e-8*T)*T)*T)*T        +
+      + (9.4742e-5  + (-1.2580e-5 + (-6.4885e-8  + (1.0507e-8 -2.0122e-10*T)*T)*T)*T)*P  +
+      + (-3.9064e-7 + (9.1041e-9  + (-1.6002e-10 + 7.988e-12*T)*T)*T)*P2                 +
+      + (1.100e-10  + (6.649e-12  -3.389e-13*T)*T)*P3
+
+    B <- -1.922e-2 -4.42e-5*T + (7.3637e-5 + 1.7945e-7*T)*P
+
+    D <- 1.727e-3 + -7.9836e-6*P
+
+    return (Cw + A*S + B*S**1.5 + D*S**2)
 }
-# ml/l-> convert to µmol/l
-sat <- sat*1000* l2mol(x=1,T=T,P=P,a=0,b=0)
-
-colnames(sat) <- c("O2","N2","Ar")
-
-return (as.data.frame(sat))
-}
-
-
-
-##########################################################################
-# salinity-chlorinity conversion and concentrations in marine water
-##########################################################################
-
-sal2cl <- function(S=35) # salinity
-          S/1.80655      # chlorinity, in g/kg
-# in g/kg
-# from Wooster et al.,1969
-
-##########################################################################
-
-# µmol/kg solution
-salconc <- function(S=35)
+# ----------------------------------------------------------------
+gravity <- function (lat=0)
 {
- Borate   = 4.16e2*S/35                # Millero 95
- Calcite  = 0.01028e6 *S/35            # Millero 95
- Sulphate = sal2cl(S)*0.14e6*1/96.062  # Morris & Riley 1966. Deep-See Res. 13:699-705
- Fluoride = sal2cl(S)*67/18.9984       # Riley 1965.Deep-Sea Res. 12:219-220
- return(data.frame(Borate=Borate,
-                   Calcite=Calcite,
-                   Sulphate=Sulphate,
-                   Fluoride=Fluoride))
+# Compute gravity from latitude
+
+    X <- sin(lat*pi/180.)
+    X <- X*X
+    grav = 9.780318 * (1.0 + (5.2788e-3 + 2.36e-5*X)*X)
+
+    return (grav)
 }
+# ----------------------------------------------------------------
+watdepth <- function (P=1.013253, hydroP=max(0,P-1.013253), lat=0)
+{
+# Compute depth from hydrostatic pressure and latitude
+
+    P <- hydroP*10    # P=hydrostatic pressure, in dbar
+    denom = gravity(lat)+ 1.092e-6*P
+    nom = (9.72659 + (-2.2512e-5 + (2.279e-10 -1.82e-15*P)*P)*P)*P
+
+    return (nom / denom)
+}
+
+
+
 

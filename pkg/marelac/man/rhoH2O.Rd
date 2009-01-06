@@ -5,12 +5,14 @@
   Density of water in \eqn{kg m^{-3}}{kg m^{-3}}
 }
 \usage{
-rhoH2O(S=35, T=25, P=0, method=c("Millero", "Chen", "marine", "limnological"))
+rhoH2O(T=25, S=35, P=1.013253, hydroP=max(0,P-1.013253),
+       method=c("Millero", "Chen", "marine", "limnological"))
 }
 \arguments{
   \item{S}{salinity in PSU,}
-  \item{T}{temperature in \eqn{^\circ}{degrees }C,}
-  \item{P}{Hydrostatic pressure in bar (surface =0),}
+  \item{T}{temperature in \eqn{^\circ}{degrees }C}
+  \item{P}{True pressure in bar}
+  \item{hydroP }{hydrostatic pressure, pressure relative to the local atmospheric pressure, bar}
   \item{method}{"Millero" for marine systems (default), "Chen" for the limnological
                 range (i.e. fresh water systems). Abbreviation (e.g. "M" or "m")
                 is possible.}
@@ -20,11 +22,12 @@ rhoH2O(S=35, T=25, P=0, method=c("Millero", "Chen", "marine", "limnological"))
   Density of water in \eqn{kg m^{-3}}{kg m^-3}.
 }
 \details{
-  To avoid confusion between the arguments (S, T, P) it is advisable to use
+  To avoid confusion between the arguments (T, S, P) it is advisable to use
   named arguments in general (e.g. \code{rho(T=4, method="Chen")}.
   The marine formula is imported from package \pkg{seacarb}.)
 }
-\references{ 
+\note{pressure used here is 1 bar (true pressure), in contrast to hydrostatic pressure (0 bar at surface) in original formula}
+\references{
 Chen, Ch.-T. and F.J. Millero (1986). Precise thermodynamic properties of natural 
 waters covering only the limnological range. Limnol. Oceanogr. 31 No. 3, 657 - 662.
 

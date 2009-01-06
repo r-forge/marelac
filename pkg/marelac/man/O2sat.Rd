@@ -21,7 +21,7 @@ O2sat(S = 0, T = 25, NN = 0, method = c("Weiss", "APHA", "Paul"))
 }
 % Karline, correct this statement if wrong
 \details{
-  Method APHA is the standard formula in Limnology, method Weiss possibly the
+  Method APHA is the standard formula in Limnology, method Weiss the
   standard formula in marine sciences. The method after Paul is a 
   simple formula fitted on available tables.
   To avoid confusion between the arguments (S, T, NN) it is advisable to use

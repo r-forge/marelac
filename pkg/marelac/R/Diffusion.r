@@ -12,7 +12,7 @@
 
 diffcoeff <- function(S=35,      # Salinity, ppt
                       T=25,      # Temperture, degrees C
-                      P=0,       # Pressure, atm
+                      P=1.013253,       # Pressure, atm
                       x=c("O2","CO2","NH3","H2S","CH4","HCO3","CO3","NH4",
       "HS","NO3","H2PO4","HPO4","PO4","H","OH","Ca","Mg","Fe","Mn",
       "SO4","H3PO4","BOH3","B0H4","H4SiO4")
@@ -160,9 +160,9 @@ diffcoeff <- function(S=35,      # Salinity, ppt
 
 #**********************************************************************
 
-viscosity <- function (S=35,     # Salinity, ppt
-                       T=25,     # Temperture, degrees C
-                       P=0)      # Pressure, atm
+viscosity <- function (T=25,     # Temperture, degrees C
+                       S=35,     # Salinity, ppt
+                       P=1.013253)      # Pressure, bar
 #---------------------------------------------------------------------
 #  VISCO      Calculates the shear viscosity of water using the equation
 #             given by Kukulka et al. (1987).

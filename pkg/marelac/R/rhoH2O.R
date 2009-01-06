@@ -1,10 +1,11 @@
-rhoH2O_Chen <- function(S=0, T=25, P=0) {
+rhoH2O_Chen <- function(S=0, T=25, hydroP) {
   # Chen, Ch.-T. and F.J. Millero (1986) - Precise thermodynamic
   # properties of natural waters covering only the limnological range.
   # Limnol. Oceanogr. 31 No. 3, 657 - 662
   # rho in g/cm^3
-  # P in bar
+  # P in bar - surface = 0 bar.
   # T in °C
+  P <- hydroP
   rho0 <- 0.9998395 + 0.000067914 * T -
           0.0000090894 * T * T + 0.00000010171 * T * T * T -
           0.0000000012846 * T ^ 4 + 0.000000000011592 * T ^ 5 -
@@ -15,13 +16,15 @@ rhoH2O_Chen <- function(S=0, T=25, P=0) {
 }
 
 
-rhoH2O <- function(S=35, T=25, P=0, method=c("Millero", "Chen", "marine", "limnological")) {
+rhoH2O <- function(T=25, S=35, P=1.013253, hydroP=max(0,P-1.013253),
+          method=c("Millero", "Chen", "marine", "limnological")) {
    method <- match.arg(method)
+   P   <- hydroP      # hydrostatic pressure; make surface = 0 bar
    rho <- switch(method,
-     Millero      = rho(S, T, P),               # from package seacarb
-     marine       = rho(S, T, P),               # from package seacarb
-     Chen         = 1000 *rhoH2O_Chen(S, T, P), # limnological range
-     limnological = 1000 *rhoH2O_Chen(S, T, P), # limnological range
+     Millero      = rho(S=S, T=T, P=P),               # from package seacarb
+     marine       = rho(S=S, T=T, P=P),               # from package seacarb
+     Chen         = 1000 *rhoH2O_Chen(S=S, T=T, hydroP=P), # limnological range
+     limnological = 1000 *rhoH2O_Chen(S=S, T=T, hydroP=P), # limnological range
    )
    attr(rho, "unit") = "(kg/m3)"
    return(rho)

@@ -1,11 +1,11 @@
 \name{mol.vol}
 \alias{mol.vol}
 \title{Molar volume of an ideal gas}
-\description{Calculates the molar volume of an ideal gas for given temperature and salinity}
-\usage{mol.vol(T=25, P=1)}
+\description{Calculates the molar volume of an ideal gas for given temperature and pressure}
+\usage{mol.vol(T=25, P=1.013253)}
 \arguments{
   \item{T }{temperature, \eqn{^\circ}{degrees }C}
-  \item{P }{pressure, atmosphere}
+  \item{P }{true pressure, bar}
 }
 \value{
   molar volume, liter, of an ideal gas

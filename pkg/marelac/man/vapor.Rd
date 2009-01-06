@@ -4,7 +4,7 @@
 }
 \description{The partial pressure of water in saturated air, as in Weiss and Price (1980)
 
-=pH20/P, where P is the total atmospheric pressure, in atmosphere, and pH2O is the partial pressure of the water vapor.}
+=pH20/P, where P is the total atmospheric pressure, = 1 atmosphere, and pH2O is the partial pressure of the water vapor.}
 \usage{vapor(S=35, T=25)}
 \arguments{
   \item{S }{Salinity (dimensionless),}

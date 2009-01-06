@@ -1,8 +1,8 @@
 \name{gastransfer}
 \alias{gastransfer}
 %% ThPe: hour is not a SI unit   !
-\title{The Gas Transfer Coefficient in \eqn{cm h^{-1}}{cm/hr}}
-\description{The gas transfer coefficient, in cm/hr, for certain gases in seawater (S=35)}
+\title{The Gas Transfer Coefficient in cm/hr}
+\description{The gas transfer coefficient, in \eqn{cm h^{-1}}{cm/hr}, for certain gases in seawater (S=35)}
 \usage{gastransfer(T=25,u10=1,gas="O2",
       method=c("Liss","Nightingale","Wanninkhof1","Wanninkhof2"),
       Schmidt=schmidt(T=T,gas=gas))
@@ -16,7 +16,7 @@
   \item{Schmidt}{the Schmidt number, when given this overrules the arguments \code{gas} and \code{T}}
 }
 \value{
-The gas transfer velocity, for seawater, in cm/hr }
+The gas transfer velocity, for seawater, in \eqn{cm h^{-1}}{cm/hr} }
 
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{

@@ -5,14 +5,14 @@
  for several species at given salinity (S) temperature (T) and pressure (P).
 
  Based on the code "CANDI" by B.P. Boudreau}
-\usage{diffcoeff(S=35, T=25, P=0, x=c("O2","CO2","NH3","H2S",
+\usage{diffcoeff(S=35, T=25, P=1.013253, x=c("O2","CO2","NH3","H2S",
       "CH4","HCO3","CO3","NH4","HS","NO3","H2PO4",
       "HPO4","PO4","H","OH","Ca","Mg","Fe","Mn",
       "SO4","H3PO4","BOH3","B0H4","H4SiO4"))}
 \arguments{
   \item{S }{Salinity, -}
   \item{T }{Temperature, degrees C}
-  \item{P }{hydrostatic pressure, atm}
+  \item{P }{Pressure, bar}
   \item{x }{character vector with species whose diffusion coefficients should be estimated }
   
 }
@@ -51,6 +51,8 @@ Journal of chemical physics 31 (5): 1164-1169
 Krynicki K, Green CD, Sawyer DW, 1978.
 pressure and temperature-dependence of self-diffusion in water.
 Faraday discussions 66: 199-208
+
+For molecules:
 
 Wilke CR, Chang P, 1955.
 Correlation of diffusion coefficients in dilute solutions.

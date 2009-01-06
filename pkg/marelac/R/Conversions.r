@@ -1,14 +1,14 @@
 ##########################################################################
 # molar volume of ideal gas
 ##########################################################################
-mol.vol <- function(T = 25,     # temperature, dg celsius
-                    P = 1       # pressure, atmosphere
+mol.vol <- function(T = 25,      # temperature, dg celsius
+                    P = 1.013253 # pressure, bar
                    )
 {
   #  T in degrees Kelvin
   TK <- 273.15 + T
   R  <- 0.082058  # liter-atm / mole-K
-  return(R * TK / P)  # molar volume of an ideal gas
+  return(R * TK / P*1.013253)  # molar volume of an ideal gas
 }
 
 ##########################################################################
@@ -16,7 +16,7 @@ mol.vol <- function(T = 25,     # temperature, dg celsius
 ##########################################################################
 mol2l <- function(x=1,      # mol of the gas
                   T=25,     # temperature, dg celsius
-                  P=1,      # pressure, atmosphere
+                  P=1.013253,  # pressure, bar
                   gas=NULL,
                   a=0,      # dm^6*bar/mol^2
                   b=0)      # dm3/mol
@@ -53,7 +53,7 @@ mol2l <- function(x=1,      # mol of the gas
 
   #V=xRT/P ;    R=0.0821 liter-atm / mole-K
   if (a==0 & b==0) {
-    V =  x * R * TK / P
+    V =  x * R * TK / P * 1.013253
   } else {
     V <- NULL
     for (TT in TK) {
@@ -61,7 +61,7 @@ mol2l <- function(x=1,      # mol of the gas
         for (xx in x) {
           # V = c(V, uniroot(fun<- function (V)((PP+xx*xx*a/(V^2))*(V/xx-b)-R*TT),c(-10,1e6))$root)
           V <- c(V,
-            uniroot(function (V) ((PP + xx * xx * a/(V^2)) *
+            uniroot(function (V) ((PP* 1.013253 + xx * xx * a/(V^2)) *
               (V/xx - b) - R * TT), c(-10, 1e6))$root)
         }
       }
@@ -73,7 +73,7 @@ mol2l <- function(x=1,      # mol of the gas
 # The reverse: liter to mol
 l2mol <- function(x=1, # litre of the gas
                   T=25,# temperature, dg celsius
-                  P=1, # pressure, atmosphere
+                  P= 1.013253, # pressure, bar
                   gas=NULL,
                   a=0, # dm^6*bar/mol^2
                   b=0) # dm3/mol

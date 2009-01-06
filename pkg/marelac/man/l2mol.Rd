@@ -2,12 +2,11 @@
 \alias{l2mol}
 \title{liter to mol conversion for a gas}
 \description{Converts from liter to moles for a gas}
-\usage{l2mol(x=1, T=25, P=1, gas=NULL, a=0, b=0)}
+\usage{l2mol(x=1, T=25, P=1.013253, gas=NULL, a=0, b=0)}
 \arguments{
-  \item{x }{Volume of the gas in liter,}
-  \item{T }{Temperature, \eqn{^\circ}{degrees }C,}
-  % ThPe: atmosphere = atm? Should we really use this?
-  \item{P }{Pressure, atmosphere,}
+  \item{x }{volume of the gas in liter,}
+  \item{T }{temperature, \eqn{^\circ}{degrees }C,}
+  \item{P }{pressure, bar}
   \item{gas}{the gas, if NULL then the coefficients a and b are used, if specified, one of "O2","He","N2" or "H2",}
   \item{a }{Van der Waals constant a, a species-specific coefficient, \eqn{dm^6*bar/mol^2},}
   \item{b }{Van der Waals constant b, a species-specific coefficient, \eqn{dm^3/mol}.}

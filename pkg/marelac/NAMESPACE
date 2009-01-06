@@ -1,5 +1,6 @@
 export(coriolis, cp, diffcoeff, g2mol, l2mol, mol.vol, mol.weight, mol2l, sal2cl,
-       salconc, satconc, viscosity, solubility, vapor, schmidt, gastransfer, atmComp)
+       salconc, satconc,adtgrad,cond2sal,sal2cond,tempfreeze,temppot,soundvel,
+       watdepth,gravity,viscosity, solubility, vapor, schmidt, gastransfer, atmComp)
 
 export(rhoH2O, O2sat, vertmean, ssd2rad, redfield, baroconv)
 

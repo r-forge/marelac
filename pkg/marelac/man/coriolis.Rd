@@ -10,7 +10,7 @@
   \item{lat }{latitude in degrees north (-90:+90).}
 }
 \value{
-  the coriolis factor (\eqn{s^{-1}}{1/second).
+  the coriolis factor (\eqn{s^{-1}}{1/second}).
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{plot(-90:90,coriolis(-90:90),xlab="latitude, dg North", 

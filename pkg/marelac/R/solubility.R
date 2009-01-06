@@ -1,4 +1,4 @@
-solubility <- function (S = 35, T = 25, P = 1, gas = "O2")
+solubility <- function (S = 35, T = 25, P = 1.013253, gas = "O2")
 {
 
   K <-  T + 273.15
@@ -43,8 +43,8 @@ solubility <- function (S = 35, T = 25, P = 1, gas = "O2")
   bet <- Sb$A1+Sb$A2*(100/K)+Sb$A3*log(K/100)+Sb$A4*(K/100)^2+S*(
          Sb$B1+Sb$B2*K/100+Sb$B3*(K/100)^2)
 
-  if (Sb$type==1) SA  <- exp(bet)/22.4136*10^6  else           #mmol/m3/atm
-                  SA  <- exp(bet)/P/(1-vapor(T=T,S=S))*10^6    #mmol/m3/atm
+  if (Sb$type==1) SA  <- exp(bet)/22.4136*10^6  else           #mmol/m3/bar
+                  SA  <- exp(bet)/P/(1-vapor(T=T,S=S))*10^6    #mmol/m3/bar
 
   SA
 

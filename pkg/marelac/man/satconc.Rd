@@ -2,16 +2,16 @@
 \alias{satconc}
 \title{Saturated concentrations of gasses in water}
 \description{Calculates the saturated concentration of several gasses in water for s given temperature, salinity and pressure}
-\usage{satconc(S = 35, T = 25, P = 1, gas = "O2", atm = atmComp(gas))}
+\usage{satconc(S = 35, T = 25, P = 1.013253, gas = "O2", atm = atmComp(gas))}
 \arguments{
   \item{S }{Salinity (dimensionless),}
   \item{T }{Temperature, \eqn{^\circ}{degrees }C,}
   %\item{K }{Temperature, dgK}
-  \item{P }{Pressure, atm,}
+  \item{P }{Pressure, bar}
   \item{gas }{The gas, one of "He","Ne","N2","O2","Ar","Kr","CH4","CO2","N2O",}
-  \item{atm }{the number of moles of the gas per unit mole of air, the "mixing ratio".
+  \item{atm }{the number of moles of the gas per unit mole of air in the atmosphere, the "mixing ratio".
   When present, this overrules the \code{gas} argument. When
-  unspecified, the value from \code{AtmComp} for the gas is taken.}
+  unspecified, the value from \code{atmComp} for the gas is taken.}
 }
 \value{
    the saturated concentration of the gass in \eqn{mmol m^{-3}}{mmol/m3}.

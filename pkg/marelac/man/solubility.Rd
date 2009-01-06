@@ -6,19 +6,19 @@
 calculated from the Bunsen solubility coefficients
 and the volumetric solubility coefficients.
 }
-\usage{solubility(S = 35, T = 25, P = 1, gas = "O2")}
+\usage{solubility(S = 35, T = 25, P = 1.013253, gas = "O2")}
 \arguments{
   \item{S }{Salinity, -}
   \item{T }{Temperature, \eqn{^\circ}{degrees }C}
   %\item{K }{Temperature, dgK}
-  \item{P }{Pressure, atm}
+  \item{P }{Pressure, bar}
   \item{gas }{The gas, one of "He","Ne","N2","O2","Ar","Kr","Rn","CH4","CO2","N2O","CCl2F2","CCL3F","SF6","CCl4"}
 }
 \value{
-  the solubility, mmol/m3/atm            }
+  the solubility, mmol/m3/bar            }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
-\examples{solubility(T=1:20,S=35,P=1,gas="CO2")
-solubility(T=0:5,S=35,P=1,gas="O2")
+\examples{solubility(T=1:20,S=35,gas="CO2")
+solubility(T=0:5,S=35,gas="O2")
 
 Temp<-seq(from=0,to=30,by=0.1)
 mf<-par(mfrow=c(1,2))

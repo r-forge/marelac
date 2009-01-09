@@ -1,3 +1,4 @@
+\encoding{latin1}
 \name{ssd2rad}
 \alias{ssd2rad}
 \title{Estimate Global Radiation from Measured Sunshine Duration Time}
@@ -25,8 +26,10 @@ ssd2rad(S, doy, a = 0.25, b = 0.5, rho = 50.29)
 }
 
 %% ToDo: find international reference or remove function from package
-\references{Dyck, S. u. G. Peschke (1995): Grundlagen der Hydrologie. 3. Auflage.
-  Verlag f{\"u}r Bauwesen, Berlin 1995, ISBN 3-345-00586-7}
+\references{
+  Dyck, S. u. G. Peschke (1995): Grundlagen der Hydrologie. 3. Auflage.
+  Verlag f\enc{ü}{ue}r Bauwesen, Berlin 1995, ISBN 3-345-00586-7
+}
 
 \examples{
 ssd2rad(8, 120)

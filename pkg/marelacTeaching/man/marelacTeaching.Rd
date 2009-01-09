@@ -3,17 +3,19 @@
 \alias{marelacTeaching}
 \docType{package}
 \title{
-Datasets and tutorials for use in the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences
+ Datasets and tutorials for use in the
+ MArine, Riverine, Estuarine, LAcustrine and Coastal sciences
 }
 \description{
-R-package marelacTeaching has been designed as a tool to help in teaching students from the
-MArine, Riverine, Estuarine, LAcustrine and Coastal sciences.
+  R-package marelacTeaching has been designed as a tool to help in teaching
+  students from the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences.
 
-It contains:
-\item a tutorial for novice R-users, focussing on the use of R in scientific computing.
-
-\item data sets used in science teaching.
-
+  It contains:
+  \itemize{
+    \item a tutorial for novice R-users, focussing on the use of R in scientific
+      computing.
+    \item data sets used in science teaching.
+  }
 }
 \details{
   \tabular{ll}{
@@ -27,9 +29,10 @@ It contains:
 
 To open the lecture notes, copy-paste this sentence to R:
 
-\code{browseURL(paste(system.file(package="marelacTeaching"), "/lecture/UsingR.pdf", sep=""))}
+\code{
+browseURL(paste(system.file(package="marelacTeaching"), "/lecture/UsingR.pdf", sep=""))}
 
-which will open a PDF generated with WORD (microsoft)
+which will open a PDF generated with WORD (Microsoft)
 
 or type \code{vignette("UsingR")} which will open a LaTeX-generated file.
 }
@@ -66,7 +69,6 @@ vignette("Answers")
 
 edit(vignette("UsingR"))
 edit(vignette("Answers"))
-
 }
 }
 

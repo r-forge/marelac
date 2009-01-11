@@ -1,5 +1,4 @@
-"vertmean" <-
-function(depth, vari, level, top, bot, vol) {
+vertmean <- function(depth, vari, level, top, bot, vol) {
   idepth  <- which(depth >= top & depth <= bot)
   ndepth  <- c(depth[idepth])
   nvari   <- c(vari[idepth])

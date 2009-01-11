@@ -1,15 +1,18 @@
 \name{salconc}
 \alias{salconc}
-\title{Concentrations of (conservative) species in seawater}
+\title{Concentrations of (Conservative) Species in Seawater}
 \description{
-  Estimates the concentration of Borate,Calcite, Sulphate and Fluoride in seawater
+  Estimates the concentration of Borate,Calcite, Sulphate and Fluoride
+  in seawater.
 }
-\usage{salconc(S=35)}
+\usage{
+salconc(S=35)
+}
 \arguments{
-  \item{S }{salinity}
+  \item{S }{salinity.}
 }
 \value{
-  a data frame with the concentrations in micromol/kg
+  A data frame with the concentrations in micromol/kg.
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{

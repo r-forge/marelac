@@ -1,28 +1,35 @@
 \name{vertmean}
 \alias{vertmean}
 
-\title{Vertical Volumetric Weighted Mean of Matter Concentrations in Water Bodies}
+\title{
+  Vertical Volumetric Weighted Mean of Matter Concentrations in Water
+  Bodies
+}
 \description{
-  Calculate vertical mean values which respect depths of different layers or
-  lake morphometry.
+  Calculate vertical mean values which respect depths of different
+  layers or lake morphometry.
 }
 \usage{
 vertmean(depth, vari, level, top, bot, vol)
 }
-
 \arguments{
   \item{depth}{sorted vector of sampled depths,}
-  \item{vari}{measurements corresponding to \code{depth} (concentration, temperature, \dots),}
-  \item{level}{surface water level (above ground or m NN, depending on bathymetric function used,}
+  \item{vari}{measurements corresponding to \code{depth} (concentration,
+    temperature, \dots),
+  }
+  \item{level}{surface water level (above ground or m NN, depending on
+    bathymetric function used,
+  }
   \item{top}{top water level of requested layer,}
   \item{bot}{bottom water level of requested layer,}
   \item{vol}{hypsographic function to be used (e.g. \code{vol.depth}).}
 }
 
 \value{
-  Volumetric average value of the requested layer between depths \code{top} and \code{bottom}.
+  Volumetric average value of the requested layer between depths
+  \code{top} and \code{bottom}.
 }
-
+\author{Thomas Petzoldt}
 %\seealso{}
 \examples{
 ## define a bathymetric formula for a given lake or basin
@@ -66,7 +73,6 @@ vertmean(depth, pconc, level, top=3.7, bot=13.5, weight.vol)
 
 vertmean(depth, pconc, level, top=0, bot=3.7, weight.vol)
 vertmean(depth, pconc, level, top=3.7, bot=13.5, weight.vol)
-
 }
 \keyword{misc}
 

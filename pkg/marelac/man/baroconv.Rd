@@ -1,6 +1,5 @@
 \name{baroconv}
 \alias{baroconv}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{Conversion Between Different Barometric Units}
 \description{
   The function converts between different units of pressure.

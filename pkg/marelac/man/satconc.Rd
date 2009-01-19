@@ -57,10 +57,10 @@ par(mfrow = mf)
 Temp <- seq (0, 30, by = 5)
 ## saturated concentrations in mmol/m3
 A <- data.frame(rbind( T = Temp,
-            N2 = satconc(T = Temp, gas = "N2"),
-            O2 = satconc(T = Temp, gas = "O2"),
-            CO2 = satconc(T = Temp, gas = "CO2"),
-            Ar = satconc(T = Temp, gas = "Ar")))
+            N2 = satconc(T = Temp, P=1, gas = "N2"),
+            O2 = satconc(T = Temp, P=1, gas = "O2"),
+            CO2 = satconc(T = Temp, P=1, gas = "CO2"),
+            Ar = satconc(T = Temp, P=1, gas = "Ar")))
 format(A,digits = 4)
 ## table values at 20 dg C:
 ## 425.7   230.5  11.61  11.29
@@ -68,11 +68,11 @@ format(A,digits = 4)
 
 ## saturated concentrations in micromol/m3
 AA <- data.frame(rbind( T = Temp,
-            N2O = satconc(T = Temp, gas = "N2O")*1000,
-            Ne = satconc(T = Temp, gas = "Ne")*1000,
-            Kr = satconc(T = Temp, gas = "Kr")*1000,
-            CH4 = satconc(T = Temp, gas = "CH4")*1000,
-            He = satconc(T = Temp, gas = "He")*1000))
+            N2O = satconc(T = Temp, P=1, gas = "N2O")*1000,
+            Ne = satconc(T = Temp, P=1, gas = "Ne")*1000,
+            Kr = satconc(T = Temp, P=1, gas = "Kr")*1000,
+            CH4 = satconc(T = Temp, P=1, gas = "CH4")*1000,
+            He = satconc(T = Temp, P=1, gas = "He")*1000))
 format(AA, digits = 4)
 ## table values at 20 dgC:
 ## 7.16  6.94  2.50  2.12  1.70

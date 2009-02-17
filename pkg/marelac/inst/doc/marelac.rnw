@@ -133,18 +133,20 @@ plot(-90:90,coriolis(-90:90),xlab="latitude, dg North",
 \label{fig:cor}
 \end{figure}
 \subsection{heat capacity}
-Estimates the heat capacity of seawater, using the UNESCO 1983 polynomial \citep{Fofonoff83}
+Estimates the heat capacity of seawater, using \citep{Feistel08} or according to
+the UNESCO 1983 polynomial \citep{Fofonoff83}
 <<>>=
-cp(S=40,T=1:20)
+sw_cp(S=40,t=1:20)
+sw_cp(S=40,t=1:20,UNESCO=TRUE)
 @
 \subsection{molecular diffusion coefficients}
-Calculates molecular and ionic diffusion coefficients (cm2/hour), for several species at given salinity (S) temperature (T) and pressure (P).
+Calculates molecular and ionic diffusion coefficients (cm2/hour), for several species at given salinity (S) temperature (t) and pressure (P).
 
 Based on the code "CANDI" by Bernie Boudreau \citep{Boudreau96}.
 <<>>=
-diffcoeff(S=15,T=15)*24  # cm2/day
-diffcoeff(T=10)$O2
-difftemp <- diffcoeff(T=0:30)[,1:13]
+diffcoeff(S=15,t=15)*24  # cm2/day
+diffcoeff(t=10)$O2
+difftemp <- diffcoeff(t=0:30)[,1:13]
 diffsal <- diffcoeff(S=0:35)[,1:13]
 @
 <<label=diff,include=FALSE>>=
@@ -163,14 +165,14 @@ legend("topleft",ncol=2,cex=0.8,title="mean",col=1:13,lty=1:13,
 \label{fig:diff}
 \end{figure}
 \subsection{shear viscosity of water}
-Calculates the shear viscosity of water, in centipoise. Valid for 0<T<30 and 0<S<36.
+Calculates the shear viscosity of water, in centipoise. Valid for 0<t<30 and 0<S<36.
 
 Based on the code "CANDI" by Bernie Boudreau \citep{Boudreau96}.
 <<label=visc,include=FALSE>>=
-plot(0:30,viscosity(S=35,T=0:30,P=1),xlab="temperature",ylab="centipoise",
+plot(0:30,viscosity(S=35,t=0:30,P=1),xlab="temperature",ylab="centipoise",
        main="shear viscosity of water",type="l")
-  lines(0:30,viscosity(S=0,T=0:30,P=1),col="red")
-  lines(0:30,viscosity(S=35,T=0:30,P=100),col="blue")
+  lines(0:30,viscosity(S=0,t=0:30,P=1),col="red")
+  lines(0:30,viscosity(S=35,t=0:30,P=100),col="blue")
   legend("topright",col=c("black","red","blue"),lty=1,
         legend=c("S=35,P=1","S=0,P=1","S=35,P=100"))
 @
@@ -188,17 +190,18 @@ plot(0:30,viscosity(S=35,T=0:30,P=1),xlab="temperature",ylab="centipoise",
 <<>>=
 atmComp("O2")
 atmComp()
+sum(atmComp())    #!
 @
 \subsection{saturated oxygen concentrations}
 <<>>=
-O2sat(T = 20)
-T <- seq(0, 30, 0.1)
+gas_O2sat(t = 20)
+t <- seq(0, 30, 0.1)
 @
 <<label=o2sat,include=FALSE>>=
-  plot(T, O2sat(T = T), type = "l", ylim = c(0, 15), lwd=2)
-  lines(T, O2sat(S = 0, T = T, method = "Weiss"), col = "yellow",
+  plot(t, gas_O2sat(t = t), type = "l", ylim = c(0, 15), lwd=2)
+  lines(t, gas_O2sat(S = 0, t = t, method = "Weiss"), col = "yellow",
         lwd = 2, lty = "dashed")
-  lines(T, O2sat(S = 35, T = T, method = "Weiss"), col = "red", lwd = 2)
+  lines(t, gas_O2sat(S = 35, t = t, method = "Weiss"), col = "red", lwd = 2)
 @
 \setkeys{Gin}{width=0.6\textwidth}
 \begin{figure}
@@ -212,46 +215,46 @@ T <- seq(0, 30, 0.1)
 
 \subsection{solubilities and saturated concentrations}
 <<>>=
-satconc(gas="O2")
+gas_satconc(x="O2")
 Temp<-seq(from=0,to=30,by=0.1)
 Sal <- seq(from=0,to=35,by=0.1)
 @
 <<label=solub,include=FALSE>>=
 mf  <-par(mfrow=c(2,2))
-plot(Temp,solubility(T=Temp,gas="CCl4"),xlab="temperature",
+plot(Temp,gas_solubility(t=Temp,x="CCl4"),xlab="temperature",
      ylab="mmol/m3/atm",main="solubility (S=35)",type="l",lwd=2,ylim=c(0,100000))
-lines(Temp,solubility(T=Temp,gas="CO2"),col="red",lwd=2)
-lines(Temp,solubility(T=Temp,gas="N2O"),col="blue",lwd=2)
-lines(Temp,solubility(T=Temp,gas="Rn"),col="green",lwd=2)
-lines(Temp,solubility(T=Temp,gas="CCl2F2"),col="yellow",lwd=2)
+lines(Temp,gas_solubility(t=Temp,x="CO2"),col="red",lwd=2)
+lines(Temp,gas_solubility(t=Temp,x="N2O"),col="blue",lwd=2)
+lines(Temp,gas_solubility(t=Temp,x="Rn"),col="green",lwd=2)
+lines(Temp,gas_solubility(t=Temp,x="CCl2F2"),col="yellow",lwd=2)
 
 legend("topright",col=c("black","red","blue","green","yellow"),lwd=2,
        legend=c("CCl4","CO2","N2O","Rn","CCl2F2"))
 
-plot(Temp,solubility(T=Temp,gas="Kr"),xlab="temperature",
+plot(Temp,gas_solubility(t=Temp,x="Kr"),xlab="temperature",
      ylab="mmol/m3/atm",main="solubility (S=35)",type="l",lwd=2,ylim=c(0,4000))
-lines(Temp,solubility(T=Temp,gas="CH4"),col="red",lwd=2)
-lines(Temp,solubility(T=Temp,gas="Ar"),col="blue",lwd=2)
-lines(Temp,solubility(T=Temp,gas="O2"),col="green",lwd=2)
-lines(Temp,solubility(T=Temp,gas="N2"),col="yellow",lwd=2)
-lines(Temp,solubility(T=Temp,gas="Ne"),col="grey",lwd=2)
+lines(Temp,gas_solubility(t=Temp,x="CH4"),col="red",lwd=2)
+lines(Temp,gas_solubility(t=Temp,x="Ar"),col="blue",lwd=2)
+lines(Temp,gas_solubility(t=Temp,x="O2"),col="green",lwd=2)
+lines(Temp,gas_solubility(t=Temp,x="N2"),col="yellow",lwd=2)
+lines(Temp,gas_solubility(t=Temp,x="Ne"),col="grey",lwd=2)
 
 legend("topright",col=c("black","red","blue","green","yellow","grey"),lwd=2,
        legend=c("Kr","CH4","Ar","O2","N2","Ne"))
 
-plot(Temp,satconc(T=Temp,gas="N2"),xlab="temperature",log="y",
+plot(Temp,gas_satconc(t=Temp,x="N2"),xlab="temperature",log="y",
      ylab="mmol/m3",main="Saturated conc (S=35)",type="l",lwd=2,ylim=c(1,700))
-lines(Temp,satconc(T=Temp,gas="CO2"),col="red",lwd=2)
-lines(Temp,satconc(T=Temp,gas="O2"),col="blue",lwd=2)
-lines(Temp,satconc(T=Temp,gas="CH4"),col="green",lwd=2)
-lines(Temp,satconc(T=Temp,gas="N2O"),col="yellow",lwd=2)
+lines(Temp,gas_satconc(t=Temp,x="CO2"),col="red",lwd=2)
+lines(Temp,gas_satconc(t=Temp,x="O2"),col="blue",lwd=2)
+lines(Temp,gas_satconc(t=Temp,x="CH4"),col="green",lwd=2)
+lines(Temp,gas_satconc(t=Temp,x="N2O"),col="yellow",lwd=2)
 
-plot(Sal,satconc(S=Sal,gas="N2"),xlab="salinity",log="y",
-     ylab="mmol/m3",main="Saturated conc (T=20)",type="l",lwd=2,ylim=c(1e-3,700))
-lines(Sal,satconc(S=Sal,gas="CO2"),col="red",lwd=2)
-lines(Sal,satconc(S=Sal,gas="O2"),col="blue",lwd=2)
-lines(Sal,satconc(S=Sal,gas="CH4"),col="green",lwd=2)
-lines(Sal,satconc(S=Sal,gas="N2O"),col="yellow",lwd=2)
+plot(Sal,gas_satconc(S=Sal,x="N2"),xlab="salinity",log="y",
+     ylab="mmol/m3",main="Saturated conc (t=20)",type="l",lwd=2,ylim=c(1e-3,700))
+lines(Sal,gas_satconc(S=Sal,x="CO2"),col="red",lwd=2)
+lines(Sal,gas_satconc(S=Sal,x="O2"),col="blue",lwd=2)
+lines(Sal,gas_satconc(S=Sal,x="CH4"),col="green",lwd=2)
+lines(Sal,gas_satconc(S=Sal,x="N2O"),col="yellow",lwd=2)
 legend("right",col=c("black","red","blue","green","yellow"),lwd=2,
        legend=c("N2","CO2","O2","NH4","N2O"))
 
@@ -269,16 +272,16 @@ par("mfrow"=mf)
 
 \subsection{Schmidt number and gas transfer velocity}
 <<>>=
-schmidt(gas="CO2",T=20)
+gas_schmidt(x="CO2",t=20)
 
 useq <- 0:15
 @
 <<label=transfer,include=FALSE>>=
-plot(useq,gastransfer(u10=useq),type="l",lwd=2,xlab="u10,m/s",
+plot(useq,gas_transfer(u10=useq,x="O2"),type="l",lwd=2,xlab="u10,m/s",
      ylab="cm/hr", main="O2 gas transfer velocity",ylim=c(0,75))
-lines(useq,gastransfer(u10=useq,method="Nightingale"),lwd=2,lty=2)
-lines(useq,gastransfer(u10=useq,method="Wanninkhof1"),lwd=2,lty=3)
-lines(useq,gastransfer(u10=useq,method="Wanninkhof2"),lwd=2,lty=4)
+lines(useq,gas_transfer(u10=useq,x="O2",method="Nightingale"),lwd=2,lty=2)
+lines(useq,gas_transfer(u10=useq,x="O2",method="Wanninkhof1"),lwd=2,lty=3)
+lines(useq,gas_transfer(u10=useq,x="O2",method="Wanninkhof2"),lwd=2,lty=4)
 
 legend("topleft",lty=1:4,lwd=2,legend=c("Liss and Merlivat 1986",
 "Nightingale et al. 2000","Wanninkhof 1992","Wanninkhof and McGills 1999"))
@@ -295,37 +298,37 @@ legend("topleft",lty=1:4,lwd=2,legend=c("Liss and Merlivat 1986",
 
 \subsection{Concentration of conservative species in seawater}
 <<>>=
-salconc(S=seq(0,35,by=5))
+sw_conserv(S=seq(0,35,by=5))
 @
 \section{conversions}
 \subsection{gram, mol, liter conversions}
 gram to moles and vice versa
 <<>>=
-g2mol("CO3")
-g2mol("HCO3")
-g2mol(c("C2H5OH", "CO2", "H2O"))
+1/mol.weight("CO3")
+1/mol.weight("HCO3")
+1/mol.weight(c("C2H5OH", "CO2", "H2O"))
 
 mol.weight(c("SiOH4", "NaHCO3", "C6H12O6", "Ca(HCO3)2", "Pb(NO3)2", "(NH4)2SO4"))
 @
 liter to moles and vice versa
 <<>>=
-l2mol(gas="O2",T=0)*1000
-l2mol(x=1:6,T=0)
-mol2l(T=1:10,gas="O2")
+1/mol.vol(x="O2",t=0)*1000
+1/mol.vol(x="O2",q=1:6,t=0)
+1/mol.vol(t=1:10,x="O2")
 @
 molar volume of an ideal gas
 <<>>=
-mol.vol()
-mol.vol(T=1:10)
+mol.vol(x="ideal")
+mol.vol(x="ideal",t=1:10)
 @
 \subsection{pressure conversions}
 <<>>=
-baroconv(1, "atm")
+convert_p(1, "atm")
 @
 
 \subsection{salinity and chlorinity}
 <<>>=
-sal2cl(S=35)
+convert_StoCl(S=35)
 @
 \section{finally}
 This vignette is mainly a Sweave \citep{Leisch02} translation of part of the \m help files.

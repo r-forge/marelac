@@ -1,11 +1,11 @@
-\name{baroconv}
-\alias{baroconv}
+\name{convert_p}
+\alias{convert_p}
 \title{Conversion Between Different Barometric Units}
 \description{
   The function converts between different units of pressure.
 }
 \usage{
-baroconv(x, unit = c("Pa", "bar", "at", "atm", "torr"))
+convert_p(x, unit = c("Pa", "bar", "at", "atm", "torr"))
 }
 
 \arguments{
@@ -20,10 +20,10 @@ baroconv(x, unit = c("Pa", "bar", "at", "atm", "torr"))
 
 %\seealso{}
 \examples{
-baroconv(1, "atm")
-baroconv(c(2, 3, 4.5), "bar")
+convert_p(1, "atm")
+convert_p(c(2, 3, 4.5), "bar")
 
-baroconv(1, "atm")$Pa
+convert_p(1, "atm")$Pa
 
 }
 \keyword{ misc }

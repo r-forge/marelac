@@ -5,14 +5,14 @@
   Density of water in \eqn{kg m^{-3}}{kg m^{-3}}
 }
 \usage{
-rhoH2O(T = 25, S = 35, P = 1.013253, hydroP = max(0, P-1.013253),
+rhoH2O(S = 35, t = 25, P = 1.013253, p = max(0, P-1.013253),
        method = c("Millero", "Chen", "marine", "limnological"))
 }
 \arguments{
-  \item{S}{salinity in PSU,}
-  \item{T}{temperature in \eqn{^\circ}{degrees }C,}
-  \item{P}{true pressure in bar,}
-  \item{hydroP }{hydrostatic pressure, pressure relative to the local
+  \item{S }{salinity in PSU,}
+  \item{t }{temperature in \eqn{^\circ}{degrees }C,}
+  \item{P }{true pressure in bar,}
+  \item{p }{hydrostatic pressure, pressure relative to the local
     atmospheric pressure, bar,
   }
   \item{method}{"Millero" for marine systems (default), "Chen" for the
@@ -25,8 +25,8 @@ rhoH2O(T = 25, S = 35, P = 1.013253, hydroP = max(0, P-1.013253),
   Density of water in \eqn{kg m^{-3}}{kg m^-3}.
 }
 \details{
-  To avoid confusion between the arguments (T, S, P) it is advisable to
-  use named arguments in general (e.g. \code{rho(T = 4, method =
+  To avoid confusion between the arguments (t, S, P) it is advisable to
+  use named arguments in general (e.g. \code{rho(t = 4, method =
   "Chen")}.  The marine formula is imported from package \pkg{seacarb}.)
 }
 \note{
@@ -50,11 +50,11 @@ rhoH2O(T = 25, S = 35, P = 1.013253, hydroP = max(0, P-1.013253),
 
 \seealso{\code{\link[seacarb]{rho}} in package seacarb.}
 \examples{
-rhoH2O(T = 4)
+rhoH2O(t = 4)
 T <- 0:30
-plot(T, rhoH2O(T = T))
+plot(T, rhoH2O(t = T))
 S <- 0:40
-plot(S, rhoH2O(S = S, T = 4, method = "Millero"))
-lines(S, rhoH2O(S = S, T = 4, method = "Chen"))
+plot(S, rhoH2O(S = S, t = 4, method = "Millero"))
+lines(S, rhoH2O(S = S, t = 4, method = "Chen"))
 }
 \keyword{ misc }

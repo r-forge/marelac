@@ -3,12 +3,12 @@
 \title{Molecular Diffusion Coefficients}
 \description{
   Calculates molecular and ionic diffusion coefficients (cm2/hour), for
-  several species at given salinity (S) temperature (T) and pressure
+  several species at given salinity (S) temperature (t) and pressure
   (P).
 
   Based on the code "CANDI" by B.P. Boudreau
 }
-\usage{diffcoeff(S = 35, T = 25, P = 1.013253,
+\usage{diffcoeff(S = 35, t = 25, P = 1.013253,
        x = c("O2", "CO2", "NH3", "H2S",
       "CH4", "HCO3", "CO3", "NH4", "HS", "NO3", "H2PO4",
       "HPO4", "PO4", "H", "OH", "Ca", "Mg", "Fe", "Mn",
@@ -16,8 +16,8 @@
 }
 \arguments{
   \item{S }{Salinity, -,}
-  \item{T }{Temperature, degrees C,}
-  \item{P }{Pressure, bar,}
+  \item{t }{Temperature, degrees C,}
+  \item{P }{True pressure, bar,}
   \item{x }{character vector with species whose diffusion coefficients
     should be estimated.
   }
@@ -29,9 +29,9 @@
 
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }
 \examples{
-diffcoeff(S = 15, T = 15)*24  # cm2/day
-diffcoeff(T = 10, x = "O2")
-difftemp <- diffcoeff(T = 0:30)[,1:13]
+diffcoeff(S = 15, t = 15)*24  # cm2/day
+diffcoeff(t = 10, x = "O2")
+difftemp <- diffcoeff(t = 0:30)[,1:13]
 matplot(0:30, difftemp, xlab = "temperature", ylab = "cm2/hour",
         main = "Molecular/ionic diffusion", type = "l")
 legend("topleft", ncol = 2, cex = 0.8, title = "mean", col = 1:13, lty = 1:13,

@@ -9,23 +9,23 @@
   Based on the code "CANDI" by B.P. Boudreau
 }
 \usage{
-viscosity(T = 25, S = 35, P = 1.013253)
+viscosity(S = 35, t = 25, P = 1.013253)
 }
 \arguments{
-  \item{T }{temperature, \eqn{^\circ}{degrees }C,}
   \item{S }{salinity, -,}
-  \item{P }{pressure, bar.}
+  \item{t }{temperature, \eqn{^\circ}{degrees }C,}
+  \item{P }{True pressure, bar.}
 }
 \value{
   Shear visocisity in centipoise.
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }
 \examples{
-plot(0:30, viscosity(T = 0:30, S = 35, P = 1),
+plot(0:30, viscosity(t = 0:30, S = 35, P = 1),
   xlab = "temperature", ylab = "centipoise", 
   main = "shear viscosity of water", type = "l")
-lines(0:30, viscosity(T = 0:30, S = 0, P = 1), col = "red")
-lines(0:30, viscosity(T = 0:30, S = 35, P = 100), col = "blue")
+lines(0:30, viscosity(t = 0:30, S = 0, P = 1), col = "red")
+lines(0:30, viscosity(t = 0:30, S = 35, P = 100), col = "blue")
 legend("topright", col = c("black","red","blue"), lty = 1,
   legend = c("S=35, P=1", "S=0, P=1", "S=35, P=100"))
 }

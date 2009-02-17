@@ -1,5 +1,5 @@
-\name{watdepth}
-\alias{watdepth}
+\name{sw_depth}
+\alias{sw_depth}
 \title{Water Depth}
 \description{
   Computes the water depth for water of salinity 35, and temperature 0
@@ -7,13 +7,11 @@
   polynomial.
 }
 \usage{
-watdepth(P = 1.013253, hydroP = max(0,P-1.013253), lat = 0)
+sw_depth(p = P-1.013253, P=1.013253, lat = 0)
 }
 \arguments{
-  \item{P }{pressure, bar,}
-  \item{hydroP }{hydrostatic pressure, pressure relative to the local
-    atmospheric pressure,bar,
-  }
+  \item{p }{gauge or applied pressure, pressure relative to the local atmospheric pressure, bar}
+  \item{P }{true pressure, bar}
   \item{lat }{latitude (-90 - +90), -,}
 }
 \value{
@@ -21,13 +19,11 @@ watdepth(P = 1.013253, hydroP = max(0,P-1.013253), lat = 0)
 }
 \note{
 
-  \code{hydroP} is hydrostatic pressure, 0 bar at sea surface.
-
-  \code{watdepth} for  hydroP = 1000, lat = 30 is 9712.653 m.
+  \code{sw_depth} for  p = 1000, lat = 30 is 9712.653 m.
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-watdepth(hydroP = 1000, lat = 30)
+sw_depth(p = 1000, lat = 30)
 }
 \references{
   Fofonoff, P. and Millard, R.C. Jr. Unesco 1983. Algorithms for

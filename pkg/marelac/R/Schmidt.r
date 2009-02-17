@@ -2,11 +2,14 @@
 
 
 
-schmidt <- function (T=25,gas="O2")
+gas_schmidt <- function (t=25,x=c("He", "Ne", "N2", "O2", "Ar",
+        "Kr", "Rn", "CH4","CO2", "N2O", "CCl2F2", "CCL3F",
+        "SF6", "CCl4"))
 {
 
 #Coefficients for the fit of the schmidth number according to:
-#Sc = A- BT+CT^@-DT^3, with T in dg C
+#Sc = A- BT+CT^@-DT^3, with t in dg C
+  x <- match.arg(x, several.ok = TRUE)
 
 SchmidtCoeff <- data.frame(
 A = c(410.14,855.1,2206.1,1638,1909.1,2205,3412.8,2039.2,2073.1,2301.1,3845.4,3501.8,3531.6,4295.8),
@@ -17,16 +20,21 @@ rownames(SchmidtCoeff) <- c("He", "Ne", "N2", "O2", "Ar",
         "Kr", "Rn", "CH4","CO2", "N2O", "CCl2F2", "CCL3F",
         "SF6", "CCl4")
 
-Sc<-SchmidtCoeff[gas,]
+Sc<-SchmidtCoeff[x,]
 
-schmidt <-Sc$A-Sc$B*T+Sc$C*T*T-Sc$D*T*T*T
+schmidt <-Sc$A-Sc$B*t+Sc$C*t*t-Sc$D*t*t*t
 schmidt
 }
 
-gastransfer<- function (T=25,u10=1,gas="O2",method=c("Liss","Nightingale","Wanninkhof1","Wanninkhof2"),
-           Schmidt=schmidt(T=T,gas=gas))
+gas_transfer<- function (t=25,u10=1,x=c("He", "Ne", "N2", "O2", "Ar",
+        "Kr", "Rn", "CH4","CO2", "N2O", "CCl2F2", "CCL3F",
+        "SF6", "CCl4"),
+         method=c("Liss","Nightingale","Wanninkhof1","Wanninkhof2"),
+         Schmidt=gas_schmidt(t=t,x=x))
 {
  method <- match.arg(method)
+# x <- match.arg(x, several.ok = TRUE)
+
  S600<-Schmidt/600
  tr <- switch(method, Liss =
  ifelse (u10<3.6,0.17*u10*Schmidt^(-2/3),ifelse (u10<=13, (u10-3.4)*2.8/sqrt(S600),

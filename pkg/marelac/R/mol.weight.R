@@ -66,6 +66,3 @@ mol.weight <- function(species) {
   sapply(species, molweight)
 }
 
-## chemical species whose weight must be converted to mol
-g2mol <- function(species)
-   1/mol.weight(species)

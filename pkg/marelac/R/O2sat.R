@@ -1,6 +1,6 @@
-O2sat <- function(S = 35, T = 25, NN = 0, method = c("Weiss", "APHA", "Paul")) {
+gas_O2sat <- function(S = 35, t = 25, NN = 0, method = c("Weiss", "APHA", "Paul")) {
 
-  K <-  T + 273.15
+  K <-  t + 273.15
 
   log10 <- function(x) log(x)/log(10)
   method <- match.arg(method)
@@ -16,7 +16,7 @@ O2sat <- function(S = 35, T = 25, NN = 0, method = c("Weiss", "APHA", "Paul")) {
             143.3483 * log(K / 100) - 21.8492 * K / 100 +
             S * (-0.033096 + 0.014259 * K / 100 + - 0.001700 * (K / 100)^2)),
     ## Paul, L. approximation that respects height above see level
-    Paul = (1012-0.12 * NN)/1013 * (14.674 - 13.644 * log10(1 + T/12.8))
+    Paul = (1012-0.12 * NN)/1013 * (14.674 - 13.644 * log10(1 + t/12.8))
   )
   attr(ret, "unit") = "(g/m3)"
   ret

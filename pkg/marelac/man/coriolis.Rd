@@ -4,7 +4,7 @@
 \description{
   Estimates the coriolis factor, f (in \eqn{s^{-1}}{1/second} where
   \eqn{f = 2 \cdot \omega \cdot sin(lat)}{f = 2*omega*sin(lat)}, where
-  \eqn{\omega = 7.292e-5}{omega = 7.292e-5} radians/sec}
+  \eqn{\omega = 7.292e-5}{omega = 7.292e-5} radians/sec, the rotation of the earth}
 \usage{
 coriolis(lat)
 }
@@ -22,6 +22,9 @@ plot(-90:90, coriolis(-90:90), xlab = "latitude, dg North",
 \references{
   S. Pond & G. Pickard 2nd Ed. 1986. Introductory Dynamical
   Oceanography, Pergamon Press, Sydney.
+  
+  Griffies, S. M., 2004: Fundamentals of Ocean Climate Models. Princeton, NJ:
+Princeton University Press, 518 pp.
 }
 \keyword{utilities}
 

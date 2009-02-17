@@ -1,5 +1,5 @@
-\name{schmidt}
-\alias{schmidt}
+\name{gas_schmidt}
+\alias{gas_schmidt}
 \title{The Schmidt Number for Gases in Seawater}
 \description{
   The Schmidt number as a function of temperature (0-30dgC) and for a
@@ -13,13 +13,13 @@
   Schmidt numbers are used to estimate the gas transfer velocity.
 }
 \usage{
-schmidt(T = 25, gas = "O2")
+gas_schmidt(t = 25, x = c("He", "Ne", "N2", "O2", "Ar",
+        "Kr", "Rn", "CH4","CO2", "N2O", "CCl2F2", "CCL3F",
+        "SF6", "CCl4"))
 }
 \arguments{
-  \item{T }{Temperature in \eqn{^\circ}{degrees }C,}
-  \item{gas }{The gas, one of "He", "Ne", "N2", "O2", "Ar", "Kr", "Rn",
-    "CH4", "CO2", "N2O", "CCl2F2", "CCL3F", "SF6", "CCl4".
-  }
+  \item{t }{Temperature in \eqn{^\circ}{degrees }C,}
+  \item{x }{The gas }
 }
 \value{
   The Schmidt number, a dimensionless quantity.
@@ -27,7 +27,7 @@ schmidt(T = 25, gas = "O2")
 
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-schmidt(gas = "CO2") # about660
+gas_schmidt(x = "CO2") # about660
 }
 \references{
   Sarmiento J.L. and N. Gruber, 2006. Ocean Biogeochemical Dynamics.
@@ -52,6 +52,6 @@ schmidt(gas = "CO2") # about660
 
   and \eqn{CCl_4}{CCl3} (Wanninkhof, pers.comm).
 }
-\seealso{\code{\link{gastransfer}}}
+\seealso{\code{\link{gas_transfer}}}
 \keyword{utilities}
 

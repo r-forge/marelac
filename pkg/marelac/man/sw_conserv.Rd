@@ -1,12 +1,12 @@
-\name{salconc}
-\alias{salconc}
+\name{sw_conserv}
+\alias{sw_conserv}
 \title{Concentrations of (Conservative) Species in Seawater}
 \description{
   Estimates the concentration of Borate,Calcite, Sulphate and Fluoride
-  in seawater.
+  in seawater, as a function of salinity.
 }
 \usage{
-salconc(S=35)
+sw_conserv(S=35)
 }
 \arguments{
   \item{S }{salinity.}
@@ -16,7 +16,7 @@ salconc(S=35)
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-data.frame(salinity=1:35,salconc(1:35))
+data.frame(salinity=1:35,sw_conserv(1:35))
 }
 \references{
   Millero, F.J., 1995. Thermodynamics of the carbon dioxide system in

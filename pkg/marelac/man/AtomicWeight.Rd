@@ -18,7 +18,7 @@
   (except U, Th, Pa).
 }
 \seealso{
-  \code{\link{mol.weight}}, \code{\link{g2mol}}
+  \code{\link{mol.weight}}
 }
 \examples{
 AtomicWeight

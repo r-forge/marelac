@@ -11,7 +11,7 @@
 ######################################################################
 
 diffcoeff <- function(S=35,      # Salinity, ppt
-                      T=25,      # Temperture, degrees C
+                      t=25,      # Temperture, degrees C
                       P=1.013253,       # Pressure, atm
                       x=c("O2","CO2","NH3","H2S","CH4","HCO3","CO3","NH4",
       "HS","NO3","H2PO4","HPO4","PO4","H","OH","Ca","Mg","Fe","Mn",
@@ -22,19 +22,19 @@ diffcoeff <- function(S=35,      # Salinity, ppt
 #---------------------------------------------------------------------
 # Diffcoeff   Calculates molecular and ionic diffusion coefficients,
 #             for several species at given
-#             salinity, S, temperature, T, and pressure, P
+#             salinity, S, temperature, t, and pressure, P
 #
 #             diffusion coefficients are in units of cm**2/hr
 # Based on the original fortran code of B. Boudreau (1996)
 #---------------------------------------------------------------------
-      TK  <- T + 273.15   # Temperature, Kelvin
+      TK  <- t + 273.15   # Temperature, Kelvin
       x   <- match.arg(x, several.ok = TRUE)
 
 #  The viscosity for the true sample conditions.
-      H2OViscosity <- viscosity(S,T,P)
+      H2OViscosity <- viscosity(S,t,P)
 
 #  Diffusion coefficients in pure water at sample temperature.
-      V0 <- viscosity(S=0,T=T,P=1)
+      V0 <- viscosity(S=0,t=t,P=1)
 
 #  To correct for salinity, the Stokes-Einstein relationship is used.
 #  This is not quite accurate, but is at least consistent.
@@ -72,21 +72,21 @@ diffcoeff <- function(S=35,      # Salinity, ppt
 #         HCO3-, HPO4=, PO4(3-)
 
       fac2    = 1.0e-06*fac
-      D_HCO3  = (5.06 + 0.275*T)*fac2
-      D_CO3   = (4.33 + 0.199*T)*fac2
-      D_NH4   = (9.5  + 0.413*T)*fac2
-      D_HS    = (10.4 + 0.273*T)*fac2
-      D_NO3   = (9.50 + 0.388*T)*fac2
-      D_H2PO4 = (4.02 + 0.223*T)*fac2
-      D_HPO4  = (3.26 + 0.177*T)*fac2
-      D_PO4   = (2.62 + 0.143*T)*fac2
-      D_H     = (54.4 + 1.555*T)*fac2
-      D_OH    = (25.9 + 1.094*T)*fac2
-      D_Ca    = (3.60 + 0.179*T)*fac2
-      D_Mg    = (3.43 + 0.144*T)*fac2
-      D_Fe    = (3.31 + 0.150*T)*fac2
-      D_Mn    = (3.18 + 0.155*T)*fac2
-      D_SO4   = (4.88 + 0.232*T)*fac2
+      D_HCO3  = (5.06 + 0.275*t)*fac2
+      D_CO3   = (4.33 + 0.199*t)*fac2
+      D_NH4   = (9.5  + 0.413*t)*fac2
+      D_HS    = (10.4 + 0.273*t)*fac2
+      D_NO3   = (9.50 + 0.388*t)*fac2
+      D_H2PO4 = (4.02 + 0.223*t)*fac2
+      D_HPO4  = (3.26 + 0.177*t)*fac2
+      D_PO4   = (2.62 + 0.143*t)*fac2
+      D_H     = (54.4 + 1.555*t)*fac2
+      D_OH    = (25.9 + 1.094*t)*fac2
+      D_Ca    = (3.60 + 0.179*t)*fac2
+      D_Mg    = (3.43 + 0.144*t)*fac2
+      D_Fe    = (3.31 + 0.150*t)*fac2
+      D_Mn    = (3.18 + 0.155*t)*fac2
+      D_SO4   = (4.88 + 0.232*t)*fac2
 
 # H3PO4 : Least (1984) determined D(H3PO4) at 25 deg C and 0 S.
 #         Assume that this value can be scaled by the Stokes-Einstein
@@ -96,7 +96,7 @@ diffcoeff <- function(S=35,      # Salinity, ppt
       TS      = 25.0
       SS      = 0.0
       V25     <- viscosity(SS,TS,1)
-      VTK     <- viscosity(SS,T,1)
+      VTK     <- viscosity(SS,t,1)
       D_H3PO4 = D_H3PO4*V25/298.15*TK/VTK*fac
 
 #  B(OH)3 : Mackin (1986) determined D(B(OH)3) at 25 deg C and
@@ -108,7 +108,7 @@ diffcoeff <- function(S=35,      # Salinity, ppt
       TS     = 25.0
       SS     = 29.2
       V25   <- viscosity(SS,TS,1)
-      VTK   <- viscosity(0,T,1)
+      VTK   <- viscosity(0,t,1)
 
       D_BOH3 = D_BOH3*V25/298.15*TK/VTK*fac
 
@@ -126,7 +126,7 @@ diffcoeff <- function(S=35,      # Salinity, ppt
       TS = 25.0
       SS = 36.1
       V25 <- viscosity(SS,TS,1)
-      VTK <- viscosity(0,T,1)
+      VTK <- viscosity(0,t,1)
       D_H4SiO4 = D_H4SiO4*V25/298.15*TK/VTK*fac
       diffc <-data.frame(       #
       O2  = D_O2,         # Oxygen
@@ -160,21 +160,21 @@ diffcoeff <- function(S=35,      # Salinity, ppt
 
 #**********************************************************************
 
-viscosity <- function (T=25,     # Temperture, degrees C
-                       S=35,     # Salinity, ppt
+viscosity <- function (S=35,     # Salinity, ppt
+                       t=25,     # Temperture, degrees C
                        P=1.013253)      # Pressure, bar
 #---------------------------------------------------------------------
 #  VISCO      Calculates the shear viscosity of water using the equation
 #             given by Kukulka et al. (1987).
 #             Calculated viscosity is in centipoise.
 #
-#             Valid for 0<T<30 and 0<S<36.
+#             Valid for 0<t<30 and 0<S<36.
 #---------------------------------------------------------------------
 
-      1.7910 - T*(6.144e-02 - T*(1.4510e-03 - T*1.6826e-05))            +
+      1.7910 - t*(6.144e-02 - t*(1.4510e-03 - t*1.6826e-05))            +
       - 1.5290e-04*P + 8.3885e-08*P*P + 2.4727e-03*S                    +
-      + (6.0574e-06*P - 2.6760e-09*P*P)*T + (T*(4.8429e-05              +
-      - T*(4.7172e-06 - T*7.5986e-08)))*S
+      + (6.0574e-06*P - 2.6760e-09*P*P)*t + (t*(4.8429e-05              +
+      - t*(4.7172e-06 - t*7.5986e-08)))*S
 
     # end viscosity
 

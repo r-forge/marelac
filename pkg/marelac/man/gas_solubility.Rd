@@ -1,5 +1,5 @@
-\name{solubility}
-\alias{solubility}
+\name{gas_solubility}
+\alias{gas_solubility}
 \title{Solubility Parameters}
 % should we really use atm?
 \description{
@@ -7,45 +7,44 @@
   calculated from the Bunsen solubility coefficients and the volumetric
   solubility coefficients.
 }
-\usage{solubility(S = 35, T = 25, P = 1.013253, gas = "O2")}
+\usage{gas_solubility(S = 35, t = 25, P = 1.013253, x = c("He","Ne",
+"N2","O2","Ar","Kr","Rn","CH4","CO2","N2O","CCl2F2","CCl3F","SF6","CCl4"))}
 \arguments{
-  \item{S }{Salinity, -,}
-  \item{T }{Temperature, \eqn{^\circ}{degrees }C,}
-  \item{P }{Pressure, bar,}
-  \item{gas }{The gas, one of "He", "Ne", "N2", "O2", "Ar", "Kr", "Rn",
-    "CH4", "CO2", "N2O", "CCl2F2", "CCL3F", "SF6", "CCl4".
-  }
+  \item{S }{Salinity, -}
+  \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
+  \item{P }{True pressure, bar,}
+  \item{x }{The gas  }
 }
 \value{
   The solubility, mmol/m3/bar.
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-solubility(T = 1:20,S = 35, gas = "CO2")
-solubility(T = 0:5,S = 35,gas = "O2")
+gas_solubility(t = 1:20,S = 35, x = "CO2")
+gas_solubility(t = 0:5,S = 35,x = "O2")
 
 Temp <- seq(from = 0, to = 30, by = 0.1)
 mf <- par(mfrow = c(1, 2))
 
-plot(Temp,solubility(T = Temp, gas = "CCl4"), xlab = "temperature",
+plot(Temp,gas_solubility(t = Temp, x = "CCl4"), xlab = "temperature",
      ylab = "mmol/m3/atm", main = "solubility (S=35)",
      type = "l", lwd = 2, ylim = c(0, 100000))
-lines(Temp,solubility(T = Temp, gas = "CO2"), col = "red", lwd = 2)
-lines(Temp,solubility(T = Temp, gas = "N2O"), col = "blue", lwd = 2)
-lines(Temp,solubility(T = Temp, gas = "Rn"), col = "green", lwd = 2)
-lines(Temp,solubility(T = Temp, gas = "CCl2F2"), col = "yellow", lwd = 2)
+lines(Temp,gas_solubility(t = Temp, x = "CO2"), col = "red", lwd = 2)
+lines(Temp,gas_solubility(t = Temp, x = "N2O"), col = "blue", lwd = 2)
+lines(Temp,gas_solubility(t = Temp, x = "Rn"), col = "green", lwd = 2)
+lines(Temp,gas_solubility(t = Temp, x = "CCl2F2"), col = "yellow", lwd = 2)
 
 legend("topright", col = c("black","red","blue","green","yellow"), lwd = 2,
        legend = c("CCl4","CO2","N2O","Rn","CCl2F2"))
 
-plot(Temp, solubility(T = Temp, gas = "Kr"), xlab = "temperature",
+plot(Temp, gas_solubility(t = Temp, x = "Kr"), xlab = "temperature",
      ylab = "mmol/m3/atm", main = "solubility (S=35)", type = "l",
      lwd = 2, ylim = c(0, 4000))
-lines(Temp, solubility(T = Temp, gas = "CH4"), col = "red", lwd = 2)
-lines(Temp, solubility(T = Temp, gas = "Ar"), col = "blue", lwd = 2)
-lines(Temp, solubility(T = Temp, gas = "O2"), col = "green", lwd = 2)
-lines(Temp, solubility(T = Temp, gas = "N2"), col = "yellow", lwd = 2)
-lines(Temp, solubility(T = Temp, gas = "Ne"), col = "grey", lwd = 2)
+lines(Temp, gas_solubility(t = Temp, x = "CH4"), col = "red", lwd = 2)
+lines(Temp, gas_solubility(t = Temp, x = "Ar"), col = "blue", lwd = 2)
+lines(Temp, gas_solubility(t = Temp, x = "O2"), col = "green", lwd = 2)
+lines(Temp, gas_solubility(t = Temp, x = "N2"), col = "yellow", lwd = 2)
+lines(Temp, gas_solubility(t = Temp, x = "Ne"), col = "grey", lwd = 2)
 
 legend("topright",col = c("black", "red", "blue", "green", "yellow", "grey"),
        lwd = 2, legend = c("Kr", "CH4", "Ar", "O2", "N2", "Ne"))
@@ -55,28 +54,28 @@ par(mfrow = mf)
 ## generate table 3.2.3 from Sarmiento and Gruber
 Temp <- seq (0,30,by = 5)
 ## saturated concentrations in mmol/m3
-A <- data.frame(rbind( T = Temp,
-            He = solubility(T = Temp,gas = "He"),
-            Ne = solubility(T = Temp,gas = "Ne"),
-            N2 = solubility(T = Temp,gas = "N2"),
-            O2 = solubility(T = Temp,gas = "O2"),
-            Ar = solubility(T = Temp,gas = "Ar"),
-            Kr = solubility(T = Temp,gas = "Kr"),
-            Rn = solubility(T = Temp,gas = "Rn"))  )
+A <- data.frame(rbind( t = Temp,
+            He = gas_solubility(t = Temp,x = "He"),
+            Ne = gas_solubility(t = Temp,x = "Ne"),
+            N2 = gas_solubility(t = Temp,x = "N2"),
+            O2 = gas_solubility(t = Temp,x = "O2"),
+            Ar = gas_solubility(t = Temp,x = "Ar"),
+            Kr = gas_solubility(t = Temp,x = "Kr"),
+            Rn = gas_solubility(t = Temp,x = "Rn"))  )
 format(A,digits = 4)
 ## table values at 20 dg C:
 ## 332.9   390.7   557.9  1126  1236  2241  14130
 ## note the slight deviations for Rn
 
 ## saturated concentrations in micromol/m3
-AA <- data.frame(rbind( T = Temp,
-            CH4 = solubility(T = Temp,gas = "CH4"),
-            CO2 = solubility(T = Temp,gas = "CO2"),
-            N2O = solubility(T = Temp,gas = "N2O"),
-            CCL2F2 = solubility(T = Temp,gas = "CCl2F2"),
-            CCL3F = solubility(T = Temp,gas = "CCl3F"),
-            SF6 = solubility(T = Temp,gas = "SF6"),
-            CCl4 = solubility(T = Temp,gas = "CCl4")))
+AA <- data.frame(rbind( t = Temp,
+            CH4 = gas_solubility(t = Temp,x = "CH4"),
+            CO2 = gas_solubility(t = Temp,x = "CO2"),
+            N2O = gas_solubility(t = Temp,x = "N2O"),
+            CCL2F2 = gas_solubility(t = Temp,x = "CCl2F2"),
+            CCL3F = gas_solubility(t = Temp,x = "CCl3F"),
+            SF6 = gas_solubility(t = Temp,x = "SF6"),
+            CCl4 = gas_solubility(t = Temp,x = "CCl4")))
 format(AA,digits = 4)
 
 ## Table values at 20 dgC:
@@ -91,7 +90,7 @@ format(AA,digits = 4)
   of the gas in moist air.
 
   To convert them for use with partial pressure in dry air, divide by
-  (1-vapor(S,T)).
+  (1-vapor(S,t)).
 }
 \references{
   Sarmiento J.L. and N. Gruber, 2006. Ocean Biogeochemical

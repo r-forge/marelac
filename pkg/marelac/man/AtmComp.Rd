@@ -29,5 +29,6 @@ atmComp(x = c("He", "Ne", "N2", "O2", "Ar", "Kr", "CH4", "CO2",
 atmComp("O2")
 atmComp(c("O2", "CH4", "CO2", "N2O"))
 atmComp()
+sum(atmComp()) # note this is not =1!
 }
-\keyword{datasets}
+\keyword{utilities}

@@ -31,7 +31,6 @@ mol.weight(species)
   strictly case sensitive.
 }
 \seealso{
-  \code{\link{g2mol}} the inverse function and
   \code{\link{AtomicWeight}} for atomic weights of the elements.
 }
 \examples{
@@ -50,6 +49,11 @@ mol.weight(c("SiOH4", "NaHCO3", "C6H12O6", "Ca(HCO3)2", "Pb(NO3)2", "(NH4)2SO4")
 ## Note that chemical formulae are case-sensitive
 mol.weight("Co") # cobalt
 mol.weight("CO") # carbon monoxide
+
+
+## from gram to mol
+1/mol.weight("CO3")
+
 }
 \keyword{utilities}
 

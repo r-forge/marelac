@@ -21,11 +21,23 @@
       substances as a function of salinity, ...
   }
   
-  Many of the functions are from the UNESCO 1983 paper. Note that in
-  this paper, pressure is hydrostatic or gauge pressure, i.e. pressure
-  relative to atmospheric pressure, and expressed in dbar. In the
-  functions of \code{marelac}, pressure is either true pressure, or
-  hydrostatic pressure, both expressed in bar.
+  
+ About the symbols used.
+ 
+ 
+ Here we adopt the symbolism as in McDougall et al.,, 2009:
+ 
+ \itemize{
+ \item S for absolute salinity, (g/kg)
+ \item P for absolute (total) pressure (bar)
+ \item p for sea pressure (also called gauge or applied pressure (bar), the
+ pressure relative to P0, one standard atmosphere (=1.01325 bar)
+ \item t for temperature in \eqn{^\circ}{degrees }C
+ \item T for absolute temperature, in \eqn{^\circ}{degrees }K; T = t+273.15
+
+ }
+  Many of the functions are from the UNESCO 1983 paper, or from Feistel, 2008.
+  Note that in these papers, pressure is expressed in dbar.
 }
 \details{
   \tabular{ll}{
@@ -54,10 +66,27 @@
   diagenesis in aquatic sediments.  COMPUTERS & GEOSCIENCES 22 (5):
   479-496.
 
-  For many other fundamental properties of seawater: Fofonoff, P. and
+  For many other fundamental properties of seawater: either the UNESCO report (1983)
+
+  Fofonoff, P. and
   Millard, R.C. Jr. Unesco 1983. Algorithms for computation of
   fundamental properties of seawater.  Unesco Tech. Pap. in Mar. Sci.,
   No. 44, 53 pp.
+  
+  or the more recent report and papers:
+
+  McDougall, T.J., R. Feistel, F. J. Millero, D. R. Jackett, D. G. Wright, B. A. King, G. M. Marion, C.-T. A. Chen
+and P. Spitzer, 2009: Calculation of the Thermophysical Properties of Seawater, Global Ship-based Repeat
+Hydrography Manual, IOCCP Report No. 14, ICPO Publication Series no. 134.
+
+Feistel, R., 2008: A Gibbs function for seawater thermodynamics for -6 to 80 dgC and salinity up
+to 120 g/kg. Deep-Sea Res. I, 55, 1639-1671.
+
+  Millero, F.J., Feistel, R., Wright, D.G., and McDougall, T.J., 2008: The composition of Standard
+Seawater and the definition of the Reference-Composition Salinity Scale, Deep-Sea Res. I,
+55, 50-72.
+
+
 }
 
 \examples{

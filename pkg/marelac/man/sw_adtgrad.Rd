@@ -1,5 +1,5 @@
-\name{adtgrad}
-\alias{adtgrad}
+\name{sw_adtgrad}
+\alias{sw_adtgrad}
 \title{Adiabatic Temperature Gradient in Seawater}
 
 \description{
@@ -12,30 +12,28 @@
   surroundings.
 }
 \usage{
-adtgrad(T = 25, S = 35, P = 1.013253, hydroP = max(0, P - 1.013253))
+sw_adtgrad(S = 35, t = 25, p = P-1.013253, P=1.013253 )
 }
 \arguments{
   \item{S }{Salinity, -}
-  \item{T }{Temperature, \eqn{^\circ}{degrees }C}
-  \item{P }{Pressure, bar}
-  \item{hydroP }{hydrostatic pressure, pressure relative to the local atmospheric pressure, bar}
+  \item{t }{Temperature, \eqn{^\circ}{degrees }C}
+  \item{p }{gauge or applied pressure, pressure relative to the local atmospheric pressure, bar}
+  \item{P }{true pressure, bar}
 }
 \value{
   adiabatic temperature gradient, in dg K / bar
 }
 \note{
 
-  \code{hydroP} is hydrostatic pressure, 0 bar at sea surface.
-
-  Note: in the original formula, the units of \code{adtgrad} are dg
+  Note: in the original formula, the units of \code{sw_adtgrad} are dg
   K/dbar (here: dg K/bar).
 
-  \code{adtgrad} for S = 40, T = 40, hydroP = 1000 is 3.255976E-3
+  \code{sw_adtgrad} for S = 40, t = 40, p = 1000 is 3.255976E-3
 
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }
 \examples{
-adtgrad(T = 40, S = 40, hydroP = 1000)
+sw_adtgrad(t = 40, S = 40, p = 1000)
 }
 \references{
   Fofonoff, P. and Millard, R.C. Jr. Unesco 1983. Algorithms for computation of fundamental properties of

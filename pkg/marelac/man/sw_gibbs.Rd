@@ -1,0 +1,95 @@
+\encoding{latin1}
+\name{sw_gibbs}
+\alias{sw_gibbs}
+\title{gibbs function of sewater}
+\description{
+  Calculates the sewater specific gibbs free energy, including
+  derivatives upto order 2, for a
+  given temperature, salinity and pressure.
+  
+The Gibbs function of seawater g(S,t,p) is related to the specific enthalpy h and
+entropy s, by g = h - (273.15 K + t) s
+}
+\usage{
+sw_gibbs(S = 35, t = 25, p = P-1.013253, P=1.013253, dS=0, dt=0, dp=0)}
+\arguments{
+  \item{S }{Salinity (dimensionless),}
+  \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
+  %\item{K }{Temperature, dgK}
+  \item{p }{gauge or applied pressure, pressure relative to the local atmospheric pressure, bar}
+  \item{P }{true pressure, bar}
+  \item{dS }{order of the S derivative}
+  \item{dt }{order of the t derivative}
+  \item{dp }{order of the p derivative}
+}
+\value{
+   The Gibbs function, J/kg, or its derivative
+}
+\author{Karline Soetaert < k.soetaert@nioo.knaw.nl > }
+\examples{
+# table 22 Feistel 2008
+sw_gibbs(0,0,0) #= 101.34274
+sw_gibbs(0,0,0,dS=1) # 0
+sw_gibbs(0,0,0,dt=1) # 0.147643376
+sw_gibbs(0,0,0,dp=1) # 0.1000015694e-2
+sw_gibbs(0,0,0,dS=1,dp=1) # 0
+sw_gibbs(0,0,0,dt=1,dp=1) # -0.677700318e-7
+
+sw_gibbs(0,79.85,0) # -0.446114969e5              NOT CORRECT
+sw_gibbs(0,79.85,0,dt=1) # -0.107375993e4         NOT CORRECT
+sw_gibbs(0,79.85,0,dp=1) # 0.102892956e-2         NOT CORRECT
+sw_gibbs(0,79.85,0,dS=1,dp=1) #0
+sw_gibbs(0,79.85,0,dt=1,dp=1) #0.659051552e-6
+
+
+sw_gibbs(0,0,998.98675)#  0.977303862e5
+sw_gibbs(0,0,998.98675,dt=1)#  0.851466502e1
+sw_gibbs(0,0,998.98675,dp=1)#  0.956683329e-3
+sw_gibbs(0,0,998.98675,dS=1,dp=1)#  0
+sw_gibbs(0,0,998.98675,dt=1,dp=1)# 0.199079571e-6
+
+# table 21 Feistel 2008
+sw_gibbs(35.16504,0,0) #=0
+sw_gibbs(35.16504,0,0,dS=1) # 0.639974067e2      NOT CORRECT
+sw_gibbs(35.16504,0,0,dt=1) #=0
+sw_gibbs(35.16504,0,0,dp=1) #0.972661217e-3
+sw_gibbs(35.16504,0,0,dS=1,dp=1) # -0.759615412e-6
+sw_gibbs(35.16504,0,0,dt=1,dp=1) # 0.515167556e-7    !!!
+
+sw_gibbs(100,79.85,0)   #=-0.295243229e5           NOT CORRECT
+sw_gibbs(100,79.85,0,dS=1) #0.251957276e3
+sw_gibbs(100,79.85,0,dt=1) #-0.917529024e3       NOT CORRECT
+sw_gibbs(100,79.85,0,dp=1) #0.971006828e-3       NOT CORRECT
+sw_gibbs(100,79.85,0,dS=1,dp=1)          #-0.305957802e-6
+sw_gibbs(100,79.85,0,dt=1,dp=1)          #0.146211315e-5
+
+sw_gibbs(35.16504,0,998.98675)           #=0.951294557e5
+sw_gibbs(35.16504,0,998.98675,dS=1)      #-0.545861581e1
+sw_gibbs(35.16504,0,998.98675,dt=1)      #0.160551219e2
+sw_gibbs(35.16504,0,998.98675,dp=1)      #0.933770945e-3
+sw_gibbs(35.16504,0,998.98675,dS=1,dp=1) #-0.640757619e-6
+sw_gibbs(35.16504,0,998.98675,dt=1,dp=1) #0.245708012e-6
+
+}
+\note{
+The gibbs functgion is defined as the sum of a pure water part and the
+saline part (IAPWS-08)
+
+The coefficients from McDougall were used.
+Fot temperature, they differ slightly from Feistel 2003, which is probably why,
+for temparatures different from 0, there is a slight offset from the estimates
+as from table 22 or 21 from Feistel (2008).
+
+
+}
+\references{
+Feistel, R., 2008: A Gibbs function for seawater thermodynamics for -6 to 80 dgC and salinity up
+to 120 g/ kg. Deep-Sea Res. I, 55, 1639-1671.
+
+  McDougall, T.J., R. Feistel, F. J. Millero, D. R. Jackett, D. G. Wright, B. A. King, G. M. Marion, C.-T. A. Chen
+and P. Spitzer, 2009: Calculation of the Thermophysical Properties of Seawater, Global Ship-based Repeat
+Hydrography Manual, IOCCP Report No. 14, ICPO Publication Series no. 134.
+
+}
+\keyword{utilities}
+

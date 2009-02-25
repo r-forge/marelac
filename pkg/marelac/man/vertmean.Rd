@@ -15,11 +15,9 @@ vertmean(depth, vari, level, top, bot, vol)
 \arguments{
   \item{depth}{sorted vector of sampled depths,}
   \item{vari}{measurements corresponding to \code{depth} (concentration,
-    temperature, \dots),
-  }
-  \item{level}{surface water level (above ground or m NN, depending on
-    bathymetric function used,
-  }
+    temperature, \dots), }
+  \item{level}{surface water level (above ground or above sea level (m
+    a.s.l.), depending on bathymetric function used, }
   \item{top}{top water level of requested layer,}
   \item{bot}{bottom water level of requested layer,}
   \item{vol}{hypsographic function to be used (e.g. \code{vol.depth}).}
@@ -34,7 +32,7 @@ vertmean(depth, vari, level, top, bot, vol)
 \examples{
 ## define a bathymetric formula for a given lake or basin
 weight.vol <- function(z, level) {
-  ## Ground level 154m NN
+  ## Ground level 154 m a.s.l.
   zz  <- level - 154 - z
   ## interpolate at very small values
   vol <- ifelse(zz < 0.5,

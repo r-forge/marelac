@@ -6,6 +6,10 @@ Thomas:
 Question: mol_vol and mol_weight?
 Question: convert_t ? from dgC to dgK to dgFahrenheit.
 
-vertmean: do not understand NN, difficult example?
-verttotal would also be useful
+Answer: Yes to both questions. I'll do it asap.
+
+vertmean: 
+- do not understand NN,        -- solved, m a.s.l.
+- difficult example?           -- I'll think about it
+verttotal would also be useful -- I'll think about it
 

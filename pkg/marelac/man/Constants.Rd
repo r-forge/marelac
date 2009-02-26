@@ -18,7 +18,7 @@ data.frame(cbind(acronym = names(Constants),
            matrix(ncol = 3, byrow = TRUE, data = unlist(Constants),
            dimnames = list(NULL, c("value", "units", "description")))))
 }
-\references{to be filled...}
+\references{Mohr, P.J. and B.N. Taylor, 2005.
+CODATA recommended values of the fundamental physical constants: 2002,
+Review of Modern Physics 77, pp. 1 - 107}
 \keyword{datasets}
-
-

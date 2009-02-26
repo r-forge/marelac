@@ -39,14 +39,23 @@ gas_solubility <- function (S = 35, t = 25, P = 1.013253, x = c("He","Ne",
 
   SolubCoeff <- rbind(BunsenSolubCoeff,VolumeSolubCoeff)
 
-  Sb<-SolubCoeff[x,]
+  Sbc<-SolubCoeff[x,]
 
+  SA <- NULL
+
+  for ( i in 1:nrow(Sbc))
+  {
+  Sb<-Sbc[i,]
   bet <- Sb$A1+Sb$A2*(100/K)+Sb$A3*log(K/100)+Sb$A4*(K/100)^2+S*(
          Sb$B1+Sb$B2*K/100+Sb$B3*(K/100)^2)
 
-  if (Sb$type==1) SA  <- exp(bet)/22.4136*10^6  else           #mmol/m3/atm
-                  SA  <- exp(bet)/P/(1-vapor(t=t,S=S))*10^6    #mmol/m3/atm
+  if (Sb$type==1) SS  <- exp(bet)/22.4136*10^6             #/1.013253mmol/m3/bar
+  if (Sb$type==2) SS  <- exp(bet)/P/(1-vapor(t=t,S=S))*10^6    #mmol/m3/bar
+  SA <- cbind(SA,SS)
+  }
+  colnames(SA) <- x
 
+  #conv <- 1/1.013253
   SA
 
 }

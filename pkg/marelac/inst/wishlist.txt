@@ -1,14 +1,22 @@
-Karline:
+package vignette 
+
+
+Karline STILL TO BE DONE:
 1. check: solubility: P in atm or in bar??
 2. check mol.vol values. also has a P issue!
 
+
+DONE
 3. decide about mol_weight, molweight or mol2weight (see below)
+--decided: molvol and molweight
 
 4. we should fix some style issues. I'm a litle bit lazy about this,
 but this gets even more important if additional developers are in the
 boat.
 
-- split functions (one file per *exported* function
+- split functions (one file per *exported* function - done...
+
+don't understand:
 - style of comments
 - style of braces
 - capitalization of lists
@@ -30,10 +38,11 @@ Answer:
 
 Question: convert_t ? from dgC to dgK to dgFahrenheit.
 Answer: function convert_T added
-
+thanks
 
 vertmean: 
 - do not understand NN,        -- solved, m a.s.l.
 - difficult example?           -- I'll think about it
 verttotal would also be useful -- added option "total" to vertmean
 
+thanks

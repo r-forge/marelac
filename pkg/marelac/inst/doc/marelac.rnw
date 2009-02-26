@@ -82,6 +82,7 @@ E-mail: \email{filip.meysman@vub.ac.be}
 <<preliminaries,echo=FALSE,results=hide>>=
 library("marelac")
 options(prompt = "> ")
+options(width=70)
 @
 
 \maketitle
@@ -114,7 +115,7 @@ data.frame(cbind(acronym=names(Constants),
               dimnames=list(NULL,c("value","units","description")))))
 
 @
-\section{functions}
+\section{physical functions}
 \subsection{coriolis}
 Estimates the coriolis factor, f, units $sec^{-1}$ according to the formula:
 f=2*omega*sin(lat), where omega=7.292e-5 radians/sec
@@ -132,13 +133,6 @@ plot(-90:90,coriolis(-90:90),xlab="latitude, dg North",
 \caption{The coriolis function}
 \label{fig:cor}
 \end{figure}
-\subsection{heat capacity}
-Estimates the heat capacity of seawater, using \citep{Feistel08} or according to
-the UNESCO 1983 polynomial \citep{Fofonoff83}
-<<>>=
-sw_cp(S=40,t=1:20)
-sw_cp(S=40,t=1:20,UNESCO=TRUE)
-@
 \subsection{molecular diffusion coefficients}
 Calculates molecular and ionic diffusion coefficients (cm2/hour), for several species at given salinity (S) temperature (t) and pressure (P).
 
@@ -192,6 +186,7 @@ atmComp("O2")
 atmComp()
 sum(atmComp())    #!
 @
+\section{dissolved gasses}
 \subsection{saturated oxygen concentrations}
 <<>>=
 gas_O2sat(t = 20)
@@ -220,44 +215,32 @@ Temp<-seq(from=0,to=30,by=0.1)
 Sal <- seq(from=0,to=35,by=0.1)
 @
 <<label=solub,include=FALSE>>=
+#
 mf  <-par(mfrow=c(2,2))
-plot(Temp,gas_solubility(t=Temp,x="CCl4"),xlab="temperature",
-     ylab="mmol/m3/atm",main="solubility (S=35)",type="l",lwd=2,ylim=c(0,100000))
-lines(Temp,gas_solubility(t=Temp,x="CO2"),col="red",lwd=2)
-lines(Temp,gas_solubility(t=Temp,x="N2O"),col="blue",lwd=2)
-lines(Temp,gas_solubility(t=Temp,x="Rn"),col="green",lwd=2)
-lines(Temp,gas_solubility(t=Temp,x="CCl2F2"),col="yellow",lwd=2)
+#
+gs  <-gas_solubility(t=Temp)
+x   <- c("CCl4","CO2","N2O","Rn","CCl2F2")
+matplot(Temp,gs[,x],type="l",lty=1,lwd=2,xlab="temperature",
+     ylab="mmol/m3",main="solubility (S=35)")
+legend("topright",col=1:5,lwd=2,legend=x)
+#
+x2 <- c("Kr","CH4","Ar","O2","N2","Ne")
+matplot(Temp,gs[,x2],type="l",lty=1,lwd=2,xlab="temperature",
+     ylab="mmol/m3",main="solubility (S=35)")
+legend("topright",col=1:6,lwd=2,legend=x2)
+#
 
-legend("topright",col=c("black","red","blue","green","yellow"),lwd=2,
-       legend=c("CCl4","CO2","N2O","Rn","CCl2F2"))
-
-plot(Temp,gas_solubility(t=Temp,x="Kr"),xlab="temperature",
-     ylab="mmol/m3/atm",main="solubility (S=35)",type="l",lwd=2,ylim=c(0,4000))
-lines(Temp,gas_solubility(t=Temp,x="CH4"),col="red",lwd=2)
-lines(Temp,gas_solubility(t=Temp,x="Ar"),col="blue",lwd=2)
-lines(Temp,gas_solubility(t=Temp,x="O2"),col="green",lwd=2)
-lines(Temp,gas_solubility(t=Temp,x="N2"),col="yellow",lwd=2)
-lines(Temp,gas_solubility(t=Temp,x="Ne"),col="grey",lwd=2)
-
-legend("topright",col=c("black","red","blue","green","yellow","grey"),lwd=2,
-       legend=c("Kr","CH4","Ar","O2","N2","Ne"))
-
-plot(Temp,gas_satconc(t=Temp,x="N2"),xlab="temperature",log="y",
-     ylab="mmol/m3",main="Saturated conc (S=35)",type="l",lwd=2,ylim=c(1,700))
-lines(Temp,gas_satconc(t=Temp,x="CO2"),col="red",lwd=2)
-lines(Temp,gas_satconc(t=Temp,x="O2"),col="blue",lwd=2)
-lines(Temp,gas_satconc(t=Temp,x="CH4"),col="green",lwd=2)
-lines(Temp,gas_satconc(t=Temp,x="N2O"),col="yellow",lwd=2)
-
-plot(Sal,gas_satconc(S=Sal,x="N2"),xlab="salinity",log="y",
-     ylab="mmol/m3",main="Saturated conc (t=20)",type="l",lwd=2,ylim=c(1e-3,700))
-lines(Sal,gas_satconc(S=Sal,x="CO2"),col="red",lwd=2)
-lines(Sal,gas_satconc(S=Sal,x="O2"),col="blue",lwd=2)
-lines(Sal,gas_satconc(S=Sal,x="CH4"),col="green",lwd=2)
-lines(Sal,gas_satconc(S=Sal,x="N2O"),col="yellow",lwd=2)
-legend("right",col=c("black","red","blue","green","yellow"),lwd=2,
-       legend=c("N2","CO2","O2","NH4","N2O"))
-
+x <- c("N2","CO2","O2","CH4","N2O")
+gsat  <-gas_satconc(t=Temp,x=x)
+matplot(Temp,gsat,type="l",xlab="temperature",log="y", lty=1,
+     ylab="mmol/m3",main="Saturated conc (S=35)",lwd=2)
+legend("right",col=1:5,lwd=2,legend=x)
+#
+gsat  <-gas_satconc(S=Sal,x=x)
+matplot(Sal,gsat,type="l",xlab="salinity",log="y", lty=1,
+     ylab="mmol/m3",main="Saturated conc (T=20)",lwd=2)
+legend("right",col=1:5,lwd=2,legend=x)
+#
 par("mfrow"=mf)
 @
 \setkeys{Gin}{width=0.8\textwidth}
@@ -296,30 +279,72 @@ legend("topleft",lty=1:4,lwd=2,legend=c("Liss and Merlivat 1986",
 \label{fig:transfer}
 \end{figure}
 
+\section{seawater properties}
 \subsection{Concentration of conservative species in seawater}
 <<>>=
 sw_conserv(S=seq(0,35,by=5))
 @
+\subsection{seawater properties}
+Several sewater profperties, using \citep{Feistel08} or according to
+the UNESCO 1983 polynomial \citep{Fofonoff83} are included. For instance,
+the heat capacity:
+<<>>=
+sw_cp(S=40,t=1:20)
+sw_cp(S=40,t=1:20,UNESCO=TRUE)
+@
+The dependency on salinity, and temperature for some of those is hereby plotted,
+using a function
+<<label=sw,include=FALSE>>=
+plotST <- function(fun,title)
+{
+  Sal <-  seq(0,40,by=0.5)
+  Temp<- seq(-5,40,by=0.5)
+
+  Val <- outer(X=Sal,Y=Temp,FUN=function(X,Y) fun(S=X, t=Y))
+  contour(Sal,Temp,Val,xlab="Salinity",ylab="temperature",
+          main=title,nlevel=20)
+}
+
+par (mfrow=c(3,2))
+par(mar=c(4,4,3,2))
+plotST(sw_cp,"Heat capacity")
+plotST(sw_entropy,"Entropy")
+plotST(sw_enthalpy,"Enthalpy")
+plotST(sw_dens,"density")
+plotST(sw_svel,"sound velocity")
+plotST(sw_kappa,"isentropic compressibility")
+@
+\setkeys{Gin}{width=0.9\textwidth}
+\begin{figure}
+\centering
+<<label=sw,fig=TRUE,echo=FALSE>>=
+<<sw>>
+@
+\caption{seawater properties as a function of salinity and temperture - see text for R-code}
+\label{fig:sw}
+\end{figure}
+
+
 \section{conversions}
 \subsection{gram, mol, liter conversions}
 gram to moles and vice versa
 <<>>=
-1/mol.weight("CO3")
-1/mol.weight("HCO3")
-1/mol.weight(c("C2H5OH", "CO2", "H2O"))
+1/molweight("CO3")
+1/molweight("HCO3")
+1/molweight(c("C2H5OH", "CO2", "H2O"))
 
-mol.weight(c("SiOH4", "NaHCO3", "C6H12O6", "Ca(HCO3)2", "Pb(NO3)2", "(NH4)2SO4"))
+molweight(c("SiOH4", "NaHCO3", "C6H12O6", "Ca(HCO3)2", "Pb(NO3)2", "(NH4)2SO4"))
 @
 liter to moles and vice versa
 <<>>=
-1/mol.vol(x="O2",t=0)*1000
-1/mol.vol(x="O2",q=1:6,t=0)
-1/mol.vol(t=1:10,x="O2")
+1/molvol(x="O2",t=0)*1000
+1/molvol(x="O2",q=1:6,t=0)
+1/molvol(t=1:10,x="O2")
 @
 molar volume of an ideal gas
 <<>>=
-mol.vol(x="ideal")
-mol.vol(x="ideal",t=1:10)
+molvol(x="ideal")
+molvol(x="ideal",t=1:10)
 @
 \subsection{pressure conversions}
 <<>>=

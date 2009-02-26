@@ -5,7 +5,7 @@
   Density of sea water in \eqn{kg m^{-3}}{kg m^{-3}}
 }
 \usage{
-sw_dens(S = 35, t = 25, p = P-1.013253, P=1.013253, UNESCO=FALSE)
+sw_dens(S = 35, t = 25, p = max(0,P-1.013253), P=1.013253, UNESCO=FALSE)
 }
 \arguments{
   \item{S }{Salinity (dimensionless),}
@@ -28,6 +28,12 @@ sw_dens(S = 35, t = 25, p = P-1.013253, P=1.013253, UNESCO=FALSE)
 \note{
   Pressure used here is 1 bar (true pressure), in contrast to
   hydrostatic pressure (0 bar at surface) in original formula.
+
+The coefficients from McDougall et al., 2009 were used.
+For temperature, they differ slightly from Feistel 2003 and Feistel 2008, which is why,
+for temparatures different from 0, there is a slight offset from the estimates
+as from table 22 or 21 from Feistel (2008).
+
 }
 
 \references{
@@ -49,16 +55,16 @@ Hydrography Manual, IOCCP Report No. 14, ICPO Publication Series no. 134.
 \seealso{\code{\link[seacarb]{rho}} in package seacarb.}
 \examples{
 # table 22 Feistel 2008
-sw_dens(0,0,0)         #  0.999843086e3
-sw_dens(0,79.85,0)     #  0.97188383e3
-sw_dens(0,0,998.98675) #  0.104527796e4
+sw_dens(0,0,0)                #0.999843086e3
+sw_dens(0,79.85,0)            #0.97188383e3   - deviates
+sw_dens(0,0,998.98675)        #0.104527796e4
 
 # table 21 Feistel 2008
-sw_dens(35.16504,0,0) #0.10281072e4
-sw_dens(100,79.85,0)  #0.102985888e4
+sw_dens(35.16504,0,0)         #0.10281072e4
+sw_dens(100,79.85,0)          #0.102985888e4
 sw_dens(35.16504,0,998.98675) #0.10709264e4
 
-sw_dens(35.7,25.5,102.3)#1027.95249315662
+sw_dens(35.7,25.5,102.3)      #1027.95249315662
 
 S <- 0:40
 plot(S, sw_dens(S = S, t = 4, UNESCO=TRUE))

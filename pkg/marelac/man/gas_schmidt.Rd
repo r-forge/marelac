@@ -19,7 +19,8 @@ gas_schmidt(t = 25, x = c("He", "Ne", "N2", "O2", "Ar",
 }
 \arguments{
   \item{t }{Temperature in \eqn{^\circ}{degrees }C,}
-  \item{x }{The gas }
+  \item{x }{character vector with gasses whose schmidt number
+    should be estimated.}
 }
 \value{
   The Schmidt number, a dimensionless quantity.
@@ -27,7 +28,7 @@ gas_schmidt(t = 25, x = c("He", "Ne", "N2", "O2", "Ar",
 
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-gas_schmidt(x = "CO2") # about660
+gas_schmidt(x = "CO2", t=20) # about660
 }
 \references{
   Sarmiento J.L. and N. Gruber, 2006. Ocean Biogeochemical Dynamics.

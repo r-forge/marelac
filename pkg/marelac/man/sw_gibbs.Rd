@@ -28,38 +28,38 @@ sw_gibbs(S = 35, t = 25, p = P-1.013253, P=1.013253, dS=0, dt=0, dp=0)}
 \author{Karline Soetaert < k.soetaert@nioo.knaw.nl > }
 \examples{
 # table 22 Feistel 2008
-sw_gibbs(0,0,0) #= 101.34274
-sw_gibbs(0,0,0,dS=1) # 0
-sw_gibbs(0,0,0,dt=1) # 0.147643376
-sw_gibbs(0,0,0,dp=1) # 0.1000015694e-2
-sw_gibbs(0,0,0,dS=1,dp=1) # 0
-sw_gibbs(0,0,0,dt=1,dp=1) # -0.677700318e-7
+sw_gibbs(0,0,0)                          #= 101.34274
+sw_gibbs(0,0,0,dS=1)                     # 0
+sw_gibbs(0,0,0,dt=1)                     #0.147643376
+sw_gibbs(0,0,0,dp=1)                     #0.1000015694e-2
+sw_gibbs(0,0,0,dS=1,dp=1)                #0
+sw_gibbs(0,0,0,dt=1,dp=1)                #-0.677700318e-7
 
-sw_gibbs(0,79.85,0) # -0.446114969e5              NOT CORRECT
-sw_gibbs(0,79.85,0,dt=1) # -0.107375993e4         NOT CORRECT
-sw_gibbs(0,79.85,0,dp=1) # 0.102892956e-2         NOT CORRECT
-sw_gibbs(0,79.85,0,dS=1,dp=1) #0
-sw_gibbs(0,79.85,0,dt=1,dp=1) #0.659051552e-6
+sw_gibbs(0,79.85,0)                      #-0.446114969e5   WRONG (see note)
+sw_gibbs(0,79.85,0,dt=1)                 #-0.107375993e4   WRONG
+sw_gibbs(0,79.85,0,dp=1)                 #0.102892956e-2   WRONG
+sw_gibbs(0,79.85,0,dS=1,dp=1)            #0
+sw_gibbs(0,79.85,0,dt=1,dp=1)            #0.659051552e-6
 
 
-sw_gibbs(0,0,998.98675)#  0.977303862e5
-sw_gibbs(0,0,998.98675,dt=1)#  0.851466502e1
-sw_gibbs(0,0,998.98675,dp=1)#  0.956683329e-3
-sw_gibbs(0,0,998.98675,dS=1,dp=1)#  0
-sw_gibbs(0,0,998.98675,dt=1,dp=1)# 0.199079571e-6
+sw_gibbs(0,0,998.98675)                  #0.977303862e5
+sw_gibbs(0,0,998.98675,dt=1)             #0.851466502e1
+sw_gibbs(0,0,998.98675,dp=1)             #0.956683329e-3
+sw_gibbs(0,0,998.98675,dS=1,dp=1)        #0
+sw_gibbs(0,0,998.98675,dt=1,dp=1)        #0.199079571e-6
 
 # table 21 Feistel 2008
-sw_gibbs(35.16504,0,0) #=0
-sw_gibbs(35.16504,0,0,dS=1) # 0.639974067e2      NOT CORRECT
-sw_gibbs(35.16504,0,0,dt=1) #=0
-sw_gibbs(35.16504,0,0,dp=1) #0.972661217e-3
-sw_gibbs(35.16504,0,0,dS=1,dp=1) # -0.759615412e-6
-sw_gibbs(35.16504,0,0,dt=1,dp=1) # 0.515167556e-7    !!!
+sw_gibbs(35.16504,0,0)                   #=0
+sw_gibbs(35.16504,0,0,dS=1)              #0.639974067e2      WRONG
+sw_gibbs(35.16504,0,0,dt=1)              #=0
+sw_gibbs(35.16504,0,0,dp=1)              #0.972661217e-3
+sw_gibbs(35.16504,0,0,dS=1,dp=1)         #-0.759615412e-6
+sw_gibbs(35.16504,0,0,dt=1,dp=1)         #0.515167556e-7    !!!
 
-sw_gibbs(100,79.85,0)   #=-0.295243229e5           NOT CORRECT
-sw_gibbs(100,79.85,0,dS=1) #0.251957276e3
-sw_gibbs(100,79.85,0,dt=1) #-0.917529024e3       NOT CORRECT
-sw_gibbs(100,79.85,0,dp=1) #0.971006828e-3       NOT CORRECT
+sw_gibbs(100,79.85,0)                    #=-0.295243229e5   WRONG
+sw_gibbs(100,79.85,0,dS=1)               #0.251957276e3
+sw_gibbs(100,79.85,0,dt=1)               #-0.917529024e3    WRONG
+sw_gibbs(100,79.85,0,dp=1)               #0.971006828e-3    WRONG
 sw_gibbs(100,79.85,0,dS=1,dp=1)          #-0.305957802e-6
 sw_gibbs(100,79.85,0,dt=1,dp=1)          #0.146211315e-5
 
@@ -75,8 +75,8 @@ sw_gibbs(35.16504,0,998.98675,dt=1,dp=1) #0.245708012e-6
 The gibbs functgion is defined as the sum of a pure water part and the
 saline part (IAPWS-08)
 
-The coefficients from McDougall were used.
-Fot temperature, they differ slightly from Feistel 2003, which is probably why,
+The coefficients from McDougall et al., 2009 were used.
+For temperature, they differ slightly from Feistel 2003 and Feistel 2008, which is why,
 for temparatures different from 0, there is a slight offset from the estimates
 as from table 22 or 21 from Feistel (2008).
 

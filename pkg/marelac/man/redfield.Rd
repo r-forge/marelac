@@ -29,7 +29,7 @@ redfield(x, element, method = c("mol", "mass"))
   Johnstone Memorial Volume. (ed. R.J. Daniel).  University Press of
   Liverpool, 177-192.
 }
-\seealso{\code{\link{mol.weight}}}
+\seealso{\code{\link{molweight}}, the molecular weight}
 \examples{
 ## Redfield ratio
 redfield(1, "P")

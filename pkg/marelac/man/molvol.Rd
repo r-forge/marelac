@@ -1,8 +1,8 @@
-\name{mol.vol}
-\alias{mol.vol}
+\name{molvol}
+\alias{molvol}
 \title{Mol to Liter Conversion for a Gas}
 \description{Converts from liter to moles for a gas.}
-\usage{mol.vol(t = 25, P = 1.013253,
+\usage{molvol(t = 25, P = 1.013253,
    x = c("ideal","Ar","CO2","CS2","CO","CCl4","Cl2","C2H6S","C2H5OH",
          "C6H5F","CH3F","CH4","CH3OH","C5H12","C3H8","H2O",
          "He","H2","HBr","HCl","H2S","Hg","Kr","NH3","Ne",
@@ -28,26 +28,26 @@
 \examples{
 #molecular volume of an ideal gas.
 
-mol.vol(x=NULL) # 24.46559
-plot(0:30, mol.vol(t = 0:30, x=NULL),
+molvol(x=NULL) # 24.46559
+plot(0:30, molvol(t = 0:30, x=NULL),
     xlab = "Temperature, dgC", ylab = "Molar volume")
 
 #
-mol.vol(a = 1.382, b = 0.03186, x=NULL, t = 0)
+molvol(a = 1.382, b = 0.03186, x=NULL, t = 0)
 
-mol.vol(t = 0, x = "O2")
+molvol(t = 0, x = "O2")
 
 # the same but for all gasses
-mol.vol(t = 0)
+molvol(t = 0)
 
 # table for different pressures
-mol.vol(P = 1:5, x = "O2")
+molvol(P = 1:5, x = "O2")
 
 # the inverse function
-1/mol.vol(x="O2")
+1/molvol(x="O2")
 }
 
-\seealso{\code{\link{mol.weight}} the molecular weight}
+\seealso{\code{\link{molweight}} the molecular weight}
 \note{
   The coefficients a and b are species-specific; values of 0 assume an
   ideal gas and in general give good estimates.

@@ -3,7 +3,7 @@ export(gravity,coriolis,viscosity,diffcoeff,vapor,ssd2rad)
 
 #conversions from molars...
 # merged:mol.vol, mol2l , removed:l2mol, g2mol
-export(mol.vol,mol.weight)
+export(molvol,molweight)
 
 # conversions
 export(convert_StoCl,convert_RtoS,convert_StoR,convert_p,convert_T)

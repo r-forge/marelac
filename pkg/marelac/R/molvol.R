@@ -1,20 +1,8 @@
-##########################################################################
-# molar volume of ideal gas
-##########################################################################
-mol.vol.old <- function(t = 25,      # temperature, dg celsius
-                    P = 1.013253 # pressure, bar
-                   )
-{
-  #  T in degrees Kelvin
-  TK <- 273.15 + t
-  R  <- 0.082058  # liter-atm / mole-K
-  return(R * TK / P*1.013253)  # molar volume of an ideal gas
-}
 
 ##########################################################################
 # mol to liter and liter to mol conversion for a gas
 ##########################################################################
-mol.vol <- function(t=25,     # temperature, dg celsius
+molvol <- function(t=25,     # temperature, dg celsius
                   P=1.013253,  # pressure, bar
                   x=c("ideal","Ar", "CO2", "CS2", "CO", "CCl4", "Cl2", "C2H6S", "C2H5OH",
       "C6H5F", "CH3F", "CH4", "CH3OH", "C5H12", "C3H8", "H2O", "He",

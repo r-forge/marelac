@@ -1,3 +1,8 @@
+#
+# seawater specific Gibbs free energy and derivatives up to order 2
+#
+
+
 sw_gibbs <- function (S = 35, t = 25, p = P-1.013253, P=1.013253, dS=0,dt=0,dp=0)
 {
 Su <- 40.188617 #g/dkg
@@ -43,7 +48,6 @@ gjk <- matrix(nr=8,nc=7, byrow=TRUE,data=c(
 -0.222897317140459e2, 0.817060541818112e1, 0                  , 0,
  0                  , 0.305081646487967e1,-0.963108119393062e1, 0,
  0                  , 0                  , 0                  , 0))
-
 
 nr<-8
 nc<-7

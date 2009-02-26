@@ -42,7 +42,7 @@
 # (slower than the original limited version)
 # ToDo: ??? add speedup for certain common species
 ##########################################################################
-mol.weight <- function(species) {
+molweight <- function(species) {
   if (!is.vector(species)) stop("species must be a vector")
   if (!is.character(unlist(species))) stop("species must be character")
   molweight <- function(species) {

@@ -1,9 +1,9 @@
-\name{mol.weight}
-\alias{mol.weight}
+\name{molweight}
+\alias{molweight}
 \title{Molecular Weight of a Chemical Species}
 \description{Calculates the molecular weight of chemical species.}
 \usage{
-mol.weight(species)
+molweight(species)
 }
 \arguments{
   \item{species }{character vector with chemical species whose molecular
@@ -32,27 +32,29 @@ mol.weight(species)
 }
 \seealso{
   \code{\link{AtomicWeight}}: Atomic weight data of stable elements.
+
+  \code{\link{molvol}} the molecular volume
 }
 \examples{
-mol.weight("CO2")
-mol.weight("HCO3")
-mol.weight("H")
-mol.weight("H3PO4")
+molweight("CO2")
+molweight("HCO3")
+molweight("H")
+molweight("H3PO4")
 
-mol.weight("CH3CH2CHCHCH2CHCHCH2CHCHCH2CHCHCH2CHCH(CH2)3COOH")
-mol.weight("C20H30O2")
+molweight("CH3CH2CHCHCH2CHCHCH2CHCHCH2CHCHCH2CHCH(CH2)3COOH")
+molweight("C20H30O2")
 
 ## works also with vectors
-mol.weight(c("C2H5OH", "CO2", "H2O"))
-mol.weight(c("SiOH4", "NaHCO3", "C6H12O6", "Ca(HCO3)2", "Pb(NO3)2", "(NH4)2SO4"))
+molweight(c("C2H5OH", "CO2", "H2O"))
+molweight(c("SiOH4", "NaHCO3", "C6H12O6", "Ca(HCO3)2", "Pb(NO3)2", "(NH4)2SO4"))
 
 ## Note that chemical formulae are case-sensitive
-mol.weight("Co") # cobalt
-mol.weight("CO") # carbon monoxide
+molweight("Co") # cobalt
+molweight("CO") # carbon monoxide
 
 
 ## from gram to mol
-1/mol.weight("CO3")
+1/molweight("CO3")
 
 }
 \keyword{utilities}

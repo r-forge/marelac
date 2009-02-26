@@ -23,7 +23,7 @@
   }
 }
 \value{
-  A data.frame with the diffusion coefficients (cm2//hour) of the
+  A data.frame with the diffusion coefficients (cm2/hour) of the
   selected species.
 }
 

@@ -4,7 +4,7 @@
 \description{
   Estimates the coriolis factor, f (in \eqn{s^{-1}}{1/second} where
   \eqn{f = 2 \cdot \omega \cdot sin(lat)}{f = 2*omega*sin(lat)}, where
-  \eqn{\omega = 7.292e-5}{omega = 7.292e-5} radians/sec, the rotation of the earth}
+  \eqn{\omega = 7.292e^{-5}}{omega = 7.292e-5} radians/sec, the rotation of the earth}
 \usage{
 coriolis(lat)
 }

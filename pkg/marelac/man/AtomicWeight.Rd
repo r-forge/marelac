@@ -7,9 +7,9 @@
 }
 \usage{AtomicWeight}
 \format{
-  Atomic weights of elements are given as list. The list index is the atomic number.
+  Atomic weights of elements are given as a list. The list index is the atomic number.
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl> and Thomas Petzoldt}
+\author{Karline Soetaert and Thomas Petzoldt}
 \details{
   Molecular weights of chemical elements may vary due to different isotope
   compositions, depending on geology, industrial processes or biological activity.
@@ -18,7 +18,7 @@
   (except U, Th, Pa).
 }
 \seealso{
-  \code{\link{mol.weight}}
+  \code{\link{molweight}} for molecular weight
 }
 \examples{
 AtomicWeight

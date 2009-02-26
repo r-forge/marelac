@@ -5,7 +5,7 @@
   Density of water in \eqn{kg m^{-3}}{kg m^{-3}}
 }
 \usage{
-rhoH2O(S = 35, t = 25, P = 1.013253, p = max(0, P-1.013253),
+rhoH2O(S = 35, t = 25, p = max(0, P-1.013253), P = 1.013253,
        method = c("Millero", "Chen", "marine", "limnological"))
 }
 \arguments{

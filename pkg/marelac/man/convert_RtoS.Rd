@@ -8,15 +8,15 @@
   \eqn{^\circ}{degrees }C, pressure of 0 - 1000 bar and salinity 2-42 in the world ocean.
 }
 \usage{
-convert_RtoS(R = 1, t = 25, P = 1.013253, p = max(0, P-1.013253))
+convert_RtoS(R = 1, t = 25, p = max(0, P-1.013253), P = 1.013253)
 }
 \arguments{
-  \item{R }{Conductivity ratio, -, the conductivity at T, S, P divided
-    by the conductivity at S = 35, T = 25, P = 1,}
-  \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
-  \item{P }{True pressure, bar,}
+  \item{R }{Conductivity ratio, -, the conductivity at (S, t, P) divided
+    by the conductivity at S = 35, t = 25, p = 0}
+  \item{t }{Temperature, \eqn{^\circ}{degrees }C}
   \item{p }{gauge (or applied) pressure, the pressure relative to the local
     atmospheric pressure, bar.}
+  \item{P }{True pressure, bar}
 }
 \value{
   The salinity.

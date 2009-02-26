@@ -9,7 +9,7 @@
   \eqn{^\circ}{degrees }C, pressure of 0 - 1000 bar and salinity 2-42 in the world ocean.
 }
 \usage{
-convert_StoR(S = 35, t = 25, P = 1.013253, p = max(0, P-1.013253))
+convert_StoR(S = 35, t = 25, p = max(0, P-1.013253), P = 1.013253)
 }
 \arguments{
   \item{S }{(practical) Salinity, -,}
@@ -19,14 +19,14 @@ convert_StoR(S = 35, t = 25, P = 1.013253, p = max(0, P-1.013253))
     atmospheric pressure, bar.}
 }
 \value{
-  The conductivity ratio (-), this is the conductivity at T, S, P
-  divided by the conductivity at S = 35, T = 25, \code{p} = 0.
+  The conductivity ratio (-), this is the conductivity at (S, t, p),
+  divided by the conductivity at S = 35, t = 25, p = 0.
 }
 \note{
   Pressure here is true pressure, 1 bar (at sea surface), in contrast to
   hydrostatic pressure in dbar of original formula.
 
-  The conductivity ratio for Salinity = 40.0000, T = 40, \code{p} =
+  The conductivity ratio for Salinity = 40.0000, t = 40, \code{p} =
   1000 is 1.888091.
 }
 

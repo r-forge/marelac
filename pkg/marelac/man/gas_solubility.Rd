@@ -3,7 +3,7 @@
 \title{Solubility Parameters}
 % should we really use atm?
 \description{
-  Solubility parameters SA, \eqn{mmol m^{-3} atm^{-3}}{mmol/m3/atm},
+  Solubility parameters SA, \eqn{mmol m^{-3} bar^{-1}}{mmol/m3/atm},
   calculated from the Bunsen solubility coefficients and the volumetric
   solubility coefficients.
 }
@@ -25,6 +25,19 @@ gas_solubility(t = 0:5,S = 35,x = "O2")
 
 Temp <- seq(from = 0, to = 30, by = 0.1)
 mf <- par(mfrow = c(1, 2))
+gs  <-gas_solubility(t=Temp)
+x   <- c("CCl4","CO2","N2O","Rn","CCl2F2")
+matplot(Temp,gs[,x],type="l",lty=1,lwd=2,xlab="temperature",
+     ylab="mmol/m3",main="solubility (S=35)")
+legend("topright",col=1:5,lwd=2,legend=x)
+
+x2 <- c("Kr","CH4","Ar","O2","N2","Ne")
+matplot(Temp,gs[,x2],type="l",lty=1,lwd=2,xlab="temperature",
+     ylab="mmol/m3",main="solubility (S=35)")
+legend("topright",col=1:6,lwd=2,legend=x2)
+
+
+
 
 plot(Temp,gas_solubility(t = Temp, x = "CCl4"), xlab = "temperature",
      ylab = "mmol/m3/atm", main = "solubility (S=35)",
@@ -54,7 +67,8 @@ par(mfrow = mf)
 ## generate table 3.2.3 from Sarmiento and Gruber
 Temp <- seq (0,30,by = 5)
 ## saturated concentrations in mmol/m3
-A <- data.frame(rbind( t = Temp,
+
+A <- data.frame(cbind( t = Temp,
             He = gas_solubility(t = Temp,x = "He"),
             Ne = gas_solubility(t = Temp,x = "Ne"),
             N2 = gas_solubility(t = Temp,x = "N2"),
@@ -68,7 +82,7 @@ format(A,digits = 4)
 ## note the slight deviations for Rn
 
 ## saturated concentrations in micromol/m3
-AA <- data.frame(rbind( t = Temp,
+AA <- data.frame(cbind( t = Temp,
             CH4 = gas_solubility(t = Temp,x = "CH4"),
             CO2 = gas_solubility(t = Temp,x = "CO2"),
             N2O = gas_solubility(t = Temp,x = "N2O"),

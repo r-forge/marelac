@@ -8,14 +8,15 @@
 }
 \usage{
 gas_satconc(S = 35, t = 25, P = 1.013253,
-        x =c("He","Ne","N2","O2","Ar","Kr","CH4","CO2","N2O",
-        "H2","Xe", "CO", "O3"), atm = atmComp(x))}
+        x =c("He","Ne","N2","O2","Ar","Kr","CH4","CO2","N2O"),
+        atm = atmComp(x))}
 \arguments{
   \item{S }{Salinity (dimensionless),}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
   %\item{K }{Temperature, dgK}
   \item{P }{True pressure, bar}
-  \item{x }{The gas }
+  \item{x }{character vector with gasses whose saturated concentration
+    should be estimated.}
   \item{atm }{the number of moles of the gas per unit mole of air in the
     atmosphere, the "mixing ratio".  When present, this overrules the
     \code{x} argument. When unspecified, the value from \code{atmComp}
@@ -23,7 +24,7 @@ gas_satconc(S = 35, t = 25, P = 1.013253,
   }
 }
 \value{
-   The saturated concentration of the gass in \eqn{mmol m^{-3}}{mmol/m3}.
+   The saturated concentration of the gas in \eqn{mmol m^{-3}}{mmol/m3}.
 }
 \author{Karline Soetaert < k.soetaert@nioo.knaw.nl > }
 \examples{
@@ -32,31 +33,26 @@ Temp <- seq(from = 0,to = 30,by = 0.1)
 Sal  <- seq(from = 0,to = 35,by = 0.1)
 
 mf  <- par(mfrow = c(1,2))
-plot(Temp, gas_satconc(t = Temp, x = "N2"), xlab = "temperature",
-  log = "y", ylab = "mmol/m3", main = "Saturated conc (S=35)",
-  type = "l", lwd = 2, ylim = c(1, 700))
-lines(Temp,gas_satconc(t = Temp, x = "CO2"), col = "red",    lwd = 2)
-lines(Temp,gas_satconc(t = Temp, x = "O2"),  col = "blue",   lwd = 2)
-lines(Temp,gas_satconc(t = Temp, x = "CH4"), col = "green",  lwd = 2)
-lines(Temp,gas_satconc(t = Temp, x = "N2O"), col = "yellow", lwd = 2)
 
-plot(Sal, gas_satconc(S = Sal, x = "N2"), xlab = "salinity",
-  log = "y", ylab = "mmol/m3", main = "Saturated conc (t=20)",
-  type = "l", lwd = 2, ylim = c(1e-3, 700))
+x     <- c("N2","CO2","O2","CH4","N2O")
+gsat  <-gas_satconc(t=Temp,x=x)
 
-lines(Sal,gas_satconc(S = Sal, x = "CO2"), col = "red",    lwd = 2)
-lines(Sal,gas_satconc(S = Sal, x = "O2"),  col = "blue",   lwd = 2)
-lines(Sal,gas_satconc(S = Sal, x = "CH4"), col = "green",  lwd = 2)
-lines(Sal,gas_satconc(S = Sal, x = "N2O"), col = "yellow", lwd = 2)
-legend("right",col = c("black", "red", "blue", "green", "yellow"), lwd = 2,
-       legend = c("N2", "CO2", "O2", "NH4", "N2O"))
+matplot(Temp,gsat,type="l",xlab="temperature",log="y", lty=1,
+     ylab="mmol/m3",main="Saturated conc (S=35)",lwd=2)
+legend("right",col=1:5,lwd=2,legend=x)
+
+gsat  <-gas_satconc(S=Sal,x=x)
+matplot(Sal,gsat,type="l",xlab="salinity",log="y", lty=1,
+     ylab="mmol/m3",main="Saturated conc (T=20)",lwd=2)
+legend("right",col=1:5,lwd=2,legend=x)
+
 
 par(mfrow = mf)
 
 ## generate table 3.2.4 from Sarmiento and Gruber
 Temp <- seq (0, 30, by = 5)
 ## saturated concentrations in mmol/m3
-A <- data.frame(rbind( t = Temp,
+A <- data.frame(cbind( t = Temp,
             N2 = gas_satconc(t = Temp, P=1, x = "N2"),
             O2 = gas_satconc(t = Temp, P=1, x = "O2"),
             CO2 = gas_satconc(t = Temp, P=1, x = "CO2"),
@@ -67,7 +63,7 @@ format(A,digits = 4)
 ## note the deviations for CO2 !
 
 ## saturated concentrations in micromol/m3
-AA <- data.frame(rbind( t = Temp,
+AA <- data.frame(cbind( t = Temp,
             N2O = gas_satconc(t = Temp, P=1, x = "N2O")*1000,
             Ne = gas_satconc(t = Temp, P=1, x = "Ne")*1000,
             Kr = gas_satconc(t = Temp, P=1, x = "Kr")*1000,
@@ -80,7 +76,9 @@ format(AA, digits = 4)
 }
 \note{
   Compared to the table in Sarmiento and Gruber, there is a slight
-  deviation for N2O, and He CO2 is OK for temperature 0 only.
+  deviation for N2O, and He.
+
+  CO2 is OK for temperature 0 only.
 }
 \references{
   Sarmiento J.L. and N. Gruber, 2006. Ocean Biogeochemical

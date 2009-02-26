@@ -31,7 +31,7 @@ mol.weight(species)
   strictly case sensitive.
 }
 \seealso{
-  \code{\link{AtomicWeight}} for atomic weights of the elements.
+  \code{\link{AtomicWeight}}: Atomic weight data of stable elements.
 }
 \examples{
 mol.weight("CO2")

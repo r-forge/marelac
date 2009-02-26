@@ -1,6 +1,6 @@
 \name{sw_beta}
 \alias{sw_beta}
-\title{haline contraction coefficient of seawater}
+\title{Haline Contraction Coefficient of Seawater}
 \description{
   Computes the seawater haline contraction coefficient with respect
   to constant, in situ temperature, kg/g

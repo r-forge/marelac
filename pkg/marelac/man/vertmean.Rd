@@ -10,7 +10,7 @@
   layers or lake morphometry.
 }
 \usage{
-vertmean(depth, vari, level, top, bot, vol)
+vertmean(depth, vari, level, top, bot, vol, total=FALSE)
 }
 \arguments{
   \item{depth}{sorted vector of sampled depths,}
@@ -20,13 +20,19 @@ vertmean(depth, vari, level, top, bot, vol)
     a.s.l.), depending on bathymetric function used, }
   \item{top}{top water level of requested layer,}
   \item{bot}{bottom water level of requested layer,}
-  \item{vol}{hypsographic function to be used (e.g. \code{vol.depth}).}
+  \item{vol}{hypsographic function to be used (e.g. \code{vol.depth}),}
+  \item{total}{if \code{TRUE} the total sum over the water body is
+    returned, instead of the volumetric mean.}
 }
 
 \value{
-  Volumetric average value of the requested layer between depths
-  \code{top} and \code{bottom}.
+  
+ Volumetric average resp. total value (for total =\code{TRUE}) for a
+ given quantity (concentration, energy, temperature) in the requested
+ layer between depths \code{top} and \code{bottom}.
+  
 }
+
 \author{Thomas Petzoldt}
 %\seealso{}
 \examples{

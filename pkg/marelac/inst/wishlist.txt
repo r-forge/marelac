@@ -2,14 +2,38 @@ Karline:
 1. check: solubility: P in atm or in bar??
 2. check mol.vol values. also has a P issue!
 
-Thomas:
-Question: mol_vol and mol_weight?
-Question: convert_t ? from dgC to dgK to dgFahrenheit.
+3. decide about mol_weight, molweight or mol2weight (see below)
 
-Answer: Yes to both questions. I'll do it asap.
+4. we should fix some style issues. I'm a litle bit lazy about this,
+but this gets even more important if additional developers are in the
+boat.
+
+- split functions (one file per *exported* function
+- style of comments
+- style of braces
+- capitalization of lists
+- form of citation
+- file naming .R .Rd (and not .r, .rd) -- ThPe can rename it.
+- anything else?
+
+
+
+Thomas:
+
+Question: mol_vol and mol_weight?
+
+Answer:
+- maybe also:
+  mol2vol, mol2weight  (clearly identify conversion)
+  molvol, molweight (simpler, my preference) or
+  Karline, please decide.
+
+Question: convert_t ? from dgC to dgK to dgFahrenheit.
+Answer: function convert_T added
+
 
 vertmean: 
 - do not understand NN,        -- solved, m a.s.l.
 - difficult example?           -- I'll think about it
-verttotal would also be useful -- I'll think about it
+verttotal would also be useful -- added option "total" to vertmean
 

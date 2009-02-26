@@ -1,6 +1,6 @@
 \name{sw_alpha}
 \alias{sw_alpha}
-\title{Thermal expansion coefficient of seawater}
+\title{Thermal Expansion Coefficient of Seawater}
 \description{
   Computes the seawater thermal expansion coefficient with respect
   to in situ temperature, 1/K

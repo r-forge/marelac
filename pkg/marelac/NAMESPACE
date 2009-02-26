@@ -6,7 +6,7 @@ export(gravity,coriolis,viscosity,diffcoeff,vapor,ssd2rad)
 export(mol.vol,mol.weight)
 
 # conversions
-export(convert_StoCl,convert_RtoS,convert_StoR,convert_p)
+export(convert_StoCl,convert_RtoS,convert_StoR,convert_p,convert_T)
 
 #gasses  - suggest to merge O2sat, satconc
 export(gas_O2sat,gas_satconc,gas_solubility,gas_schmidt,gas_transfer)

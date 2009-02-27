@@ -1,6 +1,6 @@
 \name{sw_entropy}
 \alias{sw_entropy}
-\title{specific enthalpy of seawater}
+\title{Specific Entropy of Seawater}
 \description{
   Computes the seawater specific entropy, J/(kg*K)
 }

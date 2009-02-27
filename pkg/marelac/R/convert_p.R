@@ -1,3 +1,7 @@
+## -----------------------------------------------------------------------------
+## Conversion Between Different Barometric Units
+## -----------------------------------------------------------------------------
+
 convert_p <- function(x, unit=c("Pa", "bar", "at", "atm", "torr")) {
   if (!is.numeric(x)) stop("x must be numeric")
   unit   <- match.arg(unit)

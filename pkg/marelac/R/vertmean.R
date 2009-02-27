@@ -1,3 +1,7 @@
+## -----------------------------------------------------------------------------
+## Vertical Volumetric Weighted Mean of Matter Concentrations in Water Bodies
+## -----------------------------------------------------------------------------
+
 vertmean <- function(depth, vari, level, top, bot, vol, total=FALSE) {
   idepth  <- which(depth >= top & depth <= bot)
   ndepth  <- c(depth[idepth])

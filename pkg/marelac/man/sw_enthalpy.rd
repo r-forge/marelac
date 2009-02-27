@@ -1,6 +1,6 @@
 \name{sw_enthalpy}
 \alias{sw_enthalpy}
-\title{specific enthalpy of seawater}
+\title{Specific Enthalpy of Seawater}
 \description{
   Computes the seawater specific enthalpy, J/kg
 }

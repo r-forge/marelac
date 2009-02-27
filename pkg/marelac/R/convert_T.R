@@ -1,3 +1,6 @@
+## -----------------------------------------------------------------------------
+## Conversion Between Different Temperature Units
+## -----------------------------------------------------------------------------
 
 convert_T <- function(x, unit=c("K", "C", "F")) {
   if (!is.numeric(x)) stop("x must be numeric")

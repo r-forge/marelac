@@ -1,6 +1,9 @@
+## -----------------------------------------------------------------------------
+## Solubility of a Gas in Seawater
+## -----------------------------------------------------------------------------
+
 gas_solubility <- function (S = 35, t = 25, P = 1.013253, x = c("He","Ne",
-"N2","O2","Ar","Kr","Rn","CH4","CO2","N2O","CCl2F2","CCl3F","SF6","CCl4"))
-{
+  "N2","O2","Ar","Kr","Rn","CH4","CO2","N2O","CCl2F2","CCl3F","SF6","CCl4")) {
 
   K <-  t + 273.15
 
@@ -9,7 +12,8 @@ gas_solubility <- function (S = 35, t = 25, P = 1.013253, x = c("He","Ne",
   #T is temperature in kelvin, S is salinity,
   #In data.frame BunsenSolubCoeff (x) is the bunsen
   #solubility coefficient in units of l gal (l solution)-1 atm-1,
-  #in data.frame volumeSolubCoeff, (x) is the volumetric solubility function, in units of mol /l/atm
+  #in data.frame volumeSolubCoeff, (x) is the volumetric solubility function,
+  #in units of mol /l/atm
 
   BunsenSolubCoeff <- data.frame(
     A1=c(-34.6261,-39.1971,-59.6274,-58.3877,-55.6578,-57.2596,-11.95,-68.8862),
@@ -18,7 +22,8 @@ gas_solubility <- function (S = 35, t = 25, P = 1.013253, x = c("He","Ne",
     A4=c(0,0,0,0,0,0,0,0),
     B1=c(-0.04234,-0.124695,-0.05158,-0.034892,-0.036267,-0.008723,0,-0.076146),
     B2=c(0.022624,0.078374,0.026329,0.015568,0.016241,-0.002793,0,0.04397),
-    B3=c(-0.003312,-0.0127972,-0.0037252,-0.0019387,-0.0020114,0.0012398,0,-0.0068672),
+    B3=c(-0.003312,-0.0127972,-0.0037252,-0.0019387,-0.0020114,
+         0.0012398,0,-0.0068672),
     type =rep(1,8),
     Accur=c(0.005,0.005,0.004,0.004,0.004,0.004,0,0.01)
   )
@@ -36,26 +41,20 @@ gas_solubility <- function (S = 35, t = 25, P = 1.013253, x = c("He","Ne",
     Accur=c(0.003,0.0014,0.015,0.015,0.02,0.025)
   )
   rownames(VolumeSolubCoeff)<-c("CO2","N2O","CCl2F2","CCl3F","SF6","CCl4")
-
   SolubCoeff <- rbind(BunsenSolubCoeff,VolumeSolubCoeff)
-
   Sbc<-SolubCoeff[x,]
 
   SA <- NULL
 
-  for ( i in 1:nrow(Sbc))
-  {
-  Sb<-Sbc[i,]
-  bet <- Sb$A1+Sb$A2*(100/K)+Sb$A3*log(K/100)+Sb$A4*(K/100)^2+S*(
-         Sb$B1+Sb$B2*K/100+Sb$B3*(K/100)^2)
+  for ( i in 1:nrow(Sbc)) {
+    Sb<-Sbc[i,]
+    bet <- Sb$A1+Sb$A2*(100/K)+Sb$A3*log(K/100)+Sb$A4*(K/100)^2+S*(
+           Sb$B1+Sb$B2*K/100+Sb$B3*(K/100)^2)
 
-  if (Sb$type==1) SS  <- exp(bet)/22.4136*10^6             #/1.013253mmol/m3/bar
-  if (Sb$type==2) SS  <- exp(bet)/P/(1-vapor(t=t,S=S))*10^6    #mmol/m3/bar
-  SA <- cbind(SA,SS)
+    if (Sb$type==1) SS  <- exp(bet)/22.4136*10^6       #CHECK:::/1.013253mmol/m3/bar
+    if (Sb$type==2) SS  <- exp(bet)/P/(1-vapor(t=t,S=S))*10^6    #mmol/m3/bar
+    SA <- cbind(SA,SS)
   }
   colnames(SA) <- x
-
-  #conv <- 1/1.013253
   SA
-
 }

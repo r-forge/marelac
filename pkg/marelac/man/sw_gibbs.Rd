@@ -1,9 +1,9 @@
 \encoding{latin1}
 \name{sw_gibbs}
 \alias{sw_gibbs}
-\title{gibbs function of sewater}
+\title{Gibbs Function of Seawater}
 \description{
-  Calculates the sewater specific gibbs free energy, including
+  Calculates the seawater specific gibbs free energy, including
   derivatives upto order 2, for a
   given temperature, salinity and pressure.
   

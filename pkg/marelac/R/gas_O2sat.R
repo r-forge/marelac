@@ -1,4 +1,9 @@
-gas_O2sat <- function(S = 35, t = 25, NN = 0, method = c("Weiss", "APHA", "Paul")) {
+## -----------------------------------------------------------------------------
+## Saturated Concentration of Oxygen in Seawater
+## -----------------------------------------------------------------------------
+
+gas_O2sat <- function(S = 35, t = 25, NN = 0,
+                      method = c("Weiss", "APHA", "Paul")) {
 
   K <-  t + 273.15
 
@@ -18,7 +23,7 @@ gas_O2sat <- function(S = 35, t = 25, NN = 0, method = c("Weiss", "APHA", "Paul"
     ## Paul, L. approximation that respects height above see level
     Paul = (1012-0.12 * NN)/1013 * (14.674 - 13.644 * log10(1 + t/12.8))
   )
-  attr(ret, "unit") = "(g/m3)"
+#  attr(ret, "unit") = "(g/m3)"
   ret
 }
 

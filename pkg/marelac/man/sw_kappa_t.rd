@@ -1,6 +1,6 @@
 \name{sw_kappa_t}
 \alias{sw_kappa_t}
-\title{isothermal compressibility of seawater}
+\title{Isothermal Compressibility of Seawater}
 \description{
   Computes the seawater isothermal compressibility, 1/Pa
 }

@@ -1,36 +1,26 @@
-##########################################################################
-# Potential temperature
-##########################################################################
+## -----------------------------------------------------------------------------
+## Potential Temperature of Seawater
+## -----------------------------------------------------------------------------
 
-sw_tpot<- function (S=35, t=25, p, pref=0)
-#=========================================================================
-# using UNESCO 1983 polynomial.
-#
-# units in K
-# REFERENCES:
-#    Fofonoff, P. and Millard, R.C. Jr
-#    Unesco 1983. Algorithms for computation of fundamental properties of
-#    seawater, 1983. _Unesco Tech. Pap. in Mar. Sci._, No. 44, 53 pp.
-#=========================================================================
- {
-    P    <- p
-    Pref <- max(0,pref)
-    H  <- 10*(Pref-P)
-    XK <- H*sw_adtgrad(t=t,S=S,p=P)/10
+sw_tpot<- function (S=35, t=25, p, pref=0) {
+  P    <- p
+  Pref <- max(0,pref)
+  H  <- 10*(Pref-P)
+  XK <- H*sw_adtgrad(t=t,S=S,p=P)/10
 
-    t  <- t + 0.5*XK
-    Q  <- XK
-    P  <- P + 0.05*H
-    XK <- H*sw_adtgrad(t=t,S=S,p=P)/10
+  t  <- t + 0.5*XK
+  Q  <- XK
+  P  <- P + 0.05*H
+  XK <- H*sw_adtgrad(t=t,S=S,p=P)/10
 
-    t  <- t + 0.29289322*(XK-Q)
-    Q  <- 0.58578644*XK + 0.121320344*Q
-    XK <- H*sw_adtgrad(t=t,S=S,p=P)/10
+  t  <- t + 0.29289322*(XK-Q)
+  Q  <- 0.58578644*XK + 0.121320344*Q
+  XK <- H*sw_adtgrad(t=t,S=S,p=P)/10
 
-    t  <- t + 1.707106781*(XK-Q)
-    Q  <- 3.414213562*XK - 4.121320344*Q
-    P  <- P + 0.05*H
-    XK <- H*sw_adtgrad(t=t,S=S,p=P)/10
+  t  <- t + 1.707106781*(XK-Q)
+  Q  <- 3.414213562*XK - 4.121320344*Q
+  P  <- P + 0.05*H
+  XK <- H*sw_adtgrad(t=t,S=S,p=P)/10
 
-    return (t + (XK-2.0*Q)/6.0)
- }
+  return (t + (XK-2.0*Q)/6.0)
+}

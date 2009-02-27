@@ -1,6 +1,6 @@
 \name{sw_kappa}
 \alias{sw_kappa}
-\title{isentropic compressibility of seawater}
+\title{Isentropic Compressibility of Seawater}
 \description{
   Computes the seawater isentropic compressibility, 1/bar
 }

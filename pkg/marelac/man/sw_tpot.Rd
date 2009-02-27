@@ -1,6 +1,6 @@
 \name{sw_tpot}
 \alias{sw_tpot}
-\title{Potential Temperature of Sea Water}
+\title{Potential Temperature of Seawater}
 \description{
   Estimates the potential temperature of seawater, using the UNESCO 1983
   polynomial.

@@ -1,6 +1,6 @@
 \name{sw_tfreeze}
 \alias{sw_tfreeze}
-\title{Freezing Temperature of Sea Water}
+\title{Freezing Temperature of Seawater}
 \description{
   Estimates the freezing temperature of seawater, using the UNESCO 1983
   polynomial.

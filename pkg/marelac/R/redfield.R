@@ -1,3 +1,6 @@
+## -----------------------------------------------------------------------------
+## the Redfield ratio
+## -----------------------------------------------------------------------------
 redfield <- function(x, element, method=c("mol", "mass")) {
   if (!is.numeric(x)) stop("x must be numeric")
   method   <- match.arg(method)

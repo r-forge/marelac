@@ -1,3 +1,7 @@
+## -----------------------------------------------------------------------------
+## Density of Freshwater
+## -----------------------------------------------------------------------------
+
 rhoH2O_Chen <- function(S=0, t=25, p) {
   # Chen, Ch.-T. and F.J. Millero (1986) - Precise thermodynamic
   # properties of natural waters covering only the limnological range.
@@ -28,5 +32,4 @@ rhoH2O <- function(S=35, t=25, p=max(0,P-1.013253), P=1.013253,
    )
    attr(rho, "unit") = "(kg/m3)"
    return(rho)
-
 }

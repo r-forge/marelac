@@ -16,13 +16,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \newcommand{\m}{\textbf{\textsf{marelac }}}
 \newcommand{\R}{\proglang{R}}
-\title{\proglang{R}-package \m: utilities for the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences }
+\title{
+  \proglang{R}-package \m: utilities for the MArine, Riverine, Estuarine,
+  LAcustrine and Coastal sciences
+}
 \Plaintitle{marelac}
 
-\Keywords{marine, riverine, estuarine, lacustrine, coastal science, utilities, constants,
-  \proglang{R}}
+\Keywords{
+  marine, riverine, estuarine, lacustrine, coastal science, utilities,
+  constants, \proglang{R}
+}
 
-\Plainkeywords{marine, riverine, estuarine, lacustrine, coastal science, utilities, constants, R}
+\Plainkeywords{
+  marine, riverine, estuarine, lacustrine, coastal science, utilities,
+  constants, R
+}
 
 
 \author{Karline Soetaert\\
@@ -39,9 +47,10 @@ Belgium}
 
 \Plainauthor{Karline Soetaert, Thomas Petzoldt and Filip Meysman}
 
-\Abstract{ \R package \m \citep{marelac} contains chemical and physical constants
-and functions, routines for unit conversion, and other utilities useful for
-MArine, Riverine, Estuarine, LAcustrine and Coastal sciences.
+\Abstract{
+  \R package \m \citep{marelac} contains chemical and physical constants
+  and functions, routines for unit conversion, and other utilities useful for
+  MArine, Riverine, Estuarine, LAcustrine and Coastal sciences.
 }
 
 %% The address of (at least) one author should be given
@@ -60,13 +69,13 @@ MArine, Riverine, Estuarine, LAcustrine and Coastal sciences.
   01062 Dresden, Germany\\
   E-mail: \email{thomas.petzoldt@tu-dresden.de}\\
   URL: \url{http://tu-dresden.de/Members/thomas.petzoldt/}\\
-\\
-Filip Meysman\\
-Laboratory of Analytical and Environmental Chemistry\\
-Vrije Universiteit Brussel (VUB)\\
-Pleinlaan 2\\
-1050 Brussel, Belgium.\\
-E-mail: \email{filip.meysman@vub.ac.be}
+  \\
+  Filip Meysman\\
+  Laboratory of Analytical and Environmental Chemistry\\
+  Vrije Universiteit Brussel (VUB)\\
+  Pleinlaan 2\\
+  1050 Brussel, Belgium.\\
+  E-mail: \email{filip.meysman@vub.ac.be}
 }
 
 
@@ -82,43 +91,71 @@ E-mail: \email{filip.meysman@vub.ac.be}
 <<preliminaries,echo=FALSE,results=hide>>=
 library("marelac")
 options(prompt = "> ")
-options(width=70)
+options(width=75)
 @
 
 \maketitle
 
 \section{Introduction}
-\R-package \m has been designed as a tool for use by scientists working in the
-MArine, Riverine, Estuarine, LAcustrine and Coastal sciences.
+  \R-package \m has been designed as a tool for use by scientists working in the
+  MArine, Riverine, Estuarine, LAcustrine and Coastal sciences.
 
-It contains:
-\begin{itemize}
-\item chemical and physical constants, e.g. atomic weights, gas constants.
-\item conversion factors, e.g. gram to mol to liter conversions.
-\item functions, e.g. to estimate concentrations of conservative substances as a function of salinity,
-gas transfer coefficients, diffusion coefficients, ...
-\end{itemize}
+  It contains:
+  \begin{itemize}
+    \item chemical and physical constants, e.g. atomic weights, gas constants.
+    \item conversion factors, e.g. gram to mol to liter conversions;
+      conversions between different barometric units, temperature units,
+      salinity units.
+    \item physical functions, e.g. to estimate concentrations of conservative
+      substances as a function of salinity, gas transfer coefficients,
+      diffusion coefficients, estimating the coriolis force, gravity ...
+    \item the thermophysical properties of the seawater, as from the UNESCO
+      polynomial \citep{UNESCO} or as from the more recent derivation based on
+      a gibbs funtion \citep{Feistel08}, \citep{McDougall}.
+   \end{itemize}
 
+\section{Constants}
+  \subsection{Physical constants}
+  Dataset \code{Constants} contains commonly used physical and chemical
+  constants, as in \citep{Mohr05}:
+<<>>=
+data.frame(cbind(acronym=names(Constants),
+             matrix(ncol=3,byrow=TRUE,data=unlist(Constants),
+             dimnames=list(NULL,c("value","units","description")))))
 
-\section{constants}
-\subsection{AtomicWeight}
+@
+  \subsection{Ocean characteristics}
+  Dataset \code{Oceans} contains surfaces and volumes of the world ocean
+  as in \citep{Sarmiento06}:
+<<>>=
+data.frame(cbind(acronym=names(Oceans),
+             matrix(ncol=3,byrow=TRUE,data=unlist(Oceans),
+             dimnames=list(NULL,c("value","units","description")))))
+@
+  \subsection{AtomicWeight}
+  Dataset \code{AtomicWeight} holds the atomic weight of various chemical
+  elements, as in \citep{Wieser06}; The data set contains \code{NA} for elements
+  which have no stable isotopes (except U, Th, Pa).
 <<>>=
 unlist(AtomicWeight)
 AtomicWeight$H
 (W_H2O<- with (AtomicWeight, 2*H + O))
 @
-
-\subsection{Constants}
+  \subsection{atmospheric composition}
+  The atmospheric composition, given in units of the moles of each gas to the
+  total of moles of gas in dry air is in function \code{atmComp}:
 <<>>=
-data.frame(cbind(acronym=names(Constants),
-              matrix(ncol=3,byrow=TRUE,data=unlist(Constants),
-              dimnames=list(NULL,c("value","units","description")))))
-
+atmComp("O2")
+atmComp()
+sum(atmComp())    #!
 @
+
+
 \section{physical functions}
-\subsection{coriolis}
-Estimates the coriolis factor, f, units $sec^{-1}$ according to the formula:
-f=2*omega*sin(lat), where omega=7.292e-5 radians/sec
+  \subsection{coriolis}
+  Function \code{coriolis} estimates the coriolis factor, f, units $sec^{-1}$
+  according to the formula: $f=2*\omega*\sin(lat)$, where
+  $\omega=7.292e^{-5} radians sec^{-1}$
 
 <<label=cor,include=FALSE>>=
 plot(-90:90,coriolis(-90:90),xlab="latitude, dg North",
@@ -133,10 +170,12 @@ plot(-90:90,coriolis(-90:90),xlab="latitude, dg North",
 \caption{The coriolis function}
 \label{fig:cor}
 \end{figure}
-\subsection{molecular diffusion coefficients}
-Calculates molecular and ionic diffusion coefficients (cm2/hour), for several species at given salinity (S) temperature (t) and pressure (P).
 
-Based on the code "CANDI" by Bernie Boudreau \citep{Boudreau96}.
+  \subsection{molecular diffusion coefficients}
+  In function \code{diffcoeff} the molecular and ionic diffusion coefficients
+  ($cm^2 hour^{-1}$), for several species at given salinity (S) temperature (t)
+  and pressure (P) is estimated. The implementation is based on the code
+  "CANDI" by Bernie Boudreau \citep{Boudreau96}.
 <<>>=
 diffcoeff(S=15,t=15)*24  # cm2/day
 diffcoeff(t=10)$O2
@@ -158,18 +197,18 @@ legend("topleft",ncol=2,cex=0.8,title="mean",col=1:13,lty=1:13,
 \caption{molecular diffusion coefficients as a function of temperature}
 \label{fig:diff}
 \end{figure}
-\subsection{shear viscosity of water}
-Calculates the shear viscosity of water, in centipoise. Valid for 0<t<30 and 0<S<36.
 
-Based on the code "CANDI" by Bernie Boudreau \citep{Boudreau96}.
+  \subsection{shear viscosity of water}
+  \code{viscosity} calculates the shear viscosity of water, in centipoise
+  ($0.01 g cm^{-1} sec^{-1}$). Valid for 0<t<30 and 0<S<36.
+
 <<label=visc,include=FALSE>>=
 plot(0:30,viscosity(S=35,t=0:30,P=1),xlab="temperature",ylab="centipoise",
        main="shear viscosity of water",type="l")
-  lines(0:30,viscosity(S=0,t=0:30,P=1),col="red")
-  lines(0:30,viscosity(S=35,t=0:30,P=100),col="blue")
-  legend("topright",col=c("black","red","blue"),lty=1,
+lines(0:30,viscosity(S=0,t=0:30,P=1),col="red")
+lines(0:30,viscosity(S=35,t=0:30,P=100),col="blue")
+legend("topright",col=c("black","red","blue"),lty=1,
         legend=c("S=35,P=1","S=0,P=1","S=35,P=100"))
-@
 @
 \setkeys{Gin}{width=0.6\textwidth}
 \begin{figure}
@@ -180,21 +219,18 @@ plot(0:30,viscosity(S=35,t=0:30,P=1),xlab="temperature",ylab="centipoise",
 \caption{shear viscosity of water as a function of temperature}
 \label{fig:diff}
 \end{figure}
-\subsection{atmospheric composition}
-<<>>=
-atmComp("O2")
-atmComp()
-sum(atmComp())    #!
-@
+
 \section{dissolved gasses}
-\subsection{saturated oxygen concentrations}
+
+  \subsection{saturated oxygen concentrations}
+  \code{gas_O2sat} estimates the saturated concentration of oxygen:
 <<>>=
 gas_O2sat(t = 20)
 t <- seq(0, 30, 0.1)
 @
 <<label=o2sat,include=FALSE>>=
   plot(t, gas_O2sat(t = t), type = "l", ylim = c(0, 15), lwd=2)
-  lines(t, gas_O2sat(S = 0, t = t, method = "Weiss"), col = "yellow",
+  lines(t, gas_O2sat(S = 0, t = t, method = "Weiss"), col = "green",
         lwd = 2, lty = "dashed")
   lines(t, gas_O2sat(S = 35, t = t, method = "Weiss"), col = "red", lwd = 2)
 @
@@ -204,11 +240,14 @@ t <- seq(0, 30, 0.1)
 <<label=figo2sat,fig=TRUE,echo=FALSE>>=
 <<o2sat>>
 @
-\caption{Oxygen saturated concentration as a function of temperature, and for different salinities}
+\caption{Oxygen saturated concentration as a function of temperature, and
+  for different salinities}
 \label{fig:o2sat}
 \end{figure}
 
-\subsection{solubilities and saturated concentrations}
+  \subsection{solubilities and saturated concentrations}
+  More solubilities and saturated concentrations are in functions
+  \code{gas_solubility} and \code{gas_satconc}.
 <<>>=
 gas_satconc(x="O2")
 Temp<-seq(from=0,to=30,by=0.1)
@@ -249,11 +288,33 @@ par("mfrow"=mf)
 <<label=figsolub,fig=TRUE,echo=FALSE>>=
 <<solub>>
 @
-\caption{Saturated concentrations and solubility as a function of temperature and salinity, and for different species}
+\caption{Saturated concentrations and solubility as a function of temperature
+  and salinity, and for different species}
 \label{fig:solub}
 \end{figure}
 
+\subsection{partial pressure of water vapor}
+  \code{vapor} estimates the partial pessure of water vapor, divided by the
+  atmospheric pressure.
+<<label=vapor,include=FALSE>>=
+plot(0:30, vapor(t = 0:30), xlab = "Temperature, dgC", ylab = "pH2O/P",
+     type ="l")
+@
+\setkeys{Gin}{width=0.6\textwidth}
+\begin{figure}
+\centering
+<<label=figvapor,fig=TRUE,echo=FALSE>>=
+<<vapor>>
+@
+\caption{partial pressure of water in saturated air as a function of
+  temperature}
+\label{fig:vapor}
+\end{figure}
+
 \subsection{Schmidt number and gas transfer velocity}
+  The Schmidt number of a gas (\code{gas_schmidt}) is an essential quantity
+  in the gas transfer velocity calculation (\code{gas_transfer}). The latter
+  also depends on wind velocity (as measured 10 metres above sealevel).
 <<>>=
 gas_schmidt(x="CO2",t=20)
 
@@ -281,13 +342,26 @@ legend("topleft",lty=1:4,lwd=2,legend=c("Liss and Merlivat 1986",
 
 \section{seawater properties}
 \subsection{Concentration of conservative species in seawater}
+  Borate, calcite, sulphate and fluoride concentrations can be estimated as
+  a function of the seawater salinity:
 <<>>=
 sw_conserv(S=seq(0,35,by=5))
 @
-\subsection{seawater properties}
-Several sewater profperties, using \citep{Feistel08} or according to
-the UNESCO 1983 polynomial \citep{Fofonoff83} are included. For instance,
-the heat capacity:
+\subsection{Thermophysical seawater properties}
+  \m also implements several thermodynamic properties of seawater. Either one
+  can choose the formulation based on the UNESCO polynomial \citep{UNESCO},
+  which has served the oceanographic community for decades, or the more recent
+  derivation as in \citep{Feistel08}. In the latter case the estimates are
+  based on three individual thermodynamic potentials for fluid water, for ice
+  and for the saline contribution of seawater (the Helmholtz function for
+  pure water, an equation of state for salt-free ice, in the form of a Gibbs
+  potential function, and the saline part of the Gibbs potential).
+
+  Note that the formulations use a new salinity scale, termed
+  "Reference composition salinity" \citep{Millero08}.
+  
+  Below we plot all implemented thermophysical properties as a function of
+  salinity and temperature.
 <<>>=
 sw_cp(S=40,t=1:20)
 sw_cp(S=40,t=1:20,UNESCO=TRUE)
@@ -307,12 +381,13 @@ plotST <- function(fun,title)
 
 par (mfrow=c(3,2))
 par(mar=c(4,4,3,2))
+plotST(sw_gibbs,"Gibbs function")
 plotST(sw_cp,"Heat capacity")
 plotST(sw_entropy,"Entropy")
 plotST(sw_enthalpy,"Enthalpy")
-plotST(sw_dens,"density")
-plotST(sw_svel,"sound velocity")
-plotST(sw_kappa,"isentropic compressibility")
+plotST(sw_dens,"Density")
+plotST(sw_svel,"Sound velocity")
+
 @
 \setkeys{Gin}{width=0.9\textwidth}
 \begin{figure}
@@ -320,14 +395,38 @@ plotST(sw_kappa,"isentropic compressibility")
 <<label=sw,fig=TRUE,echo=FALSE>>=
 <<sw>>
 @
-\caption{seawater properties as a function of salinity and temperture - see text for R-code}
+\caption{seawater properties as a function of salinity and temperature -
+  see text for R-code}
 \label{fig:sw}
 \end{figure}
 
+<<label=sw2,include=FALSE>>=
+par (mfrow=c(3,2))
+par(mar=c(4,4,3,2))
+plotST(sw_kappa,"Isentropic compressibility")
+plotST(sw_kappa_t,"Isothermal compressibility")
+plotST(sw_alpha,"Thermal expansion coefficient")
+plotST(sw_beta,"Haline contraction coefficient")
+plotST(sw_adtgrad,"Adiabatic temperature gradient")
+par (mfrow=c(1,1))
+@
+\setkeys{Gin}{width=0.9\textwidth}
+\begin{figure}
+\centering
+<<label=sw2,fig=TRUE,echo=FALSE>>=
+<<sw2>>
+@
+\caption{seawater properties as a function of salinity and temperature -
+  continued - see text for R-code}
+\label{fig:sw2}
+\end{figure}
 
 \section{conversions}
+Finally, several functions are included to convert between units of certain
+properties.
+
 \subsection{gram, mol, liter conversions}
-gram to moles and vice versa
+  \m function \code{molweight} converts from gram to moles and vice versa
 <<>>=
 1/molweight("CO3")
 1/molweight("HCO3")
@@ -335,28 +434,63 @@ gram to moles and vice versa
 
 molweight(c("SiOH4", "NaHCO3", "C6H12O6", "Ca(HCO3)2", "Pb(NO3)2", "(NH4)2SO4"))
 @
-liter to moles and vice versa
+We can use that to estimate the importance of molecular weight on certain
+physical properties:
+
 <<>>=
-1/molvol(x="O2",t=0)*1000
-1/molvol(x="O2",q=1:6,t=0)
-1/molvol(t=1:10,x="O2")
+gs <- gas_solubility()
+x <- colnames(gs)
+mw <- molweight(x)
 @
-molar volume of an ideal gas
+<<label=mwgs,include=FALSE>>=
+plot(mw,gs,type="n",xlab="molecular weight", ylab="solubility", log="y")
+text(mw,gs,x)
+@
+\setkeys{Gin}{width=0.6\textwidth}
+\begin{figure}
+\centering
+<<label=mwgs,fig=TRUE,echo=FALSE>>=
+<<mwgs>>
+@
+\caption{Gas solubility as a function of molecular weight
+  see text for R-code}
+\label{fig:sw}
+\end{figure}
+
+  \code{molvol} estimates the volume of one liter of a gas.
+  molar volume of an ideal gas
 <<>>=
 molvol(x="ideal")
 molvol(x="ideal",t=1:10)
 @
-\subsection{pressure conversions}
+<<>>=
+1/molvol(x="O2",t=0)*1000
+1/molvol(x="O2",q=1:6,t=0)
+1/molvol(t=1:5,x=c("CO2","O2","N2O"))
+@
+
+  \subsection{pressure conversions}
+  \code{convert_p} converts between the different barometric scales:
 <<>>=
 convert_p(1, "atm")
 @
 
-\subsection{salinity and chlorinity}
+  \subsection{temperature conversions}
+  while \code{convert_T} converts between the different temperature scales
+(Kelvin, Celsius, Fahrenheit):
+<<>>=
+convert_T(1, "C")
+@
+  \subsection{salinity and chlorinity}
+  The relationship between Salinity, chlorinity and conductivity is in various
+  functions:
 <<>>=
 convert_StoCl(S=35)
+convert_RtoS(R=1)
+convert_StoR(S=35)
 @
 \section{finally}
-This vignette is mainly a Sweave \citep{Leisch02} translation of part of the \m help files.
+This vignette was made with Sweave \citep{Leisch02}.
 
 \clearpage
 \bibliography{vignettes}

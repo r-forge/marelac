@@ -51,27 +51,29 @@ par(mfrow = mf)
 
 ## generate table 3.2.4 from Sarmiento and Gruber
 Temp <- seq (0, 30, by = 5)
-## saturated concentrations in mmol/m3
+## saturated concentrations in mmol/m3, at 1 atm.
 A <- data.frame(cbind( t = Temp,
-            N2 = gas_satconc(t = Temp, P=1, x = "N2"),
-            O2 = gas_satconc(t = Temp, P=1, x = "O2"),
-            CO2 = gas_satconc(t = Temp, P=1, x = "CO2"),
-            Ar = gas_satconc(t = Temp, P=1, x = "Ar")))
+            N2  = gas_satconc(t = Temp, x = "N2"),
+            O2  = gas_satconc(t = Temp, x = "O2"),
+            CO2 = gas_satconc(t = Temp, x = "CO2"),
+            Ar  = gas_satconc(t = Temp, x = "Ar")))
 format(A,digits = 4)
-## table values at 20 dg C:
-## 425.7   230.5  11.61  11.29
-## note the deviations for CO2 !
+## table values
+## at  0 dg C: 635.6   359.1  23.37  17.44
+## at 20 dg C: 425.7   230.5  11.61  11.29
+## note the deviations for CO2 (20dg)!
 
-## saturated concentrations in micromol/m3
+## saturated concentrations in micromol/m3, at 1 atm.
 AA <- data.frame(cbind( t = Temp,
-            N2O = gas_satconc(t = Temp, P=1, x = "N2O")*1000,
-            Ne = gas_satconc(t = Temp, P=1, x = "Ne")*1000,
-            Kr = gas_satconc(t = Temp, P=1, x = "Kr")*1000,
-            CH4 = gas_satconc(t = Temp, P=1, x = "CH4")*1000,
-            He = gas_satconc(t = Temp, P=1, x = "He")*1000))
+            N2O = gas_satconc(t = Temp, x = "N2O")*1000,
+            Ne  = gas_satconc(t = Temp, x = "Ne" )*1000,
+            Kr  = gas_satconc(t = Temp, x = "Kr" )*1000,
+            CH4 = gas_satconc(t = Temp, x = "CH4")*1000,
+            He  = gas_satconc(t = Temp, x = "He" )*1000))
 format(AA, digits = 4)
-## table values at 20 dgC:
-## 7.16  6.94  2.50  2.12  1.70
+## table values
+## at  0 dgC: 14.84 8.11  4.33  3.44  1.81
+## at 20 dgC: 7.16  6.94  2.50  2.12  1.70
 ## Note: different for N2O
 }
 \note{

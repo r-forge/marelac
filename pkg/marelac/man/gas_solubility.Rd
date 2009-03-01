@@ -1,24 +1,28 @@
 \name{gas_solubility}
 \alias{gas_solubility}
-\title{Solubility Parameters}
-% should we really use atm?
+\title{
+  Solubility Parameters
+}
 \description{
-  Solubility parameters SA, \eqn{mmol m^{-3} bar^{-1}}{mmol/m3/atm},
+  Solubility parameters SA, \eqn{mmol m^{-3} bar^{-1}}{mmol/m3/bar},
   calculated from the Bunsen solubility coefficients and the volumetric
   solubility coefficients.
 }
-\usage{gas_solubility(S = 35, t = 25, P = 1.013253, x = c("He","Ne",
-"N2","O2","Ar","Kr","Rn","CH4","CO2","N2O","CCl2F2","CCl3F","SF6","CCl4"))}
+\usage{
+gas_solubility(S = 35, t = 25, x = c("He","Ne","N2","O2",
+  "Ar","Kr","Rn","CH4","CO2","N2O","CCl2F2","CCl3F","SF6","CCl4"))
+}
 \arguments{
-  \item{S }{Salinity, -}
-  \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
-  \item{P }{True pressure, bar,}
+  \item{S }{salinity, -}
+  \item{t }{temperature, \eqn{^\circ}{degrees }C,}
   \item{x }{The gas  }
 }
 \value{
   The solubility, mmol/m3/bar.
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{
+  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+}
 \examples{
 gas_solubility(t = 1:20,S = 35, x = "CO2")
 gas_solubility(t = 0:5,S = 35,x = "O2")
@@ -66,35 +70,39 @@ par(mfrow = mf)
 
 ## generate table 3.2.3 from Sarmiento and Gruber
 Temp <- seq (0,30,by = 5)
-## saturated concentrations in mmol/m3
+
+## saturated concentrations in mmol/m3 at at 1 atm;
+# convert from /bar to /atm using 1.013253
 
 A <- data.frame(cbind( t = Temp,
-            He = gas_solubility(t = Temp,x = "He"),
-            Ne = gas_solubility(t = Temp,x = "Ne"),
-            N2 = gas_solubility(t = Temp,x = "N2"),
-            O2 = gas_solubility(t = Temp,x = "O2"),
-            Ar = gas_solubility(t = Temp,x = "Ar"),
-            Kr = gas_solubility(t = Temp,x = "Kr"),
-            Rn = gas_solubility(t = Temp,x = "Rn"))  )
+            He = gas_solubility(t = Temp,x = "He")*1.013253,
+            Ne = gas_solubility(t = Temp,x = "Ne")*1.013253,
+            N2 = gas_solubility(t = Temp,x = "N2")*1.013253,
+            O2 = gas_solubility(t = Temp,x = "O2")*1.013253,
+            Ar = gas_solubility(t = Temp,x = "Ar")*1.013253,
+            Kr = gas_solubility(t = Temp,x = "Kr")*1.013253,
+            Rn = gas_solubility(t = Temp,x = "Rn")*1.013253)  )
 format(A,digits = 4)
-## table values at 20 dg C:
-## 332.9   390.7   557.9  1126  1236  2241  14130
-## note the slight deviations for Rn
+## table values at
+## 0   dgC:  349.4   448.6   818.8  1725  1879  3820  31150
+## 20 dg C:  332.9   390.7   557.9  1126  1236  2241  14130
+## note the (very) slight deviations for Rn
 
-## saturated concentrations in micromol/m3
+## saturated concentrations in micromol/m3 at 1 atm
 AA <- data.frame(cbind( t = Temp,
-            CH4 = gas_solubility(t = Temp,x = "CH4"),
-            CO2 = gas_solubility(t = Temp,x = "CO2"),
-            N2O = gas_solubility(t = Temp,x = "N2O"),
-            CCL2F2 = gas_solubility(t = Temp,x = "CCl2F2"),
-            CCL3F = gas_solubility(t = Temp,x = "CCl3F"),
-            SF6 = gas_solubility(t = Temp,x = "SF6"),
-            CCl4 = gas_solubility(t = Temp,x = "CCl4")))
+            CH4    = gas_solubility(t = Temp,x = "CH4")   *1.013253,
+            CO2    = gas_solubility(t = Temp,x = "CO2")   *1.013253,
+            N2O    = gas_solubility(t = Temp,x = "N2O")   *1.013253,
+            CCL2F2 = gas_solubility(t = Temp,x = "CCl2F2")*1.013253,
+            CCL3F  = gas_solubility(t = Temp,x = "CCl3F") *1.013253,
+            SF6    = gas_solubility(t = Temp,x = "SF6")   *1.013253,
+            CCl4   = gas_solubility(t = Temp,x = "CCl4")  *1.013253))
 format(AA,digits = 4)
 
-## Table values at 20 dgC:
-## 1241  33110 23870  2566  9242   195.8, 30307
-## Note: there are slight deviations for CO2, N2O and He!
+## Table values at
+##  0 dgC: 1984  64400 47840  6686 27380   425.2  97114
+## 20 dgC: 1241  33110 23870  2566  9242   195.8  30307
+## Note: there are slight deviations for CO2, and N2O!
 }
 \note{
   The molar volume used for the Bensen coefficient conversion is the

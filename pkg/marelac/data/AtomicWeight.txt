@@ -1,4 +1,4 @@
-AtomicNumber	Name	Symbol	AtomicWeight	Footnotes
+Number	Name	Symbol	Weight	Footnotes
 1	hydrogen	H	1.00794(7)	gmr
 2	helium	He	4.002602(2)	gr
 3	lithium	Li	6.941(2)	+gmr

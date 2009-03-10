@@ -9,7 +9,7 @@ redfield <- function(x, element, method=c("mol", "mass")) {
   element  <- match.arg(element, elements)
 
   if (method == "mass") {
-    ratio <- with(AtomicWeight,{
+    ratio <- with(atomicweight,{
       ratio * c(C, H, O, N, P)
     })
   }

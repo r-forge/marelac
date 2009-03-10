@@ -135,11 +135,14 @@ data.frame(cbind(acronym=names(Oceans),
   \subsection{AtomicWeight}
   Dataset \code{AtomicWeight} holds the atomic weight of various chemical
   elements, as in \citep{Wieser06}; The data set contains \code{NA} for elements
-  which have no stable isotopes (except U, Th, Pa).
+  which have no stable isotopes (except U, Th, Pa). The data set can
+  be called in two versions. \code{AtomicWeight} shows the full table
+  and \code{atomicweight} can be used for symbolic computations with
+  the elements.
 <<>>=
-unlist(AtomicWeight)
-AtomicWeight$H
-(W_H2O<- with (AtomicWeight, 2*H + O))
+AtomicWeight
+AtomicWeight[8,]
+(W_H2O<- with (atomicweight, 2 * H + O))
 @
   \subsection{atmospheric composition}
   The atmospheric composition, given in units of the moles of each gas to the
@@ -359,7 +362,7 @@ sw_conserv(S=seq(0,35,by=5))
 
   Note that the formulations use a new salinity scale, termed
   "Reference composition salinity" \citep{Millero08}.
-  
+
   Below we plot all implemented thermophysical properties as a function of
   salinity and temperature.
 <<>>=

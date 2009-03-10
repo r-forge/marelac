@@ -1,13 +1,21 @@
 \name{AtomicWeight}
 \docType{data}
 \alias{AtomicWeight}
+\alias{atomicweight}
 \title{The Atomic Weights of Chemical Elements}
 \description{
   Atomic weights of chemical elements useful for marine and lacustrine sciences.
 }
-\usage{AtomicWeight}
+\usage{
+AtomicWeight
+atomicweight
+}
 \format{
-  Atomic weights of elements are given as a list. The list index is the atomic number.
+  Data frame with the IUPAC table of atomic weights.
+  The data frame contains the following colums: AtomicNumber, Name,
+  Symbol, AtomicWeight, Footnotes. See IUPAC report for details.
+  The lower case version is in list-only format that allows symbolic
+  computations with elements.
 }
 \author{Karline Soetaert and Thomas Petzoldt}
 \details{
@@ -21,9 +29,6 @@
   \code{\link{molweight}} for molecular weight
 }
 \examples{
-AtomicWeight
-AtomicWeight$H
-(W_H2O<- with (AtomicWeight, 2 * H + O))
 }
 \references{
   Wieser, M.E. (2006). Atomic weights of the elements 2005 (IUPAC

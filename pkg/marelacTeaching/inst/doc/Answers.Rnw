@@ -84,14 +84,14 @@ options(width = 70)
 @
 
 \maketitle
-This document gives the answers to the exercises in the lecture notes:
+  This document gives the answers to the exercises in the lecture notes:
 
-"Using R for scientific computing" \citep{lecture}.
+  "Using R for scientific computing" \citep{lecture}.
 
-These notes are an introduction to \proglang{R} - at beginners level. They can be found in package
-\code{marelac}.
+  These notes are an introduction to \proglang{R} - at beginners level.
+  They can be found in package \code{marelac}.
 
-In \proglang{R}, write:
+  In \proglang{R}, write:
 
 \begin{Schunk}
 \begin{Sinput}
@@ -103,12 +103,12 @@ browseURL(paste(system.file(package="marelac"),
 \end{Sinput}
 \end{Schunk}
 
-In order to make this vignette more readable, the questions are repeated.
+  In order to make this vignette more readable, the questions are repeated.
 
 \Large \textbf{Chapter 1}
 
 \normalsize
-No exercises in this chapter
+  No exercises in this chapter
 
 
 \Large\textbf {Chapter 2 - R as a scientific calculator}
@@ -129,18 +129,19 @@ sqrt(2.3^2+5.4^2-2*2.3*5.4*cos(pi/8))
 \large \emph{Chapter 3.8.1}
 
 \normalsize
-Use R-function \code{mean} to estimate the mean of two numbers, 9 and 17.
+  Use R-function \code{mean} to estimate the mean of two numbers, 9 and 17.
 <<>>=
 mean(c(9,17))
 @
-\begin{itemize}
-\item Create a vector, called V, with even numbers, between 16 and 56. Do not use loops.
-\item Display this vector
-\item What is the sum of all elements of V?
-\item 	Display the first 4 elements of V
-\item 	Calculate the product of the first 4 elements of V
-\item 	Display the 4th, 9th and 11th element of V.
-\end{itemize}
+  \begin{itemize}
+    \item Create a vector, called V, with even numbers, between 16 and 56.
+      Do not use loops.
+    \item Display this vector
+    \item What is the sum of all elements of V?
+    \item 	Display the first 4 elements of V
+    \item 	Calculate the product of the first 4 elements of V
+    \item 	Display the 4th, 9th and 11th element of V.
+  \end{itemize}
 <<>>=
 (V<-seq(16,56,by=2)) # creates AND displays the vector
 # or:
@@ -150,36 +151,38 @@ V[1:4]
 prod(V[1:4])
 V[c(4,9,11)]
 @
-\begin{itemize}
-\item Create a new vector, W, which equals vector V, multiplied with 3; display its content.
-\item	How many elements of W are smaller than 100?
-\end{itemize}
+  \begin{itemize}
+    \item Create a new vector, W, which equals vector V, multiplied with 3;
+      display its content.
+    \item	How many elements of W are smaller than 100?
+  \end{itemize}
 <<>>=
 W<-V*3; W
 W100<-W[W<100] ; length(W100)
 # or
 length(W[W<100])
 @
-\begin{itemize}
-\item	Create a sequence that contains the values (1,1/2,1/3,1/4,…,1/10)
-\item	Compute the square root of each element
-\item	Compute the square ($^2$) of each element
-\item	Create a sequence with values (0/1,1/2,2/3,3/4,…,9/10)
-\end{itemize}
+  \begin{itemize}
+    \item	Create a sequence that contains the values (1,1/2,1/3,1/4,…,1/10)
+    \item	Compute the square root of each element
+    \item	Compute the square ($^2$) of each element
+    \item	Create a sequence with values (0/1,1/2,2/3,3/4,…,9/10)
+  \end{itemize}
 <<>>=
 1/1:10
 sqrt(1/1:10)
 (1/1:10)^2
 (0:9)/(1:10)    # or : 0:9/1:10
 @
-\begin{itemize}
-\item	Create a vector, U, with 100 random numbers, uniformly distributed between -1 and 1.
-\item	Check the range of U; all values should be within -1 and +1.
-\item	Calculate the sum and the product of the elements of U
-\item	How many elements of U are positive?
-\item	Zero all negative values of U.
-\item	Sort U
-\end{itemize}
+  \begin{itemize}
+    \item	Create a vector, U, with 100 random numbers, uniformly
+      distributed between -1 and 1.
+    \item	Check the range of U; all values should be within -1 and +1.
+    \item	Calculate the sum and the product of the elements of U
+    \item	How many elements of U are positive?
+    \item	Zero all negative values of U.
+    \item	Sort U
+  \end{itemize}
 <<>>=
 U <- runif(100,-1,1)
 range(U)
@@ -188,14 +191,18 @@ length(U[U>0]) # or: sum(U>0)
 U[U<0]<-0
 sort(U)
 @
-\begin{itemize}
-\item	Create two vectors: vector x, with the elements: 2,9,0,2,7,4,0 and vector y with the elements 3,5,0,2,5,4,6 (in that order).
-\item	Divide all the elements of y by the elements of x.
-\item	Select all values of y that are larger than the corresponding values of x
-\item	Select all values of y for which the corresponding values of x are 0.
-\item	Remove all values of y for which the corresponding values of x equal 0.
-\item	Zero all elements of x that are larger or equal than 7. Show x.
-\end{itemize}
+  \begin{itemize}
+    \item	Create two vectors: vector x, with the elements: 2,9,0,2,7,4,0
+      and vector y with the elements 3,5,0,2,5,4,6 (in that order).
+    \item	Divide all the elements of y by the elements of x.
+    \item	Select all values of y that are larger than the corresponding
+      values of x
+    \item	Select all values of y for which the corresponding values of
+      x are 0.
+    \item	Remove all values of y for which the corresponding values of
+      x equal 0.
+    \item	Zero all elements of x that are larger or equal than 7. Show x.
+  \end{itemize}
 <<>>=
 x<- c(2,9,0,2,7,4,0)
 y<- c(3,5,0,2,5,4,6)
@@ -211,53 +218,56 @@ x[x>=7]<-0 ; x
 \large \emph{Chapter 3.8.2}
 
 \normalsize
-\begin{itemize}
-\item	Use R-function "matrix" to create a matrix with the following contents:
-\[
-\left[ {\begin{array}{*{20}c}
-   3 & 9  \\
-   7 & 4  \\
-\end{array}} \right]
-\]
-\item	display it to the screen
-\item	Use R-function "matrix" to create a matrix called "A":
-\[
-\left[ {\begin{array}{*{20}c}
-   3 & 9  \\
-   7 & 4  \\
-\end{array}} \right]
-\]
-\item	Take the transpose of A.
-\item	Create a new matrix, B, by extracting the first two rows and first two columns of A. Display it to the screen.
-\end{itemize}
+  \begin{itemize}
+    \item	Use R-function "matrix" to create a matrix with the
+      following contents:
+      \[
+       \left[ {\begin{array}{*{20}c}
+         3 & 9  \\
+         7 & 4  \\
+       \end{array}} \right]
+      \]
+    \item	display it to the screen
+    \item	Use R-function "matrix" to create a matrix called "A":
+      \[
+        \left[ {\begin{array}{*{20}c}
+          3 & 9  \\
+          7 & 4  \\
+        \end{array}} \right]
+      \]
+    \item	Take the transpose of A.
+    \item	Create a new matrix, B, by extracting the first two rows and
+      first two columns of A. Display it to the screen.
+  \end{itemize}
 <<>>=
 A<-matrix(nrow=2,data=c(3,7,9,4)) ; A
 A<-matrix(nrow=3,data=1/1:9,byrow=TRUE)  # or: 1/matrix(nrow=3,data=1:9,byrow=TRUE)
 t(A)
 B <- A[1:2,1:2] ; B
 @
-Matrix D
-\begin{itemize}
-\item	Use \code{diag} to create the following matrix, called "D":
-\[
-\left[ {\begin{array}{*{20}c}
-   1 & 0 & 0  \\
-   0 & 2 & 0  \\
-   0 & 0 & 3  \\
-\end{array}} \right]
-\]
+  Matrix D
+  \begin{itemize}
+    \item	Use \code{diag} to create the following matrix, called "D":
+      \[
+        \left[ {\begin{array}{*{20}c}
+          1 & 0 & 0  \\
+          0 & 2 & 0  \\
+          0 & 0 & 3  \\
+        \end{array}} \right]
+      \]
 
-\item	Use \code{cbind} and \code{rbind} to augment this matrix, such that you obtain:
-\[
-\left[ {\begin{array}{*{20}c}
-   1 & 0 & 0 & 4  \\
-   0 & 2 & 0 & 4  \\
-   0 & 0 & 3 & 4  \\
-   5 & 5 & 5 & 5  \\
-\end{array}} \right]
-\]
-\item Remove the second row and second column of the previous matrix
-\end{itemize}
+    \item	Use \code{cbind} and \code{rbind} to augment this matrix,
+      such that you obtain:
+      \[
+        \left[ {\begin{array}{*{20}c}
+          1 & 0 & 0 & 4  \\
+          0 & 2 & 0 & 4  \\
+          0 & 0 & 3 & 4  \\
+          5 & 5 & 5 & 5  \\
+        \end{array}} \right]
+      \]
+    \item Remove the second row and second column of the previous matrix
+  \end{itemize}
 <<>>=
 D   <- diag(nrow=3,c(1,2,3))
 
@@ -271,28 +281,33 @@ DD[-2,-2]
 @
 
 \large \emph{Chapter 3.8.3 - nematode diversity}
-\begin{itemize}
-\item	Select the data from station M160b (the 2nd column of Nemaspec); put these data in a vector called "dens".
-\item	Remove from vector dens, the densities that are 0. Display this vector on the screen.
-\item	Calculate N, the total nematode density of this station.
-\item	Divide the values in vector dens by the total nematode density N. Put the results in vector p. The sum of all values in p should equal 1.
-\item	Calculate S, the number of species.
-\item	Estimate the values of diversity indices N1 and N2 and Ni, given by the following formulae:
-\[
-\begin{array}{l}
- N1 = e^{\sum { - p_i  \cdot \log _e (p_i )} }  \\
- N2 = 1/\left( {\sum {p_i ^2 } } \right) \\
- Ni = 1/\max (p_i ) \\
- \end{array}
-\]
+  \begin{itemize}
+    \item	Select the data from station M160b (the 2nd column of Nemaspec);
+      put these data in a vector called "dens".
+    \item	Remove from vector dens, the densities that are 0. Display this
+      vector on the screen.
+    \item	Calculate N, the total nematode density of this station.
+    \item	Divide the values in vector dens by the total nematode density N.
+      Put the results in vector p. The sum of all values in p should equal 1.
+    \item	Calculate S, the number of species.
+    \item	Estimate the values of diversity indices N1 and N2 and Ni, given
+      by the following formulae:
+      \[
+        \begin{array}{l}
+           N1 = e^{\sum { - p_i  \cdot \log _e (p_i )} }  \\
+           N2 = 1/\left( {\sum {p_i ^2 } } \right) \\
+           Ni = 1/\max (p_i ) \\
+        \end{array}
+      \]
 
-\item The expected number of species in a sample with size n, drawn from a population which size N, which has S species is given by:
-\[
-ES(n) = \sum\limits_{i = 1}^S {\left[ {1 - \frac{{\left( {_n^{N - Ni} } \right)}}{{\left( {_n^N } \right)}}} \right]}
-\]
-What is the expected number of species per 100 individuals ?
-\item Print all diversity indices to the screen, which should look like:
-\end{itemize}
+    \item The expected number of species in a sample with size n, drawn
+      from a population which size N, which has S species is given by:
+      \[
+        ES(n) = \sum\limits_{i = 1}^S {\left[ {1 - \frac{{\left( {_n^{N - Ni} } \right)}}{{\left( {_n^N } \right)}}} \right]}
+      \]
+      What is the expected number of species per 100 individuals ?
+    \item Print all diversity indices to the screen, which should look like:
+  \end{itemize}
 \normalsize
 <<>>=
 head(Nemaspec)
@@ -330,17 +345,22 @@ Sphere(6371)
 \large \emph{Chapter 4.4.2}
 
 \normalsize
-The saturated oxygen concentration in water ($µmol kg^{-1}$), as function of temperature (T), and salinity (S) can be calculated by:
-$SatOx = e^A$       where :
-A= -173.9894 + 25559.07/T + 146.4813* loge(T/100) -22.204*T/100 + S *
-(-0.037362+0.016504*T/100-0.0020564 *T/100*T/100)
+  The saturated oxygen concentration in water ($µmol kg^{-1}$), as
+  function of temperature (T), and salinity (S) can be calculated by:
+  $SatOx = e^A$       where :
+  A= -173.9894 + 25559.07/T + 146.4813* loge(T/100) -22.204*T/100 + S *
+  (-0.037362+0.016504*T/100-0.0020564 *T/100*T/100)
 
-and T is temperature in Kelvin (Tkelvin = Tcelsius+273.15).
-\begin{itemize}
-\item	Make a function that implements this formula; the default values for temperature and salinity are $20 ^{\circ}C$ and 35 respectively.
-\item	What is the saturated oxygen concentration at the default conditions?
-\item	Estimate the saturated oxygen concentration for a range of temperatures from 0 to $30^{\circ}C$, and salinity 35.
-\end{itemize}
+  and T is temperature in Kelvin (Tkelvin = Tcelsius+273.15).
+  \begin{itemize}
+    \item	Make a function that implements this formula; the default
+      values for temperature and salinity are $20 ^{\circ}C$ and 35
+      respectively.
+    \item	What is the saturated oxygen concentration at the default
+      conditions?
+    \item	Estimate the saturated oxygen concentration for a range of
+      temperatures from 0 to $30^{\circ}C$, and salinity 35.
+  \end{itemize}
 <<>>=
 SatOx <- function(T=20,S=35)
   {
@@ -356,14 +376,17 @@ SatOx(0:30)
 \large \emph{Chapter 4.4.3}
 
 \normalsize
-The Fibonacci numbers are calculated by the following relation: $F_n=F_{n-1}+F_{n-2}$
-With $F_1= F_2 =1$
-\begin{itemize}
-\item	Compute the first 50 Fibonacci numbers; store the results in a vector.
-\item	For large n, the ratio Fn/Fn-1 approaches the "golden mean"
-\item	What is the value of F50/F49; is it equal to the golden mean?
-\item	When is n large enough? (i.e. sufficiently close (<1e-6) to the golden mean)
-\end{itemize}
+  The Fibonacci numbers are calculated by the following relation:
+  $F_n=F_{n-1}+F_{n-2}$
+  With $F_1= F_2 =1$
+  \begin{itemize}
+    \item	Compute the first 50 Fibonacci numbers; store the results
+      in a vector.
+    \item	For large n, the ratio Fn/Fn-1 approaches the "golden mean"
+    \item	What is the value of F50/F49; is it equal to the golden mean?
+    \item	When is n large enough? (i.e. sufficiently close (<1e-6)
+      to the golden mean)
+  \end{itemize}
 <<>>=
 Fibo<-vector()
 Fibo[1:2]<-1
@@ -374,10 +397,11 @@ Fibo[2:50]/Fibo[1:49]- (1+sqrt(5))/2
 @
 
 \large \emph{Chapter 4.4.5 - nematode diversity all stations}
-\begin{itemize}
-\item Make a function that will calculate the diversity indices for any data matrix.
-\item Calculate and show diversity on species level
-\end{itemize}
+  \begin{itemize}
+    \item Make a function that will calculate the diversity indices
+      for any data matrix.
+    \item Calculate and show diversity on species level
+  \end{itemize}
 
 \normalsize
 <<>>=
@@ -416,8 +440,9 @@ summary(Nemaspec)                  # calculate summary characteristics
 
 \large \emph{Chapter 4.4.6 - rarefaction diversity}
 \normalsize
-An alternative way of estimating the number of species per 100 individuals is
-by taking random 'subsamples' of 100 individuals and estimating the number of species from this subsample.
+  An alternative way of estimating the number of species per 100
+  individuals is by taking random 'subsamples' of 100 individuals
+  and estimating the number of species from this subsample.
 <<>>=
 dens <- Nemaspec[,2]
 dens <- dens[dens>0]  # selection of species present
@@ -440,11 +465,12 @@ mean (ESS100)
 \Large \textbf{Chapter 5 - statistics}
 \normalsize
 
-\begin{itemize}
-\item	Perform a hierarchic clustering of the Nemaspec dataset and plot the dendrogram
-\item	Perform a principal component analysis (PCA) and plot the results
-\item repeat the PCA analysis, with the first two stations removed
-\end{itemize}
+  \begin{itemize}
+    \item	Perform a hierarchic clustering of the Nemaspec dataset and
+      plot the dendrogram
+    \item	Perform a principal component analysis (PCA) and plot the results
+    \item repeat the PCA analysis, with the first two stations removed
+  \end{itemize}
 
 <<label=stat, include=FALSE>>=
 nemaspec <- Nemaspec[,-1]
@@ -473,31 +499,40 @@ par(mfrow=c(1,1))
 \clearpage
 \Large \textbf{Chapter 6 - graphics}
 \normalsize
-\begin{itemize}
-\item	Create a script file which draws a curve of the function $y=x^3 sin^2 (3 \pi x)$ in the interval [-2 , 2].
-\item	Make a curve of the function $y=1/cos(1+x^2)$ in the interval [-5,5].
-\item The relative importance of ammonia
-\[
-p_{[NH_3 ]}  = \frac{{K_N }}{{K_N  + [H^ +  ]}}
-\]
-\item	Plot the relative fraction of toxic ammonia to the total ammonia concentration as a function of pH, where pH = -log10([H+]) and for a temperature of $30^{\circ}C$.
- Use a range of pH from 4 to 9. The value of KN is $8 10^{-10}$ at a temperature of  $30^{\circ}C$.
-\item	Add to this plot the relative fraction of ammonia at  $0^{\circ}C$; the value of KN at that temperature is $8 10^{-11} mol kg^{-1}$.
-\item For the US, the population density in 1900 (N0) was 76.1 million; the population growth can be described as:
-\[
-N(t) = \frac{K}{{1 + [\frac{{K - N_{t0} }}{{N_{t0} }}]e^{ - a \cdot (t - t0)} }}
-\]
+  \begin{itemize}
+    \item	Create a script file which draws a curve of the function
+      $y=x^3 sin^2 (3 \pi x)$ in the interval [-2 , 2].
+    \item	Make a curve of the function $y=1/cos(1+x^2)$ in the
+      interval [-5,5].
+    \item The relative importance of ammonia
+      \[
+        p_{[NH_3 ]}  = \frac{{K_N }}{{K_N  + [H^ +  ]}}
+      \]
+    \item	Plot the relative fraction of toxic ammonia to the total
+      ammonia concentration as a function of pH, where pH = -log10([H+])
+       and for a temperature of $30^{\circ}C$.
+      Use a range of pH from 4 to 9. The value of KN is $8 10^{-10}$ at
+      a temperature of  $30^{\circ}C$.
+    \item	Add to this plot the relative fraction of ammonia at  $0^{\circ}C$;
+      the value of KN at that temperature is $8 10^{-11} mol kg^{-1}$.
+    \item For the US, the population density in 1900 (N0) was 76.1 million;
+      the population growth can be described as:
+      \[
+        N(t) = \frac{K}{{1 + [\frac{{K - N_{t0} }}{{N_{t0} }}]e^{ - a \cdot (t - t0)} }}
+      \]
 
-a=0.02 yr-1, K =  500 million of people.
+      a=0.02 yr-1, K =  500 million of people.
 
-Actual population values are:
+      Actual population values are:
 
-1900	1910	1920	1930	1940	1950	1960	1970	1980
+     1900	1910	1920	1930	1940	1950	1960	1970	1980
 
-76.1	92.4	106.5	123.1	132.6	152.3	180.7	204.9	226.5
-\item	Plot the population density curve as a thick line, using the US parameter values.
-\item	Add the measured population values as points. Finish the graph with titles, labels etc…
-\end{itemize}
+      76.1	92.4	106.5	123.1	132.6	152.3	180.7	204.9	226.5
+    \item	Plot the population density curve as a thick line, using the
+      US parameter values.
+    \item	Add the measured population values as points. Finish the graph
+      with titles, labels etc…
+  \end{itemize}
 <<label=graph, include=FALSE>>=
 par(mfrow=c(2,2))
 # simple curves
@@ -532,13 +567,17 @@ points(N)
 \end{figure}
 
 
-\begin{itemize}
-\item	Have a look at the \code{iris} data; What is the class and dimension of the data set?
-\item	Produce a scatter plot of petal length against petal width
-\item	Repeat the same graph, using different symbol colours for the three species.
-\item	Create a box-and whisker plot for sepal length where the data values are split into species groups
-\item	Now produce a similar box-and whisker plot for all four morphological measurements, arranged in two rows and two columns.
-\end{itemize}
+  \begin{itemize}
+    \item	Have a look at the \code{iris} data; What is the class and
+      dimension of the data set?
+    \item	Produce a scatter plot of petal length against petal width
+    \item	Repeat the same graph, using different symbol colours for
+      the three species.
+    \item	Create a box-and whisker plot for sepal length where the
+      data values are split into species groups
+    \item	Now produce a similar box-and whisker plot for all four
+      morphological measurements, arranged in two rows and two columns.
+  \end{itemize}
 <<>>=
 head(iris)
 class(iris)
@@ -589,27 +628,28 @@ mtext(outer=TRUE,side=3,line=-2,"Iris data set",cex=1.5)
 
 \large \emph{Chapter 7.1.1}
 \normalsize
-\begin{itemize}
-\item	Create matrices called "A" and "B":
-\[
-A=\left[ {\begin{array}{*{20}c}
-   1 & 2 & 3  \\
-   6 & 4 & 1  \\
-   { - 2} & 1 & { - 1}  \\
-\end{array}} \right]
-\]
-\[
-B = \left[ {\begin{array}{*{20}c}
-   1 & 4 & 7  \\
-   2 & 5 & 8  \\
-   3 & 6 & 9  \\
-\end{array}} \right]
-\]
-\item Take the inverse of A and the transpose of A.
-\item	Multiply A with B.
-\item	Estimate the eigenvalues and eigenvectors of A.
-\item	For a matrix A, x is an eigenvector, and ? the eigenvalue of a matrix A, if Ax =?x. Test it!
-\end{itemize}
+  \begin{itemize}
+    \item	Create matrices called "A" and "B":
+      \[
+       A=\left[ {\begin{array}{*{20}c}
+        1 & 2 & 3  \\
+        6 & 4 & 1  \\
+        { - 2} & 1 & { - 1}  \\
+       \end{array}} \right]
+      \]
+      \[
+       B = \left[ {\begin{array}{*{20}c}
+         1 & 4 & 7  \\
+         2 & 5 & 8  \\
+         3 & 6 & 9  \\
+       \end{array}} \right]
+      \]
+    \item Take the inverse of A and the transpose of A.
+    \item	Multiply A with B.
+    \item	Estimate the eigenvalues and eigenvectors of A.
+    \item	For a matrix A, x is an eigenvector, and ? the eigenvalue of
+      a matrix A, if Ax =?x. Test it!
+  \end{itemize}
 <<>>=
 A <- matrix(nrow=3, data=c(1,6,-2,2,4,1,3,1,-1))
 B <- matrix(nrow=3, data=1:9)
@@ -623,21 +663,23 @@ ee$values[1]*ee$vectors[,1]
 
 
 \large \emph{Chapter 7.1.2 killer whale model}
-\begin{itemize}
-\item Create a matrix, called P:
-\[
-\left[ {\begin{array}{*{20}c}
-   0 & {0.0043} & {0.1132} & 0  \\
-   {0.9775} & {0.9111} & 0 & 0  \\
-   0 & {0.0736} & {0.9534} & 0  \\
-   0 & 0 & {0.0452} & {0.9804}  \\
-\end{array}} \right]
-\]
+  \begin{itemize}
+    \item Create a matrix, called P:
+      \[
+        \left[ {\begin{array}{*{20}c}
+           0 & {0.0043} & {0.1132} & 0  \\
+           {0.9775} & {0.9111} & 0 & 0  \\
+           0 & {0.0736} & {0.9534} & 0  \\
+           0 & 0 & {0.0452} & {0.9804}  \\
+        \end{array}} \right]
+      \]
 
-\item	What is the value of the largest eigenvalue (the so-called dominant eigenvalue) and the corresponding eigenvector?.
-\item	Create a new matrix, T, which equals P, except for the first row, where the elements are 0.
-\item	Now estimate $N= (I-T)^{-1}$, where I is the identity matrix.
-\end{itemize}
+    \item	What is the value of the largest eigenvalue (the so-called
+      dominant eigenvalue) and the corresponding eigenvector?.
+    \item	Create a new matrix, T, which equals P, except for the first
+      row, where the elements are 0.
+    \item	Now estimate $N= (I-T)^{-1}$, where I is the identity matrix.
+  \end{itemize}
 \normalsize
 <<>>=
 A<- matrix (nrow=4,data=c(0,     0.9775,0,     0,
@@ -655,13 +697,13 @@ N <- solve(diag(4)-T) ; N
 \normalsize
 	Solve the following system of linear equations for the unknown xi:
 
-3x1 + 4x2 + 5x3 = 0
+  3x1 + 4x2 + 5x3 = 0
 
-6x1 + 2x2 + 7x3 = 5
+  6x1 + 2x2 + 7x3 = 5
 
-7x1 +   x2          = 6
+  7x1 +   x2          = 6
 
-Check the results
+  Check the results
 
 <<>>=
 A <- matrix(nrow=3,data=c(3,6,7,4,2,1,5,7,0))
@@ -675,11 +717,12 @@ A %*% x - B
 
 \large \emph{Chapter 8.3.1 simple root of equations}
 \normalsize
-\begin{itemize}
-\item Find the root of the equation $e^x = 4x^2$ in the interval [0,1].
-First draw the function curve.
-\item	Solve the equation $1000=y*(3+x)*(1+y)^4$ for y and with x varying over the range from 1 to 100. Plot the root as a function of x.
-\end{itemize}
+  \begin{itemize}
+    \item Find the root of the equation $e^x = 4x^2$ in the interval [0,1].
+      First draw the function curve.
+    \item	Solve the equation $1000=y*(3+x)*(1+y)^4$ for y and with x
+      varying over the range from 1 to 100. Plot the root as a function of x.
+  \end{itemize}
 
 <<>>=
 root<-uniroot(f=function(x) exp(x)-4*x^2,interval=c(0,1))
@@ -719,13 +762,16 @@ plot(1:100,res)
 \end{figure}
 \large \emph{Chapter 8.3.2. pCO2 rises increase acidity}
 \normalsize
-\begin{itemize}
-\item Estimate the pH at equilibrium with alkalinity 2300 $µmol kg^{-1}$ and the current pCO2 of 360 ppm.
-\item Use package seacarb to estimate the dissociation constants and Henry's constants at temperature $20^{\circ}C$, salinity 0, and pressure 0.
-\item Estimate pH as a function of pco2, varying between 200 and 1250
-\item What is the value of pH at pCO2 = 1250
-\end{itemize}
-(see lecture notes for formulae)
+  \begin{itemize}
+    \item Estimate the pH at equilibrium with alkalinity 2300
+      $µmol kg^{-1}$ and the current pCO2 of 360 ppm.
+    \item Use package seacarb to estimate the dissociation constants
+      and Henry's constants at temperature $20^{\circ}C$, salinity 0,
+      and pressure 0.
+    \item Estimate pH as a function of pco2, varying between 200 and 1250
+    \item What is the value of pH at pCO2 = 1250
+  \end{itemize}
+  (see lecture notes for formulae)
 <<>>=
 require(seacarb)
 k1 <- K1(S=0,T=20,P=0)
@@ -767,11 +813,11 @@ plot(pco2seq,pHseq,type="l",lwd=2,main="Effect of pCO2 on pH")
 \Large \textbf{Chapter 9 - interpolating, smoothing, curve fitting}
 
 \large \emph{Chapter 9.1 interpolating wind data}
-Wind velocities are: 5,6,7,9,4,6,3,7,9 at time 0, 3, …24 o'clock respectively.
-\begin{itemize}
-\item	Interpolate the three-hourly measurements to hourly measurements.
-\item	Make a plot of the interpolated values
-\end{itemize}
+  Wind velocities are: 5,6,7,9,4,6,3,7,9 at time 0, 3, …24 o'clock respectively.
+  \begin{itemize}
+    \item	Interpolate the three-hourly measurements to hourly measurements.
+    \item	Make a plot of the interpolated values
+  \end{itemize}
 
 \normalsize
 <<label=Smooth,include=FALSE>>=
@@ -792,22 +838,24 @@ plot(approx(t3,wind3,xout=3:24),type="b" ,xlab="time",ylab="wind speed")
 \large \emph{Chapter 9.2 Fitting primary production data}
 
 \normalsize
-Primary production (pp) at different light intensities are given;
-Fit the resulting production estimates (pp), as a function of light intensity (ll) with the 3-parameter Eilers-Peeters equation.
-The primary production is calculated as:
-\[
-pp = p\max  \cdot \frac{{2 \cdot (1 + \beta ) \cdot {\raise0.7ex\hbox{$I$} \!\mathord{\left/
- {\vphantom {I {Iopt}}}\right.\kern-\nulldelimiterspace}
-\!\lower0.7ex\hbox{${Iopt}$}}}}{{({\raise0.7ex\hbox{$I$} \!\mathord{\left/
- {\vphantom {I {Iopt}}}\right.\kern-\nulldelimiterspace}
-\!\lower0.7ex\hbox{${Iopt}$}})^2  + 2 \cdot \beta  \cdot {\raise0.7ex\hbox{$I$} \!\mathord{\left/
- {\vphantom {I {Iopt}}}\right.\kern-\nulldelimiterspace}
-\!\lower0.7ex\hbox{${Iopt}$}} + 1}}
-\]
+  Primary production (pp) at different light intensities are given;
+  Fit the resulting production estimates (pp), as a function of light
+  intensity (ll) with the 3-parameter Eilers-Peeters equation.
+  The primary production is calculated as:
+  \[
+    pp = p\max  \cdot \frac{{2 \cdot (1 + \beta ) \cdot {\raise0.7ex\hbox{$I$} \!\mathord{\left/
+   {\vphantom {I {Iopt}}}\right.\kern-\nulldelimiterspace}
+  \!\lower0.7ex\hbox{${Iopt}$}}}}{{({\raise0.7ex\hbox{$I$} \!\mathord{\left/
+   {\vphantom {I {Iopt}}}\right.\kern-\nulldelimiterspace}
+  \!\lower0.7ex\hbox{${Iopt}$}})^2  + 2 \cdot \beta  \cdot {\raise0.7ex\hbox{$I$} \!\mathord{\left/
+   {\vphantom {I {Iopt}}}\right.\kern-\nulldelimiterspace}
+  \!\lower0.7ex\hbox{${Iopt}$}} + 1}}
+  \]
 
-where I is light and pmax, ? and Iopt are parameters.
+  where I is light and pmax, ? and Iopt are parameters.
 
-Add the best-fit line to the graph. (note: use coef to retrieve the best parameter values).
+  Add the best-fit line to the graph. (note: use coef to retrieve the best
+  parameter values).
 
 <<label=pp, include=FALSE>>=
 ll <- c(0.,1,10,20,40,80,120,160,300,480,700)
@@ -845,18 +893,22 @@ title(expression (frac(pmax%*%2%*%(1+beta)%*%I/Iopt,
 \large \emph{Chapter 10.1 Lotka-Volterra model}
 
 \normalsize
-\begin{itemize}
-\item	Solves the following system of ODEs
-\[
-\begin{array}{l}
- \frac{{dx}}{{dt}} = a \cdot x \cdot (1 - \frac{x}{K}) - b \cdot x \cdot y \\
- \frac{{dy}}{{dt}} = g \cdot b \cdot x \cdot y - e \cdot y \\
- \end{array}
-\]
-for initial values x=300,y=10 and parameter values: a=0.05, K=500, b=0.0002, g=0.8, e=0.03
-\item	Make three plots, one for x and one for y as a function of time, and one plot expressing y as a function of x. Arrange these plots in 2 rows and 2 columns.
-\item run the model with other initial values (x=200, y=50); add the (x,y) trajectories to the phase-plane plot
-\end{itemize}
+  \begin{itemize}
+    \item	Solves the following system of ODEs
+      \[
+       \begin{array}{l}
+       \frac{{dx}}{{dt}} = a \cdot x \cdot (1 - \frac{x}{K}) - b \cdot x \cdot y \\
+       \frac{{dy}}{{dt}} = g \cdot b \cdot x \cdot y - e \cdot y \\
+       \end{array}
+      \]
+      for initial values x=300,y=10 and parameter values: a=0.05, K=500,
+      b=0.0002, g=0.8, e=0.03
+    \item	Make three plots, one for x and one for y as a function of time,
+       and one plot expressing y as a function of x. Arrange these plots in
+       2 rows and 2 columns.
+    \item run the model with other initial values (x=200, y=50); add the
+      (x,y) trajectories to the phase-plane plot
+  \end{itemize}
 <<label=lotka,include=FALSE>>=
 require(deSolve)
 model <- function (time,VAR,pars)
@@ -894,15 +946,16 @@ lines(out2$x,out2$y,lty=2)
 \large \emph{Chapter 10.2 Lorenz Butterfly}
 
 \normalsize
-Solve the Lorenz equations:
-\[
-\begin{array}{l}
- \frac{{dx}}{{dt}} =  - \frac{8}{3} \cdot x + y \cdot z \\
- \frac{{dy}}{{dt}} =  - 10 \cdot (y - z) \\
- \frac{{dz}}{{dt}} =  - x \cdot y + 28y - z \\
- \end{array}
-\]
-Use as initial conditions x=y=z=1; create output for a time sequence ranging from 0 to 100, and with a time step of 0.005.
+  Solve the Lorenz equations:
+  \[
+  \begin{array}{l}
+   \frac{{dx}}{{dt}} =  - \frac{8}{3} \cdot x + y \cdot z \\
+   \frac{{dy}}{{dt}} =  - 10 \cdot (y - z) \\
+   \frac{{dz}}{{dt}} =  - x \cdot y + 28y - z \\
+   \end{array}
+  \]
+  Use as initial conditions x=y=z=1; create output for a time sequence
+  ranging from 0 to 100, and with a time step of 0.005.
 
 <<label=lor,include=FALSE>>=
 require(scatterplot3d)

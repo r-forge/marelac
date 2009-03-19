@@ -2,7 +2,7 @@
 \alias{vertmean}
 
 \title{
-  Vertical Volumetric Weighted Mean of Matter Concentrations in Water
+  Vertical Volume Weighted Mean of Matter Concentrations in Water
   Bodies
 }
 \description{
@@ -17,7 +17,7 @@ vertmean(depth, vari, level, top, bot, vol, total=FALSE)
   \item{vari}{measurements corresponding to \code{depth} (concentration,
     temperature, \dots), }
   \item{level}{surface water level (above ground or above sea level (m
-    a.s.l.), depending on bathymetric function used, }
+    a.s.l.), depending on bathymetric function used,}
   \item{top}{top water level of requested layer,}
   \item{bot}{bottom water level of requested layer,}
   \item{vol}{hypsographic function to be used (e.g. \code{vol.depth}),}
@@ -26,57 +26,80 @@ vertmean(depth, vari, level, top, bot, vol, total=FALSE)
 }
 
 \value{
-  
+
  Volumetric average resp. total value (for total =\code{TRUE}) for a
  given quantity (concentration, energy, temperature) in the requested
  layer between depths \code{top} and \code{bottom}.
-  
+
 }
 
 \author{Thomas Petzoldt}
 %\seealso{}
 \examples{
+
 ## define a bathymetric formula for a given lake or basin
+## z:     water depth  (m below surface)
+## zz:    water column (m above ground)
+## level: total water depth (m above ground or above reference level)
 weight.vol <- function(z, level) {
-  ## Ground level 154 m a.s.l.
-  zz  <- level - 154 - z
-  ## interpolate at very small values
-  vol <- ifelse(zz < 0.5,
-    approx(c(0, 0.5), c(0, 18020.74), zz)$y,
-    ## Polynomial
-    vol <- 44331 - 202176 * zz + 363281 * zz^2 - 150342 * zz^3 + 47275.8 * zz^4 -
-          6791.125 * zz^5 + 503.9106 * zz^6 - 18.95684 * zz^7 + 0.2871075 * zz^8
-  )
-  vol
+  zz  <- level - z
+  if (any(zz < 0)) stop("depth > maximum depth")
+  vol <- 175947 * zz^2 + 2686 * zz^3 # m^3
+}
+
+## area is first derivative
+area <- function(z, level) {
+  zz  <- level - z
+  A   <-   0.5 * 175947 * zz + 1/3 * 2686 * zz^2 # m^2
 }
 
 ## dummy formula for depth-weighted averaging
 ## (water column, instead of bathymetric curve)
 weight.column <- function(z, level) {z}
 
-
-## Plot of bathymetric curve
-x <- seq(0, 155, 0.01)
-y <- weight.vol(0, x)
-plot(x, y, xlim = c(154, max(x)))
+## Plot of lake volume (bathymetric curve)
+par(mfrow = c(1, 2))
+z <- 0:12
+V <- weight.vol(z, 12)
+plot(V, z, type = "l", ylim = c(12, 0), xlab = "Volume (m3)", ylab = "Depth (m)")
+polygon(c(V, 0), c(z, 0), col = "cyan")
 
 ## Test Data
-level <- 167.5
+level <- 12
+depth <- c(0, 1, 3.5, 5, 7, 10, 10.5, 11.5)
+pconc <- c(3.7, 4.2, 6.1, 8.9, 7.8, 9.7, 11.4, 11.4)
 
-depth <- c(0, 1, 6, 7, 8, 9, 10, 11)
-pconc <- c(18.8, 17, 12.1, 11.9, 11.8, 11.7, 11.4, 11.4)
+## Plot test data
+plot(pconc, depth, xlim=range(c(0, pconc)), ylim=c(12,0), type="n",
+  xlab="P concentration (mu g / L)", ylab="Depth (m)")
+segments(rep(0, 13), depth, pconc, depth, lwd=3)
 
-vertmean(depth, pconc, level, top=0, bot=4, weight.column)
-vertmean(depth, pconc, level, top=4, bot=13.5, weight.column)
+## simple means
+m <- mean(pconc[depth <= 4])
+lines(c(m, m), c(0, 4), col="blue", lwd=2)
 
-vertmean(depth, pconc, level, top=0, bot=4, weight.vol)
-vertmean(depth, pconc, level, top=4, bot=13.5, weight.vol)
+m <- mean(pconc[depth >= 4])
+lines(c(m, m), c(4, 12), col="blue", lwd=2)
 
-vertmean(depth, pconc, level, top=0, bot=3.7, weight.vol)
-vertmean(depth, pconc, level, top=3.7, bot=13.5, weight.vol)
+## depth weighted
+m <- vertmean(depth, pconc, level, top=0, bot=4, weight.column)
+lines(c(m, m), c(0, 4), col="red", lwd=2)
 
-vertmean(depth, pconc, level, top=0, bot=3.7, weight.vol)
-vertmean(depth, pconc, level, top=3.7, bot=13.5, weight.vol)
+m <- vertmean(depth, pconc, level, top=4, bot=12, weight.column)
+lines(c(m, m), c(4, 12), col="red", lwd=2)
+
+## volume weighted
+m <- vertmean(depth, pconc, level, top=0, bot=4, weight.vol)
+lines(c(m, m), c(0, 4), col="green", lwd=2)
+
+m <- vertmean(depth, pconc, level, top=4, bot=12, weight.vol)
+lines(c(m, m), c(4, 12), col="green", lwd=2)
+
+legend("topright", col=c("blue", "red", "green"), lwd=2, cex=0.7,
+  legend=c("non weighted", "depth weighted", "volume weighted"))
+
+## total sum over the whole water column
+vertmean(depth, pconc, level, top=0, bot=12, weight.vol, total=TRUE)
 }
 \keyword{misc}
 

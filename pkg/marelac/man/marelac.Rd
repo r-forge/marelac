@@ -51,6 +51,8 @@
 \author{
   Karline Soetaert (Maintainer)
 
+  Filip Meysman
+  
   Thomas Petzoldt
 }
 \references{

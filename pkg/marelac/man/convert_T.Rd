@@ -2,15 +2,17 @@
 \alias{convert_T}
 \title{Conversion Between Different Temperature Units}
 \description{
-  The function converts between different units of pressure.
+  The function converts between different units of temperature.
 }
 \usage{
 convert_T(x, unit = c("K", "C", "F"))
 }
 
 \arguments{
-  \item{x}{Vector of given temperature values,}
-  \item{unit}{Measurement unit of the given value(s).}
+  \item{x }{Vector of given temperature values,
+  }
+  \item{unit }{Measurement unit of the given value(s).
+  }
 }
 
 \value{

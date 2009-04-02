@@ -18,5 +18,5 @@ gas_transfer<- function (t=25,u10=1,x=c("He", "Ne", "N2", "O2", "Ar",
     Nightingale = (0.33 * u10 + 0.222 * u10 * u10) / sqrt(S600),
     Wanninkhof1 = 0.31 * u10^2 * sqrt(S600),
     Wanninkhof2 = 0.0283 * u10^3 / sqrt(S600))
-  tr
+  tr/100/3600
 }

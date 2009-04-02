@@ -2,9 +2,9 @@
 \alias{diffcoeff}
 \title{Molecular Diffusion Coefficients}
 \description{
-  Calculates molecular and ionic diffusion coefficients (cm2/hour), for
-  several species at given salinity (S) temperature (t) and pressure
-  (P).
+  Calculates molecular and ionic diffusion coefficients
+  \eqn{m^2 s^{-1}}{m2/sec}, for
+  several species at given salinity, temperature, and pressure.
 
   Based on the code "CANDI" by B.P. Boudreau
 }
@@ -15,24 +15,27 @@
       "SO4", "H3PO4", "BOH3", "B0H4", "H4SiO4"))
 }
 \arguments{
-  \item{S }{Salinity, -,}
-  \item{t }{Temperature, degrees C,}
-  \item{P }{True pressure, bar,}
+  \item{S }{Salinity, -,
+  }
+  \item{t }{Temperature, , \eqn{^\circ}{degrees }C.
+  }
+  \item{P }{True pressure, bar,
+  }
   \item{x }{character vector with species whose diffusion coefficients
     should be estimated.
   }
 }
 \value{
-  A data.frame with the diffusion coefficients (cm2/hour) of the
-  selected species.
+  A data.frame with the diffusion coefficients \eqn{m^2 s^{-1}}{m2/sec}
+  of the selected species.
 }
 
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }
 \examples{
-diffcoeff(S = 15, t = 15)*24  # cm2/day
-diffcoeff(t = 10, x = "O2")
+diffcoeff(S = 15, t = 15)/(1e4*3600*24)  # cm2/day
+diffcoeff(t = 10, x = "O2")             # m2/s
 difftemp <- diffcoeff(t = 0:30)[,1:13]
-matplot(0:30, difftemp, xlab = "temperature", ylab = "cm2/hour",
+matplot(0:30, difftemp, xlab = "temperature", ylab = "m2/s",
         main = "Molecular/ionic diffusion", type = "l")
 legend("topleft", ncol = 2, cex = 0.8, title = "mean", col = 1:13, lty = 1:13,
        legend = cbind(names(difftemp),
@@ -40,7 +43,7 @@ legend("topleft", ncol = 2, cex = 0.8, title = "mean", col = 1:13, lty = 1:13,
 
 select <- c("O2", "CO2", "NH3", "NH4", "NO3")
 diffsal <- diffcoeff(S = 0:35, x = select)
-matplot(0:35, diffsal,xlab = "salinity", ylab = "cm2/hour",
+matplot(0:35, diffsal,xlab = "salinity", ylab = "m2/s",
          main = "Molecular/ionic diffusion", type = "l")
 legend("topleft", ncol = 2, cex = 0.8, title = "mean",
        col = 1:length(select), lty = 1:length(select),

@@ -16,7 +16,8 @@ gas_satconc(S = 35, t = 25, P = 1.013253,
   %\item{K }{Temperature, dgK}
   \item{P }{True pressure, bar}
   \item{x }{character vector with gasses whose saturated concentration
-    should be estimated.}
+    should be estimated.
+  }
   \item{atm }{the number of moles of the gas per unit mole of air in the
     atmosphere, the "mixing ratio".  When present, this overrules the
     \code{x} argument. When unspecified, the value from \code{atmComp}

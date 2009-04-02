@@ -3,14 +3,16 @@
 \title{Water Depth}
 \description{
   Computes the water depth for water of salinity 35, and temperature 0
-  dg, based on latitude and hydrostatic pressure, using the UNESCO 1983
+  dg C, based on latitude and hydrostatic pressure, using the UNESCO 1983
   polynomial.
 }
 \usage{
 sw_depth(p = P-1.013253, P=1.013253, lat = 0)
 }
 \arguments{
-  \item{p }{gauge or applied pressure, pressure relative to the local atmospheric pressure, bar}
+  \item{p }{gauge or applied pressure, pressure relative to the local
+    atmospheric pressure, bar
+  }
   \item{P }{true pressure, bar}
   \item{lat }{latitude (-90 - +90), -,}
 }

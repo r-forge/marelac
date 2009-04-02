@@ -2,8 +2,7 @@
 \alias{sw_cp}
 \title{Heat Capacity of Sea Water}
 \description{
-  Estimates the heat capacity of seawater, using the UNESCO 1983
-  polynomial.
+  Estimates the heat capacity of seawater.
 
   Valid for S = 0 to 40, T = 0 to 35 dg C
 }

@@ -2,8 +2,8 @@
 \alias{viscosity}
 \title{Shear Viscosity of Water}
 \description{
-  Calculates the shear viscosity of water, in centipoise (0.01
-  g/cm/sec). Valid for 0 < T < 30 \eqn{^\circ}{degrees }C, 0 < S < 36, 1
+  Calculates the shear viscosity of water, in centipoise (g/m/sec).
+  Valid for 0 < t < 30 \eqn{^\circ}{degrees }C, 0 < S < 36, 1
   < P < 1000 bars.
 
   Based on the code "CANDI" by B.P. Boudreau
@@ -22,7 +22,7 @@ viscosity(S = 35, t = 25, P = 1.013253)
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }
 \examples{
 plot(0:30, viscosity(t = 0:30, S = 35, P = 1),
-  xlab = "temperature", ylab = "centipoise", 
+  xlab = "temperature", ylab = "g/m/s",
   main = "shear viscosity of water", type = "l")
 lines(0:30, viscosity(t = 0:30, S = 0, P = 1), col = "red")
 lines(0:30, viscosity(t = 0:30, S = 35, P = 100), col = "blue")
@@ -31,7 +31,9 @@ legend("topright", col = c("black","red","blue"), lty = 1,
 }
 \references{
   Based on the FORTRAN implementation of the diagenetic model "CANDI" of
-  B.P. Boudreau: \cr Boudreau BP, A method-of-lines code for carbon and
+  B.P. Boudreau:
+
+  Boudreau BP, A method-of-lines code for carbon and
   nutrient diagenesis in aquatic sediments.  COMPUTERS & GEOSCIENCES 22
   (5): 479-496 JUN 1996
 

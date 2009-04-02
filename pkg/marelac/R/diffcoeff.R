@@ -109,33 +109,34 @@ diffcoeff <- function(S=35,      # Salinity, ppt
   SS <- 36.1
   V25 <- viscosity(SS,TS,1)
   VTK <- viscosity(0,t,1)
-  D_H4SiO4 = D_H4SiO4*V25/298.15*TK/VTK*fac
+  D_H4SiO4 <- D_H4SiO4*V25/298.15*TK/VTK*fac
 
+  fac <- 1/(3600*1e4)       # from cm2/hr to m2/s
   diffc <-data.frame(       #
-     O2  = D_O2,         # Oxygen
-     CO2 = D_CO2,
-     NH3 = D_NH3,
-     H2S = D_H2S,
-     CH4 = D_CH4,
-     HCO3  = D_HCO3,
-     CO3   = D_CO3,
-     NH4   = D_NH4,
-     HS    = D_HS,
-     NO3   = D_NO3,
-     H2PO4 = D_H2PO4,
-     HPO4  = D_HPO4,
-     PO4   = D_PO4,
-     H     = D_H,
-     OH    = D_OH,
-     Ca    = D_Ca,
-     Mg    = D_Mg,
-     Fe    = D_Fe,
-     Mn    = D_Mn,
-     SO4   = D_SO4,
-     H3PO4 = D_H3PO4,
-     BOH3 = D_BOH3,
-     B0H4 = D_B0H4,
-     H4SiO4 = D_H4SiO4)
+     O2  = D_O2*fac,         # Oxygen
+     CO2 = D_CO2*fac,
+     NH3 = D_NH3*fac,
+     H2S = D_H2S*fac,
+     CH4 = D_CH4*fac,
+     HCO3  = D_HCO3*fac,
+     CO3   = D_CO3*fac,
+     NH4   = D_NH4*fac,
+     HS    = D_HS*fac,
+     NO3   = D_NO3*fac,
+     H2PO4 = D_H2PO4*fac,
+     HPO4  = D_HPO4*fac,
+     PO4   = D_PO4*fac,
+     H     = D_H*fac,
+     OH    = D_OH*fac,
+     Ca    = D_Ca*fac,
+     Mg    = D_Mg*fac,
+     Fe    = D_Fe*fac,
+     Mn    = D_Mn*fac,
+     SO4   = D_SO4*fac,
+     H3PO4 = D_H3PO4*fac,
+     BOH3 = D_BOH3*fac,
+     B0H4 = D_B0H4*fac,
+     H4SiO4 = D_H4SiO4*fac)
 
   return(diffc[x])
 }

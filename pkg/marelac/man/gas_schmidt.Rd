@@ -20,7 +20,8 @@ gas_schmidt(t = 25, x = c("He", "Ne", "N2", "O2", "Ar",
 \arguments{
   \item{t }{Temperature in \eqn{^\circ}{degrees }C,}
   \item{x }{character vector with gasses whose schmidt number
-    should be estimated.}
+    should be estimated.
+  }
 }
 \value{
   The Schmidt number, a dimensionless quantity.

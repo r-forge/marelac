@@ -4,7 +4,7 @@
 \title{Estimate Global Radiation from Measured Sunshine Duration Time}
 \description{
   The function converts values of sunshine duration (in hours) to global
-  radiation (in \eqn{J/cm2/d}{J cm^{-2} d^{-1}}).
+  radiation (in \eqn{J m^{-2} s^{-1}}{J/m2/s}).
 }
 
 \usage{
@@ -23,7 +23,7 @@ ssd2rad(S, doy, a = 0.25, b = 0.5, rho = 50.29)
 
 
 \value{
-  Estimated value of global radiaton in \eqn{J/cm2/d}{J cm^{-2} d^{-1}}.
+  Estimated value of global radiaton in \eqn{J m^{-2} s^{-1}}{J/m2/s}.
 }
 
 %% ToDo: find international reference or remove function from package

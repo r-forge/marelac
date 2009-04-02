@@ -3,9 +3,9 @@
 Oceans <- list(
 
 Mass  = c(1.35e25,"kg","total mass of the oceans"),
-Vol   = c(1.34e18,"kg","total volume of the oceans"),
-VolSurf   = c(1.81e16,"kg","volume of the surface ocean (0-50m)"),
-VolDeep   = c(9.44e17,"kg","volume of the deep ocean (>1200m)"),
+Vol   = c(1.34e18,"m3","total volume of the oceans"),
+VolSurf   = c(1.81e16,"m3","volume of the surface ocean (0-50m)"),
+VolDeep   = c(9.44e17,"m3","volume of the deep ocean (>1200m)"),
 Area   = c(358e12,"m2","total area of the oceans"),
 AreaIF   = c(332e12,"m2","annual mean ice-free area of the oceans"),
 AreaAtl   = c(75e12,"m2","area of the Atlantic ocean, >45dgS"),

@@ -9,16 +9,22 @@
          "NO","N2","NO2","N2O","O2","PH3","SiH4","SiF4","SO2","Xe"),
     q = 1, a = 0, b = 0)}
 \arguments{
-  \item{t }{temperature, \eqn{^\circ}{degrees }C}
-  \item{P }{True pressure, bar}
-  \item{x}{the gas, if NULL then the coefficients a and b are used}
-  \item{q }{quantity, mol, of the gas}
+  \item{t }{temperature, \eqn{^\circ}{degrees }C
+  }
+  \item{P }{True pressure, bar.
+  }
+  \item{x }{character vector with gasses whose molecular volume
+    should be estimated. if \code{NULL} then the coefficients \code{a} and
+    \code{b} are used.
+  }
+  \item{q }{quantity, mol, of the gas.
+  }
 
   \item{a }{Van der Waals constant a, a species-specific coefficient,
-    \eqn{dm^6*bar/mol^2}
+    \eqn{dm^6*bar/mol^2}.
   }
   \item{b }{Van der Waals constant b, a species-specific coefficient,
-    \eqn{dm^3/mol}
+    \eqn{dm^3/mol}.
   }
 }
 \value{
@@ -27,8 +33,9 @@
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }
 \examples{
 #molecular volume of an ideal gas.
+molvol(x="ideal", P = 1,t=0)    # 22.710 980
+molvol(x="ideal", P = 1,t=25)   # 24.789 598
 
-molvol(x=NULL) # 24.46559
 plot(0:30, molvol(t = 0:30, x=NULL),
     xlab = "Temperature, dgC", ylab = "Molar volume")
 
@@ -45,6 +52,15 @@ molvol(P = 1:5, x = "O2")
 
 # the inverse function
 1/molvol(x="O2")
+
+# contour plot
+P   <- seq(1,100,by=1)
+Temp<- seq(-5,40,by=1)
+
+Val <- outer(X=P,Y=Temp,FUN=function(X,Y) molvol(P=X, t=Y,x="O2"))
+contour(P,Temp,Val,xlab="pressure",ylab="temperature",
+        main="molvol",nlevel=20,log="x")
+
 }
 
 \seealso{\code{\link{molweight}} the molecular weight}

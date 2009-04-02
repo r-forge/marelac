@@ -12,8 +12,8 @@ rhoH2O(S = 35, t = 25, p = max(0, P-1.013253), P = 1.013253,
   \item{S }{salinity in PSU,}
   \item{t }{temperature in \eqn{^\circ}{degrees }C,}
   \item{P }{true pressure in bar,}
-  \item{p }{hydrostatic pressure, pressure relative to the local
-    atmospheric pressure, bar,
+  \item{p }{gauge or applied pressure, pressure relative to the
+            local atmospheric pressure, bar.
   }
   \item{method}{"Millero" for marine systems (default), "Chen" for the
     limnological range (i.e. fresh water systems). Abbreviation

@@ -2,14 +2,17 @@
 \alias{coriolis}
 \title{The Coriolis Force as a Function of Latitude}
 \description{
-  Estimates the coriolis factor, f (in \eqn{s^{-1}}{1/second} where
+  Estimates the coriolis factor, f (in \eqn{s^{-1}}{1/second}), where
   \eqn{f = 2 \cdot \omega \cdot sin(lat)}{f = 2*omega*sin(lat)}, where
-  \eqn{\omega = 7.292e^{-5}}{omega = 7.292e-5} radians/sec, the rotation of the earth}
+  \eqn{\omega = 7.292e^{-5}}{omega = 7.292e-5} radians/sec, the
+  rotation of the earth.
+}
 \usage{
 coriolis(lat)
 }
 \arguments{
-  \item{lat }{latitude in degrees north (-90:+90).}
+  \item{lat }{latitude in degrees north (-90:+90).
+  }
 }
 \value{
   The coriolis factor (\eqn{s^{-1}}{1/second}).

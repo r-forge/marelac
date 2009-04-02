@@ -3,7 +3,8 @@
 \title{Reference sea salt Composition}
 \description{
   The sea salt composition definition for reference salinity of the standard
-  ocean at 25 dgC and 101325 Pa (atmospheric pressure), given in mass fractions).
+  ocean at 25 dgC and 1.01325 bar (atmospheric pressure),
+  given in mass fractions).
 }
 \usage{
 sw_comp(x=c("Na","Mg","Ca","K","Sr","Cl","SO4","HCO3",

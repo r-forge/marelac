@@ -4,7 +4,7 @@
 \title{Gibbs Function of Seawater}
 \description{
   Calculates the seawater specific gibbs free energy, including
-  derivatives upto order 2, for a
+  derivatives up to order 2, for a
   given temperature, salinity and pressure.
   
 The Gibbs function of seawater g(S,t,p) is related to the specific enthalpy h and
@@ -16,7 +16,9 @@ sw_gibbs(S = 35, t = 25, p = P-1.013253, P=1.013253, dS=0, dt=0, dp=0)}
   \item{S }{Salinity (dimensionless),}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
   %\item{K }{Temperature, dgK}
-  \item{p }{gauge or applied pressure, pressure relative to the local atmospheric pressure, bar}
+  \item{p }{gauge or applied pressure, pressure relative to the local
+    atmospheric pressure, bar
+  }
   \item{P }{true pressure, bar}
   \item{dS }{order of the S derivative}
   \item{dt }{order of the t derivative}
@@ -35,9 +37,9 @@ sw_gibbs(0,0,0,dp=1)                     #0.1000015694e-2
 sw_gibbs(0,0,0,dS=1,dp=1)                #0
 sw_gibbs(0,0,0,dt=1,dp=1)                #-0.677700318e-7
 
-sw_gibbs(0,79.85,0)                      #-0.446114969e5   WRONG (see note)
-sw_gibbs(0,79.85,0,dt=1)                 #-0.107375993e4   WRONG
-sw_gibbs(0,79.85,0,dp=1)                 #0.102892956e-2   WRONG
+sw_gibbs(0,79.85,0)                      #-0.446114969e5   differs (see note)
+sw_gibbs(0,79.85,0,dt=1)                 #-0.107375993e4   differs
+sw_gibbs(0,79.85,0,dp=1)                 #0.102892956e-2   differs
 sw_gibbs(0,79.85,0,dS=1,dp=1)            #0
 sw_gibbs(0,79.85,0,dt=1,dp=1)            #0.659051552e-6
 
@@ -50,16 +52,16 @@ sw_gibbs(0,0,998.98675,dt=1,dp=1)        #0.199079571e-6
 
 # table 21 Feistel 2008
 sw_gibbs(35.16504,0,0)                   #=0
-sw_gibbs(35.16504,0,0,dS=1)              #0.639974067e2      WRONG
+sw_gibbs(35.16504,0,0,dS=1)              #0.639974067e2      differs
 sw_gibbs(35.16504,0,0,dt=1)              #=0
 sw_gibbs(35.16504,0,0,dp=1)              #0.972661217e-3
 sw_gibbs(35.16504,0,0,dS=1,dp=1)         #-0.759615412e-6
 sw_gibbs(35.16504,0,0,dt=1,dp=1)         #0.515167556e-7    !!!
 
-sw_gibbs(100,79.85,0)                    #=-0.295243229e5   WRONG
+sw_gibbs(100,79.85,0)                    #=-0.295243229e5   differs
 sw_gibbs(100,79.85,0,dS=1)               #0.251957276e3
-sw_gibbs(100,79.85,0,dt=1)               #-0.917529024e3    WRONG
-sw_gibbs(100,79.85,0,dp=1)               #0.971006828e-3    WRONG
+sw_gibbs(100,79.85,0,dt=1)               #-0.917529024e3    differs
+sw_gibbs(100,79.85,0,dp=1)               #0.971006828e-3    differs
 sw_gibbs(100,79.85,0,dS=1,dp=1)          #-0.305957802e-6
 sw_gibbs(100,79.85,0,dt=1,dp=1)          #0.146211315e-5
 
@@ -72,23 +74,24 @@ sw_gibbs(35.16504,0,998.98675,dt=1,dp=1) #0.245708012e-6
 
 }
 \note{
-The gibbs functgion is defined as the sum of a pure water part and the
-saline part (IAPWS-08)
+  The gibbs functgion is defined as the sum of a pure water part and the
+  saline part (IAPWS-08)
 
-The coefficients from McDougall et al., 2009 were used.
-For temperature, they differ slightly from Feistel 2003 and Feistel 2008, which is why,
-for temparatures different from 0, there is a slight offset from the estimates
-as from table 22 or 21 from Feistel (2008).
+  The coefficients from McDougall et al., 2009 were used.
+  For temperature, they differ slightly from Feistel 2003 and Feistel 2008,
+  which is why, for temperatures different from 0, there is a slight offset
+  from the estimates as from table 22 or 21 from Feistel (2008).
 
 
 }
 \references{
-Feistel, R., 2008: A Gibbs function for seawater thermodynamics for -6 to 80 dgC and salinity up
-to 120 g/ kg. Deep-Sea Res. I, 55, 1639-1671.
+  Feistel, R., 2008: A Gibbs function for seawater thermodynamics for -6
+  to 80 dgC and salinity up to 120 g/ kg. Deep-Sea Res. I, 55, 1639-1671.
 
-  McDougall, T.J., R. Feistel, F. J. Millero, D. R. Jackett, D. G. Wright, B. A. King, G. M. Marion, C.-T. A. Chen
-and P. Spitzer, 2009: Calculation of the Thermophysical Properties of Seawater, Global Ship-based Repeat
-Hydrography Manual, IOCCP Report No. 14, ICPO Publication Series no. 134.
+  McDougall, T.J., R. Feistel, F. J. Millero, D. R. Jackett, D. G. Wright,
+  B. A. King, G. M. Marion, C.-T. A. Chen and P. Spitzer, 2009: Calculation
+  of the Thermophysical Properties of Seawater, Global Ship-based Repeat
+  Hydrography Manual, IOCCP Report No. 14, ICPO Publication Series no. 134.
 
 }
 \keyword{utilities}

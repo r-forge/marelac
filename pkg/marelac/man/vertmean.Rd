@@ -6,7 +6,7 @@
   Bodies
 }
 \description{
-  Calculate vertical mean values which respect depths of different
+  Calculate vertical mean values which respect to depths of different
   layers or lake morphometry.
 }
 \usage{

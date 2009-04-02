@@ -17,7 +17,7 @@
 \newcommand{\m}{\textbf{\textsf{marelac }}}
 \newcommand{\R}{\proglang{R}}
 \title{
-  \proglang{R}-package \m: utilities for the MArine, Riverine, Estuarine,
+  \m: utilities for the MArine, Riverine, Estuarine,
   LAcustrine and Coastal sciences
 }
 \Plaintitle{marelac}
@@ -42,8 +42,9 @@ Technische Universit\"at Dresden\\
 Germany
 \And
 Filip Meysman\\
-VUB\\
-Belgium}
+NIOO-CEME\\
+The Netherlands
+}
 
 \Plainauthor{Karline Soetaert, Thomas Petzoldt and Filip Meysman}
 
@@ -71,17 +72,16 @@ Belgium}
   URL: \url{http://tu-dresden.de/Members/thomas.petzoldt/}\\
   \\
   Filip Meysman\\
-  Laboratory of Analytical and Environmental Chemistry\\
-  Vrije Universiteit Brussel (VUB)\\
-  Pleinlaan 2\\
-  1050 Brussel, Belgium.\\
-  E-mail: \email{filip.meysman@vub.ac.be}
+  Centre for Estuarine and Marine Ecology (CEME)\\
+  Netherlands Institute of Ecology (NIOO)\\
+  4401 NT Yerseke, Netherlands\\
+  E-mail: \email{f.meysman@nioo.knaw.nl}
 }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% R/Sweave specific LaTeX commands.
 %% need no \usepackage{Sweave}
-%\VignetteIndexEntry{R-package marelac: utilities for the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences}
+%\VignetteIndexEntry{marelac: utilities for the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin of the document
 \begin{document}
@@ -176,17 +176,17 @@ plot(-90:90,coriolis(-90:90),xlab="latitude, dg North",
 
   \subsection{molecular diffusion coefficients}
   In function \code{diffcoeff} the molecular and ionic diffusion coefficients
-  ($cm^2 hour^{-1}$), for several species at given salinity (S) temperature (t)
+  ($m^2 s^{-1}$), for several species at given salinity (S) temperature (t)
   and pressure (P) is estimated. The implementation is based on the code
   "CANDI" by Bernie Boudreau \citep{Boudreau96}.
 <<>>=
-diffcoeff(S=15,t=15)*24  # cm2/day
+diffcoeff(S=15,t=15)*24*3600*1e4  # cm2/day
 diffcoeff(t=10)$O2
 difftemp <- diffcoeff(t=0:30)[,1:13]
 diffsal <- diffcoeff(S=0:35)[,1:13]
 @
 <<label=diff,include=FALSE>>=
-matplot(0:30,difftemp,xlab="temperature",ylab="cm2/hour",
+matplot(0:30,difftemp,xlab="temperature",ylab=" m2/sec",
         main="Molecular/ionic diffusion",type="l")
 legend("topleft",ncol=2,cex=0.8,title="mean",col=1:13,lty=1:13,
         legend=cbind(names(difftemp),format(colMeans(difftemp),digits=4)))
@@ -203,10 +203,10 @@ legend("topleft",ncol=2,cex=0.8,title="mean",col=1:13,lty=1:13,
 
   \subsection{shear viscosity of water}
   \code{viscosity} calculates the shear viscosity of water, in centipoise
-  ($0.01 g cm^{-1} sec^{-1}$). Valid for 0<t<30 and 0<S<36.
+  ($g m^{-1} sec^{-1}$). Valid for 0<t<30 and 0<S<36.
 
 <<label=visc,include=FALSE>>=
-plot(0:30,viscosity(S=35,t=0:30,P=1),xlab="temperature",ylab="centipoise",
+plot(0:30,viscosity(S=35,t=0:30,P=1),xlab="temperature",ylab="g/m/s",
        main="shear viscosity of water",type="l")
 lines(0:30,viscosity(S=0,t=0:30,P=1),col="red")
 lines(0:30,viscosity(S=35,t=0:30,P=100),col="blue")
@@ -232,10 +232,12 @@ gas_O2sat(t = 20)
 t <- seq(0, 30, 0.1)
 @
 <<label=o2sat,include=FALSE>>=
-  plot(t, gas_O2sat(t = t), type = "l", ylim = c(0, 15), lwd=2)
+  plot(t, gas_O2sat(t = t), type = "l", ylim = c(0, 15), lwd=2,
+       main="Oxygen saturation", ylab = "mg/l", xlab="temperature")
   lines(t, gas_O2sat(S = 0, t = t, method = "Weiss"), col = "green",
         lwd = 2, lty = "dashed")
   lines(t, gas_O2sat(S = 35, t = t, method = "Weiss"), col = "red", lwd = 2)
+  legend("topright",c("S=35","S=0"),col=c("red","green"), lty=c(1,2), lwd=2)
 @
 \setkeys{Gin}{width=0.6\textwidth}
 \begin{figure}
@@ -325,7 +327,7 @@ useq <- 0:15
 @
 <<label=transfer,include=FALSE>>=
 plot(useq,gas_transfer(u10=useq,x="O2"),type="l",lwd=2,xlab="u10,m/s",
-     ylab="cm/hr", main="O2 gas transfer velocity",ylim=c(0,75))
+     ylab="m/s", main="O2 gas transfer velocity",ylim=c(0,3e-4))
 lines(useq,gas_transfer(u10=useq,x="O2",method="Nightingale"),lwd=2,lty=2)
 lines(useq,gas_transfer(u10=useq,x="O2",method="Wanninkhof1"),lwd=2,lty=3)
 lines(useq,gas_transfer(u10=useq,x="O2",method="Wanninkhof2"),lwd=2,lty=4)
@@ -363,14 +365,12 @@ sw_conserv(S=seq(0,35,by=5))
   Note that the formulations use a new salinity scale, termed
   "Reference composition salinity" \citep{Millero08}.
 
-  Below we plot all implemented thermophysical properties as a function of
-  salinity and temperature.
 <<>>=
 sw_cp(S=40,t=1:20)
 sw_cp(S=40,t=1:20,UNESCO=TRUE)
 @
-The dependency on salinity, and temperature for some of those is hereby plotted,
-using a function
+  Below we plot all implemented thermophysical properties as a function of
+  salinity and temperature. We first define a function that does that
 <<label=sw,include=FALSE>>=
 plotST <- function(fun,title)
 {

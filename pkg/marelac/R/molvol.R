@@ -11,6 +11,10 @@ molvol <- function(t=25,
                   a=0,      # dm^6*bar/mol^2 the van der Waals coefficients...
                   b=0) {
   Names <- eval(formals(sys.function(sys.parent()))$x)
+  Names <- c("ideal","Ar", "CO2", "CS2", "CO", "CCl4", "Cl2",
+      "C2H6S", "C2H5OH","C6H5F", "CH3F", "CH4", "CH3OH", "C5H12", "C3H8",
+      "H2O", "He","H2", "HBr", "HCl", "H2S", "Hg", "Kr", "NH3", "Ne",
+      "NO", "N2", "NO2", "N2O", "O2", "PH3", "SiH4", "SiF4", "SO2", "Xe")
   if (! is.null(x)) {
     x <- match.arg(x, several.ok = TRUE) # check if valid input...
     ii <- pmatch(x,Names) # position of x
@@ -30,9 +34,18 @@ molvol <- function(t=25,
     aa<-a
     bb<-b
   }
-  R  <- 0.082058
+#  R  <- 0.082058*1.0131253    #  l*bar/K/mol
+  R  <- 0.0831447215   #  l*bar/K/mol
+
   TK <- 273.15 + t  #  t in degrees Kelvin
 
+  il <- max(length(t), length(P), length(q))
+  if (il > 1) {
+    TK <- rep(TK,len=il)
+    P <- rep(P,len=il)
+    q <- rep(q,len=il)
+  }
+  
   VV <- NULL
   what <-  NULL
   for (i in 1:length(aa)) {
@@ -40,17 +53,16 @@ molvol <- function(t=25,
     b <- bb[i]
   
     V <- NULL
-    for (TT in TK) {
-      for (PP in P) {
-        for (xx in q) {
+    for (i in 1:il) {
+     TT <- TK[i]
+     PP <- P[i]
+     xx <- q[i]
           if (a==0 & b==0) {
-            V    <- c(V, q * R * TT / PP * 1.013253)   # CHECK FACTOR 1.013253
+            V    <- c(V, xx * R * TT / PP)   # CHECK FACTOR 1.013253
           } else {
             V <- c(V,
-            uniroot(function (V) ((PP* 1.013253 + xx * xx * a/(V^2)) *
+            uniroot(function (V) ((PP + xx * xx * a/(V^2)) *
               (V/xx - b) - R * TT), c(-10, 1e6))$root)
-          }
-        }
       }
     }
     VV <- cbind(VV,V)

@@ -463,13 +463,13 @@ text(mw,gs,x)
   \code{molvol} estimates the volume of one liter of a gas.
   molar volume of an ideal gas
 <<>>=
-molvol(x="ideal")
-molvol(x="ideal",t=1:10)
+molvol(species="ideal")
+molvol(species="ideal",t=1:10)
 @
 <<>>=
-1/molvol(x="O2",t=0)*1000
-1/molvol(x="O2",q=1:6,t=0)
-1/molvol(t=1:5,x=c("CO2","O2","N2O"))
+1/molvol(species="O2",t=0)*1000
+1/molvol(species="O2",q=1:6,t=0)
+1/molvol(t=1:5,species=c("CO2","O2","N2O"))
 @
 
   \subsection{pressure conversions}

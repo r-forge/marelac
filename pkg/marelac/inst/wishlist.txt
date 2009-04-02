@@ -19,6 +19,7 @@ Ka -> ThPe
   
   suggestion: molweight(species)
   
+ThPe: done, also in other places with elements and molecules.
 
   2. Redfield(x,...)
   
@@ -27,3 +28,7 @@ Ka -> ThPe
   (q for quantity)
   
   suggest: Redfield(q,...)
+
+ThPe: done, changed to "q" but I am not yet satisfied with this.
+Alternative proposal simply "x" in general (as there is now no more
+confusion with molvol) or "quantity" or "Q".

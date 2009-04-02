@@ -3,21 +3,21 @@
 ## -----------------------------------------------------------------------------
 molvol <- function(t=25,
                   P=1.013253,
-                  x=c("ideal","Ar", "CO2", "CS2", "CO", "CCl4", "Cl2",
+                  species=c("ideal","Ar", "CO2", "CS2", "CO", "CCl4", "Cl2",
       "C2H6S", "C2H5OH","C6H5F", "CH3F", "CH4", "CH3OH", "C5H12", "C3H8",
       "H2O", "He","H2", "HBr", "HCl", "H2S", "Hg", "Kr", "NH3", "Ne",
       "NO", "N2", "NO2", "N2O", "O2", "PH3", "SiH4", "SiF4", "SO2", "Xe"),
                   q=1,      # quantity (mol) of the gas
                   a=0,      # dm^6*bar/mol^2 the van der Waals coefficients...
                   b=0) {
-  Names <- eval(formals(sys.function(sys.parent()))$x)
+  Names <- eval(formals(sys.function(sys.parent()))$species)
   Names <- c("ideal","Ar", "CO2", "CS2", "CO", "CCl4", "Cl2",
       "C2H6S", "C2H5OH","C6H5F", "CH3F", "CH4", "CH3OH", "C5H12", "C3H8",
       "H2O", "He","H2", "HBr", "HCl", "H2S", "Hg", "Kr", "NH3", "Ne",
       "NO", "N2", "NO2", "N2O", "O2", "PH3", "SiH4", "SiF4", "SO2", "Xe")
-  if (! is.null(x)) {
-    x <- match.arg(x, several.ok = TRUE) # check if valid input...
-    ii <- pmatch(x,Names) # position of x
+  if (! is.null(species)) {
+    species <- match.arg(species, several.ok = TRUE) # check if valid input...
+    ii <- pmatch(species,Names) # position of species
     # a in L2bar/mol2
     Waals.a <- c(0,1.363, 3.640, 11.77, 1.505, 19.7483, 6.579, 13.04, 12.18,
       20.19, 4.692, 2.283, 9.649, 19.26, 8.779, 5.536, 0.03457,
@@ -45,13 +45,13 @@ molvol <- function(t=25,
     P <- rep(P,len=il)
     q <- rep(q,len=il)
   }
-  
+
   VV <- NULL
   what <-  NULL
   for (i in 1:length(aa)) {
     a <- aa[i]
     b <- bb[i]
-  
+
     V <- NULL
     for (i in 1:il) {
      TT <- TK[i]
@@ -67,8 +67,8 @@ molvol <- function(t=25,
     }
     VV <- cbind(VV,V)
   }
-  colnames(VV) <-x
-  if(nrow(VV) ==1) {VV<- as.vector(VV);names(VV)<-x}
+  colnames(VV) <-species
+  if(nrow(VV) ==1) {VV<- as.vector(VV);names(VV)<-species}
   return(VV)
 }
 

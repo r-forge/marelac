@@ -7,11 +7,11 @@
   Redfield ratio.
 }
 \usage{
-redfield(x, element, method = c("mol", "mass"))
+redfield(q, species, method = c("mol", "mass"))
 }
 \arguments{
-  \item{x}{amount of substance of that element (in mol or mass units),}
-  \item{element}{The element that is given ("C", "H", "O", "N", "P"),}
+  \item{q}{amount of substance of that element (in mol or mass units),}
+  \item{species}{The element that is given ("C", "H", "O", "N", "P"),}
   \item{method}{measurement unit ("mol" or "mass").}
 }
 \details{

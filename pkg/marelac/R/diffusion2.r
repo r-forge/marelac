@@ -2,7 +2,7 @@
 ## Molecular Diffusion Coefficients  - more species
 ## -----------------------------------------------------------------------------
 
-Diffusion <- function(S=35, t=25, P=0, x=c("H2","He","NO","N2O","N2","NH3",
+Diffusion <- function(S=35, t=25, P=0, species=c("H2","He","NO","N2O","N2","NH3",
      "O2","CO","CO2","SO2","H2S","Ar","Kr","Ne","CH4","CH3Cl","C2H6","C2H4",
      "C3H8","C3H6","C4H10","Urea","Methanol","Ethanol","Glycine","Alanine","Serine","Valine","Leucine",
      "Proline","Dextrose","Sucrose","Formic acid","Acetic acid",
@@ -15,12 +15,12 @@ Diffusion <- function(S=35, t=25, P=0, x=c("H2","He","NO","N2O","N2","NH3",
      "CO3--","HPO4--","SO3--","SO4--","S2O3--","S2O4--","S2O6--","S2O8--","Malate--",
      "PO4---","Citrate---")) {
 
-  Names <- eval(formals(sys.function(sys.parent()))$x)
-  if (is.null(x)) {
-    ii <-1:length(Names);x<-Names
-  } else ii <- pmatch(x,Names)  # position of element
+  Names <- eval(formals(sys.function(sys.parent()))$species)
+  if (is.null(species)) {
+    ii <-1:length(Names);species<-Names
+  } else ii <- pmatch(species,Names)  # position of element
 
-  x <- match.arg(x, several.ok = TRUE) # check if valid input...
+  species <- match.arg(species, several.ok = TRUE) # check if valid input...
     
   TK <- t + 273.15
   DifGas <- DifIon <- NULL
@@ -56,7 +56,7 @@ Diffusion <- function(S=35, t=25, P=0, x=c("H2","He","NO","N2O","N2","NH3",
     DifGas <- A/(Vb[iGas]^0.6)*fac2
     names(DifGas) <- Names[iGas]       #m2/sec
   }
-  if ("H2O" %in% x) {
+  if ("H2O" %in% species) {
   #  Diffusion coefficient of Water : from Cohen and Turnbull (1959) and Krynicki et al. (1978)
     A <- 12.5e-09*exp(-5.22e-04*P)
     B <- 925.0*exp(-2.6e-04*P)
@@ -64,7 +64,7 @@ Diffusion <- function(S=35, t=25, P=0, x=c("H2","He","NO","N2O","N2","NH3",
     D_H2O <- A*sqrt(TK)*exp(-B/(TK-T0))*1.0e+04 *fac
     DifGas <- c(DifGas, H2O= D_H2O)
   }
-  if ("H3PO4" %in% x) {
+  if ("H3PO4" %in% species) {
   # H3PO4 : Least (1984) determined D(H3PO4) at 25 deg C and 0 S.
   #         Assume that this value can be scaled by the Stokes-Einstein
   #         relationship to any other temperature.
@@ -77,7 +77,7 @@ Diffusion <- function(S=35, t=25, P=0, x=c("H2","He","NO","N2O","N2","NH3",
     D_H3PO4 <- D_H3PO4*V25/298.15*TK/VTK*fac
     DifGas <- c(DifGas, H3PO4= D_H3PO4)
   }
-  if (any(c("BOH3","BOH4") %in% x)) {
+  if (any(c("BOH3","BOH4") %in% species)) {
   #  B(OH)3 : Mackin (1986) determined D(B(OH)3) at 25 deg C and
   #           about 29.2 S.
   #           Assume that this value can be scaled by the Stokes-Einstein
@@ -89,13 +89,13 @@ Diffusion <- function(S=35, t=25, P=0, x=c("H2","He","NO","N2O","N2","NH3",
     VTK   <- viscosity(0,t,1)
 
     D_BOH3 <- D_BOH3*V25/298.15*TK/VTK*fac
-    if ("BOH3" %in% x) DifGas <- c(DifGas, BOH3= D_BOH3)
+    if ("BOH3" %in% species) DifGas <- c(DifGas, BOH3= D_BOH3)
   #  B(OH)4 : No information on this species ! Boudreau and
   #           Canfield (1988) assume it is 12.5% smaller than B(OH)3.
-      if ("BOH4" %in% x) DifGas <- c(DifGas,BOH3=0.875*D_BOH3)
+      if ("BOH4" %in% species) DifGas <- c(DifGas,BOH3=0.875*D_BOH3)
   }
   
-  if ("H4SiO4" %in% x) {
+  if ("H4SiO4" %in% species) {
 #  H4SiO4 : Wollast and Garrels (1971) found D(H4SiO4) at 25 deg C
 #           and 36.1 ppt S.
 #           Assume that this value can be scaled by the Stokes-Einstein

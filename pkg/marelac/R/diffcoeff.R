@@ -5,13 +5,13 @@
 diffcoeff <- function(S=35,      # Salinity, ppt
                       t=25,      # Temperture, degrees C
                       P=1.013253,       # Pressure, atm
-                      x=c("O2","CO2","NH3","H2S","CH4","HCO3","CO3","NH4",
+                      species=c("O2","CO2","NH3","H2S","CH4","HCO3","CO3","NH4",
       "HS","NO3","H2PO4","HPO4","PO4","H","OH","Ca","Mg","Fe","Mn",
       "SO4","H3PO4","BOH3","B0H4","H4SiO4")
                       ) {
 
   TK  <- t + 273.15   # Temperature, Kelvin
-  x   <- match.arg(x, several.ok = TRUE)
+  species   <- match.arg(species, several.ok = TRUE)
 
   #  The viscosity for the true sample conditions.
   H2OViscosity <- viscosity(S,t,P)
@@ -138,5 +138,5 @@ diffcoeff <- function(S=35,      # Salinity, ppt
      B0H4 = D_B0H4*fac,
      H4SiO4 = D_H4SiO4*fac)
 
-  return(diffc[x])
+  return(diffc[species])
 }

@@ -6,11 +6,11 @@
   to the total number of moles of gas in dry air (the mixing ratio).
 }
 \usage{
-atmComp(x = c("He", "Ne", "N2", "O2", "Ar", "Kr", "CH4", "CO2",
+atmComp(species = c("He", "Ne", "N2", "O2", "Ar", "Kr", "CH4", "CO2",
   "N2O", "H2", "Xe", "CO", "O3"))
 }
 \arguments{
-  \item{x}{character vector with gas(ses) whose composition should be
+  \item{species}{character vector with gas(ses) whose composition should be
     estimated.
   }
 }

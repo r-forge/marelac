@@ -276,7 +276,7 @@ t <- seq(0, 30, 0.1)
   More solubilities and saturated concentrations are in functions
   \code{gas_solubility} and \code{gas_satconc}.
 <<>>=
-gas_satconc(x="O2")
+gas_satconc(species="O2")
 Temp<-seq(from=0,to=30,by=0.1)
 Sal <- seq(from=0,to=35,by=0.1)
 @
@@ -285,27 +285,27 @@ Sal <- seq(from=0,to=35,by=0.1)
 mf  <-par(mfrow=c(2,2))
 #
 gs  <-gas_solubility(t=Temp)
-x   <- c("CCl4","CO2","N2O","Rn","CCl2F2")
-matplot(Temp,gs[,x],type="l",lty=1,lwd=2,xlab="temperature",
+species   <- c("CCl4","CO2","N2O","Rn","CCl2F2")
+matplot(Temp,gs[,species],type="l",lty=1,lwd=2,xlab="temperature",
      ylab="mmol/m3",main="solubility (S=35)")
-legend("topright",col=1:5,lwd=2,legend=x)
+legend("topright",col=1:5,lwd=2,legend=species)
 #
-x2 <- c("Kr","CH4","Ar","O2","N2","Ne")
-matplot(Temp,gs[,x2],type="l",lty=1,lwd=2,xlab="temperature",
+species2 <- c("Kr","CH4","Ar","O2","N2","Ne")
+matplot(Temp,gs[,species2],type="l",lty=1,lwd=2,xlab="temperature",
      ylab="mmol/m3",main="solubility (S=35)")
-legend("topright",col=1:6,lwd=2,legend=x2)
+legend("topright",col=1:6,lwd=2,legend=species2)
 #
 
-x <- c("N2","CO2","O2","CH4","N2O")
-gsat  <-gas_satconc(t=Temp,x=x)
+species <- c("N2","CO2","O2","CH4","N2O")
+gsat  <-gas_satconc(t=Temp,species=species)
 matplot(Temp,gsat,type="l",xlab="temperature",log="y", lty=1,
      ylab="mmol/m3",main="Saturated conc (S=35)",lwd=2)
-legend("right",col=1:5,lwd=2,legend=x)
+legend("right",col=1:5,lwd=2,legend=species)
 #
-gsat  <-gas_satconc(S=Sal,x=x)
+gsat  <-gas_satconc(S=Sal,species=species)
 matplot(Sal,gsat,type="l",xlab="salinity",log="y", lty=1,
      ylab="mmol/m3",main="Saturated conc (T=20)",lwd=2)
-legend("right",col=1:5,lwd=2,legend=x)
+legend("right",col=1:5,lwd=2,legend=species)
 #
 par("mfrow"=mf)
 @
@@ -343,16 +343,16 @@ plot(0:30, vapor(t = 0:30), xlab = "Temperature, dgC", ylab = "pH2O/P",
   in the gas transfer velocity calculation (\code{gas_transfer}). The latter
   also depends on wind velocity (as measured 10 metres above sealevel).
 <<>>=
-gas_schmidt(x="CO2",t=20)
+gas_schmidt(species="CO2",t=20)
 
 useq <- 0:15
 @
 <<label=transfer,include=FALSE>>=
-plot(useq,gas_transfer(u10=useq,x="O2"),type="l",lwd=2,xlab="u10,m/s",
+plot(useq,gas_transfer(u10=useq,species="O2"),type="l",lwd=2,xlab="u10,m/s",
      ylab="m/s", main="O2 gas transfer velocity",ylim=c(0,3e-4))
-lines(useq,gas_transfer(u10=useq,x="O2",method="Nightingale"),lwd=2,lty=2)
-lines(useq,gas_transfer(u10=useq,x="O2",method="Wanninkhof1"),lwd=2,lty=3)
-lines(useq,gas_transfer(u10=useq,x="O2",method="Wanninkhof2"),lwd=2,lty=4)
+lines(useq,gas_transfer(u10=useq,species="O2",method="Nightingale"),lwd=2,lty=2)
+lines(useq,gas_transfer(u10=useq,species="O2",method="Wanninkhof1"),lwd=2,lty=3)
+lines(useq,gas_transfer(u10=useq,species="O2",method="Wanninkhof2"),lwd=2,lty=4)
 
 legend("topleft",lty=1:4,lwd=2,legend=c("Liss and Merlivat 1986",
 "Nightingale et al. 2000","Wanninkhof 1992","Wanninkhof and McGills 1999"))
@@ -464,12 +464,12 @@ physical properties:
 
 <<>>=
 gs <- gas_solubility()
-x <- colnames(gs)
-mw <- molweight(x)
+species <- colnames(gs)
+mw <- molweight(species)
 @
 <<label=mwgs,include=FALSE>>=
 plot(mw,gs,type="n",xlab="molecular weight", ylab="solubility", log="y")
-text(mw,gs,x)
+text(mw,gs,species)
 @
 \setkeys{Gin}{width=0.6\textwidth}
 \begin{figure}

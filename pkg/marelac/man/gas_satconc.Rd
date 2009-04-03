@@ -8,14 +8,14 @@
 }
 \usage{
 gas_satconc(S = 35, t = 25, P = 1.013253,
-        x =c("He","Ne","N2","O2","Ar","Kr","CH4","CO2","N2O"),
-        atm = atmComp(x))}
+        species =c("He","Ne","N2","O2","Ar","Kr","CH4","CO2","N2O"),
+        atm = atmComp(species))}
 \arguments{
   \item{S }{Salinity (dimensionless),}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
   %\item{K }{Temperature, dgK}
   \item{P }{True pressure, bar}
-  \item{x }{character vector with gasses whose saturated concentration
+  \item{species }{character vector with gasses whose saturated concentration
     should be estimated.
   }
   \item{atm }{the number of moles of the gas per unit mole of air in the
@@ -29,23 +29,23 @@ gas_satconc(S = 35, t = 25, P = 1.013253,
 }
 \author{Karline Soetaert < k.soetaert@nioo.knaw.nl > }
 \examples{
-gas_satconc(x = "O2")
+gas_satconc(species = "O2")
 Temp <- seq(from = 0,to = 30,by = 0.1)
 Sal  <- seq(from = 0,to = 35,by = 0.1)
 
 mf  <- par(mfrow = c(1,2))
 
-x     <- c("N2","CO2","O2","CH4","N2O")
-gsat  <-gas_satconc(t=Temp,x=x)
+species <- c("N2","CO2","O2","CH4","N2O")
+gsat  <-gas_satconc(t=Temp,species=species)
 
 matplot(Temp,gsat,type="l",xlab="temperature",log="y", lty=1,
      ylab="mmol/m3",main="Saturated conc (S=35)",lwd=2)
-legend("right",col=1:5,lwd=2,legend=x)
+legend("right",col=1:5,lwd=2,legend=species)
 
-gsat  <-gas_satconc(S=Sal,x=x)
+gsat  <-gas_satconc(S=Sal,species=species)
 matplot(Sal,gsat,type="l",xlab="salinity",log="y", lty=1,
      ylab="mmol/m3",main="Saturated conc (T=20)",lwd=2)
-legend("right",col=1:5,lwd=2,legend=x)
+legend("right",col=1:5,lwd=2,legend=species)
 
 
 par(mfrow = mf)
@@ -54,10 +54,10 @@ par(mfrow = mf)
 Temp <- seq (0, 30, by = 5)
 ## saturated concentrations in mmol/m3, at 1 atm.
 A <- data.frame(cbind( t = Temp,
-            N2  = gas_satconc(t = Temp, x = "N2"),
-            O2  = gas_satconc(t = Temp, x = "O2"),
-            CO2 = gas_satconc(t = Temp, x = "CO2"),
-            Ar  = gas_satconc(t = Temp, x = "Ar")))
+            N2  = gas_satconc(t = Temp, species = "N2"),
+            O2  = gas_satconc(t = Temp, species = "O2"),
+            CO2 = gas_satconc(t = Temp, species = "CO2"),
+            Ar  = gas_satconc(t = Temp, species = "Ar")))
 format(A,digits = 4)
 ## table values
 ## at  0 dg C: 635.6   359.1  23.37  17.44
@@ -66,11 +66,11 @@ format(A,digits = 4)
 
 ## saturated concentrations in micromol/m3, at 1 atm.
 AA <- data.frame(cbind( t = Temp,
-            N2O = gas_satconc(t = Temp, x = "N2O")*1000,
-            Ne  = gas_satconc(t = Temp, x = "Ne" )*1000,
-            Kr  = gas_satconc(t = Temp, x = "Kr" )*1000,
-            CH4 = gas_satconc(t = Temp, x = "CH4")*1000,
-            He  = gas_satconc(t = Temp, x = "He" )*1000))
+            N2O = gas_satconc(t = Temp, species = "N2O")*1000,
+            Ne  = gas_satconc(t = Temp, species = "Ne" )*1000,
+            Kr  = gas_satconc(t = Temp, species = "Kr" )*1000,
+            CH4 = gas_satconc(t = Temp, species = "CH4")*1000,
+            He  = gas_satconc(t = Temp, species = "He" )*1000))
 format(AA, digits = 4)
 ## table values
 ## at  0 dgC: 14.84 8.11  4.33  3.44  1.81

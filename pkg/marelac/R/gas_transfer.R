@@ -2,13 +2,13 @@
 ## The gas transfer coefficient
 ## -----------------------------------------------------------------------------
 
-gas_transfer<- function (t=25,u10=1,x=c("He", "Ne", "N2", "O2", "Ar",
+gas_transfer<- function (t=25,u10=1,species=c("He", "Ne", "N2", "O2", "Ar",
         "Kr", "Rn", "CH4","CO2", "N2O", "CCl2F2", "CCL3F",
         "SF6", "CCl4"),
          method=c("Liss","Nightingale","Wanninkhof1","Wanninkhof2"),
-         Schmidt=gas_schmidt(t=t,x=x)) {
+         Schmidt=gas_schmidt(t=t,species=species)) {
   method <- match.arg(method)
-  # x <- match.arg(x, several.ok = TRUE)
+  # species <- match.arg(species, several.ok = TRUE)
 
   S600 <- Schmidt/600
   tr  <- switch(method,

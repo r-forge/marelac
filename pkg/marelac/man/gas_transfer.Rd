@@ -6,11 +6,11 @@
   gases in seawater (S = 35).
 }
 \usage{
-gas_transfer(t = 25, u10 = 1, x = c("He", "Ne", "N2", "O2", "Ar",
+gas_transfer(t = 25, u10 = 1, species = c("He", "Ne", "N2", "O2", "Ar",
         "Kr", "Rn", "CH4","CO2", "N2O", "CCl2F2", "CCL3F",
         "SF6", "CCl4"),
   method = c("Liss", "Nightingale", "Wanninkhof1", "Wanninkhof2"),
-  Schmidt = gas_schmidt(t = t, x = x))
+  Schmidt = gas_schmidt(t = t, species = species))
 }
 \arguments{
   \item{t }{Temperature in \eqn{^\circ}{degrees }C,
@@ -18,7 +18,7 @@ gas_transfer(t = 25, u10 = 1, x = c("He", "Ne", "N2", "O2", "Ar",
   \item{u10 }{wind speed, in m/sec at a nominal height of 10 m above sea
     level,
   }
-  \item{x }{character vector with gasses whose gas transfer coefficient
+  \item{species }{character vector with gasses whose gas transfer coefficient
     should be estimated.
   }
   \item{method}{one of "Liss", for Liss and Merlivat, 1986;

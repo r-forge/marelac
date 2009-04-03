@@ -9,7 +9,7 @@
   Based on the code "CANDI" by B.P. Boudreau
 }
 \usage{diffcoeff(S = 35, t = 25, P = 1.013253,
-       x = c("O2", "CO2", "NH3", "H2S",
+       species = c("O2", "CO2", "NH3", "H2S",
       "CH4", "HCO3", "CO3", "NH4", "HS", "NO3", "H2PO4",
       "HPO4", "PO4", "H", "OH", "Ca", "Mg", "Fe", "Mn",
       "SO4", "H3PO4", "BOH3", "B0H4", "H4SiO4"))
@@ -21,7 +21,7 @@
   }
   \item{P }{True pressure, bar,
   }
-  \item{x }{character vector with species whose diffusion coefficients
+  \item{species }{character vector with species whose diffusion coefficients
     should be estimated.
   }
 }
@@ -33,7 +33,7 @@
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }
 \examples{
 diffcoeff(S = 15, t = 15)/(1e4*3600*24)  # cm2/day
-diffcoeff(t = 10, x = "O2")             # m2/s
+diffcoeff(t = 10, species = "O2")             # m2/s
 difftemp <- diffcoeff(t = 0:30)[,1:13]
 matplot(0:30, difftemp, xlab = "temperature", ylab = "m2/s",
         main = "Molecular/ionic diffusion", type = "l")
@@ -42,7 +42,7 @@ legend("topleft", ncol = 2, cex = 0.8, title = "mean", col = 1:13, lty = 1:13,
        format(colMeans(difftemp), digits = 4)))
 
 select <- c("O2", "CO2", "NH3", "NH4", "NO3")
-diffsal <- diffcoeff(S = 0:35, x = select)
+diffsal <- diffcoeff(S = 0:35, species = select)
 matplot(0:35, diffsal,xlab = "salinity", ylab = "m2/s",
          main = "Molecular/ionic diffusion", type = "l")
 legend("topleft", ncol = 2, cex = 0.8, title = "mean",

@@ -13,13 +13,13 @@
   Schmidt numbers are used to estimate the gas transfer velocity.
 }
 \usage{
-gas_schmidt(t = 25, x = c("He", "Ne", "N2", "O2", "Ar",
+gas_schmidt(t = 25, species = c("He", "Ne", "N2", "O2", "Ar",
         "Kr", "Rn", "CH4","CO2", "N2O", "CCl2F2", "CCL3F",
         "SF6", "CCl4"))
 }
 \arguments{
   \item{t }{Temperature in \eqn{^\circ}{degrees }C,}
-  \item{x }{character vector with gasses whose schmidt number
+  \item{species }{character vector with gasses whose schmidt number
     should be estimated.
   }
 }
@@ -29,7 +29,7 @@ gas_schmidt(t = 25, x = c("He", "Ne", "N2", "O2", "Ar",
 
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-gas_schmidt(x = "CO2", t=20) # about660
+gas_schmidt(species = "CO2", t=20) # about660
 }
 \references{
   Sarmiento J.L. and N. Gruber, 2006. Ocean Biogeochemical Dynamics.

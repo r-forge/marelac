@@ -50,7 +50,8 @@ The Netherlands
 
 \Abstract{
   \R package \m \citep{marelac} contains chemical and physical constants
-  and functions, routines for unit conversion, and other utilities useful for
+  and functions, datasets, routines for unit conversion, and other
+  utilities useful for
   MArine, Riverine, Estuarine, LAcustrine and Coastal sciences.
 }
 
@@ -114,7 +115,7 @@ options(width=75)
       a gibbs funtion \citep{Feistel08}, \citep{McDougall}.
    \end{itemize}
 
-\section{Constants}
+\section{Constants and datasets}
   \subsection{Physical constants}
   Dataset \code{Constants} contains commonly used physical and chemical
   constants, as in \citep{Mohr05}:
@@ -132,6 +133,27 @@ data.frame(cbind(acronym=names(Oceans),
              matrix(ncol=3,byrow=TRUE,data=unlist(Oceans),
              dimnames=list(NULL,c("value","units","description")))))
 @
+  \subsection{World bathymetric data}
+  data set \code{Bathymetry} from the \pkg{marelac} package
+  can be used to generate the bathymetry (and hypsometry) of the world oceans
+  (and land):
+<<label=bat,include=FALSE>>=
+require(marelac)
+image(Bathymetry$x,Bathymetry$y,Bathymetry$z,col=femmecol(100),
+      asp=TRUE,xlab="",ylab="")
+contour(Bathymetry$x,Bathymetry$y,Bathymetry$z,add=TRUE)
+@
+\setkeys{Gin}{width=0.8\textwidth}
+\begin{figure}
+\begin{center}
+<<label=batfig,fig=TRUE,echo=FALSE>>=
+<<bat>>
+@
+\end{center}
+\caption{Image plot of ocean bathymetry - see text for R-code}
+\label{fig:f1}
+\end{figure}
+
   \subsection{AtomicWeight}
   Dataset \code{AtomicWeight} holds the atomic weight of various chemical
   elements, as in \citep{Wieser06}; The data set contains \code{NA} for elements
@@ -463,13 +485,13 @@ text(mw,gs,x)
   \code{molvol} estimates the volume of one liter of a gas.
   molar volume of an ideal gas
 <<>>=
-molvol(species="ideal")
-molvol(species="ideal",t=1:10)
+molvol(x="ideal")
+molvol(x="ideal",t=1:10)
 @
 <<>>=
-1/molvol(species="O2",t=0)*1000
-1/molvol(species="O2",q=1:6,t=0)
-1/molvol(t=1:5,species=c("CO2","O2","N2O"))
+1/molvol(x="O2",t=0)*1000
+1/molvol(x="O2",q=1:6,t=0)
+1/molvol(t=1:5,x=c("CO2","O2","N2O"))
 @
 
   \subsection{pressure conversions}

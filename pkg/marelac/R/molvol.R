@@ -7,9 +7,7 @@ molvol <- function(t=25,
       "C2H6S", "C2H5OH","C6H5F", "CH3F", "CH4", "CH3OH", "C5H12", "C3H8",
       "H2O", "He","H2", "HBr", "HCl", "H2S", "Hg", "Kr", "NH3", "Ne",
       "NO", "N2", "NO2", "N2O", "O2", "PH3", "SiH4", "SiF4", "SO2", "Xe"),
-                  q=1,      # quantity (mol) of the gas
-                  a=0,      # dm^6*bar/mol^2 the van der Waals coefficients...
-                  b=0) {
+                  quantity=1, a=0,  b=0) {
   Names <- eval(formals(sys.function(sys.parent()))$species)
   Names <- c("ideal","Ar", "CO2", "CS2", "CO", "CCl4", "Cl2",
       "C2H6S", "C2H5OH","C6H5F", "CH3F", "CH4", "CH3OH", "C5H12", "C3H8",
@@ -39,11 +37,11 @@ molvol <- function(t=25,
 
   TK <- 273.15 + t  #  t in degrees Kelvin
 
-  il <- max(length(t), length(P), length(q))
+  il <- max(length(t), length(P), length(quantity))
   if (il > 1) {
     TK <- rep(TK,len=il)
     P <- rep(P,len=il)
-    q <- rep(q,len=il)
+    quantity <- rep(quantity,len=il)
   }
 
   VV <- NULL
@@ -56,7 +54,7 @@ molvol <- function(t=25,
     for (i in 1:il) {
      TT <- TK[i]
      PP <- P[i]
-     xx <- q[i]
+     xx <- quantity[i]
           if (a==0 & b==0) {
             V    <- c(V, xx * R * TT / PP)   # CHECK FACTOR 1.013253
           } else {

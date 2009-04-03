@@ -7,7 +7,7 @@
          "C6H5F", "CH3F", "CH4", "CH3OH", "C5H12", "C3H8", "H2O",
          "He", "H2", "HBr", "HCl", "H2S", "Hg", "Kr", "NH3", "Ne",
          "NO", "N2", "NO2", "N2O", "O2", "PH3", "SiH4", "SiF4", "SO2", "Xe"),
-    q = 1, a = 0, b = 0)}
+    quantity = 1, a = 0, b = 0)}
 \arguments{
   \item{t }{temperature, \eqn{^\circ}{degrees }C
   }
@@ -17,7 +17,7 @@
     should be estimated. if \code{NULL} then the coefficients \code{a} and
     \code{b} are used.
   }
-  \item{q }{quantity, mol, of the gas.
+  \item{quantity }{ mol of the gas.
   }
 
   \item{a }{Van der Waals constant a, a species-specific coefficient,

@@ -93,7 +93,7 @@ October 2008
 \SweaveOpts{keep.source=TRUE}
 <<preliminaries,echo=FALSE,results=hide>>=
 library(marelac)
-library(marelac.teaching)
+library(marelacTeaching)
 options(prompt = ">")
 options(width=70)
 @

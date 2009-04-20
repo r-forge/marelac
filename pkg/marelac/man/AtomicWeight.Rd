@@ -4,7 +4,7 @@
 \alias{atomicweight}
 \title{The Atomic Weights of Chemical Elements}
 \description{
-  Atomic weights of chemical elements useful for marine and lacustrine sciences.
+  Atomic weights of chemical elements according to the IUPAC table.
 }
 \usage{
 AtomicWeight
@@ -12,8 +12,8 @@ atomicweight
 }
 \format{
   Data frame with the IUPAC table of atomic weights.
-  The data frame contains the following colums: AtomicNumber, Name,
-  Symbol, AtomicWeight, Footnotes. See IUPAC report for details.
+  The data frame contains the following colums: Number, Name,
+  Symbol, Weight, Footnotes. See IUPAC report for details.
   The lower case version is in list-only format that allows symbolic
   computations with elements.
 }
@@ -26,9 +26,21 @@ atomicweight
   (except U, Th, Pa).
 }
 \seealso{
-  \code{\link{molweight}} for molecular weight
+  \code{\link{molweight}} for molecular weight calculations with
+  molecular formulae.
 }
 \examples{
+## Note that, according to the original table, Weight is not only a pure number
+AtomicWeight[1:20,]
+AtomicWeight[AtomicWeight$Symbol == "C",]
+AtomicWeight$Weight[AtomicWeight$Symbol == "C"]
+
+## extract numeric value from text representation  of Weight
+as.numeric(gsub("\\(.+\\)", "", AtomicWeight$Weight))
+
+## use the lower case form for computations
+with(atomicweight, C)
+with(atomicweight, H * 2 + O)
 }
 \references{
   Wieser, M.E. (2006). Atomic weights of the elements 2005 (IUPAC

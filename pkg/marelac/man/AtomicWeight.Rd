@@ -11,18 +11,18 @@ AtomicWeight
 atomicweight
 }
 \format{
-  Data frame with the IUPAC table of atomic weights.
-  The data frame contains the following colums: Number, Name,
-  Symbol, Weight, Footnotes. See IUPAC report for details.
-  The lower case version is in list-only format that allows symbolic
-  computations with elements.
+  The capitalized version \code{AtomicWeight} is a data frame containing the IUPAC table of atomic weights.
+  This data frame has following colums: Number, Name,
+  Symbol, Weight, Footnotes. Note that as in the IUPAC table, the Weight is given as a text rather than as numeric objects. See IUPAC report for details.
+  The lower case version \code{atomicweight} is a simplified list that only contains the weights (as numeric values) and allows symbolic
+  computations with elements to arrive at molecular weights. 
 }
-\author{Karline Soetaert and Thomas Petzoldt}
+\author{Karline Soetaert, Thomas Petzoldt, Filip Meysman}
 \details{
   Molecular weights of chemical elements may vary due to different isotope
   compositions, depending on geology, industrial processes or biological activity.
   Please consult the IUPAC Technical report about the details.
-  The data set contains \code{NA} for elements which have no stable isotopes
+  The data set contains \code{NA} for elements that have no stable isotopes
   (except U, Th, Pa).
 }
 \seealso{
@@ -30,16 +30,20 @@ atomicweight
   molecular formulae.
 }
 \examples{
-## Note that, according to the original table, Weight is not only a pure number
+## Assess the data in the IUPAC table.
 AtomicWeight[1:20,]
 AtomicWeight[AtomicWeight$Symbol == "C",]
+
+## In the IUPAC table, the Weight is not a pure numeric object. This implies
+## one has to extract the numeric value from text representation of Weight. 
+## To avoid this elaborate procedure one can use the lowercase version. 
 AtomicWeight$Weight[AtomicWeight$Symbol == "C"]
-
-## extract numeric value from text representation  of Weight
 as.numeric(gsub("\\(.+\\)", "", AtomicWeight$Weight))
-
-## use the lower case form for computations
+atomicweight$C
 with(atomicweight, C)
+
+## The lower case version can be used to calculate molecular weights 
+## via symbolic computation
 with(atomicweight, H * 2 + O)
 }
 \references{

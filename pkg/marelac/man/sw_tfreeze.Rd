@@ -11,9 +11,13 @@
 sw_tfreeze(S=35, p = P-1.013253, P=1.013253 )
 }
 \arguments{
-  \item{S }{salinity, -,}
-  \item{p }{gauge or applied pressure, pressure relative to the local atmospheric pressure, bar}
-  \item{P }{true pressure, bar}
+  \item{S }{salinity, -,
+  }
+  \item{p }{gauge or applied pressure, pressure relative to the local
+    atmospheric pressure, bar
+  }
+  \item{P }{true pressure, bar
+  }
 }
 \value{
   Temperature, \eqn{^\circ}{degrees }C

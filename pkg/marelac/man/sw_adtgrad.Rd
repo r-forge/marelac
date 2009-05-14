@@ -17,7 +17,8 @@ sw_adtgrad(S = 35, t = 25, p = P-1.013253, P=1.013253 )
 \arguments{
   \item{S }{Salinity, -}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C}
-  \item{p }{gauge or applied pressure, pressure relative to the local atmospheric pressure, bar}
+  \item{p }{gauge or applied pressure, pressure relative to the local
+    atmospheric pressure, bar}
   \item{P }{true pressure, bar}
 }
 \value{
@@ -25,10 +26,10 @@ sw_adtgrad(S = 35, t = 25, p = P-1.013253, P=1.013253 )
 }
 \note{
 
-  Note: in the original formula, the units of \code{sw_adtgrad} are dg
+  Note: in the original formula, the units of \code{sw\_adtgrad} are dg
   K/dbar (here: dg K/bar).
 
-  \code{sw_adtgrad} for S = 40, t = 40, p = 1000 is 3.255976E-3
+  \code{sw\_adtgrad} for S = 40, t = 40, p = 1000 is 3.255976e-3
 
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }
@@ -36,8 +37,9 @@ sw_adtgrad(S = 35, t = 25, p = P-1.013253, P=1.013253 )
 sw_adtgrad(t = 40, S = 40, p = 1000)
 }
 \references{
-  Fofonoff, P. and Millard, R.C. Jr. Unesco 1983. Algorithms for computation of fundamental properties of
-  seawater. Unesco Tech. Pap. in Mar. Sci., No. 44, 53 pp.
+  Fofonoff, P. and Millard, R.C. Jr. Unesco 1983. Algorithms for computation
+  of fundamental properties of seawater. Unesco Tech. Pap. in Mar. Sci.,
+  No. 44, 53 pp.
 }
 \keyword{utilities}
 

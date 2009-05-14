@@ -72,9 +72,10 @@ contour(P, Temp, Val, xlab="pressure", ylab="temperature",
   Weast. R. C. (Ed.)1972. Handbook of Chemistry and Physics (53rd Edn.),
   Cleveland:Chemical Rubber Co.
   
-  as found in \url{http://en.wikipedia.org/wiki/Van_der_Waals_constants_(data_page)}
+  as found in
+  \url{http://en.wikipedia.org/wiki/Van\_der\_Waals\_constants\_(data_page)}
   
-  Use \code{1/mol.vol} to convert from liter to moles.
+  Use \code{1/molvol} to convert from liter to moles.
   
   The default calculates the molar volume of an ideal gas
 }

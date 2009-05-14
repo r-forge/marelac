@@ -30,8 +30,10 @@ data.frame(salinity=1:35,sw_conserv(1:35))
 }
 \details{
   The borate and calcite concentration as in Millero (1995),
-  \cr Sulphate as in Morris and Riley, 1966,
-  \cr Fluoride as in Riley, 1965.
+
+  Sulphate as in Morris and Riley, 1966,
+
+  Fluoride as in Riley, 1965.
 }
 \keyword{utilities}
 

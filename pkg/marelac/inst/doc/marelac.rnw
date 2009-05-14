@@ -83,6 +83,8 @@ The Netherlands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% R/Sweave specific LaTeX commands.
 %% need no \usepackage{Sweave}
 %\VignetteIndexEntry{marelac: utilities for the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences}
+%\VignetteKeywords{marine, riverine, estuarine, lacustrine, coastal science, utilities, constants}
+%\VignettePackage{marelac}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin of the document
 \begin{document}
@@ -153,6 +155,53 @@ contour(Bathymetry$x,Bathymetry$y,Bathymetry$z,add=TRUE)
 \caption{Image plot of ocean bathymetry - see text for R-code}
 \label{fig:f1}
 \end{figure}
+  \subsection{Surface of 1 dg by 1 dg grid cells of the earth}
+  Function \code{earth_surf} estimates the surface ($m^2$) of the
+  bathymetric grid cells of 1dg by 1d, based on their latitude.
+
+  We use it to estimate the surface of the earth; the true surface
+  is  510072000 $km^2$
+<<>>=
+SURF <- outer(X=Bathymetry$x,
+               Y=Bathymetry$y,
+               FUN <- function(X,Y) earth_surf(Y,X))
+sum(SURF)
+@
+Similarly, we can estimate the surface and volume of the oceans; it should
+be $3.58e^{14}$ and $1.34e^{+18}$ respectively.
+
+<<>>=
+ sum(SURF*(Bathymetry$z<0))
+
+- sum(SURF*Bathymetry$z*(Bathymetry$z<0))
+@
+  Combined with the dataset \code{Bathymetry}, function \code{earth_surf}
+  allows to estimate the total earth surface at certain water depths
+<<>>=
+SurfDepth <- vector()
+
+dseq <- seq(-7500,-250,by=250)
+
+for (i in 2:length(dseq)) {
+  ii <- which (Bathymetry$z>dseq[i-1]&Bathymetry$z<=dseq[i])
+  SurfDepth[i-1]<-sum(SURF[ii])
+}
+@
+<<label=ocean,include=FALSE>>=
+plot(dseq[-1],SurfDepth, xlab="depth, m", log="y",
+     ylab = "m2", main = "Surface at ocean depths")
+@
+\setkeys{Gin}{width=0.4\textwidth}
+\begin{figure}
+\begin{center}
+<<label=ocean,fig=TRUE,echo=FALSE>>=
+<<ocean>>
+@
+\end{center}
+\caption{Earth surface at certain ocean depths - see text for R-code}
+\label{fig:fo}
+\end{figure}
+
 
   \subsection{AtomicWeight}
   Dataset \code{AtomicWeight} holds the atomic weight of various chemical
@@ -374,6 +423,59 @@ legend("topleft",lty=1:4,lwd=2,legend=c("Liss and Merlivat 1986",
 <<>>=
 sw_conserv(S=seq(0,35,by=5))
 @
+\subsection{Two salinity scales}
+  \citep{Millero08} provide a function to derive absolute salinity (expressed
+  in $g kg^{-1}$) from measures of practical salinity. Absolute salinity is
+  to be used as the concentration variable entering the thermodynamic functions
+  of seawater (see next section).
+  
+  The conversion between salinity scales is done with functions
+  \begin{itemize}
+    \item \code{convert_AStoPS} from absolute to practical salinity and
+    \item \code{convert_PStoAS} from practical to absolute salinity
+  \end{itemize}
+<<>>=
+convert_AStoPS(S=35)
+convert_PStoAS(S=35)
+@
+
+  These functions have as extra arguments the gauge pressure (\code{p}) and
+  latitude (\code{lat}) and longitude (\code{lon}). When provided, they also
+  correct for inconsistencies induces by local composition anomalies. The
+  correction then makes use of a conversion table that estimates the salinity
+  variations as a function of present-day local seawater composition.
+  
+  The correction factors are in a data set called \code{sw_sfac}, which are
+  used in the conversion functions. Below we first convert from practical to
+  absolute salinity, for different longitudes, and then plot the correction
+  factors as a function of latitude and longitude and at the seawater surface
+  (i.e. for \code{p=0}).
+  
+<<>>=
+convert_PStoAS(S=35,lat=-10,lon=0)
+convert_PStoAS(S=35,lat=0,lon=0)
+convert_PStoAS(S=35,lat=10,lon=0)
+
+dsal <- t(sw_sfac$del_sa[1,,])
+dsal [dsal < -90]<-NA
+@
+<<label=sfac,include=FALSE>>=
+image(sw_sfac$longs, sw_sfac$lats, dsal, col=femmecol(100),
+      asp=TRUE, xlab="dg", ylab="dg",
+      main="salinity conversion - p = 0 bar")
+contour(sw_sfac$longs, sw_sfac$lats, dsal, asp=TRUE, add=TRUE)
+@
+\setkeys{Gin}{width=0.6\textwidth}
+\begin{figure}
+\centering
+<<label=sfac,fig=TRUE,echo=FALSE>>=
+<<sfac>>
+@
+\caption{factor to convert salinity scales}
+\label{fig:sfac}
+\end{figure}
+
+
 \subsection{Thermophysical seawater properties}
   \m also implements several thermodynamic properties of seawater. Either one
   can choose the formulation based on the UNESCO polynomial \citep{UNESCO},
@@ -384,13 +486,31 @@ sw_conserv(S=seq(0,35,by=5))
   pure water, an equation of state for salt-free ice, in the form of a Gibbs
   potential function, and the saline part of the Gibbs potential).
 
-  Note that the formulations use a new salinity scale, termed
-  "Reference composition salinity" \citep{Millero08}.
+  Note that the formulations use the absolute salinity scale, \citep{Millero08}.
 
 <<>>=
 sw_cp(S=40,t=1:20)
 sw_cp(S=40,t=1:20,UNESCO=TRUE)
 @
+  The precision of the calculations can be assessed by comparing them to
+  some test values:
+  
+<<>>=
+t  <-  25.5
+p  <- 1023/10  # pressure in bar
+S  <- 35.7
+sw_alpha(S,t,p)                        -0.0003098378393192645
+sw_beta(S,t,p)                         -0.0007257297978386655
+sw_cp(S,t,p)                           -3974.42541259729
+sw_tpot(S,t,p)                         -25.2720983155409
+sw_dens(S,t,p)                         -1027.95249315662
+sw_enthalpy(S,t,p)                     -110776.712408975
+sw_entropy(S,t,p)                      -352.81879771528
+sw_kappa(S,t,p)                        -4.033862685464779e-6
+sw_kappa_t(S,t,p)                      -4.104037946151349e-6
+sw_svel(S,t,p)                         -1552.93372863425
+@
+  
   Below we plot all implemented thermophysical properties as a function of
   salinity and temperature. We first define a function that does that
 <<label=sw,include=FALSE>>=

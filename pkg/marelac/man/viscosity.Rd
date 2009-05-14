@@ -12,9 +12,12 @@
 viscosity(S = 35, t = 25, P = 1.013253)
 }
 \arguments{
-  \item{S }{salinity, -,}
-  \item{t }{temperature, \eqn{^\circ}{degrees }C,}
-  \item{P }{True pressure, bar.}
+  \item{S }{salinity, -,
+  }
+  \item{t }{temperature, \eqn{^\circ}{degrees }C,
+  }
+  \item{P }{True pressure, bar.
+  }
 }
 \value{
   Shear visocisity in centipoise.
@@ -43,7 +46,8 @@ legend("topright", col = c("black","red","blue"), lty = 1,
 }
 \details{
   The details given in the original code by B. Boudreau are repeated here:
-  \cr Uses the equation given by Kukulka et al. (1987).
+
+  Uses the equation given by Kukulka et al. (1987).
 }
 \keyword{utilities}
 

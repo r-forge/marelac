@@ -14,14 +14,14 @@ sw_depth(p = P-1.013253, P=1.013253, lat = 0)
     atmospheric pressure, bar
   }
   \item{P }{true pressure, bar}
-  \item{lat }{latitude (-90 - +90), -,}
+  \item{lat }{latitude (-90 to +90), -,}
 }
 \value{
   Water depth in m.
 }
 \note{
 
-  \code{sw_depth} for  p = 1000, lat = 30 is 9712.653 m.
+  \code{sw\_depth} for  p = 1000, lat = 30 is 9712.653 m.
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{

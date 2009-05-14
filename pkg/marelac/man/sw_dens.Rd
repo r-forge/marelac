@@ -22,17 +22,17 @@ sw_dens(S = 35, t = 25, p = max(0,P-1.013253), P=1.013253, UNESCO=FALSE)
 }
 \details{
   To avoid confusion between the arguments (S, t, p) it is advisable to
-  use named arguments in general (e.g. \code{rho(t = 4}.
+  use named arguments in general (e.g. \code{rho(t = 4)}.
   The UNESCO formula is imported from package \pkg{seacarb}.)
 }
 \note{
   Pressure used here is 1 bar (true pressure), in contrast to
   hydrostatic pressure (0 bar at surface) in original formula.
 
-The coefficients from McDougall et al., 2009 were used.
-For temperature, they differ slightly from Feistel 2003 and Feistel 2008, which is why,
-for temparatures different from 0, there is a slight offset from the estimates
-as from table 22 or 21 from Feistel (2008).
+  The coefficients from McDougall et al., 2009 were used.
+  For temperature, they differ slightly from Feistel 2003 and Feistel 2008,
+  which is why, for temparatures different from 0, there is a slight offset
+  from the estimates as from table 22 or 21 from Feistel (2008).
 
 }
 
@@ -43,12 +43,13 @@ as from table 22 or 21 from Feistel (2008).
   Tech. Pap. in Mar. Sci., No. 44, 53 pp.
 
 
-  Feistel, R., 2008: A Gibbs function for seawater thermodynamics for -6 to 80 dgC and salinity up
-to 120 g/kg. Deep-Sea Res. I, 55, 1639-1671.
+  Feistel, R., 2008: A Gibbs function for seawater thermodynamics for -6 to 80
+  dgC and salinity up to 120 g/kg. Deep-Sea Res. I, 55, 1639-1671.
 
-  McDougall, T.J., R. Feistel, F. J. Millero, D. R. Jackett, D. G. Wright, B. A. King, G. M. Marion, C.-T. A. Chen
-and P. Spitzer, 2009: Calculation of the Thermophysical Properties of Seawater, Global Ship-based Repeat
-Hydrography Manual, IOCCP Report No. 14, ICPO Publication Series no. 134.
+  McDougall, T.J., R. Feistel, F. J. Millero, D. R. Jackett, D. G. Wright,
+  B. A. King, G. M. Marion, C.-T. A. Chen and P. Spitzer, 2009: Calculation of
+  the Thermophysical Properties of Seawater, Global Ship-based Repeat
+  Hydrography Manual, IOCCP Report No. 14, ICPO Publication Series no. 134.
 
 }
 

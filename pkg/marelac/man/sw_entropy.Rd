@@ -22,12 +22,13 @@ sw_entropy(S = 35, t = 25, p = P-1.013253, P=1.013253)
 sw_entropy(35.7,25.5,102.3) #352.81879771528
 }
 \references{
-  Feistel, R., 2008: A Gibbs function for seawater thermodynamics for -6 to 80 dgC and salinity up
-to 120 g/kg. Deep-Sea Res. I, 55, 1639-1671.
+  Feistel, R., 2008: A Gibbs function for seawater thermodynamics for -6 to 80
+  dgC and salinity up to 120 g/kg. Deep-Sea Res. I, 55, 1639-1671.
 
-  McDougall, T.J., R. Feistel, F. J. Millero, D. R. Jackett, D. G. Wright, B. A. King, G. M. Marion, C.-T. A. Chen
-and P. Spitzer, 2009: Calculation of the Thermophysical Properties of Seawater, Global Ship-based Repeat
-Hydrography Manual, IOCCP Report No. 14, ICPO Publication Series no. 134.
+  McDougall, T.J., R. Feistel, F. J. Millero, D. R. Jackett, D. G. Wright,
+  B. A. King, G. M. Marion, C.-T. A. Chen and P. Spitzer, 2009: Calculation of
+  the Thermophysical Properties of Seawater, Global Ship-based Repeat
+  Hydrography Manual, IOCCP Report No. 14, ICPO Publication Series no. 134.
 }
 \keyword{utilities}
 

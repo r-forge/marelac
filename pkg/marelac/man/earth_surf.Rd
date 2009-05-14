@@ -15,7 +15,7 @@ earth_surf(lat = 0, lon = 0)
   \item{lon }{longitude - not used. }
 }
 \value{
-  Surface of the grid cell, in \eqn{ m^2}{m2}.
+  Surface of the grid cell, in \eqn{m^2}{m2}.
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{

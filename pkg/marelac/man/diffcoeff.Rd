@@ -31,6 +31,7 @@
 }
 
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }
+
 \examples{
 diffcoeff(S = 15, t = 15)/(1e4*3600*24)  # cm2/day
 diffcoeff(t = 10, species = "O2")             # m2/s
@@ -74,7 +75,11 @@ legend("topleft", ncol = 2, cex = 0.8, title = "mean",
 
   Hayduk W, Laudie H, 1974.  Prediction of diffusion-coefficients for
   nonelectrolytes in dilute aqueous-solutions. Aiche journal 20 (3):
-  611-615 } \details{The details given in the original code by
+  611-615
+}
+
+\details{
+  The details given in the original code by
   B. Boudreau are repeated here:
 
   To correct for salinity, the Stokes-Einstein relationship is used.
@@ -111,6 +116,7 @@ legend("topleft", ncol = 2, cex = 0.8, title = "mean",
   Stokes-Einstein relationship to any other temperature.
   
 }
-\seealso{\code{\link{viscosity}} the shear viscosity of water}
+\seealso{\code{\link{viscosity}} the shear viscosity of water
+}
 \keyword{utilities}
 

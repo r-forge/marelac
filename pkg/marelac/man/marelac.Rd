@@ -68,7 +68,8 @@
   diagenesis in aquatic sediments.  COMPUTERS & GEOSCIENCES 22 (5):
   479-496.
 
-  For many other fundamental properties of seawater: either the UNESCO report (1983)
+  For many other fundamental properties of seawater: either the UNESCO
+  report (1983)
 
   Fofonoff, P. and
   Millard, R.C. Jr. Unesco 1983. Algorithms for computation of
@@ -77,16 +78,18 @@
   
   or the more recent report and papers:
 
-  McDougall, T.J., R. Feistel, F. J. Millero, D. R. Jackett, D. G. Wright, B. A. King, G. M. Marion, C.-T. A. Chen
-and P. Spitzer, 2009: Calculation of the Thermophysical Properties of Seawater, Global Ship-based Repeat
-Hydrography Manual, IOCCP Report No. 14, ICPO Publication Series no. 134.
+  McDougall, T.J., R. Feistel, F. J. Millero, D. R. Jackett, D. G. Wright,
+  B. A. King, G. M. Marion, C.-T. A. Chen and P. Spitzer, 2009:
+  Calculation of the Thermophysical Properties of Seawater, Global
+  Ship-based Repeat Hydrography Manual, IOCCP Report No. 14, ICPO
+  Publication Series no. 134.
 
-Feistel, R., 2008: A Gibbs function for seawater thermodynamics for -6 to 80 dgC and salinity up
-to 120 g/kg. Deep-Sea Res. I, 55, 1639-1671.
+  Feistel, R., 2008: A Gibbs function for seawater thermodynamics for
+  -6 to 80 dgC and salinity up to 120 g/kg. Deep-Sea Res. I, 55, 1639-1671.
 
-  Millero, F.J., Feistel, R., Wright, D.G., and McDougall, T.J., 2008: The composition of Standard
-Seawater and the definition of the Reference-Composition Salinity Scale, Deep-Sea Res. I,
-55, 50-72.
+  Millero, F.J., Feistel, R., Wright, D.G., and McDougall, T.J., 2008:
+  The composition of Standard Seawater and the definition of the
+  Reference-Composition Salinity Scale, Deep-Sea Res. I, 55, 50-72.
 
 
 }
@@ -95,7 +98,7 @@ Seawater and the definition of the Reference-Composition Salinity Scale, Deep-Se
 \dontrun{
 ## show examples (see respective help pages for details)
 example(Constants)
-example(mol.vol)
+example(molvol)
 
 ## open the directory with documents
 browseURL(paste(system.file(package="marelac"), "/doc", sep=""))

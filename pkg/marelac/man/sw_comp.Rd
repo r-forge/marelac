@@ -19,8 +19,11 @@ sw_comp(species=c("Na","Mg","Ca","K","Sr","Cl","SO4","HCO3",
   A vector with the mass fractions.
 }
 \references{
-Millero, F.J., Waters, J., Woosley, R., Huang, F. and Chanson, M., 2008: The effect of
-composition of the density of Indian Ocean waters, Deep-Sea Res. I, 55, 960-470. }
+  Millero, F.J., Waters, J., Woosley, R., Huang, F. and Chanson, M., 2008:
+  The effect of composition of the density of Indian Ocean waters,
+  Deep-Sea Res. I, 55, 960-470.
+}
+
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 
 \examples{

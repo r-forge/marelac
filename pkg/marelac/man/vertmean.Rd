@@ -61,7 +61,8 @@ weight.column <- function(z, level) {z}
 par(mfrow = c(1, 2))
 z <- 0:12
 V <- weight.vol(z, 12)
-plot(V, z, type = "l", ylim = c(12, 0), xlab = "Volume (m3)", ylab = "Depth (m)")
+plot(V, z, type = "l", ylim = c(12, 0), xlab = "Volume (m3)",
+  ylab = "Depth (m)")
 polygon(c(V, 0), c(z, 0), col = "cyan")
 
 ## Test Data

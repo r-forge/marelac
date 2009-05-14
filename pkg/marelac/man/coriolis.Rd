@@ -11,7 +11,7 @@
 coriolis(lat)
 }
 \arguments{
-  \item{lat }{latitude in degrees north (-90:+90).
+  \item{lat }{latitude in degrees north (-90 to +90).
   }
 }
 \value{
@@ -27,7 +27,7 @@ plot(-90:90, coriolis(-90:90), xlab = "latitude, dg North",
   Oceanography, Pergamon Press, Sydney.
   
   Griffies, S. M., 2004: Fundamentals of Ocean Climate Models. Princeton, NJ:
-Princeton University Press, 518 pp.
+  Princeton University Press, 518 pp.
 }
 \keyword{utilities}
 

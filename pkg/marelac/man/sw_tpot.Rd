@@ -10,10 +10,15 @@
 }
 \usage{sw_tpot(S = 35, t = 25, p, pref=0)}
 \arguments{
-  \item{t }{temperature, \eqn{^\circ}{degrees }C,}
-  \item{S }{salinity, -,}
-  \item{p }{gauge or applied pressure, pressure relative to the local atmospheric pressure, bar}
-  \item{pref }{reference hydrostatic pressure, bar.}
+  \item{t }{temperature, \eqn{^\circ}{degrees }C,
+  }
+  \item{S }{salinity, -,
+  }
+  \item{p }{gauge or applied pressure, pressure relative to the local
+    atmospheric pressure, bar
+  }
+  \item{pref }{reference hydrostatic pressure, bar.
+  }
 }
 \value{
   Temperature, \eqn{^\circ}{degrees }C.
@@ -28,7 +33,7 @@ sw_tpot(S = 40, t = 40, p = 1000)
   Tech. Pap. in Mar. Sci., No. 44, 53 pp.
 }
 \note{
-\code{sw_tpot} for S = 40, t = 40, p = 1000 is 36.89073 dgC
+\code{sw\_tpot} for S = 40, t = 40, p = 1000 is 36.89073 dgC
 }
 \keyword{utilities}
 

@@ -9,7 +9,9 @@ gravity(lat = 0, UNESCO =FALSE)
 }
 \arguments{
   \item{lat }{latitude (-90 - +90).}
-  \item{UNESCO }{When TRUE, uses the UNESCO (1983) polynomial, else according to Moritz, 2000 }
+  \item{UNESCO }{When TRUE, uses the UNESCO (1983) polynomial, else
+    according to Moritz, 2000
+  }
 }
 \value{
   Gravity, in \eqn{\rm m\,sec^{-2}}{m/s2}.
@@ -24,7 +26,8 @@ The UNESCO polynomial:
   computation of fundamental properties of seawater. Unesco
   Tech. Pap. in Mar. Sci., No. 44, 53 pp.
 
-Moritz, H., 2000: Geodetic reference system 1980. Journal of Geodesy, 74, 128-133.
+  Moritz, H., 2000: Geodetic reference system 1980. Journal of Geodesy, 74,
+  128-133.
 }
 \keyword{utilities}
 

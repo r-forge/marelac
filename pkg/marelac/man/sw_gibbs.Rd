@@ -7,15 +7,14 @@
   derivatives up to order 2, for a
   given temperature, salinity and pressure.
   
-The Gibbs function of seawater g(S,t,p) is related to the specific enthalpy h and
-entropy s, by g = h - (273.15 K + t) s
+  The Gibbs function of seawater g(S,t,p) is related to the specific
+  enthalpy h and entropy s, by g = h - (273.15 K + t) s
 }
 \usage{
 sw_gibbs(S = 35, t = 25, p = P-1.013253, P=1.013253, dS=0, dt=0, dp=0)}
 \arguments{
   \item{S }{Salinity (dimensionless),}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
-  %\item{K }{Temperature, dgK}
   \item{p }{gauge or applied pressure, pressure relative to the local
     atmospheric pressure, bar
   }

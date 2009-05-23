@@ -5,11 +5,11 @@
 \description{Conversion from practical to absolute salinity and vice versa.
 }
 \usage{
-convert_PStoAS(S = 35, p = max(0,P-1.013253), P=1.013253,
-  lat=NULL, lon=NULL)
+convert_PStoAS(S = 35, p = max(0, P - 1.013253), P = 1.013253,
+  lat = NULL, lon = NULL)
 
-convert_AStoPS(S=35, p=max(0,P-1.013253), P=1.013253,
-  lat=NULL, lon=NULL)
+convert_AStoPS(S = 35, p = max(0, P - 1.013253), P = 1.013253,
+  lat = NULL, lon = NULL)
 
 }
 \arguments{
@@ -18,7 +18,7 @@ convert_AStoPS(S=35, p=max(0,P-1.013253), P=1.013253,
   }
   \item{p }{gauge or applied pressure, pressure relative to the
             local atmospheric pressure, bar
-            }
+  }
   \item{P }{true pressure, bar
   }
   \item{lat }{latitude (-90 to +90)
@@ -43,6 +43,11 @@ convert_PStoAS(S=35, lat=10, lon=10, p=0)
   Millero, F.J., Feistel, R., Wright, D.G., and McDougall, T.J., 2008:
   The composition of Standard Seawater and the definition of the
   Reference-Composition Salinity Scale, Deep-Sea Res. I, 55, 50-72.
+  
+  McDougall, T.J., Jackett, D.R.  and Millero, F.J., 2009: An algorithm
+  for estimating Absolute Salinity in the global ocean. Ocean Science
+  Discussions 6, 215-242.
+  \url{http://www.ocean-sci-discuss.net/6/215/2009/}
   
   Uses the Fortran code written by David Jackett.
   \url{http://www.marine.csiro.au/~jackett/TEOS-10/}

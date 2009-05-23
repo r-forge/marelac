@@ -52,7 +52,12 @@ par("mar"=ma)
   Millero, F.J., Feistel, R., Wright, D.G., and McDougall, T.J., 2008:
   The composition of Standard Seawater and the definition of the
   Reference-Composition Salinity Scale, Deep-Sea Res. I, 55, 50-72.
-
+  
+  McDougall, T.J., Jackett, D.R.  and Millero, F.J., 2009: An algorithm
+  for estimating Absolute Salinity in the global ocean. Ocean Science
+  Discussions 6, 215-242.
+  \url{http://www.ocean-sci-discuss.net/6/215/2009/} 
+  
   Uses the Fortran code written by David Jackett
   \url{http://www.marine.csiro.au/~jackett/TEOS-10/}
 }

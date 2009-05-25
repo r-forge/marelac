@@ -8,13 +8,13 @@
   concentration of oxygen in water in \eqn{mg/L}{mg L^{-1}}
 }
 \usage{
-gas_O2sat(S = 35, t = 25, NN = 0, method = c("Weiss", "APHA", "Paul"))
+gas_O2sat(S = 35, t = 25, masl = 0, method = c("Weiss", "APHA", "Paul"))
 }
 
 \arguments{
   \item{S}{salinity (dimensionless, for method "Weiss" only),}
   \item{t}{Temperature in \eqn{^\circ}{degrees }C,}
-  \item{NN}{height above sea level (in m, for method "Paul" only),}
+  \item{masl}{height above sea level (in m, for method "Paul" only),}
   \item{method}{formula to be used, see references for correct
     application.
   }
@@ -25,7 +25,7 @@ gas_O2sat(S = 35, t = 25, NN = 0, method = c("Weiss", "APHA", "Paul"))
   Method APHA is the standard formula in Limnology, method Weiss the
   standard formula in marine sciences. The method after Paul is a simple
   formula fitted on available tables. To avoid confusion between the
-  arguments (S, t, NN) it is advisable to use named arguments in
+  arguments (S, t, masl) it is advisable to use named arguments in
   general, e.g. \code{O2sat(t = 4)}.
   
 }

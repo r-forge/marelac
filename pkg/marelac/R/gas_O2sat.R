@@ -2,7 +2,7 @@
 ## Saturated Concentration of Oxygen in Seawater
 ## -----------------------------------------------------------------------------
 
-gas_O2sat <- function(S = 35, t = 25, NN = 0,
+gas_O2sat <- function(S = 35, t = 25, masl = 0,
                       method = c("Weiss", "APHA", "Paul")) {
 
   K <-  t + 273.15
@@ -10,7 +10,7 @@ gas_O2sat <- function(S = 35, t = 25, NN = 0,
   log10 <- function(x) log(x)/log(10)
   method <- match.arg(method)
   if ((S != 0) & (method != "Weiss")) warning("Salinity value ignored by this method!")
-  if ((NN != 0) & (method != "Paul")) warning("Sea level height ignored by this method!")
+  if ((masl != 0) & (method != "Paul")) warning("Sea level height ignored by this method!")
   ret <- switch(method,
     ## American Public Health Association
     APHA  = exp(-139.34411 + (157570.1/K) - (66423080/K^2) + (12438000000/K^3)-
@@ -21,9 +21,8 @@ gas_O2sat <- function(S = 35, t = 25, NN = 0,
             143.3483 * log(K / 100) - 21.8492 * K / 100 +
             S * (-0.033096 + 0.014259 * K / 100 + - 0.001700 * (K / 100)^2)),
     ## Paul, L. approximation that respects height above see level
-    Paul = (1012-0.12 * NN)/1013 * (14.674 - 13.644 * log10(1 + t/12.8))
+    Paul = (1012-0.12 * masl)/1013 * (14.674 - 13.644 * log10(1 + t/12.8))
   )
-#  attr(ret, "unit") = "(g/m3)"
   ret
 }
 

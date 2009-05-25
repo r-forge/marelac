@@ -425,7 +425,7 @@ sw_conserv(S=seq(0,35,by=5))
 @
 \subsection{Two salinity scales}
   \citep{Millero08} provide a function to derive absolute salinity (expressed
-  in $g kg^{-1}$) from measures of practical salinity. Absolute salinity is
+  in $g~kg^{-1}$) from measures of practical salinity. Absolute salinity is
   to be used as the concentration variable entering the thermodynamic functions
   of seawater (see next section).
   
@@ -434,6 +434,7 @@ sw_conserv(S=seq(0,35,by=5))
     \item \code{convert_AStoPS} from absolute to practical salinity and
     \item \code{convert_PStoAS} from practical to absolute salinity
   \end{itemize}
+  For example:
 <<>>=
 convert_AStoPS(S=35)
 convert_PStoAS(S=35)
@@ -441,15 +442,20 @@ convert_PStoAS(S=35)
 
   These functions have as extra arguments the gauge pressure (\code{p}) and
   latitude (\code{lat}) and longitude (\code{lon}). When provided, they also
-  correct for inconsistencies induces by local composition anomalies. The
+  correct for inconsistencies due to local composition anomalies. The
   correction then makes use of a conversion table that estimates the salinity
   variations as a function of present-day local seawater composition.
   
-  The correction factors are in a data set called \code{sw_sfac}, which are
-  used in the conversion functions. Below we first convert from practical to
+  The correction factors are in a data set called \code{sw_sfac}, a list with
+  the properties used in the conversion functions.
+
+  Below we first convert from practical to
   absolute salinity, for different longitudes, and then plot the correction
   factors as a function of latitude and longitude and at the seawater surface
   (i.e. for \code{p=0}).
+  \footnote{Before plotting, the negative numbers in the salinity anamaly are
+  converted to \code{NA} (not available).  In the data set, numbers not
+  available are denoted with \code{-99}.}
   
 <<>>=
 convert_PStoAS(S=35,lat=-10,lon=0)
@@ -471,7 +477,8 @@ contour(sw_sfac$longs, sw_sfac$lats, dsal, asp=TRUE, add=TRUE)
 <<label=sfac,fig=TRUE,echo=FALSE>>=
 <<sfac>>
 @
-\caption{factor to convert salinity scales}
+\caption{salinity anomaly to convert from practical to absolute salinity
+and vice versa}
 \label{fig:sfac}
 \end{figure}
 
@@ -486,7 +493,8 @@ contour(sw_sfac$longs, sw_sfac$lats, dsal, asp=TRUE, add=TRUE)
   pure water, an equation of state for salt-free ice, in the form of a Gibbs
   potential function, and the saline part of the Gibbs potential).
 
-  Note that the formulations use the absolute salinity scale, \citep{Millero08}.
+  Note that the formulations from \citep{Feistel08} use the absolute salinity
+  scale, \citep{Millero08}, while the UNESCO polynomial uses practical salinity.
 
 <<>>=
 sw_cp(S=40,t=1:20)
@@ -499,16 +507,16 @@ sw_cp(S=40,t=1:20,UNESCO=TRUE)
 t  <-  25.5
 p  <- 1023/10  # pressure in bar
 S  <- 35.7
-sw_alpha(S,t,p)                        -0.0003098378393192645
-sw_beta(S,t,p)                         -0.0007257297978386655
-sw_cp(S,t,p)                           -3974.42541259729
-sw_tpot(S,t,p)                         -25.2720983155409
-sw_dens(S,t,p)                         -1027.95249315662
-sw_enthalpy(S,t,p)                     -110776.712408975
-sw_entropy(S,t,p)                      -352.81879771528
-sw_kappa(S,t,p)                        -4.033862685464779e-6
-sw_kappa_t(S,t,p)                      -4.104037946151349e-6
-sw_svel(S,t,p)                         -1552.93372863425
+sw_alpha(S,t,p)               -0.0003098378393192645
+sw_beta(S,t,p)                -0.0007257297978386655
+sw_cp(S,t,p)                  -3974.42541259729
+sw_tpot(S,t,p)                -25.2720983155409
+sw_dens(S,t,p)                -1027.95249315662
+sw_enthalpy(S,t,p)            -110776.712408975
+sw_entropy(S,t,p)             -352.81879771528
+sw_kappa(S,t,p)               -4.033862685464779e-6
+sw_kappa_t(S,t,p)             -4.104037946151349e-6
+sw_svel(S,t,p)                -1552.93372863425
 @
   
   Below we plot all implemented thermophysical properties as a function of

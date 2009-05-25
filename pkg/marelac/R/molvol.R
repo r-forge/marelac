@@ -23,7 +23,7 @@ molvol <- function(t=25,
       "NO", "N2", "NO2", "N2O", "O2", "PH3", "SiH4", "SiF4", "SO2", "Xe"),
                   quantity=1, a=0,  b=0) {
   Names <- eval(formals(sys.function(sys.parent()))$species)
-  ## ThPe: Hmmm, needed if called by other function, e.g. "outer";
+  ## ThPe: needed if called by other function, e.g. "outer";
   ##       let's re-think this to avoid doubling information
   Names <- c("ideal","Ar", "CO2", "CS2", "CO", "CCl4", "Cl2",
       "C2H6S", "C2H5OH","C6H5F", "CH3F", "CH4", "CH3OH", "C5H12", "C3H8",

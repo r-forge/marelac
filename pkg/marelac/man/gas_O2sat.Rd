@@ -7,8 +7,6 @@
   Empirical formulae that can be used to compute saturation
   concentration of oxygen in water in \eqn{mg/L}{mg L^{-1}}
 }
-% Note the default value of S. Should we change it to 35
-% ThPe: o.k.
 \usage{
 gas_O2sat(S = 35, t = 25, NN = 0, method = c("Weiss", "APHA", "Paul"))
 }

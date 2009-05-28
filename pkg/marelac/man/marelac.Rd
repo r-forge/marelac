@@ -16,7 +16,7 @@
   \itemize{
     \item chemical and physical constants, e.g. atomic weights, gas constants.
     \item conversion factors, e.g. from salinity to chlorinity, from mol to gram,
-       etc..
+       etc.,
     \item utility functions, e.g. to estimate concentrations of conservative
       substances as a function of salinity, ...
   }
@@ -25,7 +25,7 @@
  About the symbols used.
  
  
- Here we adopt the symbolism as in McDougall et al.,, 2009:
+ Here we adopt the symbolism as in McDougall et al., 2009:
  
  \itemize{
  \item S for absolute salinity, (g/kg)
@@ -33,7 +33,7 @@
  \item p for sea pressure (also called gauge or applied pressure (bar), the
  pressure relative to P0, one standard atmosphere (=1.01325 bar)
  \item t for temperature in \eqn{^\circ}{degrees }C
- \item T for absolute temperature, in \eqn{^\circ}{degrees }K; T = t+273.15
+ \item T for absolute temperature, in \eqn{^\circ}{degrees }K; T = t + 273.15
 
  }
   Many of the functions are from the UNESCO 1983 paper, or from Feistel, 2008.
@@ -65,16 +65,15 @@
   For diffusion coefficients, viscosity
 
   Boudreau BP, 1996.  A method-of-lines code for carbon and nutrient
-  diagenesis in aquatic sediments.  COMPUTERS & GEOSCIENCES 22 (5):
+  diagenesis in aquatic sediments.  Computers & Geosciences 22 (5):
   479-496.
 
   For many other fundamental properties of seawater: either the UNESCO
   report (1983)
 
-  Fofonoff, P. and
-  Millard, R.C. Jr. Unesco 1983. Algorithms for computation of
-  fundamental properties of seawater.  Unesco Tech. Pap. in Mar. Sci.,
-  No. 44, 53 pp.
+  Fofonoff, P. and Millard, R.C. Jr. Unesco 1983. Algorithms for
+  computation of fundamental properties of seawater.  UNESCO
+  Tech. Pap. in Mar. Sci., No. 44, 53 pp.
   
   or the more recent report and papers:
 
@@ -103,7 +102,7 @@ example(molvol)
 ## open the directory with documents
 browseURL(paste(system.file(package="marelac"), "/doc", sep=""))
 
-## open the UNEXCO 1983 document
+## open the UNESCO 1983 document
 browseURL(paste(system.file(package="marelac"), "/doc/UnescoMarine.pdf", sep=""))
 }
 }

@@ -1,6 +1,6 @@
 \name{earth_surf}
 \alias{earth_surf}
-\title{Surface of 1 dg by 1 dg cells of the Earth}
+\title{Surface of 1 dg by 1 dg Cells of the Earth}
 \description{
   Computes the surface of 1d by 1dg grid cells as a function of latitude.
   

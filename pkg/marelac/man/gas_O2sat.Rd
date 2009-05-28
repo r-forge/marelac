@@ -64,10 +64,16 @@ Erg\enc{ä}{ae}nzung zur Ver\enc{ö}{oe}ffentlichung). Vom Wasser 53,
 S. 283-285.
 }
 
-\seealso{\code{\link{gas_satconc}}}
+\seealso{\code{\link{gas_satconc}} for other gas species and explicit
+  consideration of pressure.}
 
 \examples{
-  gas_O2sat(t = 20)
+  gas_O2sat(S=0, t = 20)              # fresh water, Weiss formula
+  gas_O2sat(S=0, t=20, method="APHA") # fresh water, APHA formula
+
+  ## compare this with
+  gas_satconc(S=0, t=20, species = "O2") * molweight("O2") / 1000
+
   T <- seq(0, 30, 0.1)
   plot(T, gas_O2sat(t = T, method = "APHA"), type = "l", ylim = c(0, 15), lwd = 2)
   lines(T, gas_O2sat(S = 0, t = T, method = "Weiss"),

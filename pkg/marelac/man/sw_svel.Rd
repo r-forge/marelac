@@ -9,7 +9,7 @@
   from 1 to 1000 bars.
 }
 \usage{
-sw_svel(S = 35, t = 25, p = P-1.013253, P = 1.013253, UNESCO =FALSE)
+sw_svel(S = 35, t = 25, p = P-1.013253, P = 1.013253, UNESCO = FALSE)
 }
 \arguments{
   \item{S }{Salinity (dimensionless),}
@@ -26,14 +26,14 @@ sw_svel(S = 35, t = 25, p = P-1.013253, P = 1.013253, UNESCO =FALSE)
   Sound velocity, in m / sec.
 }
 \note{
-
-sound velocity for S = 40, t = 40, p = 1000 is 1731.995 using UNESCO polynomial
+  Sound velocity for S = 40, t = 40, p = 1000 is 1731.995 using UNESCO
+  polynomial.
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
 
-sw_svel(t = 40,S = 40, p = 1000, UNESCO=TRUE)  # 1731.995
-sw_svel(S=35.7,t=25.5,p=102.3)                 #1552.93372863425
+sw_svel(t = 40, S = 40, p = 1000, UNESCO = TRUE)  # 1731.995
+sw_svel(S = 35.7, t = 25.5, p = 102.3)            # 1552.93372863425
 
 }
 \references{

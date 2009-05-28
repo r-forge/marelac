@@ -1,6 +1,6 @@
 \name{sw_comp}
 \alias{sw_comp}
-\title{Reference sea salt Composition}
+\title{Reference Sea Salt Composition}
 \description{
   The sea salt composition definition for reference salinity of the standard
   ocean at 25 dgC and 1.01325 bar (atmospheric pressure),

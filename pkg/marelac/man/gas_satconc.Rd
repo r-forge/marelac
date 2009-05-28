@@ -30,21 +30,21 @@ gas_satconc(S = 35, t = 25, P = 1.013253,
 \author{Karline Soetaert < k.soetaert@nioo.knaw.nl > }
 \examples{
 gas_satconc(species = "O2")
-Temp <- seq(from = 0,to = 30,by = 0.1)
-Sal  <- seq(from = 0,to = 35,by = 0.1)
+Temp <- seq(from = 0, to = 30, by = 0.1)
+Sal  <- seq(from = 0, to = 35, by = 0.1)
 
 mf  <- par(mfrow = c(1,2))
 
 species <- c("N2","CO2","O2","CH4","N2O")
-gsat  <-gas_satconc(t=Temp,species=species)
+gsat  <-gas_satconc(t=Temp, species=species)
 
 matplot(Temp,gsat,type="l",xlab="temperature",log="y", lty=1,
-     ylab="mmol/m3",main="Saturated conc (S=35)",lwd=2)
+     ylab="mmol/m3",main="Saturated conc (S=35)", lwd=2)
 legend("right",col=1:5,lwd=2,legend=species)
 
 gsat  <-gas_satconc(S=Sal,species=species)
 matplot(Sal,gsat,type="l",xlab="salinity",log="y", lty=1,
-     ylab="mmol/m3",main="Saturated conc (T=20)",lwd=2)
+     ylab="mmol/m3",main="Saturated conc (T=20)", lwd=2)
 legend("right",col=1:5,lwd=2,legend=species)
 
 

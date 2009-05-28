@@ -37,7 +37,7 @@ legend("topright", col = c("black","red","blue"), lty = 1,
   B.P. Boudreau:
 
   Boudreau BP, A method-of-lines code for carbon and
-  nutrient diagenesis in aquatic sediments.  COMPUTERS & GEOSCIENCES 22
+  nutrient diagenesis in aquatic sediments.  Computers & Geosciences 22
   (5): 479-496 JUN 1996
 
   Kulkula, DJ, Gebhart, B and Mollendorf, JC 1987. Thermodynamic and

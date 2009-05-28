@@ -24,4 +24,4 @@ sw_sfac <- local({
     del_sa = array(dim=c(45, 44, 91), data=dsal[ii:(ii+45*44*91-1), 1])
   )
 })
-#rm(dsal, is1, is2, ii)
+

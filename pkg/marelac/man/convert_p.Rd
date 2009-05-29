@@ -26,5 +26,12 @@ convert_p(c(2, 3, 4.5), "bar")
 convert_p(1, "atm")$Pa
 
 }
+\seealso{
+\code{\link{convert_AStoPS}}, \code{\link{convert_PStoAS}},
+\code{\link{convert_RtoS}},
+\code{\link{convert_StoCl}}, \code{\link{convert_StoR}},
+\code{\link{convert_T}},
+}
+
 \keyword{ misc }
 

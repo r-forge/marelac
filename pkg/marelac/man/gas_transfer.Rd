@@ -47,27 +47,31 @@ legend("topleft", lty = 1:4, lwd = 2,
 }
 
 \references{
-  Sarmiento J.L. and N. Gruber, 2006. Ocean Biogeochemical
+  Sarmiento JL and Gruber N, 2006. Ocean Biogeochemical
   Dynamics. Princeton University Press, Princeton. p 85.
 
-  Liss P.S. and L. Merlivat, 1986. Air-sea gas exchange rates:
+  Liss PS and Merlivat L, 1986. Air-sea gas exchange rates:
   introduction and synthesis.  In: the role of air-sea exchange in
   Geochemical cycling, edited by P. Buat-Menard, pp 113-127.  D. Reidel,
   Dordrecht, the Netherlands.
 
-  Nightingale et al. 2000. In situ evaluation of air-sea gas exchnage
+  Nightingale et al., 2000. In situ evaluation of air-sea gas exchnage
   prameterizations using novel conservatie and volatile tracers. Global
   biogeochemical cycles 14, 373-387.
 
-  Wanninkhof R. 1992. Relationship between wind speed and gas exchange
+  Wanninkhof R, 1992. Relationship between wind speed and gas exchange
   over the ocean. Journ. Geophys. Res. 97, 7373-7383.
 
-  Wanninkhof R. and W. McGillis 1999. A cubic relationshp between
+  Wanninkhof R and McGillis W, 1999. A cubic relationshp between
   ari-sea CO2 exchange and wind speed.  Geophys. Res. Lett. 26,
   1889-1892.
 }
 
-\seealso{\code{\link{gas_schmidt}}}
+\seealso{
+\code{\link{gas_O2sat}},\code{\link{gas_satconc}},
+\code{\link{gas_schmidt}},\code{\link{gas_solubility}},
+\code{\link{atmComp}}, \code{\link{vapor}}
+}
 
 \keyword{utilities}
 

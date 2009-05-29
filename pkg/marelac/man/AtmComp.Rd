@@ -24,8 +24,11 @@ atmComp(species = c("He", "Ne", "N2", "O2", "Ar", "Kr", "CH4", "CO2",
   A vector providing the mixing ratio of the selected gases.
 }
 \references{
-  Sarmiento J.L. and N. Gruber, 2006. Ocean Biogeochemical
-  Dynamics. Princeton University Press, Princeton. p 74.  They cite Weast
+  Sarmiento JL and Gruber N, 2006. Ocean Biogeochemical
+  Dynamics. Princeton University Press, Princeton. p 85.
+
+
+  They cite Weast
   and Astle (1982) for all gasses except CO2, CH4 and N2O. For the latter
   three greenhouse gases, the 1998 concentrations are taken from Ramaswamy
   et al., 2001. Note that the sum of all mixing ratios is slightly larger
@@ -42,4 +45,10 @@ atmComp(c("O2", "CH4", "CO2", "N2O"))
 atmComp()
 sum(atmComp()) # note this is not =1!
 }
+\seealso{
+\code{\link{gas_O2sat}}, \code{\link{gas_satconc}},
+\code{\link{gas_schmidt}}, \code{\link{gas_solubility}},
+\code{\link{gas_transfer}}, \code{\link{vapor}}
+}
+
 \keyword{utilities}

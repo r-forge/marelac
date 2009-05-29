@@ -28,10 +28,6 @@ atomicweight
   The data set contains \code{NA} for elements that have no stable isotopes
   (except U, Th, Pa).
 }
-\seealso{
-  \code{\link{molweight}} for molecular weight calculations with
-  molecular formulae.
-}
 \examples{
 ## Assess the data in the IUPAC table.
 AtomicWeight[1:20,]
@@ -50,10 +46,18 @@ with(atomicweight, C)
 with(atomicweight, H * 2 + O)
 }
 \references{
-  Wieser, M.E. (2006). Atomic weights of the elements 2005 (IUPAC
-  Technical Report). Pure Appl. Chem., Vol. 78, No. 11, pp. 2051--2066,
+  Wieser ME, 2006. Atomic weights of the elements 2005 (IUPAC
+  Technical Report). Pure Appl. Chem. 78 (11), 2051--2066.,
   2006. \url{http://dx.doi.org/10.1351/pac200678112051}
 }
+\seealso{
+other datasets:  \code{\link{Bathymetry}},
+\code{\link{Constants}}, \code{\link{Oceans}},
+
+\code{\link{molweight}} for molecular weight calculations with
+  molecular formulae.
+}
+
 \keyword{datasets}
 
 

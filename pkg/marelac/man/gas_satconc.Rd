@@ -20,8 +20,8 @@ gas_satconc(S = 35, t = 25, P = 1.013253,
   }
   \item{atm }{the number of moles of the gas per unit mole of air in the
     atmosphere, the "mixing ratio".  When present, this overrules the
-    \code{x} argument. When unspecified, the value from \code{atmComp}
-    for the gas is taken.
+    \code{species} argument. When unspecified, the value from \code{atmComp}
+    for the \code{species} is taken.
   }
 }
 \value{
@@ -84,18 +84,18 @@ format(AA, digits = 4)
   CO2 is OK for temperature 0 only.
 }
 \references{
-  Sarmiento J.L. and N. Gruber, 2006. Ocean Biogeochemical
-  Dynamics. Princeton University Press, Princeton. p 74.
+  Sarmiento JL and Gruber N, 2006. Ocean Biogeochemical
+  Dynamics. Princeton University Press, Princeton. p 85.
 
   who cite:
 
-  for he and Ne: Weiss, R. 1971. Solubility of helium and neon in water
+  for he and Ne: Weiss R, 1971. Solubility of helium and neon in water
   and seawater. Journ. Chem. Eng. Data 16, 235-241.
 
-  N2, O2 and Ar: Weiss, R. 1970. The solubility of nitrogen, oxygen, and
-  argon in water and seawater. Deep-Sea Res. 17: 721-35.
+  N2, O2 and Ar: Weiss R, 1970. The solubility of nitrogen, oxygen, and
+  argon in water and seawater. Deep-Sea Res. 17, 721-35.
 
-  Kr: Weiss, R.  and T.K. Kyser, 1978. Silubility of Krypton in water
+  Kr: Weiss R and Kyser TK, 1978. Silubility of Krypton in water
   and seawater. Journ. Chem. Eng. Data 23, 69-72.
 
   Rn: Hackbusch 1979. Eine Methode zur Bestimmung der Diffusions-,
@@ -103,23 +103,28 @@ format(AA, digits = 4)
   Wasser und Meereswasser. Dissertation, University of Heidelberg,
   Germany.
 
-  CH4: Wiesenburg, D.A. and J.N.L. Guinasso 1979. Equilibrium
+  CH4: Wiesenburg DA and  Guinasso JNL, 1979. Equilibrium
   solubilities of methane, carbon monoxide and hydrogen in water and sea
   water. Journ. Chem. Eng. Data 24, 256-360.
 
-  CO2 and N2O: Weiss, R. and B.A. Price, 1980. Nitrous oxide solubility
+  CO2 and N2O: Weiss R and Price BA, 1980. Nitrous oxide solubility
   in wate and sewater. Mar. Chem. 8, 347-359.
 
-  CFC-11 and CFC-12: Warner, M.J. and R. Weiss, 1985. Solubilities of
+  CFC-11 and CFC-12: Warner MJ and Weiss R, 1985. Solubilities of
   chlorofluorocarbons 11 and 12 in water and sewater. Deep-Sea Res. 32,
   1485-1497.
 
-  SF6: Bullister et al 2002. The solubility of sulfur hexafluroide in
-  water and sewater. Deep-Sea Res. I, 49: 175-188.
+  SF6: Bullister et al., 2002. The solubility of sulfur hexafluroide in
+  water and sewater. Deep-Sea Res. I, 49, 175-188.
 
-  CCl4: Bullister J.L. and D.P. Wisegarver 1998.  The solubility of
+  CCl4: Bullister JL and Wisegarver DP, 1998.  The solubility of
   carbon tetrachloride in water and seawater. Deep-Sea Res. I,
   1285-1302.
+}
+\seealso{
+\code{\link{gas_O2sat}},
+\code{\link{gas_schmidt}},\code{\link{gas_solubility}},\code{\link{gas_transfer}},
+\code{\link{atmComp}}, \code{\link{vapor}}
 }
 \keyword{utilities}
 

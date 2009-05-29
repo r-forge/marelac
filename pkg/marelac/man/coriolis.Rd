@@ -23,11 +23,16 @@ plot(-90:90, coriolis(-90:90), xlab = "latitude, dg North",
   ylab = "/s", main = "coriolis factor", type = "l", lwd = 2)
 }
 \references{
-  S. Pond & G. Pickard 2nd Ed. 1986. Introductory Dynamical
-  Oceanography, Pergamon Press, Sydney.
+  Pond S and Pickard G, 1986. Introductory Dynamical
+  Oceanography, Pergamon Press, Sydney, 2nd Ed.
   
-  Griffies, S. M., 2004: Fundamentals of Ocean Climate Models. Princeton, NJ:
+  Griffies SM, 2004. Fundamentals of Ocean Climate Models. Princeton, NJ,
   Princeton University Press, 518 pp.
+}
+\seealso{
+\code{\link{viscosity}},
+\code{\link{diffcoeff}}, \code{\link{ssd2rad}}, \code{\link{vertmean}},
+\code{\link{gravity}}
 }
 \keyword{utilities}
 

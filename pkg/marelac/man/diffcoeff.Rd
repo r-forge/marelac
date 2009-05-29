@@ -61,19 +61,19 @@ legend("topleft", ncol = 2, cex = 0.8, title = "mean",
   
   who cites:  
 
-  Cohen MH, Turnbull D. 1959. Molecular transport in liquids and
+  Cohen MH and Turnbull D. 1959. Molecular transport in liquids and
   glasses.  Journal of chemical physics 31 (5): 1164-1169
 
-  Krynicki K, Green CD, Sawyer DW, 1978.  pressure and
+  Krynicki K, Green CD and Sawyer DW, 1978.  pressure and
   temperature-dependence of self-diffusion in water.  Faraday
   discussions 66: 199-208
 
   for molecules:
 
-  Wilke CR, Chang P, 1955. Correlation of diffusion coefficients in
+  Wilke CR and Chang P, 1955. Correlation of diffusion coefficients in
   dilute solutions. Aiche journal 1 (2): 264-270
 
-  Hayduk W, Laudie H, 1974.  Prediction of diffusion-coefficients for
+  Hayduk W and Laudie H, 1974.  Prediction of diffusion-coefficients for
   nonelectrolytes in dilute aqueous-solutions. Aiche journal 20 (3):
   611-615
 }
@@ -116,7 +116,10 @@ legend("topleft", ncol = 2, cex = 0.8, title = "mean",
   Stokes-Einstein relationship to any other temperature.
   
 }
-\seealso{\code{\link{viscosity}} the shear viscosity of water
+\seealso{
+\code{\link{coriolis}}, \code{\link{viscosity}},
+\code{\link{ssd2rad}}, \code{\link{vertmean}},
+\code{\link{gravity}}
 }
 \keyword{utilities}
 

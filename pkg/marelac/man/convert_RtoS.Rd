@@ -34,9 +34,17 @@ convert_RtoS(R = 1, t = 15, p = 0)
 
 }
 \references{
-  Fofonoff, P. and Millard, R.C. Jr. Unesco 1983. Algorithms for
-  computation of fundamental properties of seawater. Unesco
-  Tech. Pap. in Mar. Sci., No. 44, 53 pp.
+  Fofonoff NP and Millard RC Jr, 1983. Algorithms for computation of
+  fundamental properties of seawater. UNESCO technical papers in marine
+  science, 44, 53 pp.
+
+  \url{http://unesdoc.unesco.org/images/0005/000598/059832EB.pdf}
+}
+\seealso{
+\code{\link{convert_AStoPS}}, \code{\link{convert_PStoAS}},
+\code{\link{convert_StoR}},
+\code{\link{convert_StoCl}},
+\code{\link{convert_p}}, \code{\link{convert_T}},
 }
 \keyword{utilities}
 

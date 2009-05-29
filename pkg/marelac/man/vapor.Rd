@@ -19,11 +19,16 @@
 plot(0:30, vapor(t = 0:30), xlab = "Temperature, dgC", ylab = "pH2O/P")
 }
 \references{
-  Sarmiento J.L. and N. Gruber, 2006. Ocean Biogeochemical
+  Sarmiento JL and Gruber N, 2006. Ocean Biogeochemical
   Dynamics. Princeton University Press, Princeton. p 74
 
-  Weiss, R. and B.A. Price, 1980. Nitrous oxide solubility in wate and
-  sewater. Mar. Chem. 8, 347-359.
+  Weiss R and Price BA, 1980. Nitrous oxide solubility in water and
+  seawater. Mar. Chem. 8, 347-359.
+}
+\seealso{
+\code{\link{gas_O2sat}}, \code{\link{gas_satconc}},
+\code{\link{gas_schmidt}}, \code{\link{gas_solubility}},
+\code{\link{gas_transfer}}, \code{\link{atmComp}}
 }
 \keyword{utilities}
 

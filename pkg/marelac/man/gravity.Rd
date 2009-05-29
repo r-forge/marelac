@@ -22,12 +22,18 @@ gravity(lat = 30)}
 \references{
 The UNESCO polynomial:
 
-  Fofonoff, P. and Millard, R.C. Jr. Unesco 1983. Algorithms for
-  computation of fundamental properties of seawater. Unesco
-  Tech. Pap. in Mar. Sci., No. 44, 53 pp.
+  Fofonoff NP and Millard RC Jr, 1983. Algorithms for computation of
+  fundamental properties of seawater. UNESCO technical papers in marine
+  science, 44, 53 pp.
 
-  Moritz, H., 2000: Geodetic reference system 1980. Journal of Geodesy, 74,
+  \url{http://unesdoc.unesco.org/images/0005/000598/059832EB.pdf}
+
+  Moritz H, 2000. Geodetic reference system 1980. Journal of Geodesy 74,
   128-133.
+}
+\seealso{
+\code{\link{coriolis}}, \code{\link{viscosity}},
+\code{\link{diffcoeff}}, \code{\link{ssd2rad}}, \code{\link{vertmean}}
 }
 \keyword{utilities}
 

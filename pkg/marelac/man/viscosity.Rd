@@ -36,11 +36,11 @@ legend("topright", col = c("black","red","blue"), lty = 1,
   Based on the FORTRAN implementation of the diagenetic model "CANDI" of
   B.P. Boudreau:
 
-  Boudreau BP, A method-of-lines code for carbon and
+  Boudreau BP, 1996. A method-of-lines code for carbon and
   nutrient diagenesis in aquatic sediments.  Computers & Geosciences 22
-  (5): 479-496 JUN 1996
+  (5), 479-496.
 
-  Kulkula, DJ, Gebhart, B and Mollendorf, JC 1987. Thermodynamic and
+  Kulkula DJ, Gebhart B and Mollendorf JC, 1987. Thermodynamic and
   transport properties of pure and saline water. Adv. Heat transfer 18,
   325-363.
 }
@@ -48,6 +48,11 @@ legend("topright", col = c("black","red","blue"), lty = 1,
   The details given in the original code by B. Boudreau are repeated here:
 
   Uses the equation given by Kukulka et al. (1987).
+}
+\seealso{
+\code{\link{coriolis}},
+\code{\link{diffcoeff}}, \code{\link{ssd2rad}}, \code{\link{vertmean}},
+\code{\link{gravity}}
 }
 \keyword{utilities}
 

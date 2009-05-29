@@ -19,7 +19,7 @@ sw_comp(species=c("Na","Mg","Ca","K","Sr","Cl","SO4","HCO3",
   A vector with the mass fractions.
 }
 \references{
-  Millero, F.J., Waters, J., Woosley, R., Huang, F. and Chanson, M., 2008:
+  Millero FJ, Waters J, Woosley R, Huang F and Chanson M, 2008.
   The effect of composition of the density of Indian Ocean waters,
   Deep-Sea Res. I, 55, 960-470.
 }
@@ -30,5 +30,15 @@ sw_comp(species=c("Na","Mg","Ca","K","Sr","Cl","SO4","HCO3",
 sw_comp("CO2")
 sw_comp()
 sum(sw_comp())
+}
+\seealso{
+\code{\link{sw_adtgrad}}, \code{\link{sw_alpha}}, \code{\link{sw_beta}},
+\code{\link{sw_conserv}}, \code{\link{sw_cp}},
+\code{\link{sw_dens}},
+\code{\link{sw_depth}}, \code{\link{sw_enthalpy}}, \code{\link{sw_entropy}},
+\code{\link{sw_gibbs}}, \code{\link{sw_kappa}},
+\code{\link{sw_kappa_t}}, \code{\link{sw_sfac}},
+\code{\link{sw_svel}}, \code{\link{sw_tfreeze}}, \code{\link{sw_tpot}}
+
 }
 \keyword{utilities}

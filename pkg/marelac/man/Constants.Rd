@@ -19,8 +19,13 @@ data.frame(cbind(acronym = names(Constants),
            dimnames = list(NULL, c("value", "units", "description")))))
 }
 \references{
-  Mohr, P.J. and B.N. Taylor, 2005.
+  Mohr PJ and Taylor BN, 2005.
   CODATA recommended values of the fundamental physical constants: 2002,
-  Review of Modern Physics 77, pp. 1 - 107
+  Review of Modern Physics 77, 1 - 107.
 }
+\seealso{
+\code{\link{AtomicWeight}}, \code{\link{Bathymetry}},
+\code{\link{Oceans}}
+}
+
 \keyword{datasets}

@@ -36,15 +36,17 @@ rhoH2O(S = 35, t = 25, p = max(0, P-1.013253), P = 1.013253,
 
 \references{
   
-  Chen, Ch.-T. and F.J. Millero (1986). Precise thermodynamic properties
+  Chen Ch.-T. and Millero FJ, 1986. Precise thermodynamic properties
   of natural waters covering only the limnological
   range. Limnol. Oceanogr. 31 No. 3, 657 - 662.
 
-  Fofonoff N.P. and R.C. Millard (1983). Algorithms for computation of
+  Fofonoff NP and Millard RC Jr, 1983. Algorithms for computation of
   fundamental properties of seawater. UNESCO technical papers in marine
   science, 44, 53 pp.
 
-  Millero, F. J. and Poisson, A. (1981). International one-atmosphere
+  \url{http://unesdoc.unesco.org/images/0005/000598/059832EB.pdf}
+
+  Millero FJ and Poisson A, 1981. International one-atmosphere
   equation of state of seawater. Deep-Sea Research 28A, 625-629.
 }
 

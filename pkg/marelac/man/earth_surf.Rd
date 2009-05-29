@@ -49,5 +49,9 @@ plot(dseq[-1],SurfDepth, xlab="depth, m", log="y",
      ylab = "m2", main = "Surface at ocean depths")
 
 }
+\seealso{
+\code{\link{Bathymetry}}, \code{\link{Oceans}}
+}
+
 \keyword{utilities}
 

@@ -1,42 +1,12 @@
+
 To do
-  Add bathymetry to marelac (is now in marelac.teaching)
-  Filip: 1. check for more refined bathymetry - but not too large file
-         2. per bathymetric grid cell: the surface area...
 
-Karline done
-  1. checked molvol; OK
-  
-  2. conversion to SI units as far as possible : cm -> m, day or hour -> sec
-  (also ssd2rad: now J/m2/s)
-  
-Ka -> ThPe
-  Inconsistent use of x and q in molweight and Redfield
-
-  1. molweight(species)
-  
-  All the other functions:
-  molvol(x,...)
-  
-  suggestion: molweight(species)
-  
-ThPe: done, also in other places with elements and molecules.
-
-  2. Redfield(x,...)
-  
-  Other functions, e.g.
-  molvol(,... q,...)
-  (q for quantity)
-  
-  suggest: Redfield(q,...)
-
-ThPe: done, changed to "q" but I am not yet satisfied with this.
-Alternative proposal simply "x" in general (as there is now no more
-confusion with molvol) or "quantity" or "Q".
-
+Filip: Diffusivity coefficients
 
 ===================================================================
 ThPe: It seems that all tasks above are done ( or obsolete )
   if yes, remove it.
+KS: removed
 ===================================================================
 
 Issues detected on 2009-05-28:
@@ -47,11 +17,12 @@ marelac.Rd
 - browseURL(paste(system.file(package="marelac"), 
     "/doc/UnescoMarine.pdf", sep=""))
 
---> not found
+KS: --> not found  - REMOVED
 
 - should contain a \seealso that points to the most important
 functions
 
+KS: --> there were almost no seealso sections - ADDED everywhere!
 
 gas_satconc.Rd
 --------------
@@ -59,11 +30,12 @@ gas_satconc.Rd
 - what does this mean:
 
 "When present, this overrules the x argument"
+KS: - 'x' was meant to 'species'. -> CHANGED
 
 several .Rd functions
 ---------------------
 
 - style of citations not consistent
 
-
+KS: -- I have done my best to make it consistent.
 

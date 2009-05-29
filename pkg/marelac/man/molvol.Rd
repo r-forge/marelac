@@ -63,21 +63,27 @@ contour(P, Temp, Val, xlab="pressure", ylab="temperature",
 
 }
 
-\seealso{\code{\link{molweight}} the molecular weight}
+\seealso{
+\code{\link{AtomicWeight}}, \code{\link{molweight}},
+\code{\link{redfield}}
+}
 \note{
   The coefficients a and b are species-specific; values of 0 assume an
   ideal gas and in general give good estimates.
 
-  The values of the van der Waals constants are from
-  Weast. R. C. (Ed.)1972. Handbook of Chemistry and Physics (53rd Edn.),
+  Use \code{1/molvol} to convert from liter to moles.
+
+  The default calculates the molar volume of an ideal gas
+}
+\references{
+The values of the van der Waals constants are from
+
+  Weast RC (Ed.) 1972. Handbook of Chemistry and Physics (53rd Edn.),
   Cleveland:Chemical Rubber Co.
   
   as found in
   \url{http://en.wikipedia.org/wiki/Van\_der\_Waals\_constants\_(data_page)}
-  
-  Use \code{1/molvol} to convert from liter to moles.
-  
-  The default calculates the molar volume of an ideal gas
 }
+
 \keyword{utilities}
 

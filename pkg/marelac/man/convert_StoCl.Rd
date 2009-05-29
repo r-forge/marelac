@@ -14,9 +14,15 @@
 \examples{
 convert_StoCl(20)
 }
-\references{Cox, R.A., Culkin, F., Riley, J.P., 1967. The electrical
+\references{
+Cox RA, Culkin F, Riley JP, 1967. The electrical
 conductivity -- chlorinity relationship in natural seawater.
 Deep--Sea Research 14, 203--220.
+}
+\seealso{
+\code{\link{convert_AStoPS}}, \code{\link{convert_PStoAS}},
+\code{\link{convert_RtoS}}, \code{\link{convert_StoR}},
+\code{\link{convert_p}}, \code{\link{convert_T}},
 }
 \keyword{utilities}
 

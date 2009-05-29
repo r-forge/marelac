@@ -18,7 +18,11 @@ data.frame(cbind(acronym = names(Oceans),
            dimnames = list(NULL, c("value", "units", "description")))))
 }
 \references{
-  Sarmiento J.L. and N. Gruber, 2006. Ocean Biogeochemical
+  Sarmiento JL and Gruber N, 2006. Ocean Biogeochemical
   Dynamics. Princeton University Press, Princeton. p 85.
+}
+\seealso{
+\code{\link{AtomicWeight}}, \code{\link{Bathymetry}},
+\code{\link{Constants}}, \code{\link{earth_surf}}
 }
 \keyword{datasets}

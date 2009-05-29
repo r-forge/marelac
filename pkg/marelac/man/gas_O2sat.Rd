@@ -37,11 +37,11 @@ gas_O2sat(S = 35, t = 25, masl = 0, method = c("Weiss", "APHA", "Paul"))
 American Public Health Association, Inc. (1985): Standard Methods for
 the Examination of Water and Wastewater. 18th edition, 1992.
 
-Benson B. B. and Krause, D. (1980): The concentration and isotopic
+Benson BB and Krause D, 1980. The concentration and isotopic
 fractionation of gases dissolved in freshwater in equilibrium with the
 atmosphere. I. Oxygen.  Limnology and Oceanography 25, 662-671.
 
-Brown, L.C. and Barnwell, T. O. Jr. (1987): The Enhanced Stream Water
+Brown LC and Barnwell TO Jr, 1987. The Enhanced Stream Water
 Quality Models QUAL2E and QUAL2E-UNCAS: Documentation and User
 Manual. U.S. Environmental Protection Agency, Athens,
 Georgia. EPA/600/3-87/007, p. 41. http://www.epa.gov)
@@ -50,15 +50,15 @@ DIN 38408-23, Ausgabe:1987-11: Deutsche Einheitsverfahren zur Wasser-,
 Abwasser- und Schlammuntersuchung; Gasf\enc{ö}{oe}rmige Bestandteile
 (Gruppe G); Bestimmung des Sauerstoffs\enc{ä}{ae}ttigungsindex (G 23).
 
-Paul, L. (1985). Das thermische Regime der Talsperre Saidenbach und
+Paul L, 1985. Das thermische Regime der Talsperre Saidenbach und
 einige Beziehungen zwischen abiotischen und biotischen
 Komponenten. Dissertation, TU Dresden, Fakult\enc{ä}{ae}t Bau-, Wasser-
 und Forstwesen. 84 pp.
 
-Weiss, R. (1970). The solubility of nitrogen, oxygen, and argon in water
-and seawater. Deep-Sea Res. 17: 721-35.
+Weiss R, 1970. The solubility of nitrogen, oxygen, and argon in water
+and seawater. Deep-Sea Research 17, 721-35.
 
-Wagner, R. (1979): Die Praxis der Bestimmung des biochemischen
+Wagner R, 1979. Die Praxis der Bestimmung des biochemischen
 Sauerstoffbedarfs - Ergebnisse einer Umfrage (Berichtigung und
 Erg\enc{ä}{ae}nzung zur Ver\enc{ö}{oe}ffentlichung). Vom Wasser 53,
 S. 283-285.

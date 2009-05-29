@@ -21,9 +21,9 @@ molweight(species)
   compounds) which have no stable isotopes (except U, Th, Pa).
 }
 \references{
-  Wieser, M.E. (2006). Atomic weights of the elements 2005 (IUPAC
-  Technical Report).  Pure Appl. Chem., Vol. 78, No. 11, pp. 2051--2066,
-  2006. doi:10.1351/pac200678112051
+  Wieser ME, 2006. Atomic weights of the elements 2005 (IUPAC
+  Technical Report).  Pure Appl. Chem. 78(11), 2051--2066.
+  doi:10.1351/pac200678112051
 }
 \author{Thomas Petzoldt}
 \note{
@@ -31,9 +31,8 @@ molweight(species)
   strictly case sensitive.
 }
 \seealso{
-  \code{\link{AtomicWeight}}: Atomic weight data of stable elements.
-
-  \code{\link{molvol}} the molecular volume
+\code{\link{AtomicWeight}}, \code{\link{molvol}},
+\code{\link{redfield}}
 }
 \examples{
 molweight("CO2")

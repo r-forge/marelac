@@ -32,10 +32,17 @@ zz[zz>0]<-0
 image(Bathymetry$x,Bathymetry$y,zz,col=c(femmecol(100),"black"),asp=TRUE)
 contour(Bathymetry$x,Bathymetry$y,zz,asp=TRUE,add=TRUE)
 }
-\references{Andersson, H., Wijsman, J., Herman, P., Middelburg,
-  J., Soetaert, K., Heip, C., 2004.
+\references{
+Andersson H, Wijsman J, Herman PMJ, Middelburg J, Soetaert K and Heip C, 2004.
   Respiration patterns in the deep ocean.
   Geophysical Research Letters 31, LO3304.
 }
+\seealso{
+\code{\link{AtomicWeight}},
+\code{\link{Constants}}, \code{\link{Oceans}}
+
+\code{\link{earth_surf}} to estimate the surface area of 1dg grid cells
+}
+
 \keyword{datasets}
 

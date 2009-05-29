@@ -6,14 +6,15 @@
 ! as defined in 
 !
 !   McDougall, T.J., Jackett, D.R. and Millero, F.J., 2009: An algorithm for estimating  
-!                       Absolute Salinity in the global ocean, Ocean Science, submitted.  
-!     
+!                       Absolute Salinity in the global ocean,
+!                       Ocean Science,   Discussions 6, 215-242.
+!
 !   
 ! David Jackett
 ! January 2009
 !
 ! Karline Soetaert - May 2009: made subroutines instead of functions
-! isnan -> -99
+!                              isnan -> -99
 !
 !******************************************************************************
 
@@ -131,62 +132,6 @@
         return
         end
 
-!******************************************************************************
-
-        subroutine adjust_baltic(SA,SP,longs,lats,flag,S)
-
-! for the Baltic Sea, overwrite Absolute Salinity with a value
-! computed analytically from Practical Salinity, or vice versa
-!
-! SA                  : Absolute Salinity                  [g/kg]
-! SP                  : Practical Salinity                 [psu]
-! longs               : longitude                          [deg E]     
-! lats                : latitude                           [deg N]
-! flag                : flag - 1 or 2 
-!
-! adjust_Baltic       : Absolute Salinity                  [g/kg]
-!                         when flag = 1
-!                     : Practical Salinity                 [psu]
-!                         when flag = 2
-
-       implicit none
-       integer n2, n3, flag
-       real*8 SA, SP, S, longs, lats, xinterp1
-       real*8 xb_left(3), xb_right(2), yb_left(3), yb_right(2)                 
-       real*8 xx_left, xx_right
-
-       data xb_left/12.6d0, 7.d0, 26.d0/, yb_left/50.d0, 59.d0, 69.d0/
-       data xb_right/45.d0, 26.d0/, yb_right/50.d0, 69.d0/
-
-       external xinterp1
-
-       n2 = 2
-       n3 = 3
-       if(flag.eq.1) then
-         S = SA
-       elseif(flag.eq.2) then
-         S = SP
-       end if
-
-       if(xb_left(2).lt.longs .and. longs.lt.xb_right(1) .and.                 &
-     &    yb_left(1).lt.lats .and. lats.lt.yb_left(3)) then
-  
-         xx_left = xinterp1(yb_left, xb_left, n3, lats)
-    
-         xx_right = xinterp1(yb_right, xb_right, n2, lats)
-    
-         if(xx_left.le.longs .and. longs.le.xx_right) then
-           if(flag.eq.1) then
-              S = (35.16504d0/35.d0)*SP + 0.124d0*(1.d0-SP/35.d0)
-           elseif(flag.eq.2) then
-              S = (35.d0/35.04104d0)*(SA- 0.124d0)
-           end if
-         end if
-     
-       end if
-
-       return
-       end
 
 !******************************************************************************
 

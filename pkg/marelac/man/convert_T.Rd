@@ -19,7 +19,7 @@ convert_T(x, unit = c("K", "C", "F"))
   A data frame with converted values.
 }
 \references{
-  Mangum, B. W. and Furukawa, G. T. (1990), Guidelines for Realizing the
+  Mangum BW and Furukawa GT, 1990. Guidelines for Realizing the
   International Temperature Scale of 1990 (ITS-90). NIST Technical Note
   1265.
   \url{http://www.cstl.nist.gov/div836/836.05/papers/magnum90ITS90guide.pdf}
@@ -37,6 +37,12 @@ convert_T(c(-459.67, 0, 32), "F")
 
 convert_T(32, "F")$C # 0 degrees C
 
+}
+\seealso{
+\code{\link{convert_AStoPS}}, \code{\link{convert_PStoAS}},
+\code{\link{convert_RtoS}}, \code{\link{convert_StoR}},
+\code{\link{convert_StoCl}},
+\code{\link{convert_p}}
 }
 \keyword{ misc }
 

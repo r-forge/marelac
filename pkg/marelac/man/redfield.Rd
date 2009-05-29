@@ -24,12 +24,14 @@ redfield(q, species, method = c("mol", "mass"))
 
 % Add **original** reference here, and not only N:P
 \references{
-  Redfield A.C. (1934). On the proportions of organic derivations in sea
+  Redfield AC, 1934. On the proportions of organic derivations in sea
   water and their relation to the composition of plankton.  In: James
   Johnstone Memorial Volume. (ed. R.J. Daniel).  University Press of
   Liverpool, 177-192.
 }
-\seealso{\code{\link{molweight}}, the molecular weight}
+\seealso{
+\code{\link{AtomicWeight}}, \code{\link{molvol}}, \code{\link{molweight}}
+}
 \examples{
 ## Redfield ratio
 redfield(1, "P")

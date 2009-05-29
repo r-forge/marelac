@@ -2,21 +2,18 @@
 \alias{convert_RtoS}
 \title{Conductivity-Salinity Conversion}
 \description{
-  Estimates salinity from conductivity, temperature and pressure.
-
-  The equation is valid over ranges of temperature from -2 to 35
-  \eqn{^\circ}{degrees }C, pressure of 0 - 1000 bar and salinity 2-42
-  in the world ocean.
+  Estimates the salinity of seawater from conductivity, temperature and pressure. The equation is valid over ranges: temperature from -2 to 35
+  \eqn{^\circ}{degrees }C, pressure from 0 to 1000 bar, and salinity from 2 to 42.
 }
 \usage{
 convert_RtoS(R = 1, t = 25, p = max(0, P-1.013253), P = 1.013253)
 }
 \arguments{
-  \item{R }{Conductivity ratio, -, the conductivity at (S, t, P) divided
-    by the conductivity at S = 35, t = 15, p = 0}
+  \item{R }{Conductivity ratio, the conductivity at (S, t, P) divided
+    by the conductivity at S = 35, t = 15, p = 0 [-]}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C}
   \item{p }{Gauge (or applied) pressure, the pressure relative to the local
-    atmospheric pressure, bar.}
+    atmospheric pressure, bar}
   \item{P }{True pressure, bar}
 }
 \value{

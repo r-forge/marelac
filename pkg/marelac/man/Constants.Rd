@@ -3,13 +3,11 @@
 \alias{Constants}
 \title{Useful Physical and Chemical Constants}
 \description{
-  Physical and chemical constants useful for marine and lacustrine
-  sciences.
+  Physical and chemical constants useful for aquatic sciences.
 }
 \usage{Constants}
 \format{
-  A list with, for each constant the value, the units, and a
-  description.
+  A list specifying the value, the units, and a description for each physical constant.
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{

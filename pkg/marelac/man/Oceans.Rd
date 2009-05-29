@@ -3,12 +3,12 @@
 \alias{Oceans}
 \title{Useful Characteristics of the Oceans}
 \description{
-  Surfaces and volumes of the world's oceans
+  Surface area and volume of the world's oceans
 }
 \usage{Oceans}
 \format{
-  A list with, for each characteristic the value, the units, and a
-  description.
+  A list specifying the value, units, and a
+  description of each quantity.
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{

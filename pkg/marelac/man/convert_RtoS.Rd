@@ -1,9 +1,11 @@
 \name{convert_RtoS}
 \alias{convert_RtoS}
 \title{Conductivity-Salinity Conversion}
-\description{
-  Estimates the salinity of seawater from conductivity, temperature and pressure. The equation is valid over ranges: temperature from -2 to 35
-  \eqn{^\circ}{degrees }C, pressure from 0 to 1000 bar, and salinity from 2 to 42.
+\description{ 
+  Estimates the salinity of seawater from conductivity, temperature and
+  pressure. The equation is valid over ranges: temperature from -2 to 35
+  \eqn{^\circ}{degrees }C, pressure from 0 to 1000 bar, and salinity
+  from 2 to 42.  
 }
 \usage{
 convert_RtoS(R = 1, t = 25, p = max(0, P-1.013253), P = 1.013253)

@@ -7,7 +7,8 @@
 }
 \usage{Constants}
 \format{
-  A list specifying the value, the units, and a description for each physical constant.
+  A list specifying the value, the units, and a description for each
+  physical constant.
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{

@@ -3,39 +3,10 @@ To do
 
 Filip: Diffusivity coefficients
 
-===================================================================
-ThPe: It seems that all tasks above are done ( or obsolete )
-  if yes, remove it.
-KS: removed
-===================================================================
 
-Issues detected on 2009-05-28:
+ThPe, KS (?):
+- merge rhoH2O and sw_dens ???
+- method - argument (as in rhoH2O) instead of UNESCO
+- add method of Chen and Millero for the limnological range
 
-marelac.Rd
-----------
-
-- browseURL(paste(system.file(package="marelac"), 
-    "/doc/UnescoMarine.pdf", sep=""))
-
-KS: --> not found  - REMOVED
-
-- should contain a \seealso that points to the most important
-functions
-
-KS: --> there were almost no seealso sections - ADDED everywhere!
-
-gas_satconc.Rd
---------------
-
-- what does this mean:
-
-"When present, this overrules the x argument"
-KS: - 'x' was meant to 'species'. -> CHANGED
-
-several .Rd functions
----------------------
-
-- style of citations not consistent
-
-KS: -- I have done my best to make it consistent.
 

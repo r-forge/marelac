@@ -2,35 +2,41 @@
 \alias{diffcoeff}
 \title{Molecular Diffusion Coefficients}
 \description{
-  Calculates molecular and ionic diffusion coefficients
-  \eqn{m^2 s^{-1}}{m2/sec}, for
-  several species at given salinity, temperature, and pressure.
+  Calculates the molecular and ionic diffusion coefficients in 
+  \eqn{m^2 s^{-1}}{m2/sec}, for several inorganic species in seawater 
+  at a given salinity, temperature, and pressure.
 
-  Based on the code "CANDI" by B.P. Boudreau
+  Based on Chapter 4 in Boudreau (1997)
 }
 \usage{diffcoeff(S = 35, t = 25, P = 1.013253,
-       species = c("O2", "CO2", "NH3", "H2S",
-      "CH4", "HCO3", "CO3", "NH4", "HS", "NO3", "H2PO4",
-      "HPO4", "PO4", "H", "OH", "Ca", "Mg", "Fe", "Mn",
-      "SO4", "H3PO4", "BOH3", "B0H4", "H4SiO4"))
+      species=c("H2O","O2","CO2","H2","CH4","DMS",
+      "He","Ne","Ar","Kr","Xe","Rn",
+      "N2","H2S","NH3","NO","N2O","CO","SO2",
+      "OH","F","Cl","Br","I",
+      "HCO3","CO3","H2PO4","HPO4","PO4",
+      "HS","HSO3","SO3","HSO4","SO4","IO3","NO2","NO3",
+      "H","Li","Na","K","Cs","Ag","NH4",
+      "Ca","Mg","Fe","Mn","Ba","Be","Cd","Co",
+      "Cu","Hg","Ni","Sr","Pb","Ra","Zn","Al","Ce","La","Pu",
+      "H3PO4","BOH3","BOH4","H4SiO4"))
 }
 \arguments{
   \item{S }{Salinity, -,
   }
-  \item{t }{Temperature, , \eqn{^\circ}{degrees }C.
+  \item{t }{Temperature, \eqn{^\circ}{degrees }C,
   }
   \item{P }{True pressure, bar,
   }
-  \item{species }{character vector with species whose diffusion coefficients
-    should be estimated.
+  \item{species }{character vector with the names of the chemical species whose
+   diffusion coefficient should be calculated.
   }
 }
 \value{
   A data.frame with the diffusion coefficients \eqn{m^2 s^{-1}}{m2/sec}
-  of the selected species.
+  of the selected chemical species.
 }
 
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }
+\author{Filip Meysman <f.meysman@nioo.knaw.nl>, Karline Soetaert <k.soetaert@nioo.knaw.nl> }
 
 \examples{
 diffcoeff(S = 15, t = 15)/(1e4*3600*24)  # cm2/day
@@ -52,53 +58,67 @@ legend("topleft", ncol = 2, cex = 0.8, title = "mean",
 }
 \references{
 
-  Based on the FORTRAN implementation of the diagenetic model "CANDI" of
-  B.P. Boudreau:
+  Based on Chapter 4 in Boudreau (1997) :
 
-  Boudreau BP, 1996. A method-of-lines code for carbon and nutrient
-  diagenesis in aquatic sediments.  Computers and Geosciences 22 (5):
-  479-496
+  Boudreau BP, 1997. 
   
   who cites:  
+
+  for self-diffusion coefficient H2O:
 
   Cohen MH and Turnbull D. 1959. Molecular transport in liquids and
   glasses.  Journal of chemical physics 31 (5): 1164-1169
 
-  Krynicki K, Green CD and Sawyer DW, 1978.  pressure and
+  Krynicki K, Green CD and Sawyer DW, 1978.  Pressure and
   temperature-dependence of self-diffusion in water.  Faraday
   discussions 66: 199-208
 
-  for molecules:
+  for gases O2 and CO2:
+  
+  Novel relation by Boudreau (1997) based on new compilation of data 
+
+  for gases He, Ne, Kr, Xe, Rn, H2, CH4:
+
+  Jahne B, Heinz G, and Dietrich W, 1987. Measurements of the 
+  diffusion coefficients of sparingly soluble gases in water. 
+  J. Geophys. Res., 92:10,767-10,776. 
+
+  for Ar:
+  
+  Ohsumi T and Horibe Y, 1984. Diffusivity of He and Ar in deep-sea sediments,
+  Earth and Planetary Science Letters 70, 61-68.
+  
+  for DMS:
+
+  Saltzman ES, King DB, Holmen K, and Leck C, 1993. Experimental Determination
+  of the Diffusion Coefficient of Dimethylsulfide in Water, J. Geophys. Res., 
+  98(C9), 16, 481–16, 486. 
+  
+  for other gases (N2, H2S, NH3, NO, N2O, CO, SO2):
 
   Wilke CR and Chang P, 1955. Correlation of diffusion coefficients in
   dilute solutions. Aiche journal 1 (2): 264-270
 
+  with the correction proposed by 
+
   Hayduk W and Laudie H, 1974.  Prediction of diffusion-coefficients for
   nonelectrolytes in dilute aqueous-solutions. Aiche journal 20 (3):
   611-615
+
+  for ions:
+
+  Hayduk W and Laudie H, 1974.  Prediction of diffusion-coefficients for
+  nonelectrolytes in dilute aqueous-solutions. Aiche journal 20 (3):
+  611-615
+
+  for H3PO4, B(OH)3, B(OH)4, H4SiO4 : see details
+
 }
 
 \details{
-  The details given in the original code by
-  B. Boudreau are repeated here:
 
   To correct for salinity, the Stokes-Einstein relationship is used.
   This is not quite accurate, but is at least consistent.
-
-  Diffusion coefficient of Water : from Cohen and Turnbull (1959) and
-  Krynicki et al. (1978)
-
-  Dissolved gases : from Wilke and Chang (1955)
-
-  molar volumes \eqn{cm^3/mol} (Sherwood et al., 1975)
-
-  The coefficients in pure water for the following species:
-
-  \eqn{NO_3^-}, \eqn{HS^-}, \eqn{H_2PO_4^-}, \eqn{CO3^{2-}},
-  \eqn{SO_4{2-}}, \eqn{Ca^{++}}, \eqn{Mg^{++}}, \eqn{Mn^{++}},
-  \eqn{Fe^{++}},\eqn{NH_4^+}, \eqn{H^+}, \eqn{OH^-}, \eqn{HCO_3^-},
-  \eqn{HPO_4^{2-}}, \eqn{PO_4^{3-}} are calculated as linear functions
-  of temperature (deg C). The coefficients as in Boudreau (1996).
 
   \eqn{H_3PO_4} : Least (1984) determined D(H3PO4) at 25 deg C and 0 S.
   Assume that this value can be scaled by the Stokes-Einstein

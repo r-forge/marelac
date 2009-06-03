@@ -19,14 +19,14 @@ rhoH2O_Chen <- function(S=0, t=25, p) {
 }
 
 
-sw_dens <- function(S=35, t=25, p=max(0,P-1.013253), P=1.013253,
+sw_dens <- function(S=35, t=25, p=max(0, P-1.013253), P=1.013253,
                    method=c("Gibbs","UNESCO", "Chen")) {
   method <- match.arg(method)
 
   dens <- switch(method,
     UNESCO  = rho(S=S, T=t, P=p), # use seacarb function
     Chen    = 1000 *rhoH2O_Chen(S=S, t=t, p=p), # limnological range
-    Gibbs   =  1/ sw_gibbs(S,t,p,dS=0,dt=0, dp=1)
+    Gibbs   =  1 / sw_gibbs(S, t, p, dS=0, dt=0, dp=1)
   )
   attributes(dens) <-NULL    # remove "unit" attribute
   return(dens)

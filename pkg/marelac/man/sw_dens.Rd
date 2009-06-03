@@ -5,20 +5,21 @@
   Density of sea water in \eqn{kg m^{-3}}{kg m^{-3}}
 }
 \usage{
-sw_dens(S = 35, t = 25, p = max(0,P-1.013253), P=1.013253,
+sw_dens(S = 35, t = 25, p = max(0, P-1.013253), P = 1.013253,
   method=c("Gibbs","UNESCO","Chen"))
 }
 \arguments{
-  \item{S }{Salinity, when \code{method} = \code{"UNESCO"}: practical salinity (-)
-    else absolute salinity (g/kg),}
+  \item{S }{Salinity, when \code{method} = \code{"UNESCO"}: practical
+    salinity (-) else absolute salinity (g/kg),} 
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
   \item{p }{gauge or applied pressure, pressure relative to the
             local atmospheric pressure, bar}
   \item{P }{true pressure, bar}
-  \item{method }{When "UNESCO", uses the UNESCO (1983) polynomial,
-                when "Gibbs", based on the gibbs functions as in Feistel, 2008
-                "Chen" for the limnological range (i.e. fresh water systems).
-   }
+  
+  \item{method }{When "UNESCO", uses the UNESCO (1983) polynomial, when
+     "Gibbs", based on the Gibbs functions as in Feistel, 2008 "Chen"
+     for the limnological range (i.e. fresh water systems).  }
+	      
 }
 
 \value{

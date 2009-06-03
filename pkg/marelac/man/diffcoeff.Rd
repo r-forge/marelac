@@ -36,10 +36,12 @@
   of the selected chemical species.
 }
 
-\author{Filip Meysman <f.meysman@nioo.knaw.nl>, Karline Soetaert <k.soetaert@nioo.knaw.nl> }
+\author{Filip Meysman <f.meysman@nioo.knaw.nl>,
+  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+}
 
 \examples{
-diffcoeff(S = 15, t = 15)/(1e4*3600*24)  # cm2/day
+diffcoeff(S = 15, t = 15)/(1e4*3600*24)       # cm2/day
 diffcoeff(t = 10, species = "O2")             # m2/s
 difftemp <- diffcoeff(t = 0:30)[,1:13]
 matplot(0:30, difftemp, xlab = "temperature", ylab = "m2/s",
@@ -57,12 +59,11 @@ legend("topleft", ncol = 2, cex = 0.8, title = "mean",
        legend = cbind(select, format(colMeans(diffsal), digits = 4)))
 }
 \references{
-
   Based on Chapter 4 in Boudreau (1997) :
 
-  Boudreau BP, 1997. 
-  
-  who cites:  
+  Boudreau BP, 1997.
+
+  who cites:
 
   for self-diffusion coefficient H2O:
 
@@ -74,32 +75,32 @@ legend("topleft", ncol = 2, cex = 0.8, title = "mean",
   discussions 66: 199-208
 
   for gases O2 and CO2:
-  
-  Novel relation by Boudreau (1997) based on new compilation of data 
+
+  Novel relation by Boudreau (1997) based on new compilation of data
 
   for gases He, Ne, Kr, Xe, Rn, H2, CH4:
 
-  Jahne B, Heinz G, and Dietrich W, 1987. Measurements of the 
-  diffusion coefficients of sparingly soluble gases in water. 
-  J. Geophys. Res., 92:10,767-10,776. 
+  Jahne B, Heinz G, and Dietrich W, 1987. Measurements of the
+  diffusion coefficients of sparingly soluble gases in water.
+  J. Geophys. Res., 92:10,767-10,776.
 
   for Ar:
-  
+
   Ohsumi T and Horibe Y, 1984. Diffusivity of He and Ar in deep-sea sediments,
   Earth and Planetary Science Letters 70, 61-68.
-  
+
   for DMS:
 
   Saltzman ES, King DB, Holmen K, and Leck C, 1993. Experimental Determination
-  of the Diffusion Coefficient of Dimethylsulfide in Water, J. Geophys. Res., 
-  98(C9), 16, 481–16, 486. 
-  
+  of the Diffusion Coefficient of Dimethylsulfide in Water, J. Geophys. Res.,
+  98(C9), 16, 481-486.
+
   for other gases (N2, H2S, NH3, NO, N2O, CO, SO2):
 
   Wilke CR and Chang P, 1955. Correlation of diffusion coefficients in
   dilute solutions. Aiche journal 1 (2): 264-270
 
-  with the correction proposed by 
+  with the correction proposed by
 
   Hayduk W and Laudie H, 1974.  Prediction of diffusion-coefficients for
   nonelectrolytes in dilute aqueous-solutions. Aiche journal 20 (3):
@@ -110,6 +111,7 @@ legend("topleft", ncol = 2, cex = 0.8, title = "mean",
   Hayduk W and Laudie H, 1974.  Prediction of diffusion-coefficients for
   nonelectrolytes in dilute aqueous-solutions. Aiche journal 20 (3):
   611-615
+
 
   for H3PO4, B(OH)3, B(OH)4, H4SiO4 : see details
 
@@ -128,7 +130,7 @@ legend("topleft", ncol = 2, cex = 0.8, title = "mean",
   about 29.2 S. Assume that this value can be scaled by the
   Stokes-Einstein relationship to any other temperature.
 
-  \eqn{B(OH)_4} : No information on this species ! Boudreau and Canfield
+  \eqn{B(OH)_4} : No information on this species.  Boudreau and Canfield
   (1988) assume it is 12.5\% smaller than B(OH)3.
 
   \eqn{H_4SiO_4} : Wollast and Garrels (1971) found D(H4SiO4) at 25 deg

@@ -424,7 +424,8 @@ legend("topleft",lty=1:4,lwd=2,legend=c("Liss and Merlivat 1986",
 sw_conserv(S=seq(0,35,by=5))
 @
 \subsection{Two salinity scales}
-  \citep{Millero08} provide a function to derive absolute salinity (expressed
+  \citep{Millero08} and \citep{McDougall09}
+  provide a function to derive absolute salinity (expressed
   in $g~kg^{-1}$) from measures of practical salinity. Absolute salinity is
   to be used as the concentration variable entering the thermodynamic functions
   of seawater (see next section).
@@ -440,11 +441,17 @@ convert_AStoPS(S=35)
 convert_PStoAS(S=35)
 @
 
-  These functions have as extra arguments the gauge pressure (\code{p}) and
-  latitude (\code{lat}) and longitude (\code{lon}). When provided, they also
-  correct for inconsistencies due to local composition anomalies. The
-  correction then makes use of a conversion table that estimates the salinity
-  variations as a function of present-day local seawater composition.
+  These functions have as extra arguments the gauge pressure (\code{p}),
+  latitude (\code{lat}) and longitude (\code{lon}), and -optional- the
+  dissolved Si concentration (\code{DSi}) and the ocean (\code{Ocean}).
+
+  When one of these arguments are provided, they also
+  correct for inconsistencies due to local composition anomalies.
+
+  When \code{DSi} is not given, the correction makes use of a conversion table
+  that estimates the salinity variations as a function of present-day local
+  seawater composition. The conversion in \R uses the FORTRAN code developed
+  by D. Jackett (\url{http://www.marine.csiro.au/\~jackett/TEOS-10/}).
 
   The correction factors are in a data set called \code{sw_sfac}, a list with
   the properties used in the conversion functions.
@@ -453,14 +460,18 @@ convert_PStoAS(S=35)
   absolute salinity, for different longitudes, and then plot the correction
   factors as a function of latitude and longitude and at the seawater surface
   (i.e. for \code{p=0}).
-  \footnote{Before plotting, the negative numbers in the salinity anomaly are
-  converted to \code{NA} (not available).  In the data set, numbers not
-  available are denoted with \code{-99}.}
+
+  \footnote{Before plotting, the negative numbers in the salinity anomaly
+  table \code{sw\_sfac} are converted to \code{NA} (not available).
+  In the data set, numbers not available are denoted with \code{-99}.}
 
 <<>>=
 convert_PStoAS(S=35,lat=-10,lon=0)
 convert_PStoAS(S=35,lat=0,lon=0)
 convert_PStoAS(S=35,lat=10,lon=0)
+convert_PStoAS(S=35,lat=-10,lon=0)
+
+convert_PStoAS(S=35,lat=-10, DSi=1:10, Ocean="Pacific")
 
 dsal <- t(sw_sfac$del_sa[1,,])
 dsal [dsal < -90]<-NA

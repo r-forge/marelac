@@ -21,5 +21,3 @@ export(sw_depth,sw_cp,sw_adtgrad,sw_tfreeze,sw_tpot,sw_svel,sw_dens,sw_gibbs,
 #other
 export(vertmean, redfield,atmComp, earth_surf)
 
-# merge with sw_dens?
-export(rhoH2O)

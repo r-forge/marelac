@@ -5,17 +5,20 @@
   Density of sea water in \eqn{kg m^{-3}}{kg m^{-3}}
 }
 \usage{
-sw_dens(S = 35, t = 25, p = max(0,P-1.013253), P=1.013253, UNESCO=FALSE)
+sw_dens(S = 35, t = 25, p = max(0,P-1.013253), P=1.013253,
+  method=c("Gibbs","UNESCO","Chen"))
 }
 \arguments{
-  \item{S }{Salinity, when \code{UNESCO} is \code{TRUE}: practical salinity (-)
+  \item{S }{Salinity, when \code{method} = \code{"UNESCO"}: practical salinity (-)
     else absolute salinity (g/kg),}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
   \item{p }{gauge or applied pressure, pressure relative to the
             local atmospheric pressure, bar}
   \item{P }{true pressure, bar}
-  \item{UNESCO }{When TRUE, uses the UNESCO (1983) polynomial,
-                else using the gibbs function according to Feistel, 2008 }
+  \item{method }{When "UNESCO", uses the UNESCO (1983) polynomial,
+                when "Gibbs", based on the gibbs functions as in Feistel, 2008
+                "Chen" for the limnological range (i.e. fresh water systems).
+   }
 }
 
 \value{
@@ -37,6 +40,10 @@ sw_dens(S = 35, t = 25, p = max(0,P-1.013253), P=1.013253, UNESCO=FALSE)
 }
 
 \references{
+  Chen Ch.-T. and Millero FJ, 1986. Precise thermodynamic properties
+  of natural waters covering only the limnological
+  range. Limnol. Oceanogr. 31 No. 3, 657 - 662.
+
   Fofonoff NP and Millard RC Jr, 1983. Algorithms for computation of
   fundamental properties of seawater. UNESCO technical papers in marine
   science, 44, 53 pp.
@@ -82,8 +89,11 @@ sw_dens(35.16504,0,998.98675) #0.10709264e4
 sw_dens(35.7,25.5,102.3)      #1027.95249315662
 
 S <- 0:40
-plot(S, sw_dens(S = S, t = 4, UNESCO=TRUE))
+plot(S, sw_dens(S = S, t = 4, method="UNESCO"))
 
-lines(S, sw_dens(S = S, t = 4, UNESCO=FALSE),col="red")
+lines(S, sw_dens(S = S, t = 4, method="Gibbs"),col="red")
+
+lines(S, sw_dens(S = S, t = 4, method="Chen"),col="blue")
+
 }
 \keyword{ misc }

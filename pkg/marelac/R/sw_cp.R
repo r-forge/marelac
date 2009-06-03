@@ -6,8 +6,10 @@ sw_cp <- function (S=35 ,
                    t=25,
                    p=P-1.013253,
                    P=1.013253,
-                   UNESCO=FALSE) {
-  if (UNESCO) {
+                   method=c("Gibbs","UNESCO")) {
+   method <- match.arg(method)
+
+  if (method =="UNESCO") {
     P     <- p  # hydrostatic pressure is called "P" here...
     S3_2  <- S*sqrt(S)
 

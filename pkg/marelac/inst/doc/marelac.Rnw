@@ -509,7 +509,7 @@ and vice versa}
 
 <<>>=
 sw_cp(S=40,t=1:20)
-sw_cp(S=40,t=1:20,UNESCO=TRUE)
+sw_cp(S=40,t=1:20,method="UNESCO")
 @
   The precision of the calculations can be assessed by comparing them to
   some test values:

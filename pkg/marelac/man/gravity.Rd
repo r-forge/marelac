@@ -5,11 +5,11 @@
   Computes the gravity, based on latitude.
 }
 \usage{
-gravity(lat = 0, UNESCO =FALSE)
+gravity(lat = 0, method=c("Moritz","UNESCO"))
 }
 \arguments{
   \item{lat }{latitude (-90 - +90).}
-  \item{UNESCO }{When TRUE, uses the UNESCO (1983) polynomial, else
+  \item{method }{When "UNESCO", uses the UNESCO (1983) polynomial, else
     according to Moritz, 2000
   }
 }

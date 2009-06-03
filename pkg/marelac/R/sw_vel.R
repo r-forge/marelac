@@ -2,8 +2,10 @@
 ## Velocity of Sound in Seawater
 ## -----------------------------------------------------------------------------
 
-sw_svel <- function (S=35, t=25, p=P-1.013253, P=1.013253, UNESCO=FALSE) {
-  if (UNESCO) {
+sw_svel <- function (S=35, t=25, p=P-1.013253, P=1.013253,
+                   method=c("Gibbs","UNESCO")) {
+   method <- match.arg(method)
+  if (method=="UNESCO") {
     P = p  # P is used in code as synonym for hydroP
     T = t
     P2 <- P*P

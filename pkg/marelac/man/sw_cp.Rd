@@ -7,24 +7,25 @@
   Valid for S = 0 to 40, T = 0 to 35 dg C
 }
 \usage{
-sw_cp(S = 35, t = 25, p = P-1.013253, P=1.013253, UNESCO=FALSE)
+sw_cp(S = 35, t = 25, p = P-1.013253, P=1.013253,
+  method=c("Gibbs","UNESCO"))
 }
 \arguments{
-  \item{S }{Salinity, when \code{UNESCO} is \code{TRUE}: practical salinity (-)
+  \item{S }{Salinity, when \code{method} = \code{"UNESCO"}: practical salinity (-)
     else absolute salinity (g/kg),}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
   \item{p }{gauge or applied pressure, pressure relative to the local
     atmospheric pressure, bar}
   \item{P }{true pressure, bar}
-  \item{UNESCO }{When TRUE, uses the UNESCO (1983) polynomial,
-                else using the gibbs function according to Feistel, 2008 }
+  \item{method }{When "UNESCO", uses the UNESCO (1983) polynomial,
+                when "Gibbs", based on the gibbs functions as in Feistel, 2008 }
 }
 \value{
   Heat capacity, in \eqn{J kg^{-1} dgC^{-1}}
 }
 \author{Karline Soetaert < k.soetaert@nioo.knaw.nl > }
 \examples{
-sw_cp(S = 40, t = 40, p = 1000, UNESCO=TRUE)  # 3849.5
+sw_cp(S = 40, t = 40, p = 1000, method="UNESCO")  # 3849.5
 
 sw_cp(35.7,25.5,102.3)#3974.42541259729
 

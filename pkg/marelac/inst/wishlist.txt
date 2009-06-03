@@ -1,12 +1,12 @@
 
 To do
 
-Filip: Diffusivity coefficients
+Filip: Diffusivity coefficients  - DONE!
 
 
-ThPe, KS (?):
-- merge rhoH2O and sw_dens ???
-- method - argument (as in rhoH2O) instead of UNESCO
+ThPe, KS (?):          - DONE!
+- merge rhoH2O and sw_dens !!!!
 - add method of Chen and Millero for the limnological range
 
+method - argument (as in rhoH2O) instead of UNESCO   - KS: OK DONE THAT EVERYWHERE
 

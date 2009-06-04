@@ -40,7 +40,7 @@
 Centre for Estuarine and Marine Ecology\\
 Netherlands Institute of Ecology\\
 The Netherlands\\
-October 2008
+June 2009
 }
 
 \Plainauthor{Karline Soetaert}
@@ -58,13 +58,13 @@ October 2008
   Netherlands Institute of Ecology (NIOO)\\
   4401 NT Yerseke, Netherlands
   E-mail: \email{k.soetaert@nioo.knaw.nl}\\
-  URL: \url{http://www.nioo.knaw.nl/ppages/ksoetaert}\\
+  URL: \url{http://www.nioo.knaw.nl/users/ksoetaert}\\
 }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% R/Sweave specific LaTeX commands.
 %% need no \usepackage{Sweave}
-%\VignetteIndexEntry{Lecture notes: answers}
+%\VignetteIndexEntry{Using R for Scientific Computing - Lecture notes: answers}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin of the document
 \begin{document}
@@ -89,16 +89,16 @@ options(width = 70)
   "Using R for scientific computing" \citep{lecture}.
 
   These notes are an introduction to \proglang{R} - at beginners level.
-  They can be found in package \code{marelac}.
+  They can be found in package \code{marelacTeaching}.
 
   In \proglang{R}, write:
 
 \begin{Schunk}
 \begin{Sinput}
-require(marelac)
+require(marelacTeaching)
 \end{Sinput}
 \begin{Sinput}
-browseURL(paste(system.file(package="marelac"),
+browseURL(paste(system.file(package="marelacTeaching"),
                 "/lecture/R_for_scientific_computing.pdf", sep=""))
 \end{Sinput}
 \end{Schunk}

@@ -36,7 +36,7 @@
 Centre for Estuarine and Marine Ecology\\
 Netherlands Institute of Ecology\\
 The Netherlands\\
-October 2008
+June 2009
 }
 
 \Plainauthor{Karline Soetaert}
@@ -79,13 +79,13 @@ October 2008
   Netherlands Institute of Ecology (NIOO)\\
   4401 NT Yerseke, Netherlands
   E-mail: \email{k.soetaert@nioo.knaw.nl}\\
-  URL: \url{http://www.nioo.knaw.nl/ppages/ksoetaert}\\
+  URL: \url{http://www.nioo.knaw.nl/users/ksoetaert}\\
 }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% R/Sweave specific LaTeX commands.
 %% need no \usepackage{Sweave}
-%\VignetteIndexEntry{Lecture notes: usingR}
+%\VignetteIndexEntry{Using R for Scientific Computing - Lecture notes: questions}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin of the document
 \begin{document}
@@ -114,15 +114,17 @@ options(width=70)
     \item	\pkg{rootSolve}. Finds the root of equations \citep{rootSolve}.
     \item	\pkg{scatterplot3d}. For 3-D graphics. \citep{scatterplot3D}
     \item	\pkg{seacarb}. Aquatic chemistry. \citep{seacarb}
-    \item	\pkg{marelac}. Data sets, functions and constants from the marine
+    \item	\pkg{marelac}. Functions and constants from the marine
       and lacustrine sciences \citep{marelac}.
+    \item	\pkg{marelacTeaching}. Data sets, used in this tutorial.
+      \citep{marelacTeaching}.
   \end{itemize}
 
   If you run \R within windows, downloading specific packages can best be
   done within the \R program itself.
   Select menu item \code{packages / install packages},
   choose a nearby site (e.g. France (Paris)) and select the package you
-  need. If you install package \pkg{marelac}
+  need. If you install package \pkg{marelacTeaching}
   then all other packages will be automatically installed as well.
 \subsubsection	{Other useful software}
   I  prefer to run \R from within the Tinn-R editor, which can be
@@ -826,10 +828,10 @@ mean(Nematode[,2])
   editors (such as the TINN-R editor) as well as in spreadsheet programs.
 
   Open the file "nemaspec.csv" in Tinn-R\footnote{: if you do not have this
-  file, it can be found in the \pkg{marelac} package directory.
+  file, it can be found in the \pkg{marelacTeaching} package directory.
   Within R, type:
 
-  browseURL(paste(system.file(package="marelac"), "/lecture/", sep=""))}.
+  browseURL(paste(system.file(package="marelacTeaching"), "/lecture/", sep=""))}.
 
   Check its structure.
 
@@ -1536,15 +1538,15 @@ legend("bottomright",pch=15:20,col=1:5,legend=1:5)
 
 
 \subsection{Zooplankton growth rates}
-  \code{Zoogrowth} from package \pkg{marelac} is a literature data set,
+  \code{Zoogrowth} from package \pkg{marelacTeaching} is a literature data set,
   compiled by Hansen et al. (1997)
   with measurements of maximal growth rates of zooplankton organisms as
   a function of body volume.
 
   Run the example for this data set (you will need to load package
-  \pkg{marelac} first):
+  \pkg{marelacTeaching} first):
 \begin{verbatim}
-> require(marelac)
+> require(marelacTeaching)
 > example(Zoogrowth)
 \end{verbatim}
 \subsection{Images and contour plots}
@@ -2359,17 +2361,17 @@ scatterplot3d(out$x,out$y,out$z,type="l",
 
   If you do not like the layout a PDF version ("ScientificComputing.pdf")
   made with WORD (Microsoft) can be found in the /inst/lecture subdirectory
-  of package \pkg{marelac.Teaching}.
+  of package \pkg{marelacTeaching}.
 
 \subsection{The answers}
   The answers to the questions in this course are present as an R-vignette
-  in package "marelac.Teaching".
+  in package "marelacTeaching".
   From within R, type:
 \begin{verbatim}
 > vignette("Answers")
 \end{verbatim}
   Or, you can find the file "Answers.pdf" in the /inst/doc subdirectory
-  of package "marelac.Teaching".
+  of package "marelacTeaching".
 
 
 \bibliography{vignettes}

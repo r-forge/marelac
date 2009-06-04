@@ -13,7 +13,7 @@ sw_tfreeze(S=35, p = P-1.013253, P=1.013253 )
 \arguments{
   \item{S }{practical salinity, -,
   }
-  \item{p }{gauge or applied pressure, pressure relative to the local
+  \item{p }{gauge or applied pressure, pressure referenced against the local
     atmospheric pressure, bar
   }
   \item{P }{true pressure, bar
@@ -25,6 +25,13 @@ sw_tfreeze(S=35, p = P-1.013253, P=1.013253 )
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
 sw_tfreeze(S = 40,p = 50)
+
+## Check values
+sw_tfreeze(S = 10,p = 0)  #-0.542
+sw_tfreeze(S = 10,p = 10) #-0.618
+sw_tfreeze(S = 30,p = 0)  #-1.638
+sw_tfreeze(S = 40,p = 50) #-2.589
+
 }
 \note{
 

@@ -12,7 +12,7 @@ sw_dens(S = 35, t = 25, p = max(0, P-1.013253), P = 1.013253,
   \item{S }{Salinity, when \code{method} = \code{"UNESCO"}: practical
     salinity (-) else absolute salinity (g/kg),} 
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
-  \item{p }{gauge or applied pressure, pressure relative to the
+  \item{p }{gauge or applied pressure, pressure referenced against the
             local atmospheric pressure, bar}
   \item{P }{true pressure, bar}
   

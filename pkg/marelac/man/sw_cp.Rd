@@ -14,7 +14,7 @@ sw_cp(S = 35, t = 25, p = P-1.013253, P=1.013253,
   \item{S }{Salinity, when \code{method} = \code{"UNESCO"}: practical salinity (-)
     else absolute salinity (g/kg),}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
-  \item{p }{gauge or applied pressure, pressure relative to the local
+  \item{p }{gauge or applied pressure, pressure referenced against the local
     atmospheric pressure, bar}
   \item{P }{true pressure, bar}
   \item{method }{When "UNESCO", uses the UNESCO (1983) polynomial,
@@ -27,7 +27,15 @@ sw_cp(S = 35, t = 25, p = P-1.013253, P=1.013253,
 \examples{
 sw_cp(S = 40, t = 40, p = 1000, method="UNESCO")  # 3849.5
 
+# Check value Gibbs function
 sw_cp(35.7,25.5,102.3)#3974.42541259729
+
+# Check values UNESCO
+sw_cp(S = 25, t = 10, p = 0,    method="UNESCO")  # 4041.8
+sw_cp(S = 25, t = 10, p = 1000, method="UNESCO")  # 3842.3
+sw_cp(S = 25, t = 30, p = 0,    method="UNESCO")  # 4049.1
+
+sw_cp(S = 40, t = 10, p = 0, method="UNESCO")  # 3959.3
 
 }
 \references{

@@ -1,7 +1,7 @@
 
 To do
 
-Filip: Diffusivity coefficients  - DONE!
+Filip: Diffusivity coefficients  - DONE! - Karline: rewrote it
 
 
 ThPe, KS (?):          - DONE!

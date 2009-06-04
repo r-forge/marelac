@@ -15,7 +15,7 @@ sw_gibbs(S = 35, t = 25, p = P-1.013253, P=1.013253, dS=0, dt=0, dp=0)}
 \arguments{
   \item{S }{Absolute salinity (g/kg),}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
-  \item{p }{gauge or applied pressure, pressure relative to the local
+  \item{p }{gauge or applied pressure, pressure referenced against the local
     atmospheric pressure, bar
   }
   \item{P }{true pressure, bar}

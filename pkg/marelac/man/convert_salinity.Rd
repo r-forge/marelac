@@ -18,7 +18,7 @@ convert_AStoPS(S = 35, p = max(0, P - 1.013253), P = 1.013253,
   \item{S }{Salinity, either practical salinity (\code{convert\_PStoAS}),
     dimensionless or absolute salinity (\code{convert\_AStoPS}, g/kg)
   }
-  \item{p }{gauge or applied pressure, pressure relative to the
+  \item{p }{gauge or applied pressure, pressure referenced against the
             local atmospheric pressure, bar
   }
   \item{P }{true pressure, bar

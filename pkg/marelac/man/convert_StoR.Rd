@@ -16,7 +16,7 @@ convert_StoR(S = 35, t = 25, p = max(0, P-1.013253), P = 1.013253)
   \item{S }{(practical) Salinity, -,}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
   \item{P }{True Pressure, bar,}
-  \item{p }{Gauge (or applied) pressure, the pressure relative to the local
+  \item{p }{Gauge (or applied) pressure, the pressure referenced against the local
     atmospheric pressure, bar.}
 }
 \value{
@@ -36,6 +36,14 @@ convert_StoR(S = 35, t = 25, p = max(0, P-1.013253), P = 1.013253)
 convert_StoR(S = 40, t = 40, p = 1000)
 
 convert_StoR(S = 35, t = 15, p = 0)
+
+# Check values:
+convert_StoR(S=25,t=10,p=0)    #  0.654990
+convert_StoR(S=25,t=10,p=100)  #  0.662975
+convert_StoR(S=25,t=10,p=1000) #  0.712912
+
+convert_StoR(S=35,t=10,p=100) #  0.897778
+convert_StoR(S=40,t=10,p=100) #  1.011334
 
 }
 \seealso{

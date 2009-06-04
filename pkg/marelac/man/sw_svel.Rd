@@ -16,7 +16,7 @@ sw_svel(S = 35, t = 25, p = P-1.013253, P = 1.013253,
   \item{S }{Salinity, when \code{method} = \code{"UNESCO"}: practical salinity (-)
     else absolute salinity (g/kg),}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
-  \item{p }{gauge or applied pressure, pressure relative to the local
+  \item{p }{gauge or applied pressure, pressure referenced against the local
     atmospheric pressure, bar
   }
   \item{P }{true pressure, bar}
@@ -32,9 +32,19 @@ sw_svel(S = 35, t = 25, p = P-1.013253, P = 1.013253,
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
+sw_svel(t = 40, S = 40, p = 10:20, method="UNESCO")
 
+# Check value UNESCO
 sw_svel(t = 40, S = 40, p = 1000, method="UNESCO")  # 1731.995
-sw_svel(S = 35.7, t = 25.5, p = 102.3)            # 1552.93372863425
+sw_svel(t = 0, S = 40, p = 0, method="UNESCO")      # 1455.8
+
+sw_svel(t = 40, S = 25, p = 1000, method="UNESCO")  # 1719.2
+sw_svel(t = 40, S = 25, p = 0, method="UNESCO")     # 1553.4
+sw_svel(t = 0, S = 25, p = 0, method="UNESCO")      # 1435.8
+
+
+# Check value Gibbs
+sw_svel(S = 35.7, t = 25.5, p = 102.3)              # 1552.93372863425
 
 }
 \references{

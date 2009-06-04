@@ -14,7 +14,7 @@ convert_RtoS(R = 1, t = 25, p = max(0, P-1.013253), P = 1.013253)
   \item{R }{Conductivity ratio, the conductivity at (S, t, P) divided
     by the conductivity at S = 35, t = 15, p = 0 [-]}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C}
-  \item{p }{Gauge (or applied) pressure, the pressure relative to the local
+  \item{p }{Gauge (or applied) pressure, the pressure referenced against the local
     atmospheric pressure, bar}
   \item{P }{True pressure, bar}
 }
@@ -28,8 +28,14 @@ convert_RtoS(R = 1, t = 25, p = max(0, P-1.013253), P = 1.013253)
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
 convert_RtoS(R = 1.888091, t = 40, p = 1000)
+
 ## Salinity = 40.0000, t = 40, p = 1000, cond = 1.888091
 convert_RtoS(R = 1, t = 15, p = 0)
+
+## Check values
+convert_RtoS(R = 0.6990725, t = 10, p = 0)  # 26.8609
+convert_RtoS(R = 0.6990725, t = 10, p = 100)  # 26.5072
+convert_RtoS(R = 1.1651206, t = 20, p = 100)  # 36.3576
 
 }
 \references{

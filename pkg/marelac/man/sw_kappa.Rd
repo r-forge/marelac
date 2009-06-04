@@ -10,7 +10,7 @@ sw_kappa(S = 35, t = 25, p = P-1.013253, P=1.013253)
 \arguments{
   \item{S }{Salinity (dimensionless),}
   \item{t }{Temperature, \eqn{^\circ}{degrees }C,}
-  \item{p }{gauge or applied pressure, pressure relative to the
+  \item{p }{gauge or applied pressure, pressure referenced against the
             local atmospheric pressure, bar}
   \item{P }{true pressure, bar}
 }

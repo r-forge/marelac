@@ -14,7 +14,7 @@
   }
   \item{S }{practical salinity, -,
   }
-  \item{p }{gauge or applied pressure, pressure relative to the local
+  \item{p }{gauge or applied pressure, pressure referenced against the local
     atmospheric pressure, bar
   }
   \item{pref }{reference hydrostatic pressure, bar.
@@ -25,7 +25,15 @@
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-sw_tpot(S = 40, t = 40, p = 1000)
+sw_tpot(S = 40, t = 40:45, p = 1000)
+
+## check values
+sw_tpot(S = 25, t = 40, p = 0)     #40
+sw_tpot(S = 25, t = 40, p = 100)   #36.6921
+sw_tpot(S = 25, t = 10, p = 1000)   #8.4684
+sw_tpot(S = 25, t = 0, p = 100)   #-0.0265
+
+sw_tpot(S = 40, t = 40, p = 1000)  #36.89073
 }
 \references{
   Fofonoff NP and Millard RC Jr, 1983. Algorithms for computation of

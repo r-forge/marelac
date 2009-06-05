@@ -35,20 +35,15 @@ atomicweight
   (except U, Th, Pa).
 }
 \examples{
-## Assess the data in the IUPAC table.
+## assess the data in the IUPAC table (with all footnotes)
 AtomicWeight[1:20,]
 AtomicWeight[AtomicWeight$Symbol == "C",]
 
-## In the IUPAC table, the Weight is not a pure numeric object. This implies
-## one has to extract the numeric value from text representation of Weight. 
-## To avoid this elaborate procedure one can use the lowercase version. 
-AtomicWeight$Weight[AtomicWeight$Symbol == "C"]
-as.numeric(gsub("\\(.+\\)", "", AtomicWeight$Weight))
-
+## use the lower case version for simple calculations:
 atomicweight$C
 with(atomicweight, C)
 
-## The lower case version can be used to calculate molecular weights 
+## it can also be used to calculate molecular weights 
 ## via symbolic computation
 with(atomicweight, H * 2 + O)
 }

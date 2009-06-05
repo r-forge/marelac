@@ -44,6 +44,7 @@ AtomicWeight[AtomicWeight$Symbol == "C",]
 ## To avoid this elaborate procedure one can use the lowercase version. 
 AtomicWeight$Weight[AtomicWeight$Symbol == "C"]
 as.numeric(gsub("\\(.+\\)", "", AtomicWeight$Weight))
+
 atomicweight$C
 with(atomicweight, C)
 

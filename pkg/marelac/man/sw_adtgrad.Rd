@@ -26,10 +26,10 @@ sw_adtgrad(S = 35, t = 25, p = P-1.013253, P=1.013253 )
 }
 \note{
 
-  Note: in the original formula, the units of \code{sw\_adtgrad} are dg
+  Note: in the original formula, the units of \code{sw_adtgrad} are dg
   K/dbar (here: dg K/bar).
 
-  \code{sw\_adtgrad} for S = 40, t = 40, p = 1000 is 3.255976e-3
+  \code{sw_adtgrad} for S = 40, t = 40, p = 1000 is 3.255976e-3
 
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }

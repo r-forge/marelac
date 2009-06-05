@@ -21,7 +21,7 @@ sw_depth(p = P-1.013253, P=1.013253, lat = 0)
 }
 \note{
 
-  \code{sw\_depth} for  p = 1000, lat = 30 is 9712.653 m.
+  \code{sw_depth} for  p = 1000, lat = 30 is 9712.653 m.
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{

@@ -3,10 +3,11 @@
 \title{Mol to Liter Conversion for a Gas}
 \description{Converts from liter to moles for a gas.}
 \usage{molvol(t = 25, P = 1.013253,
-   species = c("ideal", "Ar", "CO2", "CS2", "CO", "CCl4", "Cl2", "C2H6S", "C2H5OH",
-         "C6H5F", "CH3F", "CH4", "CH3OH", "C5H12", "C3H8", "H2O",
-         "He", "H2", "HBr", "HCl", "H2S", "Hg", "Kr", "NH3", "Ne",
-         "NO", "N2", "NO2", "N2O", "O2", "PH3", "SiH4", "SiF4", "SO2", "Xe"),
+   species = c("ideal", "Ar", "CO2", "CS2", "CO", "CCl4", "Cl2",
+         "C2H6S", "C2H5OH", "C6H5F", "CH3F", "CH4", "CH3OH", "C5H12",
+          "C3H8", "H2O", "He", "H2", "HBr", "HCl", "H2S", "Hg",
+          "Kr", "NH3", "Ne", "NO", "N2", "NO2", "N2O", "O2", "PH3",
+          "SiH4", "SiF4", "SO2", "Xe"),
     quantity = 1, a = 0, b = 0)}
 \arguments{
   \item{t }{temperature, \eqn{^\circ}{degrees }C

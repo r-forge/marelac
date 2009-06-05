@@ -43,7 +43,7 @@ sw_tpot(S = 40, t = 40, p = 1000)  #36.89073
   \url{http://unesdoc.unesco.org/images/0005/000598/059832EB.pdf}
 }
 \note{
-\code{sw\_tpot} for S = 40, t = 40, p = 1000 is 36.89073 dgC
+\code{sw_tpot} for S = 40, t = 40, p = 1000 is 36.89073 dgC
 }
 \seealso{
 \code{\link{sw_adtgrad}}, \code{\link{sw_alpha}}, \code{\link{sw_beta}},

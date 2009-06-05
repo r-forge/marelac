@@ -1,4 +1,9 @@
 
 To do
 
+ThPe
+Example in AtomicWeight does not work:
+as.numeric(gsub("\(.+\)", "", AtomicWeight$Weight))
+
+
 Release package.

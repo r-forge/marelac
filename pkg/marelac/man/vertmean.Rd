@@ -18,16 +18,18 @@ vertmean(depth, vari, level, top, bot, vol, total=FALSE)
     temperature, \dots), }
   \item{level}{surface water level (above ground or above sea level (m
     a.s.l.), depending on bathymetric function used,}
-  \item{top}{top water level of requested layer,}
-  \item{bot}{bottom water level of requested layer,}
+  \item{top}{top water level of requested layer over which to average or
+    integrate,}
+  \item{bot}{bottom water level of requested layer over which to average or
+    intgrate,}
   \item{vol}{hypsographic function to be used (e.g. \code{vol.depth}),}
   \item{total}{if \code{TRUE} the total sum over the water body is
-    returned, instead of the volumetric mean.}
+    returned (integrated value), instead of the volumetric mean.}
 }
 
 \value{
 
- Volumetric average resp. total value (for total =\code{TRUE}) for a
+ Volumetric average respectively total value (for total =\code{TRUE}) for a
  given quantity (concentration, energy, temperature) in the requested
  layer between depths \code{top} and \code{bottom}.
 
@@ -92,6 +94,9 @@ lines(c(m, m), c(4, 12), col="red", lwd=2)
 ## volume weighted
 m <- vertmean(depth, pconc, level, top=0, bot=4, weight.vol)
 lines(c(m, m), c(0, 4), col="green", lwd=2)
+
+m <- vertmean(depth, pconc, level, top=4, bot=12, weight.vol)
+lines(c(m, m), c(4, 12), col="green", lwd=2)
 
 m <- vertmean(depth, pconc, level, top=4, bot=12, weight.vol)
 lines(c(m, m), c(4, 12), col="green", lwd=2)

@@ -14,13 +14,19 @@ atomicweight
   The capitalized version \code{AtomicWeight} is a data frame containing
   the IUPAC table of atomic weights.
   This data frame has following colums: Number, Name,
-  Symbol, Weight, Footnotes. Note that as in the IUPAC table, the Weight is
-  given as a text rather than as numeric objects. See IUPAC report for details.
+  Symbol, Weight, Footnotes.
+  
+  Note that as in the IUPAC table, the Weight is
+  given as a text rather than as numeric objects. It comprises the standard
+  values and the uncertainties (in parentheses, following the last significant
+  figure to which they are attributed).
+  See IUPAC report for explanation of the Footnotes.
+
   The lower case version \code{atomicweight} is a simplified list that only
   contains the weights (as numeric values) and allows symbolic
   computations with elements to arrive at molecular weights. 
 }
-\author{Karline Soetaert, Thomas Petzoldt, Filip Meysman}
+\author{Thomas Petzoldt}
 \details{
   Molecular weights of chemical elements may vary due to different isotope
   compositions, depending on geology, industrial processes or biological activity.

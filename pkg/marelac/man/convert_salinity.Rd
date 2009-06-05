@@ -15,8 +15,8 @@ convert_AStoPS(S = 35, p = max(0, P - 1.013253), P = 1.013253,
 
 }
 \arguments{
-  \item{S }{Salinity, either practical salinity (\code{convert\_PStoAS}),
-    dimensionless or absolute salinity (\code{convert\_AStoPS}, g/kg)
+  \item{S }{Salinity, either practical salinity (\code{convert_PStoAS}),
+    dimensionless or absolute salinity (\code{convert_AStoPS}, g/kg)
   }
   \item{p }{gauge or applied pressure, pressure referenced against the
             local atmospheric pressure, bar
@@ -36,8 +36,8 @@ convert_AStoPS(S = 35, p = max(0, P - 1.013253), P = 1.013253,
 }
 
 \value{
-  The absolute salinity (\code{convert\_PStoAS}) or practical salinity
-  (\code{convert\_AStoPS}).
+  The absolute salinity (\code{convert_PStoAS}) or practical salinity
+  (\code{convert_AStoPS}).
 }
 \details{
 Absolute salinity (g kg-1) is estimated from Practical salinity as:
@@ -49,7 +49,7 @@ estimate the salinity anomaly
 
 1. If DSi is not given a value, then the anomaly is estimated as a function of
 longitude \code{lon}, latitude \code{lat} and pressure \code{p}, using the
-lookup table as in \code{sw\_sfac}.
+lookup table as in \code{sw_sfac}.
 
 2. If \code{DSi} is given a value, then a regression on it is used, based on the
 values of \code{Ocean} and -except for the "global" ocean- the latitute

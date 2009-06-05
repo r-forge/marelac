@@ -61,7 +61,8 @@ legend("topleft", ncol = 2, cex = 0.8, title = "mean",
 \references{
   Based on Chapter 4 in Boudreau (1997) :
 
-  Boudreau BP, 1997.
+  Boudreau BP, 1997. Diagenetic Models and their Implementation. Modelling
+    Transport and Reactions in Aquatic Sediments. Springer. Berlin.
 
   who cites:
 

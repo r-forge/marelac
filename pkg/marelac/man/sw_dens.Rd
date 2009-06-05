@@ -28,7 +28,7 @@ sw_dens(S = 35, t = 25, p = max(0, P-1.013253), P = 1.013253,
 \details{
   To avoid confusion between the arguments (S, t, p) it is advisable to
   use named arguments in general (e.g. \code{rho(t = 4)}.
-  The UNESCO formula is imported from package \pkg{seacarb}.)
+  The UNESCO formula is imported from package \pkg{seacarb}.
 }
 \note{
   Pressure used here is 1 bar (true pressure), in contrast to

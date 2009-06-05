@@ -108,8 +108,8 @@ sciences.
 It contains:
 
 \begin{itemize}
-\item chemical and physical constants, e.g. atomic weights, gas
-  constants.
+\item chemical and physical constants, datasets, e.g. atomic weights, gas
+  constants, the earths bathymetry.
 \item conversion factors, e.g. gram to mol to liter conversions;
   conversions between different barometric units, temperature units,
   salinity units.
@@ -138,7 +138,7 @@ data.frame(cbind(acronym=names(Constants),
 
 \subsection{Ocean characteristics}
 
-Dataset \code{Oceans} contains surfaces and volumes of the world ocean
+Dataset \code{Oceans} contains surfaces and volumes of the world oceans
 as in \citet{Sarmiento06}:
 
 <<>>=
@@ -151,7 +151,7 @@ data.frame(cbind(acronym=names(Oceans),
 
 Data set \code{Bathymetry} from the \pkg{marelac} package can be used
 to generate the bathymetry (and hypsometry) of the world oceans (and
-land):
+land) (Fig.\ref{fig:f1}):
 
 <<label=bat,include=FALSE>>=
 require(marelac)
@@ -176,8 +176,8 @@ contour(Bathymetry$x,Bathymetry$y,Bathymetry$z,add=TRUE)
 Function \code{earth_surf} estimates the surface ($\rm m^2$) of the
 bathymetric grid cells of 1dg by 1dg, based on their latitude.
 
-We use it to estimate the surface of the earth; the true surface is
-510072000 $\rm km^2$:
+As an example, we use it to estimate the surface of the earth; the true
+surface is 510072000 $\rm km^2$:
 
 <<>>=
 SURF <- outer(X=Bathymetry$x,
@@ -196,7 +196,7 @@ be $3.58e^{14}$ and $1.34e^{+18}$ respectively.
 
 Combined with the dataset \code{Bathymetry}, function
 \code{earth_surf} allows to estimate the total earth surface at
-certain water depths:
+certain water depths (Fig.\ref{fig:fo}):
 
 <<>>=
 SurfDepth <- vector()
@@ -259,8 +259,10 @@ sum(atmComp())    #!
 
 Function \code{coriolis} estimates the Coriolis factor, f, units
 $sec^{-1}$ according to the formula: $f=2*\omega*\sin(lat)$, where
-$\omega=7.292e^{-5} \rm radians\, sec^{-1}$
+$\omega=7.292e^{-5} \rm radians\, sec^{-1}$.
 
+The following R-script plots the coriolis factor as a function of latitude
+(Fig.\ref{fig:cor}):
 <<label=cor,include=FALSE>>=
 plot(-90:90,coriolis(-90:90),xlab="latitude, dg North",
                  ylab= "/s" , main ="Coriolis factor",type="l",lwd=2)
@@ -280,13 +282,16 @@ plot(-90:90,coriolis(-90:90),xlab="latitude, dg North",
 In function \code{diffcoeff} the molecular and ionic diffusion
 coefficients ($\rm m^2 s^{-1}$), for several species at given salinity (S)
 temperature (t) and pressure (P) is estimated. The implementation is
-based on the code "CANDI" by Bernie Boudreau \citep{Boudreau96}.
+based on Chapter 4 in \citep{Boudreau97}.
 
 <<>>=
 diffcoeff(S=15,t=15)*24*3600*1e4  # cm2/day
 diffcoeff(t=10)$O2
+@
+Values of the diffusion coefficients for a temperature range of 0 to 30 and
+for the 13 first species is in (Fig.\ref{fig:diff}):
+<<>>=
 difftemp <- diffcoeff(t=0:30)[,1:13]
-diffsal <- diffcoeff(S=0:35)[,1:13]
 @
 
 <<label=diff,include=FALSE>>=
@@ -308,9 +313,9 @@ legend("topleft",ncol=2,cex=0.8,title="mean",col=1:13,lty=1:13,
 
 \subsection{Shear viscosity of water}
 
-\code{viscosity} calculates the shear viscosity of water, in
+Function \code{viscosity} calculates the shear viscosity of water, in
 centipoise ($\rm g m^{-1} sec^{-1}$). The formula is valid for $0 < t <
-30$ and $0 < S < 36$.
+30$ and $0 < S < 36$ (Fig.\ref{fig:vis}).
 
 <<label=visc,include=FALSE>>=
 plot(0:30,viscosity(S=35,t=0:30,P=1),xlab="temperature",ylab="g/m/s",
@@ -327,7 +332,7 @@ legend("topright",col=c("black","red","blue"),lty=1,
 <<visc>>
 @
 \caption{Shear viscosity of water as a function of temperature}
-\label{fig:diff}
+\label{fig:vis}
 \end{figure}
 
 \section{Dissolved gasses}
@@ -344,12 +349,12 @@ gas_O2sat(t = 20)
 t <- seq(0, 30, 0.1)
 @
 
-Conversion to $\rm mmol m^{-3}$ can be done via:
+Conversion to $\rm mmol~m^{-3}$ can be done as follows:
 
 <<>>=
 gas_O2sat(S=35, t=20)*1000/molweight("O2")
 @
-
+The effect of salinity on saturated concentration is in (Fig.\ref{fig:o2sat}).
 <<label=o2sat,include=FALSE>>=
   plot(t, gas_O2sat(t = t), type = "l", ylim = c(0, 15), lwd=2,
        main="Oxygen saturation", ylab = "mg/l", xlab="temperature")
@@ -381,7 +386,8 @@ gas_satconc(species="O2")
 Temp<-seq(from=0,to=30,by=0.1)
 Sal <- seq(from=0,to=35,by=0.1)
 @
-
+We plot the saturated concentrations for a selection of species as a
+function of temperature and salinity (Fig.\ref{fig:solub}):
 <<label=solub,include=FALSE>>=
 #
 mf  <-par(mfrow=c(2,2))
@@ -425,8 +431,8 @@ par("mfrow"=mf)
 
 \subsection{Partial pressure of water vapor}
 
-\code{vapor} estimates the partial pessure of water vapor, divided by
-the atmospheric pressure.
+Function \code{vapor} estimates the partial pessure of water vapor, divided by
+the atmospheric pressure (Fig.\ref{fig:vapor}).
 
 <<label=vapor,include=FALSE>>=
 plot(0:30, vapor(t = 0:30), xlab = "Temperature, dgC", ylab = "pH2O/P",
@@ -448,8 +454,8 @@ plot(0:30, vapor(t = 0:30), xlab = "Temperature, dgC", ylab = "pH2O/P",
 
 The Schmidt number of a gas (\code{gas_schmidt}) is an essential
 quantity in the gas transfer velocity calculation
-(\code{gas_transfer}). The latter also depends on wind velocity (as
-measured 10 metres above sea level).
+(\code{gas_transfer}). The latter also depends on wind velocity, as
+measured 10 metres above sea level ($u_{10}$)) (Fig.\ref{fig:transfer}).
 
 <<>>=
 gas_schmidt(species="CO2",t=20)
@@ -474,7 +480,7 @@ legend("topleft",lty=1:4,lwd=2,legend=c("Liss and Merlivat 1986",
 <<label=figtransfer,fig=TRUE,echo=FALSE>>=
 <<transfer>>
 @
-\caption{Gas transfer velocity for seawater}
+\caption{Oxygen gas transfer velocity for seawater, as a function of wind speed}
 \label{fig:transfer}
 \end{figure}
 
@@ -512,7 +518,7 @@ convert_PStoAS(S=35)
 @
 
 These functions have as extra arguments the gauge pressure (\code{p}),
-latitude (\code{lat}) and longitude (\code{lon}), and -optional- the
+latitude (\code{lat}), longitude (\code{lon}), and -optional- the
 dissolved Si concentration (\code{DSi}) and the ocean (\code{Ocean}).
 
 When one of these arguments are provided, they also correct for
@@ -520,7 +526,7 @@ inconsistencies due to local composition anomalies.
 
 When \code{DSi} is not given, the correction makes use of a conversion
 table that estimates the salinity variations as a function of
-present-day local seawater composition. The conversion in \R uses the
+present-day local seawater composition. The conversion in R uses the
 FORTRAN code developed by D. Jackett
 (\url{http://www.marine.csiro.au/\~jackett/TEOS-10/}).
 
@@ -529,8 +535,8 @@ with the properties used in the conversion functions.
 
 Below we first convert from practical to absolute salinity, for
 different longitudes, and then plot the correction factors as a
-function of latitude and longitude and at the seawater surface
-(i.e. for \code{p=0})\footnote{Before plotting, the negative numbers
+function of latitude and longitude and at the seawater surface,
+i.e. for \code{p=0} (Fig.\ref{fig:sfac}).\footnote{Before plotting, the negative numbers
   in the salinity anomaly table \code{sw\_sfac} are converted to
   \code{NA} (not available).  In the data set, numbers not available
   are denoted with \code{-99}.}.
@@ -562,11 +568,36 @@ contour(sw_sfac$longs, sw_sfac$lats, dsal, asp=TRUE, add=TRUE)
 and vice versa}
 \label{fig:sfac}
 \end{figure}
+Finally, the correction factors are plotted versus depth, at four latitudinal
+cross-sections (Fig.\ref{fig:sfac2}):
+<<label=sfac2,include=FALSE>>=
+ii <- c(6,21,24,43)
+par(mfrow=c(2,2))
+for ( i in ii)
+{
+dsal <- t(sw_sfac$del_sa[,i,])
+dsal [dsal < -90]<-0
+image(sw_sfac$longs, sw_sfac$p, dsal, col=c("black",femmecol(100)),
+      xlab="longitude, dg", ylab="depth, m", zlim=c(0,0.018),
+      main=sw_sfac$lat[i],ylim=c(6000,0))
+contour(sw_sfac$longs, sw_sfac$p, dsal, asp=TRUE, add=TRUE)
+}
+@
+\setkeys{Gin}{width=0.6\textwidth}
+\begin{figure}
+\centering
+<<label=sfac2,fig=TRUE,echo=FALSE>>=
+<<sfac2>>
+@
+\caption{Salinity anomaly to convert from practical to absolute salinity
+and vice versa for several latitudinal cross-sections (negative = S hemisphere)}
+\label{fig:sfac2}
+\end{figure}
 
 
 \subsection{Thermophysical seawater properties}
 
-\m also implements several thermodynamic properties of
+Package \m also implements several thermodynamic properties of
 seawater. Either one can choose the formulation based on the UNESCO
 polynomial \citep{UNESCO}, which has served the oceanographic
 community for decades, or the more recent derivation as in
@@ -605,7 +636,8 @@ sw_svel(S,t,p)                -1552.93372863425
 @
 
 Below we plot all implemented thermophysical properties as a function
-of salinity and temperature. We first define a function that does that
+of salinity and temperature (Fig.\ref{fig:sw}, \ref{fig:sw2}).
+We first define a function that makes the plots:
 
 <<label=sw,include=FALSE>>=
 plotST <- function(fun,title)
@@ -660,6 +692,32 @@ par (mfrow=c(1,1))
 \label{fig:sw2}
 \end{figure}
 
+The difference between the two formulations, based on the UNESCO polynomial
+or the Gibss function is also instructive (Fig.\ref{fig:sw3}):
+<<label=sw3,include=FALSE>>=
+par (mfrow=c(2,2))
+par(mar=c(4,4,3,2))
+plotST(function(S,t) sw_dens(S,t,method="UNESCO")-sw_dens(S,t),
+  "Density UNESCO - Gibbs")
+plotST(function(S,t) sw_cp(S,t,method="UNESCO")-sw_cp(S,t),
+  "Heat capacity UNESCO - Gibbs")
+plotST(function(S,t) sw_svel(S,t,method="UNESCO")-sw_svel(S,t),
+  "Sound velocity UNESCO - Gibbs")
+par (mfrow=c(1,1))
+@
+\setkeys{Gin}{width=0.9\textwidth}
+\begin{figure}
+\centering
+<<label=sw3,fig=TRUE,echo=FALSE>>=
+<<sw3>>
+@
+\caption{Difference between two methods of calculating some seawater
+  properties as a function of salinity and temperature -
+  see text for \proglang{R}-code}
+\label{fig:sw3}
+\end{figure}
+
+
 \clearpage %% output of all the many figures before
 
 \section{Conversions}
@@ -683,7 +741,7 @@ molweight(c("SiOH4", "NaHCO3", "C6H12O6", "Ca(HCO3)2", "Pb(NO3)2", "(NH4)2SO4"))
 @
 
 We can use that to estimate the importance of molecular weight on
-certain physical properties:
+certain physical properties (Fig.\ref{fig:mw}):
 
 <<>>=
 gs <- gas_solubility()
@@ -703,12 +761,12 @@ text(mw,gs,species)
 @
 \caption{Gas solubility as a function of molecular weight
   see text for \proglang{R}-code}
-\label{fig:sw}
+\label{fig:mw}
 \end{figure}
 
 %% ThPe: is this correct this way:
-\code{molvol} estimates the volume of one liter of a gas or the molar
-volume of an ideal gas.
+Function \code{molvol} estimates the volume of one liter of a specific gas or
+the molar volume of an \code{ideal} gas.
 
 <<>>=
 molvol(species="ideal")

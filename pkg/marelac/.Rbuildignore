@@ -1,0 +1,4 @@
+inst/doc/Rplots.pdf
+inst/doc/.*\.blg
+inst/doc/.*\.log 
+

@@ -27,7 +27,7 @@ molweight(species)
 }
 \author{Thomas Petzoldt}
 \note{
-  This function uses text parsing of chemical formula, it is
+  This function uses text parsing of chemical formulae, it is
   strictly case sensitive.
 }
 \seealso{
@@ -40,6 +40,7 @@ molweight("HCO3")
 molweight("H")
 molweight("H3PO4")
 
+## eicosapentaenoic acid (EPA)
 molweight("CH3CH2CHCHCH2CHCHCH2CHCHCH2CHCHCH2CHCH(CH2)3COOH")
 molweight("C20H30O2")
 
@@ -47,7 +48,7 @@ molweight("C20H30O2")
 molweight(c("C2H5OH", "CO2", "H2O"))
 molweight(c("SiOH4", "NaHCO3", "C6H12O6", "Ca(HCO3)2", "Pb(NO3)2", "(NH4)2SO4"))
 
-## Note that chemical formulae are case-sensitive
+## note that chemical formulae are case-sensitive
 molweight("Co") # cobalt
 molweight("CO") # carbon monoxide
 

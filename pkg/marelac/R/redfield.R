@@ -1,10 +1,10 @@
 ## -----------------------------------------------------------------------------
 ## the Redfield ratio
 ## -----------------------------------------------------------------------------
-redfield <- function(q, species, method=c("mol", "mass")) {
+redfield <- function(q, species, method=c("mol", "mass"),
+                     ratio = c(C=106, H=263, O=110, N=16, P=1)) {
   if (!is.numeric(q)) stop("q must be numeric")
   method   <- match.arg(method)
-  ratio    <- c(C=106, H=180, O=45, N=16, P=1)
   speciess <- names(ratio)
   species  <- match.arg(species, speciess)
 

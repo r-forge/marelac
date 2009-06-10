@@ -785,36 +785,39 @@ The average elemental composition of marine plankton (Redfield ratio)
 is traditionally assumed to be $\rm C_{106}H_{263}O_{110}N_{16}P_{1}$
 \citep{Redfield1934, Redfield1963, Richards1965}, while Limnologists
 sometimes assume a ratio of $\rm C_{106}H_{180}O_{45}N_{16}P_{1}$
-\citep{Stumm1964}. Since then, the ratio of C:N:P ratio was widely
-agreed, but there is still discussion about the average of O and
-H. \citet{Anderson1995} proposed a new formula $\rm
-C_{106}H_{175}O_{42}N_{16}P_{1}$ for marine plankton and by NMR
-analysis also \citet{Hedges2002} found an elemental composition with
-much less hydrogen and oxygen than in the original formula ($\rm
-C_{106}H_{175-180}O_{35-40}N_{15–20}S_{0.3-0.5}$).
+\citep{Stumm1964}. Since then, the ratio of C:N:P was widely agreed,
+but there is still discussion about the average of O and H.
+\citet{Anderson1995} proposed a new formula $\rm
+C_{106}H_{175}O_{42}N_{16}P_{1}$ for marine plankton and similarly
+\citet{Hedges2002}, who used NMR analysis, found an elemental
+composition with much less hydrogen and oxygen ($\rm
+C_{106}H_{175-180}O_{35-40}N_{15–20}S_{0.3-0.5}$) than in the original
+formula.
 
 Function \code{redfield} can be used to simplify conversions between
-the main elements of biomass. The default molar ratio can be displayed
-by:
+the main elements of biomass, where the default molar ratio can be
+displayed by:
 
 <<>>=
 redfield(1, "P")
 @
 
-or, rescaled to nitrogen by:
+The second argument of the function allows to rescale this to any of
+the constitutional elements, e.g. to nitrogen:
 
 <<>>=
 redfield(1, "N")
 @
 
-I addition, it is also possible to convert this to mass units, how
-many mass units are related to 2 mass units (e.g. mg) P:
+In addition, it is also possible to request the output in mass units,
+e.g. how many mass units of the elements are related to 2 mass units
+(e.g. mg) of phosphorus:
 
 <<>>=
 redfield(2, "P", "mass")
 @
 
-Finally, mass percentage can be obtained by:
+Finally, mass percentages can be obtained by:
 
 <<>>=
 x <- redfield(1, "P", "mass")
@@ -824,14 +827,15 @@ x / sum(x)
 or by using an alternative alternative elemental composition with:
 
 <<>>=
-x <- redfield(1, "P", "mass", ratio=c(C=106, H=180, O=45, N=16, P=1))
+stumm <- c(C=106, H=180, O=45, N=16, P=1)
+x <- redfield(1, "P", "mass", ratio = stumm)
 x / sum(x)
 @
 
 Note however, that all these formulae are intended to approximate the
-average biomass composition but that for specific observations large
-differences are natural, depending on the involved species and their
-physiological state.
+\textbf{average} biomass composition and that large differences are
+natural for specific observations, depending on the involved species
+and their physiological state.
 
 
 \subsection{Pressure conversions }

@@ -35,7 +35,7 @@ earth_surf(lat = 0, lon = 0)
 # the volume of the Oceans, m3
 - sum(SURF*Bathymetry$z*(Bathymetry$z<0))    # is: 1.34e+18
 
-# there should be a better way
+# the surface area at several depths
 SurfDepth <- vector()
 
 dseq <- seq(-7500,-250,by=250)

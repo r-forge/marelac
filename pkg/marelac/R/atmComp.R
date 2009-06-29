@@ -9,7 +9,7 @@
 
 ## The function
 atmComp <- function(species = c("He", "Ne", "N2", "O2", "Ar", "Kr", "CH4",
-                        "CO2","N2O", "H2", "Xe", "CO", "O3")) {
+                        "CO2", "N2O", "H2", "Xe", "CO", "O3")) {
   species <- match.arg(species, several.ok = TRUE)
   .marelac$atmComp[species]
 }

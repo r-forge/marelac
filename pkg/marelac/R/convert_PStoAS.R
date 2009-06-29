@@ -2,51 +2,49 @@
 ## Convert practical salinity to absolute salinity and vice versa
 ## -----------------------------------------------------------------------------
 
-# internal functions
-
-sw_delta_SA <- function (p0=0,longs0=0,lats0=0) {
+## internal functions
+sw_delta_SA <- function (p0 = 0, longs0 = 0, lats0 = 0) {
   res <- NULL
   for (i in 1:length(longs0))
     for (j in 1:length(lats0)){
-
-      RES <-.Fortran("gsw_delta_sa",as.double(p0),
-           as.double(longs0[i]),as.double(lats0[j]),
-           sw_sfac$longs,sw_sfac$lats,
-           sw_sfac$p,sw_sfac$ndepth,sw_sfac$del_sa,
+      RES <-.Fortran("gsw_delta_sa", as.double(p0),
+           as.double(longs0[i]), as.double(lats0[j]),
+           sw_sfac$longs, sw_sfac$lats,
+           sw_sfac$p, sw_sfac$ndepth, sw_sfac$del_sa,
            delta=as.double(0.))
        res <- c(res, RES$delta)
     }
     res
 }
-# Checks whether a lon,lat coordinate is in the Baltic
 
-is_Baltic <- function(long,lat) {
-  leftx<-c(12.6,7,26)
-  lefty<-c(50,59,69)
 
-  rightx<-c(45,26)
-  righty<-c(50,69)
+## Checks whether a lon, lat coordinate is in the Baltic
+is_Baltic <- function(long, lat) {
+  leftx <- c(12.6, 7, 26)
+  lefty <- c(50, 59, 69)
 
-  Baltic <- rep(FALSE, length(lat)*length(long))
+  rightx <- c(45, 26)
+  righty <- c(50, 69)
+
+  Baltic <- rep(FALSE, length(lat) * length(long))
   ij <- 1
    for (i in 1:length(long))
      for (j in 1:length(lat))  {
-       if (long[i]>min(leftx) & long[i]<max(rightx) &
-           lat[j]>min(lefty) & lat[j]<max(righty))  {
-          xxl <- approx(lefty,leftx,lat[j])$y
-          xxr <- approx(righty,rightx,lat[j])$y
-          if (long[i]>xxl & long[i]< xxr) Baltic[ij]<-TRUE
+       if (long[i] > min(leftx) & long[i] < max(rightx) &
+           lat[j]  > min(lefty) & lat[j]  < max(righty)) {
+          xxl <- approx(lefty, leftx, lat[j])$y
+          xxr <- approx(righty, rightx, lat[j])$y
+          if (long[i] > xxl & long[i] < xxr) Baltic[ij] <- TRUE
        }
        ij <- ij+1
     }
   Baltic
 }
 
-# Salinity anomaly as a function of latitude, longitude, DSi conc and the
-# ocean
-
+## Salinity anomaly as a function of latitude, longitude, DSi conc and
+## the ocean
 DeltaSal <- function(p, lat, lon, DSi,
-  Ocean=c("Global","Atlantic","Pacific","Indian","Southern")) {
+  Ocean = c("Global","Atlantic", "Pacific", "Indian", "Southern")) {
 
   dSal <- 0
 
@@ -79,41 +77,39 @@ DeltaSal <- function(p, lat, lon, DSi,
     if (any(lon > 360 | lon < 0))
       stop (" longitude, 'lon' should be within 0,360")
 
-    dSal <- sw_delta_SA(p*10,lon,lat)
+    dSal <- sw_delta_SA(p * 10, lon, lat)
 
   }
 
   dSal
 }
 
-# Practical -> absolute salinity
+## Practical -> absolute salinity
 convert_PStoAS <- function(S=35, p=max(0,P-1.013253), P=1.013253,
-   lat=NULL, lon=NULL, DSi = NULL,
-   Ocean = c("Global","Atlantic","Pacific","Indian","Southern"))
-  {
+  lat=NULL, lon=NULL, DSi = NULL,
+  Ocean = c("Global", "Atlantic", "Pacific", "Indian", "Southern")) {
 
   SA   <- 35.16504 /35.0 *S +DeltaSal(p, lat, lon, DSi, Ocean)
 
   if (is.null(DSi) & ! (is.null(lat)) & ! (is.null(lon))) {
-    Baltic <- is_Baltic(lon,lat)
+    Baltic <- is_Baltic(lon, lat)
     if (length(Baltic)!=length(SA)) Baltic <- rep(Baltic, len=length(SA))
     SA[Baltic] <- SA[Baltic] + 0.124*(1-S/35)
   }
   SA
 }
 
-# Absolute -> practical salinity
-
-convert_AStoPS <- function(S=35, p=max(0,P-1.013253), P=1.013253,
-   lat=NULL, lon=NULL, DSi = NULL,
-   Ocean = c("Global","Atlantic","Pacific","Indian","Southern")) {
+## Absolute -> practical salinity
+convert_AStoPS <- function(S = 35, p = max(0, P-1.013253), P = 1.013253,
+  lat = NULL, lon = NULL, DSi = NULL,
+  Ocean = c("Global", "Atlantic", "Pacific", "Indian", "Southern")) {
 
   PS <- 35.0/35.16504 *(S - DeltaSal(p, lat, lon, DSi, Ocean))
 
   if (is.null(DSi) & ! (is.null(lat)) & ! (is.null(lon))) {
-    Baltic <- is_Baltic(lon,lat)
-    if (length(Baltic)!=length(PS)) Baltic <- rep(Baltic, len=length(PS))
-    PS[Baltic] <- PS[Baltic] -35.0/35.16504 *S + (35.0/35.04104)*(S- 0.124)
+    Baltic <- is_Baltic(lon, lat)
+    if (length(Baltic) != length(PS)) Baltic <- rep(Baltic, len = length(PS))
+    PS[Baltic] <- PS[Baltic] - 35.0/35.16504 * S + (35.0/35.04104) * (S - 0.124)
   }
   PS
 }

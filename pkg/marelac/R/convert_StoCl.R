@@ -2,5 +2,4 @@
 ## Salinity-Chlorinity Conversion
 ## -----------------------------------------------------------------------------
 
-convert_StoCl <- function(S=35)
-          S/1.80655             # chlorinity, in g/kg
+convert_StoCl <- function(S=35) S / 1.80655 # chlorinity, in g/kg

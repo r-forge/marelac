@@ -4,6 +4,9 @@
 
 sw_svel <- function (S=35, t=25, p=P-1.013253, P=1.013253,
                    method=c("Gibbs","UNESCO")) {
+  if (any (S<0))
+    stop ("Salinity should be >= 0")
+                   
    method <- match.arg(method)
   if (method=="UNESCO") {
     P = p  # P is used in code as synonym for hydroP

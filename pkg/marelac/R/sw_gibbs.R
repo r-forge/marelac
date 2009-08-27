@@ -4,6 +4,8 @@
 
 sw_gibbs <- function (S = 35, t = 25, p = P-1.013253, P = 1.013253,
                       dS = 0, dt = 0, dp = 0) {
+  if (any (S<0))
+    stop ("Salinity should be >= 0")
   Su <- 40.188617 # g/dkg
   tu <- 40        # dgC
   pu <- 1e8       # pa

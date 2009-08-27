@@ -5,6 +5,8 @@
 gas_O2sat <- function(S = 35, t = 25, masl = 0,
                       method = c("Weiss", "APHA", "Paul")) {
 
+  if (any (S<0))
+    stop ("Salinity should be >= 0")
   K <-  t + 273.15
 
   log10 <- function(x) log(x)/log(10)

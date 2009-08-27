@@ -48,6 +48,8 @@ diffcoeff <- function(S = 35, t = 25, P = 1.013253, species = c("H2O",
   "Hg", "Ni", "Sr", "Pb", "Ra", "Zn", "Al", "Ce", "La", "Pu", "H3PO4",
   "BOH3", "BOH4", "H4SiO4")) {
 
+  if (any (S<0))
+    stop ("Salinity should be >= 0")
   species  <- match.arg(species, several.ok = TRUE)
   diffc   <- list()      # will have the result
   diffArr <- diffChang <- diffBoud <- NULL

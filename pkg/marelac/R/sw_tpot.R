@@ -3,6 +3,9 @@
 ## -----------------------------------------------------------------------------
 
 sw_tpot<- function (S=35, t=25, p, pref=0) {
+  if (any (S<0))
+    stop ("Salinity should be >= 0")
+
   P    <- p
   Pref <- max(0,pref)
   H  <- 10*(Pref-P)

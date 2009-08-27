@@ -47,6 +47,8 @@ rownames(.marelac$VolumeSolubCoeff)<-c("CO2","N2O","CCl2F2","CCl3F","SF6","CCl4"
 ## -----------------------------------------------------------------------------
 gas_solubility <- function (S = 35, t = 25, species = c("He","Ne", "N2","O2","Ar",
  "Kr","Rn","CH4","CO2","N2O","CCl2F2","CCl3F","SF6","CCl4")) {
+  if (any (S<0))
+    stop ("Salinity should be >= 0")
 
   K <-  t + 273.15
 

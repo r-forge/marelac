@@ -2,6 +2,9 @@
 ## (Sea)water Density
 ## -----------------------------------------------------------------------------
 rhoH2O_Chen <- function(S=0, t=25, p) {
+  if (any (S<0))
+    stop ("Salinity should be >= 0")
+
   # Chen, Ch.-T. and F.J. Millero (1986) - Precise thermodynamic
   # properties of natural waters covering only the limnological range.
   # Limnol. Oceanogr. 31 No. 3, 657 - 662
@@ -21,6 +24,8 @@ rhoH2O_Chen <- function(S=0, t=25, p) {
 
 sw_dens <- function(S=35, t=25, p=max(0, P-1.013253), P=1.013253,
                    method=c("Gibbs","UNESCO", "Chen")) {
+  if (any (S<0))
+    stop ("Salinity should be >= 0")
   method <- match.arg(method)
 
   dens <- switch(method,

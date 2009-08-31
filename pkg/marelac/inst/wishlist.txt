@@ -1,12 +1,2 @@
 
-To do
-
-ThPe
-Example in AtomicWeight does not work:
-as.numeric(gsub("\(.+\)", "", AtomicWeight$Weight))
-
-It works! NAs are for unstable elements.
-
-
-
 Release package.

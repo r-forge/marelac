@@ -8,14 +8,14 @@
 # all units: km
 
 
-earth_surf <- function (lat=0,lon=0) {
-  Earth <- data.frame(lat = seq(0,90,by=15),
+earth_surf <- function (lat = 0, lon = 0) {
+  Earth <- data.frame(lat = seq(0, 90, by = 15),
     Latdist = c(110.574, 110.649, 110.852, 111.132, 111.412, 111.618, 111.694),
     Londist = c( 111.320, 107.551, 96.486, 78.847, 55.800 , 28.902, 0)        ,
     Latrad  = c(6335.44, 6339.70, 6351.38, 6367.38, 6383.45, 6395.26, 6399.59) ,
     Lonrad  = c(6378.14, 6379.57, 6383.48, 6388.84, 6394.21, 6398.15, 6399.59) )
 
-  Latdist <- approx(Earth$lat,Earth$Latdist, abs(lat))$y
-  Londist <- approx(Earth$lat,Earth$Londist, abs(lat))$y
+  Latdist <- approx(Earth$lat, Earth$Latdist, abs(lat))$y
+  Londist <- approx(Earth$lat, Earth$Londist, abs(lat))$y
   Latdist*Londist * 1.008539 *1e6 #correct ~ 1 % error !
 }

@@ -14,7 +14,7 @@ gas_satconc <- function(S = 35, t = 25, P = 1.013253,
     gas_solubility(S = S, t = t, species = species) * P * atm * (1 - Vapor)
   else {
     gs <- gas_solubility(S = S, t = t, species = species)
-    gs * P * matrix(data=atm,nrow =nrow(gs),ncol =ncol(gs), byrow=TRUE) *
-        matrix(data=(1 - Vapor), nrow=nrow(gs), ncol=ncol(gs))
+    gs * P * matrix(data = atm, nrow = nrow(gs), ncol = ncol(gs), byrow = TRUE) *
+        matrix(data = (1 - Vapor), nrow = nrow(gs), ncol = ncol(gs))
   }
 }

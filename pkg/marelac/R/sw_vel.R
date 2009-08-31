@@ -2,15 +2,15 @@
 ## Velocity of Sound in Seawater
 ## -----------------------------------------------------------------------------
 
-sw_svel <- function (S=35, t=25, p=P-1.013253, P=1.013253,
-                   method=c("Gibbs","UNESCO")) {
-  if (any (S<0))
+sw_svel <- function (S = 35, t = 25, p = P-1.013253, P = 1.013253,
+                   method = c("Gibbs","UNESCO")) {
+  if (any (S < 0))
     stop ("Salinity should be >= 0")
-                   
+
    method <- match.arg(method)
   if (method=="UNESCO") {
-    P = p  # P is used in code as synonym for hydroP
-    T = t
+    P  <- p  # P is used in code as synonym for hydroP
+    T  <- t
     P2 <- P*P
     P3 <- P2*P
     Cw <- 1402.388 + (5.03711   + (-5.80852e-2 + (3.3420e-4 +
@@ -34,11 +34,12 @@ sw_svel <- function (S=35, t=25, p=P-1.013253, P=1.013253,
     svel <- Cw + A*S + B*S**1.5 + D*S**2
   } else {
 
-    g_tt <- sw_gibbs(S=S,t=t,p=p,dS=0,dt=2,dp=0)
-    g_2  <- sw_gibbs(S=S,t=t,p=p,dS=0,dt=0,dp=1)
-    g_tp <- sw_gibbs(S=S,t=t,p=p,dS=0,dt=1,dp=1)
-    svel <- sw_gibbs(S=S,t=t,p=p,dS=0,dt=0,dp=1) *
-      sqrt(g_tt/(g_tp*g_tp - g_tt*sw_gibbs(S=S,t=t,p=p,dS=0,dt=0,dp=2)))
+    g_tt <- sw_gibbs(S = S, t = t, p = p, dS = 0, dt = 2, dp = 0)
+    g_2  <- sw_gibbs(S = S, t = t, p = p, dS = 0, dt = 0, dp = 1)
+    g_tp <- sw_gibbs(S = S, t = t, p = p, dS = 0, dt = 1, dp = 1)
+    svel <- sw_gibbs(S = S, t = t, p = p, dS = 0, dt = 0, dp = 1) *
+      sqrt(g_tt/(g_tp*g_tp - g_tt *
+                 sw_gibbs(S = S, t = t, p = p, dS = 0, dt = 0, dp = 2)))
   }
   return (svel)
 }

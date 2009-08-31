@@ -2,7 +2,7 @@
 ## Saturation Water Vapor Pressure
 ## -----------------------------------------------------------------------------
 vapor <- function (S = 35, t = 25) {
-  if (any (S<0))
+  if (any (S < 0))
     stop ("Salinity should be >= 0")
   K <- 273.15 + t
   exp(24.4543 - 67.4509 * (100/K) - 4.8489 * log(K/100) - 0.000544 * S)

@@ -14,7 +14,7 @@
 rownames(.marelac$ArrDat) <- c("H2","CH4","DMS","He","Ne","Ar","Kr","Xe","Rn")
 
 ## from Wilke and Chang (1955) as modified by Hayduk and Laudie (1974)
-.marelac$WCDat <- matrix(nc=1, data=c(34.7,35.2,24.5,23.6,36.0,34.5,43.8))
+.marelac$WCDat <- matrix(data=c(34.7,35.2,24.5,23.6,36.0,34.5,43.8), ncol=1)
 rownames(.marelac$WCDat) <- c("N2","H2S","NH3","NO","N2O","CO","SO2")
 
 ## Boudreau (1997): linear functions of temp

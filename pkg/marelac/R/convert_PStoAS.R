@@ -3,12 +3,12 @@
 ## -----------------------------------------------------------------------------
 
 ## internal functions
-sw_delta_SA <- function (p0 = 0, longs0 = 0, lats0 = 0) {
+sw_delta_SA <- function (p0 = 0, lon0 = 0, lat0 = 0) {
   res <- NULL
-  for (i in 1:length(longs0))
-    for (j in 1:length(lats0)){
+  for (i in 1:length(lon0))
+    for (j in 1:length(lat0)){
       RES <-.Fortran("gsw_delta_sa", as.double(p0),
-           as.double(longs0[i]), as.double(lats0[j]),
+           as.double(lon0[i]), as.double(lat0[j]),
            sw_sfac$longs, sw_sfac$lats,
            sw_sfac$p, sw_sfac$ndepth, sw_sfac$del_sa,
            delta=as.double(0.))
@@ -19,22 +19,22 @@ sw_delta_SA <- function (p0 = 0, longs0 = 0, lats0 = 0) {
 
 
 ## Checks whether a lon, lat coordinate is in the Baltic
-is_Baltic <- function(long, lat) {
+is_Baltic <- function(lon, lat) {
   leftx <- c(12.6, 7, 26)
   lefty <- c(50, 59, 69)
 
   rightx <- c(45, 26)
   righty <- c(50, 69)
 
-  Baltic <- rep(FALSE, length(lat) * length(long))
+  Baltic <- rep(FALSE, length(lat) * length(lon))
   ij <- 1
-   for (i in 1:length(long))
+   for (i in 1:length(lon))
      for (j in 1:length(lat))  {
-       if (long[i] > min(leftx) & long[i] < max(rightx) &
+       if (lon[i] > min(leftx) & lon[i] < max(rightx) &
            lat[j]  > min(lefty) & lat[j]  < max(righty)) {
           xxl <- approx(lefty, leftx, lat[j])$y
           xxr <- approx(righty, rightx, lat[j])$y
-          if (long[i] > xxl & long[i] < xxr) Baltic[ij] <- TRUE
+          if (lon[i] > xxl & lon[i] < xxr) Baltic[ij] <- TRUE
        }
        ij <- ij+1
     }

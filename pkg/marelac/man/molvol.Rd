@@ -77,12 +77,12 @@ contour(P, Temp, Val, xlab="pressure", ylab="temperature",
   The default calculates the molar volume of an ideal gas
 }
 \references{
-The values of the van der Waals constants are from
+  The values of the van der Waals constants are from:
 
   Weast RC (Ed.) 1972. Handbook of Chemistry and Physics (53rd Edn.),
   Cleveland:Chemical Rubber Co.
   
-  as found in
+  as found in:
   \url{http://en.wikipedia.org/wiki/Van\_der\_Waals\_constants\_(data_page)}
 }
 

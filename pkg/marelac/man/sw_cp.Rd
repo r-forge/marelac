@@ -41,8 +41,7 @@ sw_cp(S = 40, t = 10, p = 0, method="UNESCO")  # 3959.3
 \references{
   Fofonoff NP and Millard RC Jr, 1983. Algorithms for computation of
   fundamental properties of seawater. UNESCO technical papers in marine
-  science, 44, 53 pp.
-
+  science, 44, 53 pp.\cr
   \url{http://unesdoc.unesco.org/images/0005/000598/059832EB.pdf}
 
   Feistel R, 2008. A Gibbs function for seawater thermodynamics for -6 to

@@ -49,8 +49,7 @@ sw_adtgrad(S = 40, t = 0,  p = 100)  # 0.0630e-3
 \references{
   Fofonoff NP and Millard RC Jr, 1983. Algorithms for computation of
   fundamental properties of seawater. UNESCO technical papers in marine
-  science, 44, 53 pp.
-
+  science, 44, 53 pp.\cr
   \url{http://unesdoc.unesco.org/images/0005/000598/059832EB.pdf}
 }
 \seealso{

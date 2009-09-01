@@ -47,8 +47,7 @@ sw_dens(S = 35, t = 25, p = max(0, P-1.013253), P = 1.013253,
 
   Fofonoff NP and Millard RC Jr, 1983. Algorithms for computation of
   fundamental properties of seawater. UNESCO technical papers in marine
-  science, 44, 53 pp.
-
+  science, 44, 53 pp.\cr
   \url{http://unesdoc.unesco.org/images/0005/000598/059832EB.pdf}
 
   Feistel R, 2008. A Gibbs function for seawater thermodynamics for -6 to

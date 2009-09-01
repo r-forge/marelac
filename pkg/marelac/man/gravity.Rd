@@ -24,8 +24,7 @@ The UNESCO polynomial:
 
   Fofonoff NP and Millard RC Jr, 1983. Algorithms for computation of
   fundamental properties of seawater. UNESCO technical papers in marine
-  science, 44, 53 pp.
-
+  science, 44, 53 pp.\cr
   \url{http://unesdoc.unesco.org/images/0005/000598/059832EB.pdf}
 
   Moritz H, 2000. Geodetic reference system 1980. Journal of Geodesy 74,

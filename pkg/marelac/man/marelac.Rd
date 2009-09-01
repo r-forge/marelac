@@ -66,13 +66,12 @@
   diagenesis in aquatic sediments.  Computers & Geosciences 22 (5),
   479-496.
 
-  For many other fundamental properties of seawater: either the UNESCO
-  report (1983)
+  For many other fundamental properties of seawater, either the UNESCO
+  report (1983):
 
   Fofonoff NP and Millard RC Jr, 1983. Algorithms for computation of
   fundamental properties of seawater. UNESCO technical papers in marine
-  science, 44, 53 pp.
-
+  science, 44, 53 pp.\cr
   \url{http://unesdoc.unesco.org/images/0005/000598/059832EB.pdf}
 
   or the more recent report and papers:

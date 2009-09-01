@@ -41,8 +41,7 @@ convert_RtoS(R = 1.1651206, t = 20, p = 100)  # 36.3576
 \references{
   Fofonoff NP and Millard RC Jr, 1983. Algorithms for computation of
   fundamental properties of seawater. UNESCO technical papers in marine
-  science, 44, 53 pp.
-
+  science, 44, 53 pp.\cr
   \url{http://unesdoc.unesco.org/images/0005/000598/059832EB.pdf}
 }
 \seealso{

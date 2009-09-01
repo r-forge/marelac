@@ -5,7 +5,7 @@ Author: Karline Soetaert <k.soetaert@nioo.knaw.nl>,
         Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>,
         Filip Meysman <filip.meysman@vub.ac.be>
 Maintainer: Karline Soetaert <k.soetaert@nioo.knaw.nl>
-Depends: R (>= 2.8.1), shape, seacarb
+Depends: R (>= 2.6), shape, seacarb
 Description: Datasets, constants, conversion factors, utilities for MArine, Riverine,
              Estuarine, LAcustrine and Coastal science
 License: GPL

@@ -119,7 +119,7 @@ It contains:
   gravity ...
 \item the thermophysical properties of the seawater, as from the
   UNESCO polynomial \citep{UNESCO} or as from the more recent
-  derivation based on a gibbs funtion \citep{Feistel08,McDougall}.
+  derivation based on a Gibbs function \citep{Feistel08,McDougall}.
 \end{itemize}
 
 \section{Constants and datasets}

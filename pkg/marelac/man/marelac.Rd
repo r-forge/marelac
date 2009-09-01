@@ -3,8 +3,7 @@
 \alias{marelac}
 \docType{package}
 \title{
-  Datasets, Constants, Conversion Factors, and Utilities for the
-  MArine, Riverine, Estuarine, LAcustrine and Coastal Sciences
+  Tools for Aquatic Sciences
 }
 \description{
   
@@ -24,7 +23,6 @@
   
  About the symbols used.
  
- 
  Here we adopt the symbolism as in McDougall et al., 2009:
  
  \itemize{
@@ -43,8 +41,8 @@
   \tabular{ll}{
     Package: \tab marelac\cr
     Type: \tab Package\cr
-    Version: \tab 1.4\cr
-    Date: \tab 2009-01-12\cr
+    Version: \tab 2.0\cr
+    Date: \tab 2009-09-01\cr
     License: \tab GNU Public License 2 or above\cr
   }
 }

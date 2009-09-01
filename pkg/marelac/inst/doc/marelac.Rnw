@@ -17,8 +17,7 @@
 \newcommand{\m}{\textbf{\textsf{marelac }}}
 \newcommand{\R}{\proglang{R}}
 \title{
-  \m: utilities for the MArine, Riverine, Estuarine,
-  LAcustrine and Coastal sciences
+  \m: Tools for Aquatic Sciences
 }
 \Plaintitle{marelac}
 

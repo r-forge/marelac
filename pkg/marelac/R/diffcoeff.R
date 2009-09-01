@@ -30,6 +30,7 @@ rownames(.marelac$WCDat) <- c("N2","H2S","NH3","NO","N2O","CO","SO2")
          0.413,0.179,0.144,0.150,0.155,0.176,0.140,0.152,
          0.152,0.158,0.208,0.130,0.169,0.198,0.199,0.151,
          0.172,0.131,0.136,0.120))
+
 rownames(.marelac$BDat) <- c("OH","Br","Cl","F","I","HCO3","CO3","H2PO4",
     "HPO4","PO4","HS","HSO3","SO3","HSO4","SO4","IO3","NO2","NO3",
     "H","Li","Na","K","Cs","Ag","NH4","Ca","Mg","Fe","Mn","Ba","Be",
@@ -101,7 +102,6 @@ diffcoeff <- function(S = 35, t = 25, P = 1.013253, species = c("H2O",
   #           about 29.2 S.
   #           Assume that this value can be scaled by the Stokes-Einstein
   #           relationship to any other temperature.
-
   if ("BOH3" %in% species) {
     D_BOH3 <- 1.12e-09
     tS     <- 25.0
@@ -112,7 +112,6 @@ diffcoeff <- function(S = 35, t = 25, P = 1.013253, species = c("H2O",
 
   ##  B(OH)4 : No information on this species ! Boudreau and
   ##           Canfield (1988) assume it is 12.5% smaller than B(OH)3.
-  ##
   if ("BOH4" %in% species) {
     if (is.null(diffc$BOH3)) {
       D_BOH3 <- 1.12e-09
@@ -148,7 +147,7 @@ diffcoeff <- function(S = 35, t = 25, P = 1.013253, species = c("H2O",
   ##  from Wilke and Chang (1955) as modified by Hayduk and Laudie (1974)
   WilkeChang <- function(Vb) 4.72E-07 * TK / (mu_0 * Vb[1]^0.6) * 1.0E-04
 
-  ii <- .marelac$WCDat[species[which(species%in%rownames(.marelac$WCDat))],]
+  ii <- .marelac$WCDat[species[which(species %in% rownames(.marelac$WCDat))],]
   if (length(ii) > 0) diffChang <- apply(data.frame(ii), 1, WilkeChang)
 
   ##  The coefficients in pure water for the following species are
@@ -158,12 +157,7 @@ diffcoeff <- function(S = 35, t = 25, P = 1.013253, species = c("H2O",
   ii <- .marelac$BDat[species[which(species %in% rownames(.marelac$BDat))],]
   if (nrow(ii) > 0) diffBoud <- apply(ii, 1, Boudreau)
 
-# KS -> ThP
-
-  ## Thomas, depending on whether these things have one or more rows,
-  ## I have to use cbind() or c(); cbind with a NULL or N2 does not
-  ## work so I have to check if it has a value - not very nice coding
-
+  ## Simplify this
   if (is.matrix(diffc)    | is.matrix(diffChang) |
       is.matrix(diffBoud) | is.matrix(diffArr)) {
     Diffc <- NA
@@ -172,7 +166,7 @@ diffcoeff <- function(S = 35, t = 25, P = 1.013253, species = c("H2O",
     if (! is.null(diffChang)) Diffc <- cbind(Diffc, data.frame(diffChang))
     if (! is.null(diffBoud))  Diffc <- cbind(Diffc, diffBoud)
     Diffc <- as.data.frame(Diffc)
-  } else Diffc <- data.frame(c(diffc,diffArr,diffChang,diffBoud))
+  } else Diffc <- data.frame(c(diffc, diffArr, diffChang, diffBoud))
 
   ## SALINITY AND PRESSURE CORRECTION
   ##  To correct for pressure and salinity, the Stokes-Einstein relationship

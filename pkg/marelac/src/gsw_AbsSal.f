@@ -37,19 +37,19 @@ c result              : Absolute Salinity anomaly          [g/kg]
         integer nx, ny, nz
         parameter(nx=91,ny=44,nz=45)
 
-        integer indx0, indy, indz, i, icalled
-        integer k, deli(4), delj(4), nmean
+        integer indx0, indy, indz 
+        integer k, deli(4), delj(4) 
         real*8 p0, p0_original, longs0, lats0, sa_upper
         real*8 sa_lower, delta
         real*8 longs(nx), lats(ny), p(nz), del_sa(nz,ny,nx)
-	      real*8 dlongs, dlats
-        real*8 r1, s1, t1, dsa_mean, dsa(4), ndepth(ny,nx), ndepth_max
+            real*8 dlongs, dlats
+        real*8 r1, s1, t1, dsa(4), ndepth(ny,nx), ndepth_max
         logical ISNAN
 
         data deli/0,1,1,0/, delj/0,0,1,1/
 
         dlongs = longs(2)-longs(1)
-		    dlats = lats(2)-lats(1)
+              dlats = lats(2)-lats(1)
 
         indx0 = floor(1 + (nx-1)*(longs0-longs(1))/(longs(nx)-longs(1)))
         if(indx0.eq.nx) then
@@ -85,7 +85,7 @@ c result              : Absolute Salinity anomaly          [g/kg]
         isnan = .FALSE.
         do k = 1,4
             dsa(k) = del_sa(indz,indy+delj(k),indx0+deli(k))
-	      if (dsa(k) .LE. -90) isnan=.TRUE. 
+            if (dsa(k) .LE. -90) isnan=.TRUE. 
         end do
 
         if(260.d0.le.longs0.and.longs0.le.291.999d0.and.                       &
@@ -94,7 +94,7 @@ c result              : Absolute Salinity anomaly          [g/kg]
      &           lats(indy),dlongs,dlats)
 
         elseif(isnan) then 
-          call dsa_add_mean(dsa,longs0,lats0)
+          call dsa_add_mean(dsa)
         end if
 
         sa_upper = (1.d0-s1)*(dsa(1) + r1*(dsa(2)-dsa(1))) + s1*(dsa(4)        &
@@ -103,7 +103,7 @@ c result              : Absolute Salinity anomaly          [g/kg]
         isnan = .FALSE.
         do k = 1,4
             dsa(k) = del_sa(indz+1,indy+delj(k),indx0+deli(k))
-	      if (dsa(k) .LE. -90) isnan=.TRUE.
+            if (dsa(k) .LE. -90) isnan=.TRUE.
         end do
 
         if(260.d0.le.longs0.and.longs0.le.291.999d0.and.3.4d0.le.lats0         &
@@ -112,9 +112,9 @@ c result              : Absolute Salinity anomaly          [g/kg]
      &     lats(indy),dlongs,dlats)
         elseif(isnan) then 
             isnan = .FALSE.
-            call dsa_add_mean(dsa,longs0,lats0)
+            call dsa_add_mean(dsa)
             do k=1,4
-		    if (dsa(k) .LE. -90) isnan=.TRUE.
+              if (dsa(k) .LE. -90) isnan=.TRUE.
             enddo 
         end if
 
@@ -211,7 +211,7 @@ c  the 2 and 3 long/lat points
         do k = 1,4
             if (dsa(k).GT.-90.and.above_line0.eq.above_line(k)) then
                 nmean = nmean+1 
-				dsa_mean = dsa_mean+dsa(k)
+                  dsa_mean = dsa_mean+dsa(k)
             end if
         end do
 
@@ -229,7 +229,7 @@ c  the 2 and 3 long/lat points
 
 c******************************************************************************
 
-        subroutine dsa_add_mean(dsa,longs0,lats0)
+        subroutine dsa_add_mean(dsa)
 
 c replace nans with namean
 c
@@ -243,7 +243,6 @@ c result        : nanmean of the 4 adjacent neighbours     [g/kg]
         integer k, nmean
         real*8 dsa(4)
         real*8 dsa_mean, dsa_add(4)
-        real*8 longs0, lats0
 
         nmean = 0
         dsa_mean = 0.d0
@@ -252,7 +251,7 @@ c result        : nanmean of the 4 adjacent neighbours     [g/kg]
         do k = 1,4
             if (dsa(k).GT. -90) then
                 nmean = nmean+1 
-				dsa_mean = dsa_mean+dsa(k)
+                  dsa_mean = dsa_mean+dsa(k)
             end if
         end do
 
@@ -286,10 +285,10 @@ c   CREATED:        June 1993
 c
 
        implicit none
-	   character(len=80) msg
+         character(len=80) msg
 
        integer n,k,ku,km,kl
-	   real*8 x(n),z
+         real*8 x(n),z
 
        if(x(1).lt.z.and.z.lt.x(n)) then
 
@@ -318,7 +317,7 @@ c
         else
           call rwarn("ERROR in indx.f : out of range")
           write (msg,*) z,n,x
- 	    call rexit(msg)
+          call rexit(msg)
         end if
 
       end if

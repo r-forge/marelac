@@ -21,8 +21,8 @@
   \tabular{ll}{
     Package: \tab marelac\cr
     Type: \tab Package\cr
-    Version: \tab 1.2\cr
-    Date: \tab 2008-11-031\cr
+    Version: \tab 1.1\cr
+    Date: \tab 2009-10-15\cr
     License: \tab GNU Public License 2 or above\cr
   }
 

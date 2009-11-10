@@ -30,7 +30,7 @@
 To open the lecture notes, copy-paste this sentence to R:
 
 \code{
-browseURL(paste(system.file(package="marelacTeaching"), "/lecture/UsingR.pdf", sep=""))}
+browseURL(paste(system.file(package="marelacTeaching"), "/doc/lecture/UsingR.pdf", sep=""))}
 
 which will open a PDF generated with WORD (Microsoft)
 
@@ -38,8 +38,6 @@ or type \code{vignette("UsingR")} which will open a LaTeX-generated file.
 }
 \author{
   Karline Soetaert (Maintainer)
-
-  Thomas Petzoldt
 
   Filip Meysman
 }
@@ -59,7 +57,7 @@ browseURL(paste(system.file(package="marelacTeaching"), "/doc", sep=""))
 
 
 ## show document with the introduction to R - one file, a pdf generated with WORD:
-browseURL(paste(system.file(package="marelacTeaching"), "/lecture/UsingR.pdf", sep=""))
+browseURL(paste(system.file(package="marelacTeaching"), "/doc/lecture/UsingR.pdf", sep=""))
 
 ## the introduction to R - a vignette
 vignette("UsingR")

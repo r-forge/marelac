@@ -30,7 +30,7 @@
 To open the lecture notes, copy-paste this sentence to R:
 
 \code{
-browseURL(paste(system.file(package="marelacTeaching"), "/doc/lecture/UsingR.pdf", sep=""))}
+browseURL(paste(system.file(package="marelacTeaching"), "/doc/UsingR.pdf", sep=""))}
 
 which will open a PDF generated with WORD (Microsoft)
 
@@ -50,14 +50,14 @@ or type \code{vignette("UsingR")} which will open a LaTeX-generated file.
 ## show examples (see respective help pages for details)
 example(Bathymetry)
 example(SCOC)
-example(Zoograzing)
+example(Zoogrowth)
 
 ## open the directory with documents
 browseURL(paste(system.file(package="marelacTeaching"), "/doc", sep=""))
 
 
 ## show document with the introduction to R - one file, a pdf generated with WORD:
-browseURL(paste(system.file(package="marelacTeaching"), "/doc/lecture/UsingR.pdf", sep=""))
+browseURL(paste(system.file(package="marelacTeaching"), "/doc/UsingR.pdf", sep=""))
 
 ## the introduction to R - a vignette
 vignette("UsingR")

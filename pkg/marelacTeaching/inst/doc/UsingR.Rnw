@@ -49,7 +49,7 @@ June 2009
 
 \Abstract{
   \R \citep{R2008} is the open-source (read: free-of-charge and free
-  to make derived work ) version of  the language \proglang{S}.
+  to make derived work) version of  the language \proglang{S}.
   It is best known as a software that performs statistical analysis and graphics.
   However, \R is so much more: it is a high-level language
   in which one can perform complex calculations, implement new methods, and
@@ -160,44 +160,46 @@ R-code is highly readable, once you realise that:
 There are two ways in which to work with R.
 
 \begin{enumerate}
-    \item We can type commands into the \R console window at the command
-      prompt (>) and use \R as a powerful scientific calculator.
+  \item We can type commands into the \R console window at the command
+    prompt (>) and use \R as a powerful scientific calculator.
 
-      For instance, enter in the console window:
+    For instance, enter in the console window:
 
 <<>>=
  pi*0.795^2 ; 25*6/sqrt(67) ; log(25)
 @
 
-     Here \code{sqrt} and \code{log} are built-in functions in R; \code{pi}
-     is a built-in constant; the semi-colon (;) is used to separate \proglang{R}-commands.
+    Here \code{sqrt} and \code{log} are built-in functions in R; \code{pi}
+    is a built-in constant; the semi-colon (;) is used to separate \proglang{R}-commands.
 
-     In the console window, the <UP> and <DOWN> arrow keys are used to
-     navigate through previously typed sentences.
+    In the console window, the <UP> and <DOWN> arrow keys are used to
+    navigate through previously typed sentences.
 
 
-    \item Alternatively, we can create \proglang{R}-scripts in an editor (e.g. Tinn-R)
-      and save them in a file (\code{filename.R}) for later re-use.
-      \proglang{R}-scripts are sequences of \proglang{R}-commands and expressions. These scripts
-      should be submitted to \R before they are executed.
-      This can be done in several ways:
-      \begin{itemize}
-        \item	by typing, in the \proglang{R}-console window:
+  \item Alternatively, we can create \proglang{R}-scripts in an editor (e.g. Tinn-R)
+    and save them in a file (\code{filename.R}) for later re-use.
+    \proglang{R}-scripts are sequences of \proglang{R}-commands and expressions. These scripts
+    should be submitted to \R before they are executed.
+    This can be done in several ways:
+    \begin{itemize}
+      \item by typing, in the \proglang{R}-console window:
+%
 \begin{verbatim}
 > source ("filename.R")
 \end{verbatim}
-         \item	by opening the file, copying the R-script to the clipboard
-           (ctrl-C) and pasting it (ctrl-V) into the R-console window
-         \item	If you do not use the tinn-R editor, the file is opened
-           as an R-script from within the \R console.
-           After selecting the script, and pressing the "send" button
-           the statements are executed and the cursor moved to the next line.
-         \item	If you do use the Tinn-R editor,
-           \includegraphics[width=0.4\textwidth]{tinn1}
-           you can either submit the entire file (buttons 1,2), selected
-           parts of the text (buttons 3,4), submit marked blocks (buttons 5,6)
-           or line-by-line (last button).
-      \end{itemize}
+%
+  \item by opening the file, copying the R-script to the clipboard
+    (ctrl-C) and pasting it (ctrl-V) into the R-console window
+  \item If you do not use the tinn-R editor, the file is opened
+    as an R-script from within the \R console.
+    After selecting the script, and pressing the "send" button
+    the statements are executed and the cursor moved to the next line.
+  \item If you do use the Tinn-R editor,
+    \includegraphics[width=0.4\textwidth]{tinn1}
+    you can either submit the entire file (buttons 1,2), selected
+    parts of the text (buttons 3,4), submit marked blocks (buttons 5,6)
+    or line-by-line (last button).
+  \end{itemize}
 \end{enumerate}
 
 Throughout these notes, the following convention is used:
@@ -304,43 +306,49 @@ will demonstrate some simple graphical capabilities.
 
 \subsubsection{	Small things to remember}
 
-  \begin{itemize}
-
-    \item 	Pathnames in \R are written with forward slashes ("/") ,
-      although in windows, backslashes, ($\backslash$), are used.
-      Thus, to set a working directory in R:
+\begin{itemize}
+  \item Pathnames in \R are written with forward slashes ("/") ,
+    although in windows, backslashes, ($\backslash$), are used.
+    Thus, to set a working directory in R:
+%
 \begin{verbatim}
 setwd("C:/R code/")
 \end{verbatim}
-    \item	If a sentence on one line is syntaxically correct, \R will
-      execute it, even if it is the intention that it proceeds on the next
-      line. For instance if we write:
+%
+  \item If a sentence on one line is syntaxically correct, \R will
+    execute it, even if it is the intention that it proceeds on the next
+    line. For instance if we write:
+
 <<>>=
 A <- 3 + cos(pi)
     - sqrt(5)
 @
-      then A will get the value ($3+cos(\pi)$) and \R will print the value
-      of ($–\sqrt(5)$).
-      In contrast, in the next lines:
+
+   then A will get the value ($3+cos(\pi)$) and \R will print the value
+   of ($–\sqrt(5)$).
+   In contrast, in the next lines:
+
 \begin{verbatim}
 > 3 + cos(pi) -
 >     sqrt(5)
 [1] -0.236068
 \end{verbatim}
 
-      \R will print the value of $3+cos(\pi)-\sqrt(5)$: as the sentence
-      on the first line was not syntaxically finished,
-      \R has (correctly) assumed that it continued on the next line.
+   \R will print the value of $3+cos(\pi)-\sqrt(5)$: as the sentence
+   on the first line was not syntaxically finished,
+   \R has (correctly) assumed that it continued on the next line.
 
-      Be careful if you want to split a complex statement over several lines !
-      These errors are very difficult to trace, so it is best to avoid them.
-  \end{itemize}
-\subsubsection{Exercises. Using R as a calculator}
-  It is very convenient to use \R as a powerful calculator. This can best
-  be done from within the R-console.
+   Be careful if you want to split a complex statement over several lines !
+   These errors are very difficult to trace, so it is best to avoid them.
+\end{itemize}
 
-  \begin{enumerate}
-    \item Use the console to calculate the value of:
+\subsubsection{Exercises: Using R as a calculator}
+
+It is very convenient to use \R as a powerful calculator. This can best
+be done from within the R-console.
+
+\begin{enumerate}
+  \item Use the console to calculate the value of:
     \begin{itemize}
       \item	$(4/6*8-1)^{2/3}$
       \item	ln(20)
@@ -348,632 +356,769 @@ A <- 3 + cos(pi)
       \item	$2*\pi*3$
       \item $\sqrt {2.3^2  + 5.4^2  - 2*2.3*5.4*\cos (\pi /8)}$
     \end{itemize}
-    tip: you may need to look at the help files for some of these
+    Tip: you may need to look at the help files for some of these
     functions. typing \code{?"+"} will open a help file with the common
     arithmetic operators.
 
-    \item Now write the R-statements in a script file, using the Tinn-R
+  \item Now write the R-statements in a script file, using the Tinn-R
     editor. Try the various ways in which to submit the statements to \R.
-  \end{enumerate}
+\end{enumerate}
 \clearpage
 
 \section{R-variables}
-  \R calculates as easily with vectors, matrices and arrays as with single
-  numbers.
 
-  \R also includes more complex structures such as data frames and lists,
-  which allow to combine several types of data.
+\R calculates as easily with vectors, matrices and arrays as with single
+numbers.
 
-  Learning how to create these variables, how to address them and modify
-  them is essential if you want the make good use of the \R software.
+\R also includes more complex structures such as data frames and lists,
+which allow to combine several types of data.
+
+Learning how to create these variables, how to address them and modify
+them is essential if you want the make good use of the \R software.
 
 \subsection{Numbers, vectors, matrices and arrays}
+
 \subsubsection{Assignment}
-  When variables are used, they need to be initialised with numbers.
+
+When variables are used, they need to be initialised with numbers.
+
 <<>>=
 A <- 1
 B <- 2
-A+B
+A + B
 @
-  R can take as arguments for its functions single numbers, vectors,
-  matrices, or arrays.
+
+R can take as arguments for its functions single numbers, vectors,
+matrices, or arrays.
 
 <<>>=
-V<-factorial(10)
+V <- factorial(10)
 @
-  Calculates $10! (=1\cdot 2\cdot 3\cdot 4\cdot 5\cdot \ldots \cdot 10)$.
-  The operator \code{<-} assigns the result of this calculation to variable V.
-  V can then be used in subsequent calculations:
+
+Calculates $10! (=1\cdot 2\cdot 3\cdot 4\cdot 5\cdot \ldots \cdot 10)$.
+The operator \code{<-} assigns the result of this calculation to variable V.
+V can then be used in subsequent calculations:
+
 <<>>=
 V/10
 @
-  Note that the assignment of a value to V does not display it on the window.
-  To display V we simply write:
+
+Note that the assignment of a value to V does not display it on the window.
+To display V we simply write:
+
 <<>>=
  V
 @
-  Alternatively, we may assign the result of calculations to a variable AND
-  view the results, by embracing the statement between brackets:
+
+Alternatively, we may assign the result of calculations to a variable AND
+view the results, by embracing the statement between brackets:
+
 <<>>=
  (X <- sin(3/2*pi) )
 @
-  Apart from integers, real and complex numbers, \R also recognizes infinity
-  (Inf) and Not a Number (NaN). Try:
+
+Apart from integers, real and complex numbers, \R also recognizes infinity
+(\code{Inf}) and Not a Number (\code{NaN}). Try:
+
 \begin{verbatim}
 > 1/0
 > 0/0
 > 1e-8 * 1000
 \end{verbatim}
-  (where the \code{e-8} notation denotes $10^{-8}$).
+
+(where the \code{e-8} notation denotes $10^{-8}$).
 
 \subsubsection{Vectors}
-  Vectors can be created in many ways:
-  \begin{itemize}
-    \item	Using R-function \code{vector}
-    \item	The function \code{c()} combines numbers into a vector
-      \footnote{This is perhaps THE most important function in R}
-    \item	The operator "\code{:}" creates a sequence of values, each
-      1 larger (or smaller) than the previous one
-    \item	A more general sequence can be generated by R-function \code{seq}
-    \item	The same quantity is repeated using R-function \code{rep}
-  \end{itemize}
-  For instance, the commands:
+
+Vectors can be created in many ways:
+
+\begin{itemize}
+  \item Using R-function \code{vector},
+  \item The function \code{c()} combines numbers into a vector
+    \footnote{This is perhaps THE most important function in R},
+  \item The operator "\code{:}" creates a sequence of values, each
+    1 larger (or smaller) than the previous one,
+  \item A more general sequence can be generated by R-function \code{seq},
+  \item The same quantity is repeated using R-function \code{rep}.
+\end{itemize}
+
+For instance, the commands:
+
 <<>>=
 c(0, pi/2, pi, 3*pi/2, 2*pi)
-seq(from=0,to=2*pi, by=pi/2 )
+seq(from = 0,to = 2*pi, by = pi/2 )
 seq(0, 2*pi, pi/2 )
 @
-  will all create a vector, consisting of: 0, $\pi,\ldots 2*\pi$.
 
-  Note that R-function \code{seq} takes as input (amongst others)
-  parameters \code{from}, \code{to} and \code{by} ($2^{nd}$ example).
-  If the order is kept, they not be specified by name ($3^{rd}$ example).
+will all create a vector, consisting of: $0, \pi,\ldots 2*\pi$.
 
-  The next command calculates the sine of this vector and outputs the result:
+Note that R-function \code{seq} takes as input (amongst others)
+parameters \code{from}, \code{to} and \code{by} ($2^{nd}$ example).
+If the order is kept, they not be specified by name ($3^{rd}$ example).
+
+The next command calculates the sine of this vector and outputs the result:
+
 <<>>=
 sin( seq(0, 2*pi, pi/2 ))
 @
-  Function \code{rep} is used to repeat elements:
+
+Function \code{rep} is used to repeat elements:
+
 <<>>=
 rep(1,times=5)
 rep(c(1,2),times=5)
 c(rep(1,5),rep(2,5))
 @
-  The next statements:
-<<>>=
- V <- 1:20
- sqrt(V)
-@
-  create a sequence of integers between 1 and 20 and take the square root
-  of all of them, displaying the result to the screen.
-  The operator \code{<-} assigns the sequence to V.
 
-  Some other examples of the \code{:} operator are:
+The next statements:
+
+<<>>=
+V <- 1:20
+sqrt(V)
+@
+
+create a sequence of integers between 1 and 20 and take the square root
+of all of them, displaying the result to the screen.
+The operator \code{<-} assigns the sequence to V.
+
+Some other examples of the \code{:} operator are:
+
 <<>>=
 (V <- 0.5:10.5)
 6:1
 @
-  Finally, the statements:
+
+Finally, the statements:
+
 <<>>=
 V <- vector(length=10)
 FF<- vector()
 @
-  generate a vector V comprising 10 elements, and a vector FF of unknown length.
 
-  Note: a peculiar feature of \R is that the elements of a vector can also
-  be given \code{names}:
+generate a vector \code{V} comprising 10 elements, and a vector FF of unknown length.
+
+Note: a peculiar feature of \R is that the elements of a vector can also
+be given \code{names}:
+
 <<>>=
-(fruit <- c(banana=1, apple=2, orange =3))
+(fruit <- c(banana = 1, apple = 2, orange = 3))
 names(fruit)
 @
-\subsubsection{Matrices}
-  Matrices can also be created in several ways:
-  \begin{itemize}
-    \item	By means of R-function \code{matrix}
-    \item	By means of R-function \code{diag} which constructs a diagonal matrix
-    \item	The functions \code{cbind} and \code{rbind} add columns and
-      rows to an existing matrix, or to another vector
-  \end{itemize}
-  The statement:
-<<>>=
-A <-matrix(nrow=2,data=c(1,2,3,4))
-@
-  creates a matrix A, with two rows, and, as there are four elements,
-  two columns.
-  Note that the data are inputted as a vector (using the \code{c()} function).
 
-  The next two statements display the matrix followed by the square root
-  of its elements:
+\subsubsection{Matrices}
+
+Matrices can also be created in several ways:
+
+\begin{itemize}
+  \item By means of R-function \code{matrix},
+  \item By means of R-function \code{diag} which constructs a diagonal matrix,
+  \item The functions \code{cbind} and \code{rbind} add columns and
+    rows to an existing matrix, or to another vector.
+\end{itemize}
+
+The statement:
+
+<<>>=
+A <-matrix(nrow = 2, data = c(1, 2, 3, 4))
+@
+
+creates a matrix A, with two rows, and, as there are four elements,
+two columns.
+Note that the data are inputted as a vector (using the \code{c()} function).
+
+The next two statements display the matrix followed by the square root
+of its elements:
+
 <<>>=
 A
 sqrt(A)
 @
-  By default, \R fills a matrix column-wise (see the example above). However,
-  this can easily be overruled, using parameter \code{byrow}:
+
+By default, \R fills a matrix column-wise (see the example above). However,
+this can easily be overruled, using parameter \code{byrow}:
+
 <<>>=
-(M <-matrix(nrow=4, ncol=3, byrow=TRUE, data=1:12))
-@
-  The unity matrix (I) is created using R-function diag:
-<<>>=
-diag(1,nrow=2)
+(M <- matrix(nrow = 4, ncol = 3, byrow = TRUE, data = 1:12))
 @
 
-  The \emph{names} of columns and rows are set as follows:
+The unity matrix (I) is created using R-function diag:
+
 <<>>=
-rownames(A) <- c("x","y")
-colnames(A) <- c("c","b")
+diag(1, nrow = 2)
+@
+
+The \emph{names} of columns and rows are set as follows:
+
+<<>>=
+rownames(A) <- c("x", "y")
+colnames(A) <- c("c", "b")
 A
 @
-  note that we also use the \code{c()} function here ! Row names and column
-  names are in fact vectors containing strings.
 
-  Matrices can also be created by combining (binding) vectors, e.g. rowwise:
+Note that we also use the \code{c()} function here! Row names and column
+names are in fact vectors containing strings.
+
+Matrices can also be created by combining (binding) vectors, e.g. rowwise:
+
 <<>>=
 V <- 0.5:5.5
 rbind(V,sqrt(V))
 @
-  t(A) will transpose matrix A (interchange rows and columns).
+
+\code{t(A)} will transpose matrix A (interchange rows and columns).
+
 <<>>=
 t(A)
 @
+
 \subsubsection{Arrays}
-  Arrays are multidimensional generalizations of matrices; matrices and
-  arrays in \R are actually vectors with a dimension attribute.
-  A multi-dimensional array is created as follows:
+
+Arrays are multidimensional generalizations of matrices; matrices and
+arrays in \R are actually vectors with a dimension attribute.
+A multi-dimensional array is created as follows:
+
 <<>>=
-AR <-array(dim=c(2,3,2),data=1)
+AR <- array(dim = c(2, 3, 2), data = 1)
 @
-  In this case AR is a 2*3*2 array, and its elements are all 1.
+
+In this case AR is a 2*3*2 array, and its elements are all 1.
+
 \subsection{Dimensions}
-  The commands
+
+The commands
+
 \begin{verbatim}
 > length(V)
 > dim(A)
 > ncol(M)
 > nrow(M)
 \end{verbatim}
-  Will return the length (total number of elements) of (vector or matrix) V,
-  the dimension of matrix or array A, and the number of columns and rows of
-   matrix M respectively.
+
+Will return the length (total number of elements) of (vector or matrix) V,
+the dimension of matrix or array A, and the number of columns and rows of
+ matrix M respectively.
 
 \subsection{Selecting and extracting elements}
-  To select subsets of vectors or matrices, we can either
-  \begin{itemize}
-    \item	specify the numbers of the elements that we want (simple indexing)
-    \item	specify a vector of logical values (TRUE/FALSE) to indicate which
-    elements to include (TRUE) and which not to include (FALSE). This uses
-    logical expressions
-  \end{itemize}
+
+To select subsets of vectors or matrices, we can either
+
+\begin{itemize}
+  \item specify the numbers of the elements that we want (simple indexing),
+  \item specify a vector of logical values (\code{TRUE}/\code{FALSE}) to indicate which
+    elements to include (\code{TRUE}) and which not to include (\code{FALSE}). This uses
+    logical expressions.
+\end{itemize}
+
 \subsubsection{Simple indexing}
-  The elements of vectors, matrices and arrays are indexed using the
-  \code{[]} operator:
+
+The elements of vectors, matrices and arrays are indexed using the
+\code{[]} operator:
+
 \begin{verbatim}
 M[1 , 1]
 M[1 , 1:2]
 M[1:3 , c(2,4)]
 \end{verbatim}
-  Takes the element on the first row, first column of a matrix M
-  ($1^{st}$ line),
-  then selects the entries in the first row and first two columns
-  ($2^{nd}$ line) and then the elements on the first three rows, and
-  $2^{nd}$ and $4^{th}$ column of matrix M ($3^{rd}$ line).
 
-  If an index is omitted, then all the rows ($1^{st}$ index omitted) or
-  columns ($2^{nd}$ index omitted) are selected. In the following:
+Takes the element on the first row, first column of a matrix M
+($1^{st}$ line),
+then selects the entries in the first row and first two columns
+($2^{nd}$ line) and then the elements on the first three rows, and
+$2^{nd}$ and $4^{th}$ column of matrix M ($3^{rd}$ line).
+
+If an index is omitted, then all the rows ($1^{st}$ index omitted) or
+columns ($2^{nd}$ index omitted) are selected. In the following:
+
 \begin{verbatim}
 M[   ,2] <-0
 M[1:3, ] <- M[1:3, ] * 2
 \end{verbatim}
-  first all the elements on the $2^{nd}$ column ($1^{st}$ line) of M are
-  zeroed and then the elements on the first three rows of M multiplied with
-  2 ($2^{nd}$ line).
-  Similar selection methods apply to vectors:
+
+first all the elements on the $2^{nd}$ column ($1^{st}$ line) of M are
+zeroed and then the elements on the first three rows of M multiplied with
+2 ($2^{nd}$ line).
+Similar selection methods apply to vectors:
+
 \begin{verbatim}
 V[1:10]
 V[seq(from=1,to=5,by=2)]
 \end{verbatim}
-  The statement on the $1^{st}$ line takes the first 10 elements of vector V,
-  whilst on the $2^{nd}$ line, the $1^{st}$, $3^{rd}$ and $5^{th}$ element of
-  vector V are selected.
-\subsubsection{Logical expressions}
-  Logical expressions are often used to select elements from vectors and
-  matrices that obey certain criteria.
 
-  R distinguishes logical variables TRUE and FALSE, represented by the
-  integers 1 and 0.
+The statement on the $1^{st}$ line takes the first 10 elements of vector V,
+whilst on the $2^{nd}$ line, the $1^{st}$, $3^{rd}$ and $5^{th}$ element of
+vector V are selected.
+
+\subsubsection{Logical expressions}
+
+Logical expressions are often used to select elements from vectors and
+matrices that obey certain criteria.
+
+\R distinguishes logical variables \code{TRUE} and \code{FALSE}, represented by the
+integers 1 and 0.
+
 \begin{verbatim}
 > ?Comparison
 > ?Logic
 \end{verbatim}
-  will list the relational and logic operators available in R.
-  The following will return TRUE for values of sequence V that are positive:
+
+will list the relational and logic operators available in \proglang{R}.
+The following will return \code{TRUE} for values of sequence V that are positive:
+
 <<>>=
-(V <- seq(-2,2,0.5))
- V>0
+(V <- seq(-2, 2, 0.5))
+V > 0
 @
-  while
+
+while
+
 <<>>=
-V [V > 0]
+V[V > 0]
 @
-  will select the positive values from V,
+
+will select the positive values from V,
+
 <<>>=
-V [V > 0] <- 0
+V[V > 0] <- 0
 @
-  will zero all positive elements in V,
+
+will zero all positive elements in V,
+
 <<>>=
- sum(V < 0)
+sum(V < 0)
 @
-  will return the number of negative elements: it sums the TRUE (=1) values, and
+
+will return the number of negative elements: it sums the TRUE (=1) values, and
+
 <<>>=
 V [V != 0]
 @
-  will display all nonzero elements from V ( "!" is the "not" operator).
-  Logical tests can also be combined, using $\mid$  (the "or" operator),
-  and  $\&$ ("and").
+
+will display all nonzero elements from V (``!'' is the ``not'' operator).
+Logical tests can also be combined, using $\mid$  (the ``or'' operator),
+and  $\&$ (``and'').
+
 <<>>=
-V [V<(-1) | V>1]
+V[V < (-1) | V > 1]
 @
-  will display all values from V that are < -1 and > 1. Note that we have
-  enclosed "-1" between brackets (can you see why this is necessary?)
-  Finally,
+
+will display all values from V that are < -1 and > 1. Note that we have
+enclosed ``-1'' between brackets (can you see why this is necessary?)
+Finally,
+
 <<>>=
 which (V == 0)
 which.min (V)
 @
-  will return the element index of the 0-value, and of the minimum.
+
+will return the element index of the 0-value, and of the minimum.
+
 \subsection{Removing elements}
-  When the index is preceded by a "-", the element is removed.
+
+When the index is preceded by a "-", the element is removed.
+
 \begin{verbatim}
 > M[ ,-1]
 \end{verbatim}
-  Will show the contents of matrix M, except the first column.
+
+will show the contents of matrix M, except the first column.
 
 \begin{verbatim}
 > x <- x[-1]
 > M <- M[-1, ]
-> V <- V[-V>=0]
+> V <- V[-V >= 0]
 \end{verbatim}
-  will delete the $1^{st}$ element of x, ($1^{st}$ line),  the $1^{st}$
-  row of M ($2^{nd}$ line), and the positive elements of V ($3^{rd}$ line).
-  For more information, type
+
+will delete the $1^{st}$ element of x, ($1^{st}$ line),  the $1^{st}$
+row of M ($2^{nd}$ line), and the positive elements of V ($3^{rd}$ line).
+For more information, type:
+
 \begin{verbatim}
 > ?Extract
 \end{verbatim}
+
 \subsection{More complex data structures}
-  \R also allows creating more complex structures such as data frames and lists.
+
+\R also allows creating more complex structures such as data frames and lists.
+
 \subsubsection{lists}
-  A list is a combination of several objects; each object can be of
-  different length:
+
+A list is a combination of several objects; each object can be of
+different length:
+
 \begin{verbatim}
 > list(Array = AR, Matrix = M)
 \end{verbatim}
-  will combine the previously defined array AR and matrix M.
+
+will combine the previously defined array AR and matrix M.
+
 \subsubsection{data.frames}
-  These are combinations of different data types (e.g. characters,
-  integers, logicals, reals), arranged in tabular format:
+
+These are combinations of different data types (e.g. characters,
+integers, logicals, reals), arranged in tabular format:
+
 <<>>=
-genus <- c("Sabatieria","Molgolaimus")
+genus <- c("Sabatieria", "Molgolaimus")
 dens  <- c(1,2)
-Nematode <-data.frame(genus=genus,density=dens)
+Nematode <-data.frame(genus = genus, density = dens)
 Nematode
 @
-  In the example above, the data.frame \code{Nematode} contains two columns,
-  one with strings (the genus name), one with values (the densities).
-  Data.frames are in fact special cases of lists, consisting of vectors
-  with equal length.
-  Many matrix-operations work on data.frames with a single data type, but
-  there exist also special operations on data.frames.
-\subsubsection{Selecting data from data.frames and lists}
-  Data.frames and lists can be accessed by their names, or by the \code{[ ]}
-  or \code{[[ ]]} operator.
-  The object resulting from a selection using single brackets \code{[ ]},
-  will be a data.frame respectively a list itself;
-  with double brackets \code{[[ ]]}, one obtains a vector (data.frames)
-  or a variable data-type (lists).
 
-  For instance:
+In the example above, the data.frame \code{Nematode} contains two
+columns, one with strings (the genus name), one with values (the
+densities).  Data.frames are in fact special cases of lists,
+consisting of vectors with equal length.  Many matrix-operations work
+on data.frames with a single data type, but there exist also special
+operations on data.frames.
+
+\subsubsection{Selecting data from data.frames and lists}
+
+Data.frames and lists can be accessed by their names, or by the \code{[ ]}
+or \code{[[ ]]} operator.
+The object resulting from a selection using single brackets \code{[ ]},
+will be a data.frame respectively a list itself;
+with double brackets \code{[[ ]]}, one obtains a vector (data.frames)
+or a variable data-type (lists).
+
+For instance:
+
 <<>>=
 Nematode$density/sum(Nematode$density)
 @
-  will divide all density values (1,2) by the summed density.
+
+will divide all density values (1,2) by the summed density.
+
 <<>>=
 mean(Nematode[,2])
 @
-  will calculate the mean of Nematode density (the $2^{nd}$ column).
 
-  Try:
+will calculate the mean of Nematode density (the $2^{nd}$ column).
+
+Try:
+
 \begin{verbatim}
 > Nematode$genus
 > Nematode[1]
 > Nematode[[1]]
 \end{verbatim}
 
-  These statements will all output the two genus names, but in a
-  different format.
+These statements will all output the two genus names, but in a
+different format.
+
 \begin{verbatim}
 > ?Extract
 \end{verbatim}
-  also explains the various ways in which to extract elements from lists
-  and data frames.
+
+also explains the various ways in which to extract elements from lists
+and data frames.
+
 \subsection{Data Conversion}
-  Conversion from one type of data structures to another can easily be done,
-  e.g. by:
+
+Conversion from one type of data structures to another can easily be done,
+e.g. by:
+
 \begin{verbatim}
 > as.data.frame(M)
 > as.vector(A)
 \end{verbatim}
-  If unsure about the type, you can write:
+
+If unsure about the type, you can write:
+
 \begin{verbatim}
 > is.data.frame(M)
 > is.vector(A)
 \end{verbatim}
-  Or you can display the data type by:
+
+Or you can display the data type by:
+
 \begin{verbatim}
 > class(M)
 \end{verbatim}
+
 \subsection{Data import from external sources}
-  In all previous examples, data was entered from the console (or from a
-  script file).
-  There are ample facilities to import data from external sources. Most
-  often, we will use functions \code{read.table}, \code{read.csv}, or
-  \code{read.delim} to read matrices or data frames written in tabular
-  form as text files.
-  R also has plenty of built-in data sets. They are listed by:
+
+In all previous examples, data was entered from the console (or from a
+script file).  There are ample facilities to import data from external
+sources. Most often, we will use functions \code{read.table},
+\code{read.csv}, or \code{read.delim} to read matrices or data frames
+written in tabular form as text files.  \R also has plenty of built-in
+data sets. They are listed by:
+
 \begin{verbatim}
 > data()
 \end{verbatim}
 
 \subsection{Exercises}
-  Creating and manipulating matrices and vectors is essential if we want to
-  use \R as a mathematical tool.
-  Although this has been implemented in a consistent way in \R, it is
-  not simple for novice users!
-  Practice is the best teacher, so you will get plenty of exercise.
 
-  Most of the exercises can be answered with one single \R-statement.
-  However, as these statement smay be quite complicated, it is often simpler
-  to first break them up into smaller parts, after which they are
-  merged into one.
+Creating and manipulating matrices and vectors is essential if we want
+to use \R as a mathematical tool.  Although this has been implemented
+in a consistent way in \R, it is not simple for novice users!
+Practice is the best teacher, so you will get plenty of exercise.
+
+Most of the exercises can be answered with one single \R-statement.
+However, as these statement smay be quite complicated, it is often
+simpler to first break them up into smaller parts, after which they
+are merged into one.
+
 \subsubsection{Vectors, sequences.}
+
+\begin{itemize}
+  \item	Use R-function \code{mean} to estimate the mean of two numbers,
+    9 and 17. (you may notice that this is not as simple as you might think!).
+  \item Vector V
   \begin{itemize}
-    \item	Use R-function \code{mean} to estimate the mean of two numbers,
-      9 and 17. (you may notice that this is not as simple as you might think!).
-    \item Vector V
-    \begin{itemize}
-      \item	Create a vector, called V, with even numbers, between 16 and 56.
-        Do not use loops. (tip: use R-function  \code{seq} )
-      \item	Display this vector
-      \item	What is the sum of all elements of V? Do not use loops; there
-        exists an R-function that does this; the name of this function
-        is trivial.
-      \item	Display the first 4 elements of V
-      \item	Calculate the product of the first 4 elements of V
-      \item	Display the $4^{th}$, $9^{th}$ and $11^{th}$ element of V .
-        (tip: use the \code{c()} function).
-    \end{itemize}
-    \item Vector W
-    \begin{itemize}
-      \item	Create a new vector, W, which equals vector V, multiplied with 3;
-        display its content.
-      \item	How many elements of W are smaller than 100?
-
-        First create a new vector that contains only the elements from W<100
-          (call it W100), then calculate the length of this new vector.
-      \item	Now perform the same calculation, in one \R statement.
-    \end{itemize}
-    \item	Create a sequence that contains the values (1,$1/2$,$1/3$,$1/4$,
-      $\ldots$, $1/10$)
-    \item	Compute the square root of each element
-    \item	Compute the square ($^2$) of each element
-    \item	Create a sequence with values ($0/1$,$1/2$,$2/3$,$3/4$,
-      $\ldots$, $9/10$)
-    \item Vector U
-    \begin{itemize}
-      \item	Create a vector, U, with 100 random numbers, uniformly
-        distributed between -1 and 1.
-
-      tip: R-statement \code{runif} generates uniformly distributed
-        random numbers; use \code{?runif} to see how it works.
-      \item	Check the range of U; all values should be within -1 and +1.
-
-      tip: there exists an R-function to do that-its name is trivial.
-      \item	Calculate the sum and the product of the elements of U
-      \item	How many elements of U are positive?
-      \item	Zero all negative values of U.
-      \item	Sort U
-    \end{itemize}
-    \item Vectors x, y
-    \begin{itemize}
-      \item	Create two vectors: vector x, with the elements: 2,9,0,2,7,4,0
-        and vector y with the elements 3,5,0,2,5,4,6 (in that order). (tip:
-        use the c() function).
-      \item	Divide all the elements of y by the elements of x.
-      \item	Type in the following commands; try to understand:
-      \begin{itemize}
-        \item	x>y
-        \item	x==0
-      \end{itemize}
-      \item	Select all values of y that are larger than the corresponding
-        values of x
-      \item	Select all values of y for which the corresponding values of
-        x are 0.
-      \item	Remove all values of y for which the corresponding values of
-        x equal 0.
-      \item	Zero all elements of x that are larger or equal than 7. Show x.
-    \end{itemize}
+    \item	Create a vector, called V, with even numbers, between 16 and 56.
+      Do not use loops. (tip: use R-function  \code{seq} )
+    \item	Display this vector
+    \item	What is the sum of all elements of V? Do not use loops; there
+      exists an R-function that does this; the name of this function
+      is trivial.
+    \item	Display the first 4 elements of V
+    \item	Calculate the product of the first 4 elements of V
+    \item	Display the $4^{th}$, $9^{th}$ and $11^{th}$ element of V .
+      (tip: use the \code{c()} function).
   \end{itemize}
+  \item Vector W
+  \begin{itemize}
+    \item	Create a new vector, W, which equals vector V, multiplied with 3;
+      display its content.
+    \item	How many elements of W are smaller than 100?
+
+      First create a new vector that contains only the elements from W<100
+        (call it W100), then calculate the length of this new vector.
+    \item	Now perform the same calculation, in one \R statement.
+  \end{itemize}
+  \item	Create a sequence that contains the values (1,$1/2$,$1/3$,$1/4$,
+    $\ldots$, $1/10$)
+  \item	Compute the square root of each element
+  \item	Compute the square ($^2$) of each element
+  \item	Create a sequence with values ($0/1$,$1/2$,$2/3$,$3/4$,
+    $\ldots$, $9/10$)
+  \item Vector U
+  \begin{itemize}
+    \item	Create a vector, U, with 100 random numbers, uniformly
+      distributed between -1 and 1.
+
+    tip: R-statement \code{runif} generates uniformly distributed
+      random numbers; use \code{?runif} to see how it works.
+    \item	Check the range of U; all values should be within -1 and +1.
+
+    tip: there exists an R-function to do that-its name is trivial.
+    \item	Calculate the sum and the product of the elements of U
+    \item	How many elements of U are positive?
+    \item	Zero all negative values of U.
+    \item	Sort U
+  \end{itemize}
+  \item Vectors x, y
+  \begin{itemize}
+    \item	Create two vectors: vector x, with the elements: 2,9,0,2,7,4,0
+      and vector y with the elements 3,5,0,2,5,4,6 (in that order). (tip:
+      use the c() function).
+    \item	Divide all the elements of y by the elements of x.
+    \item	Type in the following commands; try to understand:
+    \begin{itemize}
+      \item	x>y
+      \item	x==0
+    \end{itemize}
+    \item	Select all values of y that are larger than the corresponding
+      values of x
+    \item	Select all values of y for which the corresponding values of
+      x are 0.
+    \item	Remove all values of y for which the corresponding values of
+      x equal 0.
+    \item	Zero all elements of x that are larger or equal than 7. Show x.
+  \end{itemize}
+\end{itemize}
 
 \subsubsection{Matrices}
-  \begin{itemize}
-    \item	Use \R-function \code{matrix} to create a matrix with the
-      following contents:
-      \[
-        \left[ {\begin{array}{*{20}c}
-           3 & 9  \\
-           7 & 4  \\
-        \end{array}} \right]
-      \]
 
-    \item	display it to the screen
-    \item	Use \R-function \code{matrix} to create a matrix called "A":
-      \[
-        \left[ {\begin{array}{*{20}c}
-         1 & {1/2} & {1/3}  \\
-         {1/4} & {1/5} & {1/6}  \\
-         {1/7} & {1/8} & {1/9}  \\
-        \end{array}} \right]
-      \]
-
-      \begin{itemize}
-        \item	Take the transpose of A.
-        \item	Create a new matrix, B, by extracting the first two rows
-          and first two columns of A. Display it to the screen.
-      \end{itemize}
-    \item	Use \code{diag} to create the following matrix, called "D":
-      \[
+\begin{itemize}
+  \item	Use \R-function \code{matrix} to create a matrix with the
+    following contents:
+    \[
       \left[ {\begin{array}{*{20}c}
-         1 & 0 & 0  \\
-         0 & 2 & 0  \\
-         0 & 0 & 3  \\
+         3 & 9  \\
+         7 & 4  \\
       \end{array}} \right]
-      \]
+    \]
 
-    \item	Use \code{cbind} and \code{rbind} to augment this matrix,
-      such that you obtain:
-      \[
-        \left[ {\begin{array}{*{20}c}
-         1 & 0 & 0 & 4  \\
-         0 & 2 & 0 & 4  \\
-         0 & 0 & 3 & 4  \\
-         5 & 5 & 5 & 5  \\
-        \end{array}} \right]
-      \]
+  \item	display it to the screen
+  \item	Use \R-function \code{matrix} to create a matrix called "A":
+    \[
+      \left[ {\begin{array}{*{20}c}
+       1 & {1/2} & {1/3}  \\
+       {1/4} & {1/5} & {1/6}  \\
+       {1/7} & {1/8} & {1/9}  \\
+      \end{array}} \right]
+    \]
 
-      It is simplest to do this in two statements (but it can be done in one!)
-    \item	Remove the second row and second column of the previous matrix
-  \end{itemize}
+    \begin{itemize}
+      \item	Take the transpose of A.
+      \item	Create a new matrix, B, by extracting the first two rows
+        and first two columns of A. Display it to the screen.
+    \end{itemize}
+  \item	Use \code{diag} to create the following matrix, called "D":
+    \[
+    \left[ {\begin{array}{*{20}c}
+       1 & 0 & 0  \\
+       0 & 2 & 0  \\
+       0 & 0 & 3  \\
+    \end{array}} \right]
+    \]
+
+  \item	Use \code{cbind} and \code{rbind} to augment this matrix,
+    such that you obtain:
+    \[
+      \left[ {\begin{array}{*{20}c}
+       1 & 0 & 0 & 4  \\
+       0 & 2 & 0 & 4  \\
+       0 & 0 & 3 & 4  \\
+       5 & 5 & 5 & 5  \\
+      \end{array}} \right]
+    \]
+
+    It is simplest to do this in two statements (but it can be done in one!)
+  \item	Remove the second row and second column of the previous matrix
+\end{itemize}
 
 \subsubsection{Diversity of deep-sea nematodes}
-  We will now work on a data set consisting of nematode species densities,
-  found in Mediterranean deep-sea sediments, at depths ranging from 160 m
-  to 1220 m. The densities are expressed in number of individuals per 10 cm2.
 
-  Nematodes are small (<1mm) worms, and they are generally very abundant in
-  all marine sediments.
+We will now work on a data set consisting of nematode species
+densities, found in Mediterranean deep-sea sediments, at depths
+ranging from 160 m to 1220 m. The densities are expressed in number of
+individuals per 10 cm2.
 
-  The data (from \citep{Soetaert91}, originally present in an ACCESS database,
-  have been exported as a table in a comma-separated-values (so-called csv)
-  format. This format has the advantage that it can easily be read by text
-  editors (such as the TINN-R editor) as well as in spreadsheet programs.
+Nematodes are small (< 1\,mm) worms, and they are generally very abundant
+in all marine sediments.
 
-  Open the file "nemaspec.csv" in Tinn-R\footnote{: if you do not have this
-  file, it can be found in the \pkg{marelacTeaching} package directory.
-  Within R, type:
+The data (from \citep{Soetaert91}, originally present in an ACCESS
+database, have been exported as a table in a comma-separated-values
+(so-called csv) format. This format has the advantage that it can
+easily be read by text editors (such as the TINN-R editor) as well as
+in spreadsheet programs.
 
-  browseURL(paste(system.file(package="marelacTeaching"), "/lecture/", sep=""))}.
+Open the file \code{nemaspec.csv} in Tinn-R\footnote{: if you do not have
+this file, it can be found in the \pkg{marelacTeaching} package
+directory.  Within R, type:
+%
+%\begin{verbatim}
+  browseURL(paste(system.file(package="marelacTeaching"), "/lecture/",
+  sep="")).
+%\end{verbatim}
+}
 
-  Check its structure.
+Check its structure.
 
-  You may also open the file in EXCEL, but do not forget to close it
-  before proceeding.
-  EXCEL is very territorial, and will not allow another program, such as
-  \R, to access a file that is open in EXCEL.
+You may also open the file in EXCEL, but do not forget to close it
+before proceeding.  EXCEL is very territorial, and will not allow
+another program, such as \R, to access a file that is open in EXCEL.
 
-  On the first line is the heading (the names of the stations), the first
-  column contains the species names.
-  Before importing the file in \R, check the working directory:
+On the first line is the heading (the names of the stations), the
+first column contains the species names.  Before importing the file in
+\R, check the working directory:
+
 \begin{verbatim}
 > getwd()
 \end{verbatim}
-  If the file called "nemaspec.csv" is not in this directory, you may
-  need to change the working directory:
+
+If the file called \code{nemaspec.csv} is not in this directory, you
+may need to change the working directory:
+
 \begin{verbatim}
 > setwd("directory name")
 \end{verbatim}
-  (do not forget that \R requires "/" where windows uses " $\backslash$") .
 
-  Make a script file in which you write the next steps; submit each line
-  to \R to check its correctness.
-  Read the comma-delimited file, using R-command \code{read.csv}. Type
-  \code{?read.csv} if you need help.
+Ddo not forget that \R requires ``/'' where windows uses ``$\backslash$''.
 
-  Specify that the first row is the heading (\code{header=TRUE}) and the
-  first column contains the rownames (\code{row.names=1}).
+Make a script file in which you write the next steps; submit each line
+to \R to check its correctness.  Read the comma-delimited file, using
+R-command \code{read.csv}. Type \code{?read.csv} if you need help.
 
-  Put the data in data.frame \code{Nemaspec}.
+Specify that the first row is the heading (\code{header=TRUE}) and the
+first column contains the rownames (\code{row.names=1}).
+
+Put the data in data.frame \code{Nemaspec}.
+
 \begin{verbatim}
-Nemaspec <- read.csv("nemaspec.csv", header=TRUE, row.names=1)
+Nemaspec <- read.csv("nemaspec.csv", header = TRUE, row.names = 1)
 \end{verbatim}
-  Check the contents of \code{Nemaspec}. As the dataset is quite substantial,
-  it is best to output only the first part of the data:
+
+Check the contents of \code{Nemaspec}. As the dataset is quite substantial,
+it is best to output only the first part of the data:
+
 \begin{verbatim}
 head(Nemaspec)
 \end{verbatim}
 
-  The rest is up to you:
-  \begin{itemize}
-    \item	Select the data from station M160b (the $2^{nd}$ column of Nemaspec);
-      put these data in a vector called \code{dens}.
+The rest is up to you:
 
-      (remember: to select a complete column, you select all rows by leaving
-      the first index blanc).
-    \item	Remove from vector dens, the densities that are 0. Display this
-      vector on the screen.  		(Answer: [1]  6.580261  5.919719   etc$\ldots$)
-    \item	Calculate N, the total nematode density of this station. The
-      total density is simply the sum of all species densities (i.e. the sum
-      of values in vector dens). What is the value of N ? 				(Answer :699).
-    \item	Divide the values in vector dens by the total nematode density N.
-      Put the results in vector p, which now contains the relative
-      proportions for all species. The sum of all values in p should now
-      equal 1. Check that.
-    \item	Calculate S, the number of species: this is simply the length of p;
-      call this value S. 				    	(Answer: S=126)
-    \item	Estimate the values of diversity indices N1 and N2 and Ni, given
-      by the following formulae:
-      \[
-      \begin{array}{l}
-       N1 = e^{\sum { - p_i  \cdot \log _e (p_i )} }  \\
-       N2 = 1/\left( {\sum {p_i ^2 } } \right) \\
-       Ni = 1/\max (p_i ) \\
-       \end{array}
-      \]
-      You can calculate each of these values using only one \R statement !
-      (A: 90.15358, 66.77841, 22.56157)
-    \item	The 126 nematode species per 10 cm2 were obtained by looking at
-      all 699 individuals. Of course, the fewer individuals are determined
-      to species, the fewer species will be encountered. Some researchers
-      determine 100 individuals, other 200 individuals. To standardize
-      their results, the expected number of species in a sample can be
-      recalculated based on a common number of individuals.
-      The expected number of species in a sample with size n, drawn from a
-      population which size N, which has S species is given by:
-      \[
-        ES(n) = \sum\limits_{i = 1}^S {\left[ {1 - \frac{{\left( {_n^{N - Ni} } \right)}}{{\left( {_n^N } \right)}}} \right]}
-      \]
-      where Ni is the number of individuals in the ith species in the full
-      sample and   is the so-called "binomial coefficient", the number of
-      different sets with size n that can be chosen from a set with total
-      size N.
+\begin{itemize}
+  \item	Select the data from station M160b (the $2^{nd}$ column of Nemaspec);
+    put these data in a vector called \code{dens}.
 
-      In R, binomial coefficients are estimated with statement \code{choose(N,n)}.
+    (remember: to select a complete column, you select all rows by leaving
+    the first index blanc).
+  \item	Remove from vector dens, the densities that are 0. Display this
+    vector on the screen.  		(Answer: [1]  6.580261  5.919719   etc$\ldots$)
+  \item	Calculate N, the total nematode density of this station. The
+    total density is simply the sum of all species densities (i.e. the sum
+    of values in vector dens). What is the value of N ? 				(Answer :699).
+  \item	Divide the values in vector dens by the total nematode density N.
+    Put the results in vector p, which now contains the relative
+    proportions for all species. The sum of all values in p should now
+    equal 1. Check that.
+  \item	Calculate S, the number of species: this is simply the length of p;
+    call this value S. 				    	(Answer: S=126)
+  \item	Estimate the values of diversity indices N1 and N2 and Ni, given
+    by the following formulae:
+    \[
+    \begin{array}{l}
+     N1 = e^{\sum { - p_i  \cdot \log _e (p_i )} }  \\
+     N2 = 1/\left( {\sum {p_i ^2 } } \right) \\
+     Ni = 1/\max (p_i ) \\
+     \end{array}
+    \]
+    You can calculate each of these values using only one \R statement !
+    (A: 90.15358, 66.77841, 22.56157)
+  \item	The 126 nematode species per 10 cm2 were obtained by looking at
+    all 699 individuals. Of course, the fewer individuals are determined
+    to species, the fewer species will be encountered. Some researchers
+    determine 100 individuals, other 200 individuals. To standardize
+    their results, the expected number of species in a sample can be
+    recalculated based on a common number of individuals.
+    The expected number of species in a sample with size n, drawn from a
+    population which size N, which has S species is given by:
+    \[
+      ES(n) = \sum\limits_{i = 1}^S {\left[ {1 - \frac{{\left( {_n^{N - Ni} } \right)}}{{\left( {_n^N } \right)}}} \right]}
+    \]
+    where Ni is the number of individuals in the ith species in the full
+    sample and   is the so-called "binomial coefficient", the number of
+    different sets with size n that can be chosen from a set with total
+    size N.
 
-      What is the expected number of species per 100 individuals ?
-      (n=100,N=699).				(A: ES(100) = 60.68971).
-    \item	Print all diversity indices to the screen, which should look like:
+    In R, binomial coefficients are estimated with statement \code{choose(N,n)}.
+
+    What is the expected number of species per 100 individuals ?
+    (n=100,N=699).				(A: ES(100) = 60.68971).
+  \item	Print all diversity indices to the screen, which should look like:
+%
 \begin{verbatim}
         N        N0        N1        N2        Ni       ESS
 699.00000 126.00000  90.15358  66.77841  22.56157  60.68971
 \end{verbatim}
+%
 \end{itemize}
 \clearpage
 
 \section{R functions}
-  One of the strengths of \R is that one can make user-defined functions
-  that add to \R-s built-in functions.
+
+One of the strengths of \R is that one can make user-defined functions
+that add to \R-s built-in functions.
 
 \subsection{Function definition}
-  Typically, complex functions are written in \R-script files, which are
-  then submitted to \R. For instance,
+
+Typically, complex functions are written in \R-script files, which are
+then submitted to \R. For instance,
+
 <<echo=FALSE,results=hide>>=
 options(prompt = " ")
 @
@@ -981,12 +1126,14 @@ options(prompt = " ")
 <<>>=
 Circlesurface <- function (radius) pi*radius^2
 @
-  defines a function (called \code{Circlesurface})  which takes as input
-  argument a variable called \code{radius}  and which returns the value
-  $\pi*radius^2$ (which is the surface of a circle).
 
-  After submitting this function to \R, we can use it to calculate the
-  surfaces of circles with given radius:
+defines a function (called \code{Circlesurface}) which takes as input
+argument a variable called \code{radius} and which returns the value
+$\pi*radius^2$ (which is the surface of a circle).
+
+After submitting this function to \R, we can use it to calculate the
+surfaces of circles with given radius:
+
 <<echo=FALSE,results=hide>>=
 options(prompt = ">")
 @
@@ -995,10 +1142,12 @@ options(prompt = ">")
 Circlesurface(10)
 Circlesurface(1:20)
 @
-  the latter statement will calculate the surface of circles with
-  radiuses 1, 2, ... ,20.
 
-  More complicated functions may return more than one element:
+the latter statement will calculate the surface of circles with
+radiuses 1, 2, ... ,20.
+
+More complicated functions may return more than one element:
+
 \begin{verbatim}
 Sphere <- function(radius)
 {
@@ -1007,42 +1156,50 @@ Sphere <- function(radius)
  return(list(volume=volume,surface=surface))
 }
 \end{verbatim}
+
 <<echo=FALSE,results=hide>>=
-Sphere <- function(radius)
-{
- volume  <- 4/3*pi*radius^3
- surface <- 4 *pi*radius^2
- return(list(volume=volume,surface=surface))
+Sphere <- function(radius) {
+  volume  <- 4 / 3 * pi * radius^3
+  surface <- 4 * pi * radius^2
+  return(list(volume = volume, surface = surface))
 }
 @
-  Here we recognize
-  \begin{itemize}
-    \item	the function heading ($1^{st}$ line), specifying the name of
-      the function (Sphere) and the input parameter (radius)
-    \item	the function specification. As the function comprises multiple
-      statements, the function specification is embraced by curly braces
-      $\{ \ldots \}$.
-    \item	The return values (last line). \code{Sphere} will return the
-      volume and surface of a sphere, as a list.
-  \end{itemize}
-  The earth has approximate radius 6371 km, so its volume (km3) and
-  surface (km2) are:
+
+Here we recognize
+
+\begin{itemize}
+  \item	the function heading ($1^{st}$ line), specifying the name of
+    the function (Sphere) and the input parameter (radius)
+  \item	the function specification. As the function comprises multiple
+    statements, the function specification is embraced by curly braces
+    $\{ \ldots \}$.
+  \item	The return values (last line). \code{Sphere} will return the
+    volume and surface of a sphere, as a list.
+\end{itemize}
+
+The earth has approximate radius 6371 km, so its volume (\chem{km^3}) and
+surface (\chem{km^2}) are:
+
 <<>>=
 Sphere(6371)
 @
-  The next statement will only display the volume of spheres with
-  radius 1, 2, $\ldots$ 5
+
+The next statement will only display the volume of spheres with
+radius 1, 2, $\ldots$ 5
+
 <<>>=
 Sphere(1:5)$volume
 @
-  Sometimes it is convenient to provide default values for the input
-  parameters.
 
-  For instance, the next function estimates the density of "standard mean
-  ocean water" (in $kg~m^{-3}$),
-  as a function of temperature, T, (and for salinity=0, pressure = 1 atm)
-  \citep{Millero81};
-  the input parameter T is by default equal to 20 $^{\circ}$C:
+Sometimes it is convenient to provide default values for the input
+parameters.
+
+For instance, the next function estimates the density of "standard mean
+ocean water" (in $kg~m^{-3}$),
+as a function of temperature, T, (and for salinity=0, pressure = 1 atm)
+\citep{Millero81};
+the input parameter T is by default equal to 20 $^{\circ}$C:
+
 \begin{verbatim}
 Rho_W <- function(T = 20) {
   999.842594 + 0.06793952 * T - 0.00909529 * T^2 +
@@ -1167,10 +1324,10 @@ Once installed, we generate a list of all available packages, we load
 a package and we obtain a list with its contents by the following commands:
 
 \begin{verbatim}
->library()
->library(deSolve)
->library(help=deSolve)
->help(package=deSolve)
+> library()
+> library(deSolve)
+> library(help = deSolve)
+> help(package = deSolve)
 \end{verbatim}
 
 \subsection{Exercises}
@@ -1196,157 +1353,172 @@ A= -173.9894 + 25559.07/T + 146.4813* loge(T/100) -22.204*T/100 + S *
 and T is temperature in Kelvin (Tkelvin = Tcelsius + 273.15).
 
   Tasks:
-  \begin{itemize}
-    \item	Make a function that implements this formula; the default
-      values for temperature and salinity are 20$^{\circ}$C and 35
-      respectively.
-    \item	What is the saturated oxygen concentration at the default
-      conditions? (A: 225.2346)
-    \item	Estimate the saturated oxygen concentration for a range of
-      temperatures from 0 to 30°C, and salinity 35. (Tip: no need to use loops).
-  \end{itemize}
+
+\begin{itemize}
+  \item	Make a function that implements this formula; the default
+    values for temperature and salinity are 20$^{\circ}$C and 35
+    respectively.
+  \item	What is the saturated oxygen concentration at the default
+    conditions? (A: 225.2346)
+  \item	Estimate the saturated oxygen concentration for a range of
+    temperatures from 0 to 30°C, and salinity 35. (Tip: no need to use loops).
+\end{itemize}
 
 \subsubsection{Loops}
-  The Fibonacci numbers are calculated by the following relation:
-  $F_n=F_{n-1}+F_{n-2}$
 
-  with $F_1= F_2 =1$
+The Fibonacci numbers are calculated by the following relation:
+$F_n=F_{n-1}+F_{n-2}$
 
-  Tasks:
-  \begin{itemize}
-    \item	Compute the first 50 Fibonacci numbers; store the results in
-      a vector (use R-command \code{vector} to create it). You have to
-       use a loop here
-    \item	For large n, the ratio $F_n/F_{n-1}$ approaches the
-      "golden mean": $(1 + \sqrt 5 )/2$
-    \item	What is the value of $F_{50}/F_{49}$; is it equal to the
-      golden mean?
-    \item	When is n large enough? (i.e. sufficiently close (<$1e^{-6}$)
-      to the golden mean)
-  \end{itemize}
+with $F_1= F_2 =1$
+
+Tasks:
+\begin{itemize}
+  \item	Compute the first 50 Fibonacci numbers; store the results in
+    a vector (use R-command \code{vector} to create it). You have to
+     use a loop here
+  \item	For large n, the ratio $F_n/F_{n-1}$ approaches the
+    "golden mean": $(1 + \sqrt 5 )/2$
+  \item	What is the value of $F_{50}/F_{49}$; is it equal to the
+    golden mean?
+  \item	When is n large enough? (i.e. sufficiently close (<$1e^{-6}$)
+    to the golden mean)
+\end{itemize}
 
 \subsubsection{Diversity of deep-sea nematodes for all stations}
-  \begin{itemize}
-    \item	Starting from your code to estimate diversity indices for
-      deepsea station M160b, now write a loop that does so for all
-        the stations in Nemaspec.
-    \item	First create a matrix called div, with the number of rows
-      equal to the number of deepsea stations, and with 6 columns, one
-        for each diversity index. This matrix will contain the diversity values.
-    \item	The column names of div are: "N", "N0", "N1", "N2", "Ninf", "ESS"
 
-      The row names of matrix div are the station names (= the column names
-      of Nemaspec). Tip: Use R-command \code{colnames()}, \code{rownames()}
-    \item	Now loop over all columns of data frame Nemaspec, estimate the
-      diversity indices and put the results in the correct row of matrix div:
+\begin{itemize}
+  \item	Starting from your code to estimate diversity indices for
+    deepsea station M160b, now write a loop that does so for all
+      the stations in Nemaspec.
+  \item	First create a matrix called div, with the number of rows
+    equal to the number of deepsea stations, and with 6 columns, one
+      for each diversity index. This matrix will contain the diversity values.
+  \item	The column names of div are: "N", "N0", "N1", "N2", "Ninf", "ESS"
+
+    The row names of matrix div are the station names (= the column names
+    of Nemaspec). Tip: Use R-command \code{colnames()}, \code{rownames()}
+  \item	Now loop over all columns of data frame Nemaspec, estimate the
+    diversity indices and put the results in the correct row of matrix div:
+%
 \begin{verbatim}
 for (i in 1:ncol(Nemaspec))
  {
    # you have to write this part of the code
  }
 \end{verbatim}
-    \item	Show matrix div to the screen
-  \end{itemize}
+%
+  \item	Show matrix div to the screen
+\end{itemize}
 
 \subsubsection{Diversity indices as a function}
-  Based on the results obtained in previous section, make a function that
-  will calculate the diversity indices for any data matrix.
 
-\subsubsection	{Rarefaction diversity}
-  \footnote{This question requires significant thought and imagination;
-  there are several ways to do this.}
-  If you still have time and the courage: try an alternative way of
-  estimating the number of species per 100 individuals
-  by taking random "subsamples" of 100 individuals and estimating the
-  number of species from this subsample.
+Based on the results obtained in previous section, make a function that
+will calculate the diversity indices for any data matrix.
 
-  If the procedure is repeated often enough, the mean value should converge
-  to the expected number of species, ESS(100);
-  this is the rarefaction method of \citep{Sanders68}.
+\subsubsection{Rarefaction diversity}
 
-  You may need the following \R-functions:
-  \begin{itemize}
-    \item	\code{round} (converting reals to integers),
-    \item	\code{cumsum} (take a cumulative sum),
-    \item	\code{sample} (take random selection of elements),
-    \item	\code{table} (to make a table of counts),
-  \end{itemize}
-  as well as \code{length}, \code{mean}.
+\footnote{This question requires significant thought and imagination;
+there are several ways to do this.}
+If you still have time and the courage: try an alternative way of
+estimating the number of species per 100 individuals
+by taking random "subsamples" of 100 individuals and estimating the
+number of species from this subsample.
 
-  \citep{Hurlbert71} showed that rarefaction generally overestimates
-  the true estimated number of species ; can you corroborate this finding?
+If the procedure is repeated often enough, the mean value should converge
+to the expected number of species, ESS(100);
+this is the rarefaction method of \citep{Sanders68}.
+
+You may need the following \R-functions:
+\begin{itemize}
+  \item	\code{round} (converting reals to integers),
+  \item	\code{cumsum} (take a cumulative sum),
+  \item	\code{sample} (take random selection of elements),
+  \item	\code{table} (to make a table of counts),
+\end{itemize}
+as well as \code{length}, \code{mean}.
+
+\citep{Hurlbert71} showed that rarefaction generally overestimates
+the true estimated number of species ; can you corroborate this finding?
 \clearpage
 
 \section{Statistics}
-  \R originated as a statistical package, and it is still predominantly used
-  for this purpose.
 
-  You can do virtually any statistical analysis in \R.
+\R originated as a statistical package, and it is still predominantly used
+for this purpose.
 
-  As there exist many documents that may help you with statistical analyses in R,
-  we will not deal with the subject here.
+You can do virtually any statistical analysis in \R.
 
-  Statistics is used just to show you how to use efficiently use \R,
-  in cases where you have no clue where to begin!
+As there exist many documents that may help you with statistical analyses in R,
+we will not deal with the subject here.
+
+Statistics is used just to show you how to use efficiently use \R,
+in cases where you have no clue where to begin!
 
 \subsection{Using R in four steps}
-  Suppose you want to perform a hierarchic clustering and plot the
-  dendrogram of a multivariate data set.
 
-  If you have never done that in \R here are the steps:
-  \begin{enumerate}
-    \item	Find a function that performs the requested task.
+Suppose you want to perform a hierarchic clustering and plot the
+dendrogram of a multivariate data set.
 
-      for instance, use \code{help.search ("cluster")} to help you.
+If you have never done that in \R here are the steps:
 
-      Depending on the number of packages that you have installed, \R will
-      list a number of possible functions whose help file contains the
-      word "cluster".
-      Use the function from the package \pkg{stats} (part of the core of R).
-    \item	Open the help file (?<name-of-the-function>) and look up the
-      syntax for this function.
-      If you have no time to read it completely, at least read (part of)
-      the section "Description", "Usage", and "Examples".
-    \item	Try the examples in the help file. You may:
-    \begin{itemize}
-      \item	Try them all at once (example(<name-of-the-function>).
-      \item	Alternatively, you may select the statements in the Examples
-        section that look applicable to your problem, copy-paste them into
-        your script file (Ctrl-C / Ctrl-V) and execute them; e.g. line by
-        line. Chances are real that, if they are suited for your case, you
-        will transform them anyway.
-    \end{itemize}
-    \item Transform a promising example so that it suits your problem.
-  \end{enumerate}
+\begin{enumerate}
+  \item	Find a function that performs the requested task.
+
+    for instance, use \code{help.search ("cluster")} to help you.
+
+    Depending on the number of packages that you have installed, \R will
+    list a number of possible functions whose help file contains the
+    word "cluster".
+    Use the function from the package \pkg{stats} (part of the core of R).
+  \item	Open the help file (?<name-of-the-function>) and look up the
+    syntax for this function.
+    If you have no time to read it completely, at least read (part of)
+    the section "Description", "Usage", and "Examples".
+  \item	Try the examples in the help file. You may:
+  \begin{itemize}
+    \item	Try them all at once (example(<name-of-the-function>).
+    \item	Alternatively, you may select the statements in the Examples
+      section that look applicable to your problem, copy-paste them into
+      your script file (Ctrl-C / Ctrl-V) and execute them; e.g. line by
+      line. Chances are real that, if they are suited for your case, you
+      will transform them anyway.
+  \end{itemize}
+  \item Transform a promising example so that it suits your problem.
+\end{enumerate}
 
 \subsection{Exercise: multivariate statistics on the nematode species data.}
-  Use \R to perform a multivariate statistical analysis of the nematode data.
 
-  Beware: the nematode data have stations as columns and species as rows.
+Use \R to perform a multivariate statistical analysis of the nematode data.
 
-  \begin{itemize}
-    \item	Perform a hierarchic clustering and plot the dendrogram
-    \item	Perform a principal component analysis (PCA) and plot the results;
-      you may also repeat the PCA analysis, with the first two stations removed!
-  \end{itemize}
+Beware: the nematode data have stations as columns and species as rows.
+
+\begin{itemize}
+  \item	Perform a hierarchic clustering and plot the dendrogram
+  \item	Perform a principal component analysis (PCA) and plot the results;
+    you may also repeat the PCA analysis, with the first two stations removed!
+\end{itemize}
 \clearpage
 
 \section{Graphics}
-  R has extensive graphical capabilities, and allows making simple (1-D, x-y),
-  image-like (2-D) and perspective (3-D) figures.
 
-  Try:
+R has extensive graphical capabilities, and allows making simple (1-D, x-y),
+image-like (2-D) and perspective (3-D) figures.
+
+Try:
+
 \begin{verbatim}
 > demo(graphics)
 > demo(image)
 > demo(persp)
 \end{verbatim}
-  to obtain a display of R’s simple (1-D, x-y), image-like (2-D) and
-  perspective (3-D) capabilities.
 
-  Graphics are plotted in the figure window which floats independently from
-  the other windows. If not already present, it is launched by writing
-  (in windows):
+to obtain a display of R’s simple (1-D, x-y), image-like (2-D) and
+perspective (3-D) capabilities.
+
+Graphics are plotted in the figure window which floats independently from
+the other windows. If not already present, it is launched by writing
+(in windows):
+
 \begin{verbatim}
 > windows()
 \end{verbatim}
@@ -1355,46 +1527,46 @@ for (i in 1:ncol(Nemaspec))
 > x11()
 \end{verbatim}
 
-  A figure consists of a plot region surrounded by 4 margins, which are
-  numbered clockwise, from 1 to 4, starting from the bottom.
-  R distinguishes between:
-  \begin{enumerate}
-    \item high-level commands. By default, these create a new figure, e.g.
-    \begin{itemize}
-      \item	\code{hist}, \code{barplot}, \code{pie}, \code{boxplot}, ...
-        (1-D plot)
-      \item	\code{plot}, \code{curve}, \code{matplot}, \code{pairs},...
-        ((x-y)plots)
-      \item	\code{image}, \code{contour}, \code{filled.contour},...
-        (2-D surface plots)
-      \item	\code{persp}, \code{scatterplot3d},...			(3-D plots)
-        \footnote{scatterplot3d is in \R-package \pkg{scatterplot3d} which
-        has to be loaded first}.
-    \end{itemize}
+A figure consists of a plot region surrounded by 4 margins, which are
+numbered clockwise, from 1 to 4, starting from the bottom.
+R distinguishes between:
 
-    \item	low-level commands that add new objects to an existing figure, e.g.
-    \begin{itemize}
-      \item	\code{lines}, \code{points}, \code{segments}, \code{polygon},
-      \code{rect}, \code{text}, \code{arrows}, \code{legend}, \code{abline},
-      \code{locator}, \code{rug}, ...
-      These add objects within the plot region
-      \item	\code{box}, \code{axis}, \code{mtext} (text in margin),
-      \code{title}, ... which add objects in the plot margin
-    \end{itemize}
-    \item	graphical parameters that control the appearance of.
-    \begin{itemize}
-      \item plotting objects:
+\begin{enumerate}
+  \item high-level commands. By default, these create a new figure, e.g.
+  \begin{itemize}
+    \item	\code{hist}, \code{barplot}, \code{pie}, \code{boxplot}, ...
+      (1-D plot)
+    \item	\code{plot}, \code{curve}, \code{matplot}, \code{pairs},...
+      ((x-y)plots)
+    \item	\code{image}, \code{contour}, \code{filled.contour},...
+      (2-D surface plots)
+    \item	\code{persp}, \code{scatterplot3d},...			(3-D plots)
+      \footnote{scatterplot3d is in \R-package \pkg{scatterplot3d} which
+      has to be loaded first}.
+  \end{itemize}
 
-        \code{cex} (size of text and symbols), \code{col} (colors),
-        \code{font}, \code{las} (axis label orientation), \code{lty}
-        (line type), \code{lwd} (line width), \code{pch} (the type of points),…
-      \item	graphic window:
+  \item	low-level commands that add new objects to an existing figure, e.g.
+  \begin{itemize}
+    \item	\code{lines}, \code{points}, \code{segments}, \code{polygon},
+    \code{rect}, \code{text}, \code{arrows}, \code{legend}, \code{abline},
+    \code{locator}, \code{rug}, ...
+    These add objects within the plot region
+    \item	\code{box}, \code{axis}, \code{mtext} (text in margin),
+    \code{title}, ... which add objects in the plot margin
+  \end{itemize}
+  \item	graphical parameters that control the appearance of.
+  \begin{itemize}
+    \item plotting objects:
 
-        \code{mar} (the size of the margins), \code{mfrow} (the number of
-        figures on a row), \code{mfcol} (number figures on a column),…
-    \end{itemize}
+      \code{cex} (size of text and symbols), \code{col} (colors),
+      \code{font}, \code{las} (axis label orientation), \code{lty}
+      (line type), \code{lwd} (line width), \code{pch} (the type of points),…
+    \item	graphic window:
 
-  \end{enumerate}
+      \code{mar} (the size of the margins), \code{mfrow} (the number of
+      figures on a row), \code{mfcol} (number figures on a column),…
+  \end{itemize}
+\end{enumerate}
 
 \begin{verbatim}
 > ?plot.default
@@ -1402,24 +1574,30 @@ for (i in 1:ncol(Nemaspec))
 > ?plot.window
 > ?points
 \end{verbatim}
+
 will open the help files, while
+
 \begin{verbatim}
 > example(plot.default)
 > example(points)
 \end{verbatim}
-  will run the examples, displaying each new graph, after you have pressed
-  "<ENTER>" (try it!)
+
+will run the examples, displaying each new graph, after you have pressed
+``<ENTER>'' (try it!)
 
 \subsection{X-Y plots}
-  A circle can be plotted by (x,y) points, where $x= r \cdot \cos(a)$  and
-  $y= r \cdot \sin(a)$, with $a$ the angle, from 0 to $2\pi$, and $r$ the radius.
-  In the following script, we first generate a sequence of angle values, a,
-  from 0 to $2 \pi$, comprising 100 values (\code{length.out}) and then plot
-  a circle with unit radius:
+
+A circle can be plotted by (x,y) points, where $x= r \cdot \cos(a)$  and
+$y= r \cdot \sin(a)$, with $a$ the angle, from 0 to $2\pi$, and $r$ the radius.
+In the following script, we first generate a sequence of angle values, a,
+from 0 to $2 \pi$, comprising 100 values (\code{length.out}) and then plot
+a circle with unit radius:
+
 <<label=f1,include=FALSE>>=
 a <- seq(0,2*pi, length.out=100)
 plot(x=cos(a),y=sin(a))
 @
+
 \setkeys{Gin}{width=0.4\textwidth}
 \begin{figure}
 \begin{center}
@@ -1431,76 +1609,87 @@ plot(x=cos(a),y=sin(a))
 \label{fig:f1}
 \end{figure}
 
-  As \code{plot} is a high-level command, it starts a new figure.
+As \code{plot} is a high-level command, it starts a new figure.
 
-  By default, \R adds axes, and labels, and represents the (x,y) data as
-  small dots (points). Note that the graph is not symmetrical.
+By default, \R adds axes, and labels, and represents the (x,y) data as
+small dots (points). Note that the graph is not symmetrical.
 
-  We will now make a more complex figure that resembles a "target face",
-  e.g. for practicing archery or to throw darts.
-  We first use the same command (\code{plot}) as above, but we add a
-  number of graphical parameters that specify that:
-  \begin{itemize}
-    \item	Rather than dots, the points should be connected by
-      lines (\code{type}).
-    \item	The line should be twice as wide as the default (\code{lwd})
-    \item	The x- and y-axes labels (\code{xlab},\code{ylab}) have to
-      be empty
-    \item	The axes and axes annotations (\code{axes}) are removed
-    \item	The graph has to be symmetrical, i.e. the x/y aspect ratio = 1
-      (\code{asp}).
-  \end{itemize}
+We will now make a more complex figure that resembles a "target face",
+e.g. for practicing archery or to throw darts.
+We first use the same command (\code{plot}) as above, but we add a
+number of graphical parameters that specify that:
+
+\begin{itemize}
+  \item	Rather than dots, the points should be connected by
+    lines (\code{type}).
+  \item	The line should be twice as wide as the default (\code{lwd})
+  \item	The x- and y-axes labels (\code{xlab},\code{ylab}) have to
+    be empty
+  \item	The axes and axes annotations (\code{axes}) are removed
+  \item	The graph has to be symmetrical, i.e. the x/y aspect ratio = 1
+    (\code{asp}).
+\end{itemize}
+
 \begin{verbatim}
-plot(cos(a),sin(a),type="l",lwd=2,xlab="",ylab="",axes=FALSE,
-     asp=1)
+plot(cos(a), sin(a), type = "l", lwd = 2, xlab = "", ylab="",
+  axes = FALSE, asp = 1)
 \end{verbatim}
 
-  To this figure, we can now add several low-level objects:
-  \begin{itemize}
-    \item	a series of lines, representing smaller and smaller circles
-    (\code{lines}).
+To this figure, we can now add several low-level objects:
+
+\begin{itemize}
+  \item	a series of lines, representing smaller and smaller circles
+  (\code{lines}).
+%
 \begin{verbatim}
 for (i in seq( 0.1,0.9,by=0.1)) lines(i*sin(a), i*cos(a))
 \end{verbatim}
-    \item	an innermost red polygon (\code{polygon}).
+%
+  \item	an innermost red polygon (\code{polygon}).
+%
 \begin{verbatim}
 polygon(sin(a)*0.1,cos(a)*0.1,col="red")
 \end{verbatim}
-
-    \item	point marks as text labels, ranging from from 10 to 1
-      (\code{text}). The closer to the centre, the higher the score
+%
+  \item	point marks as text labels, ranging from from 10 to 1
+    (\code{text}). The closer to the centre, the higher the score
+%
 \begin{verbatim}
 for (i in 1:10) text(x=0,y=i/10-0.025,labels=11-i,font=2)
 \end{verbatim}
+%
+    Now two archers take 10 shots at the target face.
 
-      Now two archers take 10 shots at the target face.
-
-      We mimic their arrows by generating normally distributed (x,y)
-      numbers, with mean=0 (the centre!) and where the experience of the
-      archer is mimicked by the standard deviation.
-      The more experienced, the closer the arrows will be to the centre,
-      i.e. the lower the standard deviation.
-    \item	R-statement \code{rnorm} generates normally distributed numbers;
-      we need 20 of them, arranged as a matrix with 2 columns.
+    We mimic their arrows by generating normally distributed (x,y)
+    numbers, with mean=0 (the centre!) and where the experience of the
+    archer is mimicked by the standard deviation.
+    The more experienced, the closer the arrows will be to the centre,
+    i.e. the lower the standard deviation.
+  \item	R-statement \code{rnorm} generates normally distributed numbers;
+    we need 20 of them, arranged as a matrix with 2 columns.
+%
 \begin{verbatim}
 shots1 <- matrix(ncol=2, data=rnorm(n=20,sd=0.2))
 shots2 <- matrix(ncol=2, data=rnorm(n=20,sd=0.5))
 \end{verbatim}
-     \item	The shots are added to the plot as points, colored darkblue
-       (experienced archer) and darkgreen (beginners level).
-       Note that we choose a 50\% enlarged point size (cex), and we choose
-       a circular shaped point (\code{pch=16})
+%
+   \item	The shots are added to the plot as points, colored darkblue
+     (experienced archer) and darkgreen (beginners level).
+     Note that we choose a 50\% enlarged point size (cex), and we choose
+     a circular shaped point (\code{pch=16})
+%
 \begin{verbatim}
 points(shots1,col="darkblue",pch=16,cex=1.5)
 points(shots2,col="darkgreen",pch=16,cex=1.5)
 \end{verbatim}
-
-     \item	Finally, we add a legend, explaining who has done the shooting:
+%
+  \item	Finally, we add a legend, explaining who has done the shooting:
+%
 \begin{verbatim}
 legend("topright",legend=c("A","B"),pch=16,
         col=c("darkblue","darkgreen"),pt.cex=1.5)
 \end{verbatim}
-
+%
 <<label=f2g,include=FALSE,echo=FALSE>>=
 plot(cos(a),sin(a),type="l",lwd=2,xlab="",ylab="",axes=FALSE,
  asp=1)
@@ -1515,9 +1704,9 @@ legend("topright",legend=c("A","B"),pch=16,
  col=c("darkblue","darkgreen"),pt.cex=1.5)
 @
 
-      Note that the legend text and the colors are inputted as a vector
-      of strings, using the \code{c()} function (e.g. \code{c("A", "B")}).
-  \end{itemize}
+  Note that the legend text and the colors are inputted as a vector
+  of strings, using the \code{c()} function (e.g. \code{c("A", "B")}).
+\end{itemize}
 
 \setkeys{Gin}{width=0.4\textwidth}
 \begin{figure}
@@ -1531,11 +1720,13 @@ legend("topright",legend=c("A","B"),pch=16,
 \end{figure}
 
 \subsection{X-Y plots; conditional plotting}
-  As a more sophisticated demonstration of the use of symbols in R-graphs,
-  we work on a biological example, from the \R data set called "Orange".
-  This data set contains the circumference (in mm, at breast height) measured
-  at different ages for five orange trees.
-  We start by looking at the data (only part is displayed).
+
+As a more sophisticated demonstration of the use of symbols in R-graphs,
+we work on a biological example, from the \R data set called "Orange".
+This data set contains the circumference (in mm, at breast height) measured
+at different ages for five orange trees.
+We start by looking at the data (only part is displayed).
+
 <<>>=
 head(Orange)
 tail(Orange)
@@ -1546,11 +1737,13 @@ tail(Orange)
 plot(Orange$age, Orange$circumference,xlab="age, days",
      ylab="circumference, mm", main= "Orange tree growth")
 @
-  (as Orange is a dataframe, columns can be addressed by their names,
-  \code{Orange$age} and \code{Orange$circumference}).
 
-  The output (figure) shows that there is a lot of scatter,
-  which is due to the fact that the five trees did not grow at the same rate.
+(as Orange is a dataframe, columns can be addressed by their names,
+\code{Orange$age} and \code{Orange$circumference}).
+
+The output (figure) shows that there is a lot of scatter,
+which is due to the fact that the five trees did not grow at the same rate.
+
 \setkeys{Gin}{width=0.4\textwidth}
 \begin{figure}
 \begin{center}
@@ -1562,31 +1755,34 @@ plot(Orange$age, Orange$circumference,xlab="age, days",
 \label{fig:f3}
 \end{figure}
 
-  It is instructive to plot the relationship between circumference and
-  age differently for each tree. In R, this is simple:
-  we can make some graphical parameters (symbol types, colors, size,...)
-  conditional to certain "factors".
+It is instructive to plot the relationship between circumference and
+age differently for each tree. In R, this is simple:
+we can make some graphical parameters (symbol types, colors, size,...)
+conditional to certain ``factors''.
 
-  Factors play a very important part in the statistical applications of R;
-  for our application, it suffices to know that the factors are integers,
-  starting from 1.
+Factors play a very important part in the statistical applications of R;
+for our application, it suffices to know that the factors are integers,
+starting from 1.
 
-  In the R-statement below, we simply use different symbols (\code{pch})
-  and colors (\code{col}) for each tree: \code{pch=(15:20)[Orange$Tree]}
-  means that, depending on the value of \code{Orange$Tree} (i.e. the tree
-  number), the symbol (\code{pch})
-  will take on the value 15 (tree=1), 16 (tree=2),... 20 (tree=5).
-  \code{col=(1:5) [Orange$Tree]} does the same for the point color.
-  The final statement adds a legend, positioned at the bottom, right.
+In the R-statement below, we simply use different symbols (\code{pch})
+and colors (\code{col}) for each tree: \code{pch=(15:20)[Orange$Tree]}
+means that, depending on the value of \code{Orange$Tree} (i.e. the tree
+number), the symbol (\code{pch})
+will take on the value 15 (tree=1), 16 (tree=2),... 20 (tree=5).
+\code{col=(1:5) [Orange$Tree]} does the same for the point color.
+The final statement adds a legend, positioned at the bottom, right.
+
 <<label=f4,include=FALSE>>=
 plot(Orange$age, Orange$circumference,xlab="age,
    days",ylab="circumference, mm", main= "Orange tree growth",
    pch=(15:20)[Orange$Tree],col=(1:5) [Orange$Tree],cex=1.3)
 legend("bottomright",pch=15:20,col=1:5,legend=1:5)
 @
-  The output shows that tree number 5 grows fastest, tree number 1 is
-  slowest growing. (note: it is also instructive to run the examples in
-  the Orange help file. )
+
+The output shows that tree number 5 grows fastest, tree number 1 is
+slowest growing. (note: it is also instructive to run the examples in
+the Orange help file. )
+
 \setkeys{Gin}{width=0.4\textwidth}
 \begin{figure}
 \begin{center}
@@ -1599,28 +1795,33 @@ legend("bottomright",pch=15:20,col=1:5,legend=1:5)
 
 
 \subsection{Zooplankton growth rates}
-  \code{Zoogrowth} from package \pkg{marelacTeaching} is a literature data set,
-  compiled by Hansen et al. (1997)
-  with measurements of maximal growth rates of zooplankton organisms as
-  a function of body volume.
 
-  Run the example for this data set (you will need to load package
-  \pkg{marelacTeaching} first):
+\code{Zoogrowth} from package \pkg{marelacTeaching} is a literature data set,
+compiled by Hansen et al. (1997)
+with measurements of maximal growth rates of zooplankton organisms as
+a function of body volume.
+
+Run the example for this data set (you will need to load package
+\pkg{marelacTeaching} first):
+
 \begin{verbatim}
 > require(marelacTeaching)
 > example(Zoogrowth)
 \end{verbatim}
 \subsection{Images and contour plots}
-  \R has some very powerful functions to create images and add contours.
-  For example, the data set \code{Bathymetry} from the \pkg{marelac} package
-  can be used to generate the bathymetry (and hypsometry) of the world oceans
-  (and land):
+
+\R has some very powerful functions to create images and add contours.
+For example, the data set \code{Bathymetry} from the \pkg{marelac}
+package can be used to generate the bathymetry (and hypsometry) of the
+world oceans (and land):
+
 <<label=bat,include=FALSE>>=
 require(marelac)
 image(Bathymetry$x,Bathymetry$y,Bathymetry$z,col=femmecol(100),
       asp=TRUE,xlab="",ylab="")
 contour(Bathymetry$x,Bathymetry$y,Bathymetry$z,add=TRUE)
 @
+
 \setkeys{Gin}{width=0.8\textwidth}
 \begin{figure}
 \begin{center}
@@ -1632,11 +1833,13 @@ contour(Bathymetry$x,Bathymetry$y,Bathymetry$z,add=TRUE)
 \label{fig:f1}
 \end{figure}
 
-Note the use of "asp=TRUE", which maintains the aspect ratio.
+Note the use of \code{asp=TRUE}, which maintains the aspect ratio.
 
 \subsection{Plotting a mathematical function}
-  Plot curves for mathematical functions are quickly generated with
-  R-command "curve":
+
+Plot curves for mathematical functions are quickly generated with
+\proglang{R}-command \code{curve}:
+
 <<label=mat, include = FALSE>>=
 curve(sin(3*pi*x))
 curve(sin(3*pi*x),from=0,to=2,col="blue",
@@ -1645,6 +1848,7 @@ curve(cos(3*pi*x),add=TRUE,col="red",lty=2)
 abline(h=0,lty=2)
 legend("bottomleft",c("sin","cos"),text.col=c("blue","red"),lty=1:2)
 @
+
 \setkeys{Gin}{width=0.4\textwidth}
 \begin{figure}
 \begin{center}
@@ -1656,23 +1860,25 @@ legend("bottomleft",c("sin","cos"),text.col=c("blue","red"),lty=1:2)
 \label{fig:fmat}
 \end{figure}
 
-  The first command will plot the curve for $y=sin(3\cdot \pi \cdot x)$,
-  using the default settings (Fig. left),
-  while the next commands afirst draw a graph of $y=sin(3 \cdot \pi \cdot x)$,
-  in blue (\code{col}), and for x values ranging between 0 and 2 (\code{from},
-  \code{to}), adding a main title (\code{main}) and x- and y-axis labels
-  (\code{xlab}, \code{ylab}) ($1^{st}$ sentence).
+The first command will plot the curve for $y=sin(3\cdot \pi \cdot x)$,
+using the default settings (Fig. left),
+while the next commands afirst draw a graph of $y=sin(3 \cdot \pi \cdot x)$,
+in blue (\code{col}), and for x values ranging between 0 and 2 (\code{from},
+\code{to}), adding a main title (\code{main}) and x- and y-axis labels
+(\code{xlab}, \code{ylab}) ($1^{st}$ sentence).
 
-  The $2^{nd}$ R-sentence adds the function $y=cos(3\cdot \pi \cdot x)$,
-  as a red (\code{col}) dashed line (\code{lty}).
-  Note the use of parameter \code{add=TRUE}, as by default curve creates
-  a new plot.
+The $2^{nd}$ R-sentence adds the function $y=cos(3\cdot \pi \cdot x)$,
+as a red (\code{col}) dashed line (\code{lty}).
+Note the use of parameter \code{add=TRUE}, as by default curve creates
+a new plot.
 
-  The final statements adds the x-axis, i.e. a horizontal, dashed
-  (\code{lty=2}), line (\code{abline}) at y=0 and a legend.
+The final statements adds the x-axis, i.e. a horizontal, dashed
+(\code{lty = 2}), line (\code{abline}) at y=0 and a legend.
 
 \subsection{Multiple figures}
-  There are several ways in which to arrange multiple figures on a plot.
+
+There are several ways in which to arrange multiple figures on a plot.
+
   \begin{enumerate}
     \item	The simplest is by specifying the number of figures on a row
       (mfrow) and on a column (mfcol):
@@ -1692,59 +1898,69 @@ legend("bottomleft",c("sin","cos"),text.col=c("blue","red"),lty=1:2)
 \end{verbatim}
     \item	R-function \code{layout} allows much more complex plot arrangements.
   \end{enumerate}
+
 \subsection{Exercises}
+
 \subsubsection{Simple curves}
-  \begin{itemize}
-    \item	Create a script file which draws a curve of the function
-      $y=x^3 sin^2 (3\pi x)$ in the interval [-2, 2].
-    \item	Make a curve of the function $y=1/cos(1+x^2)$ in the interval [-5,5].
-  \end{itemize}
+
+\begin{itemize}
+  \item	Create a script file which draws a curve of the function
+    $y=x^3 sin^2 (3\pi x)$ in the interval [-2, 2].
+  \item	Make a curve of the function $y=1/cos(1+x^2)$ in the interval [-5,5].
+\end{itemize}
 
 \subsubsection{Human population growth}
-  The human population (N, millions of people) at a certain time t, can be
-  described as a function of time (t),
-  the initial population density at t=t0 (Nt0), the carrying capacity "K"
-  and the rate of increase "a" by the following equation
-  \footnote{This is the solution of a so-called logistic differential
-  equation \citep{Verhulst38}}:
-  \[
-    N(t) = \frac{K}{{1 + [\frac{{K - N_{t0} }}{{N_{t0} }}]e^{ - a \cdot (t - t0)} }}
-  \]
 
-  For the US, the population density in 1900 (N0) was 76.1 million; the
-  population growth can be described with parameter values:
-  a=0.02 $yr^{-1}$, K =  500 million of people.
+The human population (N, millions of people) at a certain time t, can
+be described as a function of time (t), the initial population density
+at t=t0 (Nt0), the carrying capacity "K" and the rate of increase "a"
+by the following equation \footnote{This is the solution of a
+  so-called logistic differential equation \citep{Verhulst38}}:
 
-  Actual population values are:
+\[
+  N(t) = \frac{K}{{1 + [\frac{{K - N_{t0} }}{{N_{t0} }}]e^{ - a \cdot (t - t0)} }}
+\]
+
+For the US, the population density in 1900 (N0) was 76.1 million; the
+population growth can be described with parameter values: a=0.02
+$yr^{-1}$, K = 500 million of people.
+
+
+Actual population values are:
+
 \begin{verbatim}
 1900  1910  1920  1930  1940  1950  1960  1970  1980
 76.1	92.4	106.5	123.1	132.6	152.3	180.7	204.9	226.5
 \end{verbatim}
-  Tasks:
-  \begin{enumerate}
-    \item	Plot the population density curve as a thick line, using the
-      US parameter values.
-    \item	Add the measured population values as points. Finish the graph
-      with titles, labels etc...
-  \end{enumerate}
+
+Tasks:
+
+\begin{enumerate}
+  \item Plot the population density curve as a thick line, using the
+    US parameter values.
+  \item Add the measured population values as points. Finish the graph
+    with titles, labels etc...
+\end{enumerate}
 
 \subsubsection{Toxic ammonia}
-  Ammonia nitrogen is present in two forms: the ammonium ion ($NH_4^+$)
-  and unionized ammonia ($NH_3$).
-  As ammonia can be toxic at sufficiently high levels, it is often desirable
-  to know its concentration.
 
-  The relative importance of ammonia, (the contribution of ammonia to
-  total ammonia nitrogen,
-  $NH_3/( NH_3+ NH_4^+)$) is a function of the proton concentration [$H^+$]
-  and a parameter KN,
-  the so-called stoichiometric equilibrium constant:
-  \[
-    p_{[NH_3 ]}  = \frac{{K_N }}{{K_N  + [H^ +  ]}}
-  \]
+Ammonia nitrogen is present in two forms: the ammonium ion ($NH_4^+$)
+and unionized ammonia ($NH_3$).  As ammonia can be toxic at
+sufficiently high levels, it is often desirable to know its
+concentration.
 
-  Tasks:
-  \begin{itemize}
+The relative importance of ammonia, (the contribution of ammonia to
+total ammonia nitrogen, $NH_3/( NH_3+ NH_4^+)$) is a function of the
+proton concentration \chem{[H^+]} and a parameter KN, the so-called
+stoichiometric equilibrium constant:
+
+\[
+  p_{[NH_3 ]}  = \frac{{K_N }}{{K_N  + [H^ +  ]}}
+\]
+
+Tasks:
+
+\begin{itemize}
     \item	Plot the relative fraction of toxic ammonia to the total ammonia
       concentration as a function of pH,
       where $pH = -log_{10}([H^+])$ and for a temperature of 30$^{\circ}$C.
@@ -1755,16 +1971,18 @@ legend("bottomleft",c("sin","cos"),text.col=c("blue","red"),lty=1:2)
       the value of KN at that temperature is 8 $10^{-11}$ mol $kg^{-1}$.
   \end{itemize}
 \subsubsection{The iris data set}
-  A famous data set that is part of \R is the "iris" data set (Fisher, 1936),
-  which we will explore next.
 
-  It gives measurements, in centimeters for sepal length and width and petal
-  length and width, respectively,
-  for 50 flowers of the species \emph{Iris setosa}, \emph{Iris versicolor}
-  and \emph{Iris virginica}.
+A famous data set that is part of \R is the "iris" data set (Fisher, 1936),
+which we will explore next.
 
-  Tasks:
-  \begin{itemize}
+It gives measurements, in centimeters for sepal length and width and petal
+length and width, respectively,
+for 50 flowers of the species \emph{Iris setosa}, \emph{Iris versicolor}
+and \emph{Iris virginica}.
+
+Tasks:
+
+\begin{itemize}
     \item	Have a look at the data:
     \item	What is the class of the data set? why?
     \item	What are the dimensions of the data set? (number of rows, columns)
@@ -1785,8 +2003,10 @@ legend("bottomleft",c("sin","cos"),text.col=c("blue","red"),lty=1:2)
 \clearpage
 
 \section{Matrix algebra}
-  Matrix algebra is very simple in R. Practically everything is possible!
-  Here are the most important R-functions that operate on matrices:
+
+Matrix algebra is very simple in \proglang{R}. Practically everything is possible!
+Here are the most important R-functions that operate on matrices:
+
   \begin{itemize}
     \item	\%*\% 		Matrix multiplication
     \item	t(A)		transpose of A
@@ -1804,28 +2024,34 @@ legend("bottomleft",c("sin","cos"),text.col=c("blue","red"),lty=1:2)
 solve(A) %*% A
 @
 
-  whilst t(A) will transpose matrix A (interchange rows and columns).
+whilst \code{t(A)} will transpose matrix \code{A} (interchange rows and columns).
+
 <<>>=
 t(A)
 @
-  The next set of statements will solve the linear system Ax=B for the
-  unknown vector x:
+
+The next set of statements will solve the linear system Ax=B for the
+unknown vector x:
+
 <<>>=
 B <- c(5,6)
 solve(A,B)
 @
 
-  Finally, the eigenvalues and eigenvectors of A are estimated using
-  R-function \code{eigen}.
-  This function returns a list that contains both the eigenvalues (\code{$values})
-  and the eigenvectors (\code{$vectors}), (the columns).
+Finally, the eigenvalues and eigenvectors of A are estimated using
+R-function \code{eigen}.  This function returns a list that contains
+both the eigenvalues (\code{$values}) and the eigenvectors
+(\code{$vectors}), (the columns).
+
 <<>>=
 eigen(A)
 @
 
 \subsection{Exercises}
+
 \subsubsection{Matrix algebra exercise 1}
-  \begin{itemize}
+
+\begin{itemize}
     \item	Use R-function \code{matrix} to create the matrices called
       \code{A} and \code{B}:
 
@@ -1849,6 +2075,7 @@ eigen(A)
   \end{itemize}
 
 \subsubsection{Matrix algebra exercise 2}
+
   \begin{itemize}
     \item	Create a matrix, called P:
       \[
@@ -1961,67 +2188,69 @@ points(rr$root,0,pch=16,cex=2)
   plotted - see text for R-code}
 \label{fig:f1}
 \end{figure}
+
 \subsection{Root of a complex function: solving for the pH}
-  In aquatic systems, the buffering capacity of dissolved inorganic
-  carbon (DIC) species:
-  carbon dioxide ($CO_2$), bicarbonate ions ($HCO_3^-$) and carbonate
-  ions ($CO_3^{2-}$) keep pH in a narrow range.
-  The buffering capacity is measured by total alkalinity, TA, (defined below).
 
-  If alkalinity and inorganic carbon concentration (DIC) are known, it is
-  possible to calculate pH
-  \citep{Zeebe03}, by solving the following equations for the unknown
-  proton concentration $[H^+]$ \footnote{in practice, it is possible to
-  merge these 3 equations such that only one equation is obtained,
-  but this is neither didactically clearer nor computationally more efficient}.
-  \[
+In aquatic systems, the buffering capacity of dissolved inorganic
+carbon (DIC) species:
+carbon dioxide ($CO_2$), bicarbonate ions ($HCO_3^-$) and carbonate
+ions ($CO_3^{2-}$) keep pH in a narrow range.
+The buffering capacity is measured by total alkalinity, TA, (defined below).
+
+If alkalinity and inorganic carbon concentration (DIC) are known, it is
+possible to calculate pH
+\citep{Zeebe03}, by solving the following equations for the unknown
+proton concentration $[H^+]$ \footnote{in practice, it is possible to
+merge these 3 equations such that only one equation is obtained,
+but this is neither didactically clearer nor computationally more efficient}.
+\[
   {\rm{ [HCO}}_{\rm{3}}^{\rm{ - }} ] = \frac{{K_{C1}  \cdot [H^ +  ]}}{{[H^ +  ] \cdot [H^ +  ] + K_{C1}  \cdot [H^ +  ] + K_{C1}  \cdot K_{C2} }} \cdot DIC
-  \]
-  \[
+\]
+\[
   {\rm{ [CO}}_{\rm{3}}^{{\rm{2 - }}} ] = \frac{{K_{C1}  \cdot K_{C2} }}{{[H^ +  ] \cdot [H^ +  ] + K_{C1}  \cdot [H^ +  ] + K_{C1}  \cdot K_{C2} }} \cdot DIC
-  \]
-  \[
+\]
+\[
   TA = 2{\rm{[CO}}_{\rm{3}}^{{\rm{2 - }}} ] + {\rm{[HCO}}_{\rm{3}}^{\rm{ - }} ] - {\rm{[H}}^ +  ]
-  \]
+\]
 
-  Here is how to solve for the proton concentration $[H^+]$ (or the pH value)
-  in \R.
+Here is how to solve for the proton concentration $[H^+]$ (or the pH value)
+in \R.
 
-  The trick is to estimate alkalinity based on a guess of proton
-  concentration, using equation (3) and compare that with the measured
-  alkalinity value.
-  If both are equal within the tolerance level, the proton concentration
-  has been found.
+The trick is to estimate alkalinity based on a guess of proton
+concentration, using equation (3) and compare that with the measured
+alkalinity value.
+If both are equal within the tolerance level, the proton concentration
+has been found.
 
-  In the implementation below, the dissociation constants for carbonate
-  (\code{kc1}, \code{kc2})
-  and at salinity 0, temperature 20, and pressure 0 are calculated in
-  \R s package \pkg{seacarb},
-  which has to be loaded first (\code{require}).
+In the implementation below, the dissociation constants for carbonate
+(\code{kc1}, \code{kc2})
+and at salinity 0, temperature 20, and pressure 0 are calculated in
+\R s package \pkg{seacarb},
+which has to be loaded first (\code{require}).
 
-  We then define a function whose root has to be solved (\code{pHfunction}).
-  In this function we estimate total alkalinity, based on the guess of pH,
-  the dissociation constants (\code{kc1},\code{kc2}) and the DIC concentration.
-  The difference of this calculated alkalinity (\code{EstimatedAlk}) with
-  the true alkalinity is then returned; if pH is correctly estimated, then
-  true and estimated alkalinity will be equal, and the difference will be zero.
-  So, to find the pH, we need to find the root of this function.
+We then define a function whose root has to be solved (\code{pHfunction}).
+In this function we estimate total alkalinity, based on the guess of pH,
+the dissociation constants (\code{kc1},\code{kc2}) and the DIC concentration.
+The difference of this calculated alkalinity (\code{EstimatedAlk}) with
+the true alkalinity is then returned; if pH is correctly estimated, then
+true and estimated alkalinity will be equal, and the difference will be zero.
+So, to find the pH, we need to find the root of this function.
 
-  Note that the conversion from pH to $[H^+]$ gives the proton concentration
-  in $mol~kg^{-1}$.
-  As the concentrations of the other substances are in $\mu mol~kg^{-1}$,
-  we convert using a factor $10^6$.
+Note that the conversion from pH to $[H^+]$ gives the proton concentration
+in $mol~kg^{-1}$.
+As the concentrations of the other substances are in $\mu mol~kg^{-1}$,
+we convert using a factor $10^6$.
 
-  We restrict the region of the pH root in between 0 and 12 (which is more
-  than large enough), and
-  we set the tolerance (tol) to a very small number to increase precision.
+We restrict the region of the pH root in between 0 and 12 (which is more
+than large enough), and
+we set the tolerance (tol) to a very small number to increase precision.
+
 \begin{verbatim}
 require(seacarb)
 kc1 <- K1(S=0,T=20,P=0)    # Carbonate k1
 kc2 <- K2(S=0,T=20,P=0)    # Carbonate k2
 
-pHfunction <- function(pH, kc1,kc2, DIC, Alkalinity )
-{
+pHfunction <- function(pH, kc1,kc2, DIC, Alkalinity ) {
    H    <- 10^(-pH)
    HCO3 <- H*kc1  /(H*kc1 + H*H + kc1*kc2)*DIC
    CO3  <- kc1*kc2 /(H*kc1 + H*H + kc1*kc2)*DIC
@@ -2057,10 +2286,10 @@ uniroot(pHfunction, interval=c(0, 12), tol=1.e-20, kc1=kc1, kc2=kc2,
   \item Find the root of the equation $e^x = 4 x^2$ in the interval [0,1].
 
     First draw the function curve.
-  \item Solve the equations $1000=y*(3+x)*(1+y)^4$ for y and with x
-     varying over the range from 1 to 100. Plot the root as a function of x.
+  \item Solve the equations $1000=y*(3+x)*(1+y)^4$ for $y$ and with $x$
+     varying over the range from 1 to 100. Plot the root as a function of $x$.
 
-    Tip: first make a sequence of x-values, then loop over each "x"
+    Tip: first make a sequence of \code{x}-values, then loop over each \code{x}
     value, each time estimating the root and putting it in a vector.
 \end{itemize}
 
@@ -2070,37 +2299,38 @@ pH can also be estimated based on the measured alkalinity and p\chem{CO_2},
 the partial pressure of \chem{CO_2}. To solve this equation, it is simplest to use
 another (equivalent) way to write the relationships between the DIC species:
 
-  \[\mathrm
+\[\mathrm
   [HCO_3^ -  ] = K_{C1}  \cdot \frac{{[CO_2 ]}}{{[H^ +  ]}}
-  \]
+\]
 
-  \[\mathrm
+\[\mathrm
   [CO_3^{2 - } ] = K_{C2}  \cdot \frac{{[HCO_3^ -  ]}}{{[H^ +  ]}}
-  \]
+\]
 
-  $pCO_2$ relates to $[CO_2]$ through Henrys constant, Kh, which can also be
-  estimated as a function of salinity, temperature and pressure, using
-  R-package \pkg{seacarb}:
-  \[
-  pCO_2  = \frac{{[CO_2 ]}}{{Kh}}
-  \]
+$pCO_2$ relates to $[CO_2]$ through Henrys constant, Kh, which can also be
+estimated as a function of salinity, temperature and pressure, using
+R-package \pkg{seacarb}:
 
-  \begin{itemize}
-    \item	Estimate the pH at equilibrium with alkalinity 2300 $\mu mol~ kg^{-1}$
-      and the current $pCO_2$ of 360 ppm.
+\[
+pCO_2  = \frac{{[CO_2 ]}}{{Kh}}
+\]
 
-      Use package \code{seacarb} to estimate the dissociation constants and
-      Henrys constants at temperature 20$^{\circ}$C, salinity 0, and
-      pressure 0. 					(A: pH=8.19)
-    \item	The Intergovernmental Panel on Climate Change predicts for 2100
-      an atmospheric $CO_2$ concentration ranging between 490 and 1250 ppmv,
-      depending on the socio-economic scenario (IPCC, 2007).
-      These increases of $pCO_2$ make the water more acid. Make a plot of
-      pH as a function of these increased atmospheric $pCO_2$ levels.
-      (Assume that the $pCO_2$ of the ocean is at equilibrium with the
-      atmospheric $pCO_2$).
-      What is the maximal drop of pH ? 	(A: at $pCO_2$ of 1250 ppmv, pH=7.68).
-  \end{itemize}
+\begin{itemize}
+  \item	Estimate the pH at equilibrium with alkalinity 2300 $\mu mol~ kg^{-1}$
+    and the current $pCO_2$ of 360 ppm.
+
+    Use package \code{seacarb} to estimate the dissociation constants and
+    Henrys constants at temperature 20$^{\circ}$C, salinity 0, and
+    pressure 0. 					(A: pH=8.19)
+  \item	The Intergovernmental Panel on Climate Change predicts for 2100
+    an atmospheric $CO_2$ concentration ranging between 490 and 1250 ppmv,
+    depending on the socio-economic scenario (IPCC, 2007).
+    These increases of $pCO_2$ make the water more acid. Make a plot of
+    pH as a function of these increased atmospheric $pCO_2$ levels.
+    (Assume that the $pCO_2$ of the ocean is at equilibrium with the
+    atmospheric $pCO_2$).
+    What is the maximal drop of pH ? 	(A: at $pCO_2$ of 1250 ppmv, pH=7.68).
+\end{itemize}
 
 \clearpage
 

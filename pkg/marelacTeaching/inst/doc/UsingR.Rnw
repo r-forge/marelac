@@ -5,9 +5,15 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 
+
+
 \newcommand{\noun}[1]{\textsc{#1}}
 %% Bold symbol macro for standard LaTeX users
 \providecommand{\boldsymbol}[1]{\mbox{\boldmath $#1$}}
+
+%% simple macro for chemical formulae
+\newcommand{\chem}[1]{\mbox{$\rm #1$}}
+
 
 %% Because html converters don't know tabularnewline
 \providecommand{\tabularnewline}{\\}
@@ -42,15 +48,15 @@ June 2009
 \Plainauthor{Karline Soetaert}
 
 \Abstract{
-  \R \citep{R2008} is the open-source (read: free-of-charge) version of
-  the language S.
-  It is best known as a package that performs statistical analysis and graphics.
+  \R \citep{R2008} is the open-source (read: free-of-charge and free
+  to make derived work ) version of  the language \proglang{S}.
+  It is best known as a software that performs statistical analysis and graphics.
   However, \R is so much more: it is a high-level language
   in which one can perform complex calculations, implement new methods, and
   make high-quality figures.
 
   \R has high-level functions to operate on matrices, perform numerical
-  integration, advanced statistics,... which are easily triggered and which
+  integration, advanced statistics, ... which are easily triggered and which
   make it ideally suited for data-visualization, statistical analysis and
   mathematical modeling.
 
@@ -60,13 +66,13 @@ June 2009
   modelling in which \R is extensively used for developing, applying and
   visualizing simulation models.
 
-  There are many excellent sources for learning the \R (or S) language.
+  There are many excellent sources for learning the \R (or \proglang{S}) language.
   \R comes with several manuals that can be consulted from
   the main \R program (Help/Manuals). R-intro.pdf is a good start.
   Many other good introductions to \R are available, some freely on the web,
   and accessible via the \R web site (www.r-project.org).
   My favorite is the \R introduction by Petra Kuhnert and Bill Venables
-  \citep{Kuhnert05}, but beware: this "introduction" comprises more than
+  \citep{Kuhnert05}, but beware: this ``introduction'' comprises more than
   300 pages!
 
 }
@@ -100,73 +106,85 @@ options(width=70)
 
 \maketitle
 
-\section{introduction}
+\section{Introduction}
 \subsection{The R-software}
 
 \subsubsection{Installing R}
-  R is downloadable from the following web site: http://www.r-project.org/
-  Choose the precompiled binary distribution.
-  On this website, you will also find useful documentation.
-  To use \R for the examples in this course, several packages need to be
-  downloaded.
-  \begin{itemize}
-    \item	\pkg{deSolve}. Performs integration. \citep{deSolve}
-    \item	\pkg{rootSolve}. Finds the root of equations \citep{rootSolve}.
-    \item	\pkg{scatterplot3d}. For 3-D graphics. \citep{scatterplot3D}
-    \item	\pkg{seacarb}. Aquatic chemistry. \citep{seacarb}
-    \item	\pkg{marelac}. Functions and constants from the marine
-      and lacustrine sciences \citep{marelac}.
-    \item	\pkg{marelacTeaching}. Data sets, used in this tutorial.
-      \citep{marelacTeaching}.
-  \end{itemize}
 
-  If you run \R within windows, downloading specific packages can best be
-  done within the \R program itself.
-  Select menu item \code{packages / install packages},
-  choose a nearby site (e.g. France (Paris)) and select the package you
-  need. If you install package \pkg{marelacTeaching}
-  then all other packages will be automatically installed as well.
-\subsubsection	{Other useful software}
-  I  prefer to run \R from within the Tinn-R editor, which can be
-  downloaded from URL http://sourceforge.net/projects/tinn-r and
-  http://www.sciviews.org/Tinn-R. This editor provides R-sensitive syntax
-  and help. Download the latest Tinn-R setup file and install it.
-  From within the Tinn-R program, you launch \R via the menu (\code{R/start
-  preferred Rgui}).
- 
+\proglang{R} is downloadable from the following web site:
+\url{http://www.r-project.org/} Choose the precompiled binary
+distribution.  On this website, you will also find useful
+documentation.  To use \R for the examples in this course, several
+packages need to be downloaded.
+
+\begin{itemize}
+  \item \pkg{deSolve}. Performs integration. \citep{deSolve}
+  \item \pkg{rootSolve}. Finds the root of equations \citep{rootSolve}.
+  \item \pkg{scatterplot3d}. For 3-D graphics. \citep{scatterplot3D}
+  \item \pkg{seacarb}. Aquatic chemistry. \citep{seacarb}
+  \item \pkg{marelac}. Functions and constants from the marine
+    and lacustrine sciences \citep{marelac}.
+  \item \pkg{marelacTeaching}. Data sets, used in this tutorial.
+    \citep{marelacTeaching}.
+\end{itemize}
+
+If you run \R within windows, downloading specific packages can best be
+done within the \R program itself.
+Select menu item \code{packages / install packages},
+choose a nearby site (e.g. France (Paris)) and select the package you
+need. If you install package \pkg{marelacTeaching}
+then all other packages will be automatically installed as well.
+
+\subsubsection{Other useful software}
+
+I prefer to run \R from within the Tinn-R editor, which is available
+for Windows and can be
+downloaded from URL \url{http://sourceforge.net/projects/tinn-r} and
+\url{http://www.sciviews.org/Tinn-R}. This editor provides R-sensitive syntax
+and help. Download the latest Tinn-R setup file and install it.
+From within the Tinn-R program, you launch \R via the menu (\code{R/start
+preferred Rgui}).
+
 \subsection{Quick overview of R}
-  R-code is highly readable, once you realise that:
-  \begin{itemize}
-    \item	\code{<-} is the assignment operator.
-    \item	everything starting with \code{\#} is considered a comment.
-    \item	R is case-sensitive: \code{a} and \code{A} are two different objects.
-  \end{itemize}
+
+R-code is highly readable, once you realise that:
+
+\begin{itemize}
+  \item \code{<-} is the assignment operator.
+  \item everything starting with \code{\#} is considered a comment.
+  \item \R is case-sensitive: \code{a} and \code{A} are two different objects.
+\end{itemize}
+
 \subsection{Console versus scripts}
-  There are two ways in which to work with R.
-  \begin{enumerate}
+
+There are two ways in which to work with R.
+
+\begin{enumerate}
     \item We can type commands into the \R console window at the command
       prompt (>) and use \R as a powerful scientific calculator.
 
       For instance, enter in the console window:
+
 <<>>=
  pi*0.795^2 ; 25*6/sqrt(67) ; log(25)
 @
+
      Here \code{sqrt} and \code{log} are built-in functions in R; \code{pi}
-     is a built-in constant; the semi-colon (;) is used to separate R-commands.
+     is a built-in constant; the semi-colon (;) is used to separate \proglang{R}-commands.
 
      In the console window, the <UP> and <DOWN> arrow keys are used to
      navigate through previously typed sentences.
 
 
-    \item Alternatively, we can create R-scripts in an editor (e.g. Tinn-R)
-      and save them in a file ("filename.R") for later re-use.
-      R-scripts are sequences of R-commands and expressions. These scripts
+    \item Alternatively, we can create \proglang{R}-scripts in an editor (e.g. Tinn-R)
+      and save them in a file (\code{filename.R}) for later re-use.
+      \proglang{R}-scripts are sequences of \proglang{R}-commands and expressions. These scripts
       should be submitted to \R before they are executed.
       This can be done in several ways:
       \begin{itemize}
-        \item	by typing, in the R-console window:
+        \item	by typing, in the \proglang{R}-console window:
 \begin{verbatim}
-> source ("filename.R") 
+> source ("filename.R")
 \end{verbatim}
          \item	by opening the file, copying the R-script to the clipboard
            (ctrl-C) and pasting it (ctrl-V) into the R-console window
@@ -180,39 +198,47 @@ options(width=70)
            parts of the text (buttons 3,4), submit marked blocks (buttons 5,6)
            or line-by-line (last button).
       \end{itemize}
-  \end{enumerate}
-  Throughout these notes, the following convention is used:
+\end{enumerate}
+
+Throughout these notes, the following convention is used:
+
 \begin{verbatim}
 > 3/2
 \end{verbatim}
-  denotes input to the console window (\code{>} is the prompt)
+
+denotes input to the console window (\code{>} is the prompt)
+
 \begin{verbatim}
 [1] 1
 \end{verbatim}
-  is \R output, as written in the console window
+
+is \R output, as written in the console window
+
 \begin{verbatim}
  getwd()
 \end{verbatim}
-  is an \R statement in a script file (it lacks the prompt).
 
-  A screen capture of a typical Tinn-R session, with the Tinn-R editor
-  (upper window) and the R-console (lower window) is given below.
-  A script file is opened in the Tinn-R editor. Note the context-sensitive
-  syntax (green=comments, blue= reserved words, rose = R-parameters).
-  Several lines of R-code have been selected (blue area) and sent to the
-  R-console, which has produced the graphics window that floats
-  independently from the other windows.
+is an \R statement in a script file (it lacks the prompt).
+
+A screen capture of a typical Tinn-R session, with the Tinn-R editor
+(upper window) and the R-console (lower window) is given below.
+A script file is opened in the Tinn-R editor. Note the context-sensitive
+syntax (green=comments, blue= reserved words, rose = R-parameters).
+Several lines of \proglang{R}-code have been selected (blue area) and sent to the
+\proglang{R}-console, which has produced the graphics window that floats
+independently from the other windows.
 
 \includegraphics[width=0.8\textwidth]{capture}
 
 
 \subsubsection{Getting help, examples, demonstrations}
-  R has an extensive help facility. Apart from the Help window launched
-  from the Help menu, or the HTML help facility, it is also available from
-  the command line prompt.
-  For instance, typing
-\begin{verbatim}
 
+R has an extensive help facility. Apart from the Help window launched
+from the Help menu, or the HTML help facility, it is also available from
+the command line prompt.
+For instance, typing
+
+\begin{verbatim}
 > ?log
 > ?sin
 > ?sqrt
@@ -220,58 +246,71 @@ options(width=70)
 > ?Special
 \end{verbatim}
 
-  will explain about logarithms and exponential functions, trigonometric
-  functions, and other functions.
+will explain about logarithms and exponential functions, trigonometric
+functions, and other functions.
+
 \begin{verbatim}
 > ?Arithmetic
 \end{verbatim}
-  lists the arithmetic operations in R.
+
+lists the arithmetic operations in R.
+
 \begin{verbatim}
 > help.search("factor")
 \end{verbatim}
-  will list occurrences of the word <factor> in R-commands.
 
-  Sometimes the best help is provided by the very active mailing list.
-  If you have a specific problem, just type \code{R: <problem>}
-  on your search engine. Chances are that someone encountered the problem
-  and it was already solved.
+will list occurrences of the word <factor> in \proglang{R}-commands.
 
-  Most of the help files also include examples. You can run all of them by
-  using R-statement \code{example}.
+Sometimes the best help is provided by the very active mailing list.
+If you have a specific problem, just type \code{R: <problem>}
+on your search engine. Chances are that someone encountered the problem
+and it was already solved.
 
-  For instance, typing into the console window:
+Most of the help files also include examples. You can run all of them by
+using \proglang{R}-statement \code{example}.
+
+For instance, typing into the console window:
+
 \begin{verbatim}
 > example(matrix)
 \end{verbatim}
-  will run all the examples from the matrix help file.
+
+will run all the examples from the matrix help file.
 
 \begin{verbatim}
 > example(pairs)
 \end{verbatim}
-  will run all the examples from the pairs help file.
-  (! try this ! \code{pairs} is a very powerful way of visualizing
-  pair-wise relationships).
 
-  Alternatively, you may select one example, copy it to the clipboard
-  (ctrl-C for  windows users) and then paste it (ctrl-V) in the console window.
-  In addition, the \R main software and many R-packages come with
-  demonstration material. Typing
+will run all the examples from the pairs help file.
+(! try this ! \code{pairs} is a very powerful way of visualizing
+pair-wise relationships).
+
+Alternatively, you may select one example, copy it to the clipboard
+(ctrl-C for  windows users) and then paste it (ctrl-V) in the console window.
+In addition, the \R main software and many \proglang{R}-packages come with
+demonstration material. Typing:
+
 \begin{verbatim}
 > demo()
 \end{verbatim}
-  will give a list of available demonstrations in the main software.
+
+will give a list of available demonstrations in the main software.
+
 \begin{verbatim}
 > demo(graphics)
 \end{verbatim}
-  will demonstrate some simple graphical capabilities.
+
+will demonstrate some simple graphical capabilities.
+
 \subsubsection{	Small things to remember}
+
   \begin{itemize}
 
     \item 	Pathnames in \R are written with forward slashes ("/") ,
       although in windows, backslashes, ($\backslash$), are used.
       Thus, to set a working directory in R:
 \begin{verbatim}
-setwd("C:/R code/") 
+setwd("C:/R code/")
 \end{verbatim}
     \item	If a sentence on one line is syntaxically correct, \R will
       execute it, even if it is the intention that it proceeds on the next
@@ -1005,109 +1044,128 @@ Sphere(1:5)$volume
   \citep{Millero81};
   the input parameter T is by default equal to 20 $^{\circ}$C:
 \begin{verbatim}
-Rho_W <- function(T=20)
-{
-999.842594 + 0.06793952 * T - 0.00909529 * T^2 +
-0.0001001685 * T^3 - 1.120083e-06 * T^4 + 6.536332e-09 * T^5
+Rho_W <- function(T = 20) {
+  999.842594 + 0.06793952 * T - 0.00909529 * T^2 +
+  0.0001001685 * T^3 - 1.120083e-06 * T^4 + 6.536332e-09 * T^5
 }
 \end{verbatim}
+
 <<echo=FALSE,results=hide>>=
-Rho_W <- function(T=20)
-{
-999.842594 + 0.06793952 * T - 0.00909529 * T^2 +
-0.0001001685 * T^3 - 1.120083e-06 * T^4 + 6.536332e-09 * T^5
+Rho_W <- function(T = 20) {
+  999.842594 + 0.06793952 * T - 0.00909529 * T^2 +
+  0.0001001685 * T^3 - 1.120083e-06 * T^4 + 6.536332e-09 * T^5
 }
 @
-  By ending the first sentence with a \code{+} we made clear that the
-  statement is not finished and continues on the next line. It would have
-  been wrong to put the \code{+} on the next line.
 
-  Calling the function without specifying temperature, uses the default value:
+By ending the first sentence with a \code{+} we made clear that the
+statement is not finished and continues on the next line. It would have
+been wrong to put the \code{+} on the next line.
+
+Calling the function without specifying temperature, uses the default value:
+
 <<>>=
 Rho_W()
 Rho_W(20)
 Rho_W(0)
 @
+
 \subsection{Programming}
-  \R has all the features of a high-level programming language:
+
+\R has all the features of a high-level programming language:
+
 \subsubsection{If, else, ifelse constructs}
-  Try to understand the following:
+
+Try to understand the following:
+
 \begin{verbatim}
-Dummy <- function (x)
-{
-if ( x<0  ) string <- "x<0"     else
-if ( x<2  ) string <- "0>=x<2"  else
-            string <- "x>=2"
-print(string)
+Dummy <- function (x) {
+  if ( x<0  ) string <- "x<0"     else
+  if ( x<2  ) string <- "0>=x<2"  else
+              string <- "x>=2"
+  print(string)
 }
 \end{verbatim}
+
 <<echo=FALSE,results=hide>>=
-Dummy <- function (x)
-{
-if ( x<0  ) string <- "x<0"     else
-if ( x<2  ) string <- "0>=x<2"  else
-            string <- "x>=2"
-print(string)
+Dummy <- function (x) {
+  if ( x<0  ) string <- "x<0"     else
+  if ( x<2  ) string <- "0>=x<2"  else
+              string <- "x>=2"
+  print(string)
 }
 @
+
 <<>>=
 Dummy(-1)
 Dummy(1)
 Dummy(2)
 @
-  Note that we have specified the \code{else} clause on the same line as
-  the \code{if} part so that \R knows that the statement is continued on
-  the next line!
 
-  If and else constructs involving only one statement can be combined:
+Note that we have specified the \code{else} clause on the same line as
+the \code{if} part so that \R knows that the statement is continued on
+the next line!
+
+If and else constructs involving only one statement can be combined:
+
 <<>>=
 x<-2
 ifelse (x>0, "positive", "negative,0")
 @
-\subsubsection{Loops}
-  Loops allow a set of statements to be executed multiple times:
 
-  The \code{for} loop iterates over a specified set of values. In the
-  example below, the variable "i" takes on the values (1,2,3):
+\subsubsection{Loops}
+
+Loops allow a set of statements to be executed multiple times.
+
+The \code{for} loop iterates over a specified set of values. In the
+example below, the variable "i" takes on the values (1,2,3):
+
 <<>>=
 for (i in 1:3) print(c(i,2*i,3*i))
 @
-  \code{while} and \code{repeat} will execute until a specified
-  condition is met.
+
+\code{while} and \code{repeat} will execute until a specified
+condition is met:
+
 <<>>=
 i<-1 ; while(i<3) {print(i); i<-i+1}
 @
-  \code{break} exits the loop
 
-  \code{next} stops the current iteration and advances to the next iteration.
+\code{break} exits the loop,
+
+\code{next} stops the current iteration and advances to the next iteration.
+
 <<>>=
-i<-1
-repeat
-{
+i <- 1
+repeat {
   print(i)
-  i <-i+1
-  if(i>2) break
+  i <-i + 1
+  if(i > 2) break
 }
 @
-  The curly braces $\{ \ldots \}$ embrace multiple statements that are
-  executed in each iteration.
 
-  Note: loops are implemented very inefficiently in \R and should be
-  avoided as often as possible.
-  Fortunately, \R offers many high-level commands that operate on vectors
-  and matrices. These should be used as much as possible!
+The curly braces $\{ \ldots \}$ embrace multiple statements that are
+executed in each iteration.
 
-  For more information about if constructs and loops, type
+Note: loops are implemented very inefficiently in \R and should be
+avoided as often as possible.
+Fortunately, \R offers many high-level commands that operate on vectors
+and matrices. These should be used as much as possible!
+
+For more information about if constructs and loops, type
+
 \begin{verbatim}
 > ?Control
 \end{verbatim}
-\subsection{R- packages}
-  A package in \R is a file containing many functions that perform certain
-  related tasks.
-  Packages can be downloaded from the \R website.
 
-  Once installed, we generate a list of all available packages, we load
-  a package and we obtain a list with its contents by the following commands:
+\subsection{R- packages}
+
+A package in \R is a file containing many functions that perform certain
+related tasks.
+Packages can be downloaded from the \R website.
+
+Once installed, we generate a list of all available packages, we load
+a package and we obtain a list with its contents by the following commands:
+
 \begin{verbatim}
 >library()
 >library(deSolve)
@@ -1116,23 +1174,26 @@ repeat
 \end{verbatim}
 
 \subsection{Exercises}
+
 \subsubsection{R-function sphere}
-  Extend the \code{Sphere} function with the circumference of the sphere
-  at the place of maximal radius.
-  The formula for estimating the circumference of a circle with radius r
-  is: $2\cdot \pi \cdot r$.
-  What is the circumference of the earth near the equator?
+
+Extend the \code{Sphere} function with the circumference of the sphere
+at the place of maximal radius.
+The formula for estimating the circumference of a circle with radius r
+is: $2\cdot \pi \cdot r$.
+What is the circumference of the earth near the equator?
 
 \subsubsection{An R-function to estimate saturated oxygen concentrations}
-  The saturated oxygen concentration in water (µmol kg-1), as function of
-  temperature (T), and salinity (S) can be calculated by:
-  $SatOx = e^A $      where :
 
-  A= -173.9894 + 25559.07/T + 146.4813* loge(T/100) -22.204*T/100 + S *
+The saturated oxygen concentration in water (\chem{\mu mol kg^{-1}}), as function of
+temperature (T), and salinity (S) can be calculated by:
+$SatOx = e^A $     where:
+
+A= -173.9894 + 25559.07/T + 146.4813* loge(T/100) -22.204*T/100 + S *
 
   (-0.037362+0.016504*T/100-0.0020564 *T/100*T/100)
 
-  and T is temperature in Kelvin (Tkelvin = Tcelsius+273.15).
+and T is temperature in Kelvin (Tkelvin = Tcelsius + 273.15).
 
   Tasks:
   \begin{itemize}
@@ -1810,70 +1871,77 @@ eigen(A)
   \end{itemize}
 
 \subsubsection{System of linear equations}
-  \begin{itemize}
-    \item	Solve the following system of linear equations for the unknown xi:
+
+\begin{itemize}
+\item Solve the following system of linear equations for the unknown $x_i$:
 \begin{verbatim}
 3x1 + 4x2 + 5x3 = 0
 6x1 + 2x2 + 7x3 = 5
 7x1 +  x2       = 6
 \end{verbatim}
-    \item	You will first need to rewrite this problem in the form: Ax=B,
-      where A contains the coefficients, x the unknowns, and B the right-hand
-      side values. Then you solve the system, using R-function \code{solve}
-    \item	Check the results (i.e. is Ax = B ?)
-  \end{itemize}
+\item You will first need to rewrite this problem in the form: Ax=B,
+   where A contains the coefficients, x the unknowns, and B the right-hand
+   side values. Then you solve the system, using R-function \code{solve}
+\item	Check the results (i.e. is Ax = B ?)
+\end{itemize}
 \clearpage
 
 \section{Roots of functions}
+
 \subsection{Roots of a simple function}
-  Suppose we want to solve the following problem: $\cos(x) = 2 \cdot x$ for x.
 
-  Mathematically, we seek the root of the function $y= \cos(x) - 2 \cdot x$,
-  this is the value of x for which $y = 0$.
+Suppose we want to solve the following problem: $\cos(x) = 2 \cdot x$ for x.
 
-  As the function is quite complex, it is not possible to find an exact solution
-  (an explicit expression) for this root.
+Mathematically, we seek the root of the function $y= \cos(x) - 2 \cdot x$,
+this is the value of x for which $y = 0$.
 
-  It is always a good idea to plot the equation ($1^{st}$ line), and add the
-  x-axis ($2^{nd}$ line).
+As the function is quite complex, it is not possible to find an exact solution
+(an explicit expression) for this root.
+
+It is always a good idea to plot the equation ($1^{st}$ line), and add the
+x-axis ($2^{nd}$ line).
+
 \begin{verbatim}
-curve(cos(x)-2*x,-10,10)
-abline(h=0,lty=2)
+curve(cos(x) - 2 * x, -10, 10)
+abline(h = 0, lty = 2)
 \end{verbatim}
 
-  This figure shows that there indeed exists a value x, for which y = 0.
+This figure shows that there indeed exists a value $x$, for which $y = 0$.
 
-  Now R-function \code{uniroot} can be used to locate this value.
+Now R-function \code{uniroot} can be used to locate this value.
 
-  Functions that seek a root from a nonlinear equation generally work
-  "iteratively", i.e. they move closer and closer to the root in
-  successive steps (iterations).
+Functions that seek a root from a nonlinear equation generally work
+``iteratively'', i.e. they move closer and closer to the root in
+successive steps (iterations).
 
-  It is usually not feasible to find this root exactly, so it is approximated,
-  i.e. up to a certain accuracy (tol, a very small number)
-  \footnote{  More specifically: the root of $y=\cos (x)-2 \cdot x$ is the
-  value x for which  |cos(x)-2*x | < tol or for which successive changes of
-  x are < tol}.
+It is usually not feasible to find this root exactly, so it is approximated,
+i.e. up to a certain accuracy (tol, a very small number)
+\footnote{  More specifically: the root of $y=\cos (x)-2 \cdot x$ is the
+value x for which  |cos(x)-2*x | < tol or for which successive changes of
+x are < tol}.
 
-  For the method to work, there should be at least one root in the interval.
+For the method to work, there should be at least one root in the interval.
 
-  The statement below solves for the root; it returns several values, as a list.
+The statement below solves for the root; it returns several values, as a list.
+
 <<>>=
 (rr<-uniroot(f = function(x) cos(x)-2*x, interval=c(-10,10)))
 @
-  The most important value is the root itself (\code{$root}), which is
-  0.45103686;
 
-  the function value at the root was 3.66e-5, the function performed
-  5 iterations.
+The most important value is the root itself (\code{$root}), which is
+0.45103686;
 
-  In this example, the function was simple enough to include it in the
-  call to \code{uniroot}.
+the function value at the root was 3.66e-5, the function performed
+5 iterations.
 
-  The next chapter gives a more complex example from aquatic chemistry,
-  where the equation to solve is significantly more complex.
+In this example, the function was simple enough to include it in the
+call to \code{uniroot}.
 
-  Finally, we add the root to the figure:
+The next chapter gives a more complex example from aquatic chemistry,
+where the equation to solve is significantly more complex.
+
+Finally, we add the root to the figure:
+
 \begin{verbatim}
 points(rr$root,0,pch=16,cex=2)
 \end{verbatim}
@@ -1982,25 +2050,31 @@ uniroot(pHfunction, interval=c(0, 12), tol=1.e-20, kc1=kc1, kc2=kc2,
         DIC=2100, Alkalinity=2200)
 @
 \subsection{Exercises}
+
 \subsubsection{Simple functions}
-  \begin{itemize}
-    \item	Find the root of the equation $e^x = 4 x^2$ in the interval [0,1].
 
-      First draw the function curve.
-    \item	Solve the equations $1000=y*(3+x)*(1+y)^4$ for y and with x
-      varying over the range from 1 to 100. Plot the root as a function of x.
+\begin{itemize}
+  \item Find the root of the equation $e^x = 4 x^2$ in the interval [0,1].
 
-      Tip: first make a sequence of x-values, then loop over each "x"
-      value, each time estimating the root and putting it in a vector.
-  \end{itemize}
+    First draw the function curve.
+  \item Solve the equations $1000=y*(3+x)*(1+y)^4$ for y and with x
+     varying over the range from 1 to 100. Plot the root as a function of x.
+
+    Tip: first make a sequence of x-values, then loop over each "x"
+    value, each time estimating the root and putting it in a vector.
+\end{itemize}
+
 \subsubsection{Chemistry: pCO2 rises increase acidity}
-  pH can also be estimated based on the measured alkalinity and $pCO_2$,
-  the partial pressure of $CO_2$. To solve this equation, it is simplest to use
-  another (equivalent) way to write the relationships between the DIC species:
-  \[
+
+pH can also be estimated based on the measured alkalinity and p\chem{CO_2},
+the partial pressure of \chem{CO_2}. To solve this equation, it is simplest to use
+another (equivalent) way to write the relationships between the DIC species:
+
+  \[\mathrm
   [HCO_3^ -  ] = K_{C1}  \cdot \frac{{[CO_2 ]}}{{[H^ +  ]}}
   \]
-  \[
+
+  \[\mathrm
   [CO_3^{2 - } ] = K_{C2}  \cdot \frac{{[HCO_3^ -  ]}}{{[H^ +  ]}}
   \]
 
@@ -2031,28 +2105,33 @@ uniroot(pHfunction, interval=c(0, 12), tol=1.e-20, kc1=kc1, kc2=kc2,
 \clearpage
 
 \section{Interpolation, smoothing}
-  Interpolating and smoothing in \R can be done in several ways:
-  \begin{itemize}
-    \item	\code{approx} linearly interpolates through points
-    \item	\code{spline} uses spline interpolation, which is smoother
-    \item	\code{smooth.spline} smoothens data sets; this means that it
-      does not connect the original points.
-  \end{itemize}
 
-  The use of these functions is exemplified in the following script and
-  corresponding output:
+Interpolating and smoothing in \R can be done in several ways:
+
+\begin{itemize}
+  \item \code{approx} linearly interpolates through points,
+  \item \code{spline} uses spline interpolation, which is smoother,
+  \item \code{smooth.spline} smoothens data sets; this means that it
+    does not connect the original points.
+\end{itemize}
+
+The use of these functions is exemplified in the following script and
+corresponding output:
+
 <<>>=
 x <- 1:10
-y <- c(9,8,6,7,5,8,9,6,3,5)
+y <- c(9, 8, 6, 7, 5, 8, 9, 6, 3, 5)
 @
+
 <<smooth,include=FALSE>>=
-plot(x,y,pch=16,cex=2,main="interpolation,smoothing")
-lines (spline(x,y, n=100),lty=1)
-points(approx(x,y, xout=seq(1,10,0.1)),pch=1)
-lines (smooth.spline(x,y),lty=2)
-legend("bottomleft",lty=c(1,NA,2),pch=c(NA,1,NA),
-       legend=c("spline","approx","smooth.spline"))
+plot(x, y, pch=16, cex = 2, main = "interpolation,smoothing")
+lines (spline(x, y, n = 100), lty = 1)
+points(approx(x, y, xout = seq(1, 10, 0.1)), pch = 1)
+lines (smooth.spline(x, y), lty = 2)
+legend("bottomleft", lty = c(1, NA, 2), pch = c(NA, 1, NA),
+       legend = c("spline", "approx", "smooth.spline"))
 @
+
 \setkeys{Gin}{width=0.4\textwidth}
 \begin{figure}
 \begin{center}
@@ -2065,54 +2144,63 @@ legend("bottomleft",lty=c(1,NA,2),pch=c(NA,1,NA),
 \end{figure}
 
 \subsection{Curve fitting}
-  \R also has several curve fitting procedures. Depending on whether the
-  function to be fitted is linear, or non-linear, you may use:
-  \begin{itemize}
-    \item	\code{lm} and \code{glm} for fitting linear models and
-      generalised linear models
-    \item	\code{nls}, \code{nlm}, \code{optim}, \code{constrOptim} for
-      nonlinear models.
-  \end{itemize}
 
-  As an example, we now fit the US population density values, at
-  10-year intervals, with the logistic growth model (see previous chapter).
-  The model was:
-  $N(t)=\frac{{K}}{{1+[\frac{K-N_{t0}}{N_{t0}}]\cdot e^{-a\cdot(t-t_0)}}}$ ,
-  and the data:
+\R also has several curve fitting procedures. Depending on whether the
+function to be fitted is linear, or non-linear, you may use:
+
+\begin{itemize}
+  \item \code{lm} and \code{glm} for fitting linear models and
+    generalised linear models
+  \item \code{nls}, \code{nlm}, \code{optim}, \code{constrOptim} for
+    nonlinear models.
+\end{itemize}
+
+As an example, we now fit the US population density values, at
+10-year intervals, with the logistic growth model (see previous chapter).
+The model was:
+$N(t)=\frac{{K}}{{1+[\frac{K-N_{t0}}{N_{t0}}]\cdot e^{-a\cdot(t-t_0)}}}$ ,
+and the data:
+
 \begin{verbatim}
 1900	1910	1920	1930	1940	1950	1960	1970	1980
 76.1	92.4	106.5	123.1	132.6	152.3	180.7	204.9	226.5
 \end{verbatim}
-  We start by inputting the data.
+
+We start by inputting the data.
+
 <<>>=
-year<- seq(1900,1980,by=10)
-pop <- c(76.1,92.4,106.5,123.1,132.6,152.3,180.7,204.9,226.5)
+year<- seq(1900, 1980, by = 10)
+pop <- c(76.1, 92.4, 106.5, 123.1, 132.6, 152.3, 180.7, 204.9, 226.5)
 @
 
-  The simplest method for non-linear curve fitting is by using R-function
-  \code{nls}.
+The simplest method for non-linear curve fitting is by using R-function
+\code{nls}.
 
-  This functions requires as input the formula (\code{y ~ f (x,parameters)})
-  and starting values of the parameters.
+This functions requires as input the formula (\code{y ~ f(x, parameters)})
+and starting values of the parameters.
 
-  In the example, y are the population values, f is the logistic
-  growth formulation.
+In the example, \code{y} are the population values, \code{f} is the logistic
+growth formulation.
 
-  As starting conditions, we use: K=500,N0=76.1,a=0.02.
+As starting conditions, we use: $K=500, N0=76.1, a=0.02$.
+
 <<>>=
-fit <- nls(pop~K/(1+(K-N0)/N0*exp(-a*(year-1900))),
-           start=list(K=500,N0=76.1,a=0.02))
+fit <- nls(pop ~ K/(1 + (K - N0) / N0 * exp(-a * (year - 1900))),
+           start = list(K = 500, N0 = 76.1, a = 0.02))
 @
-  We end the fitting by printing a summary of the fitting parameters, which
-  shows the estimates of the parameters and their standard errors.
-  Clearly, it is not possible to obtain reliable estimates of the value of
-  K based on the data.
+
+We end the fitting by printing a summary of the fitting parameters, which
+shows the estimates of the parameters and their standard errors.
+Clearly, it is not possible to obtain reliable estimates of the value of
+$K$ based on the data.
+
 <<>>=
 summary(fit)
 @
 
-  The values of the coefficients themselves are retrieved using
-  R-function \code{coef}.
+The values of the coefficients themselves are retrieved using
+R-function \code{coef}.
+
 <<>>=
 (cc<-coef(fit))
 @
@@ -2188,75 +2276,78 @@ pp <- c(0.,1,3,4,6,8,10,11,10,9,8)
   The R-statement \code{with (as.list (c(state,pars)),{ }} ensures that
   the state variables and parameters can be addressed by their names.
 \begin{verbatim}
-model <- function(t,state,pars)
-{
-with (as.list(c(state,pars)),
-{
- dA <- r*(x-A)-k*A*B
- dB <- r*(y-B)+k*A*B
- return (list(c(dA,dB)))
- }
-     )
+model <- function(t, state, pars) {
+  with (as.list(c(state, pars)), {
+    dA <- r * (x - A) - k * A * B
+    dB <- r * (y - B) + k * A * B
+    return (list(c(dA, dB)))
+  })
 }
 \end{verbatim}
 
   Before we can solve this model, we
   \begin{itemize}
-    \item	generate a sequence of time values at which we want output
+    \item generate a sequence of time values at which we want output
       (\code{times}),
-    \item	assign initial conditions to the state variables (\code{state}) and
-    \item	give values to the parameters (\code{parms}):
+    \item assign initial conditions to the state variables (\code{state}) and
+    \item give values to the parameters (\code{parms}):
   \end{itemize}
 \begin{verbatim}
-times <- seq(0,300,1)
-state <- c(A=1,B=1)
-parms <- c(x =1, y = 0.1, k = 0.05, r = 0.05)
+times <- seq(0, 300, 1)
+state <- c(A = 1, B = 1)
+parms <- c(x = 1, y = 0.1, k = 0.05, r = 0.05)
 \end{verbatim}
-  The model can now be solved. To do so, we use \R’s integration routine
-  \code{ode}; which can be found in \R-package \pkg{deSolve}. This package
-  is loaded first.
+
+The model can now be solved. To do so, we use \R’s integration routine
+\code{ode}; which can be found in \R-package \pkg{deSolve}. This package
+is loaded first.
+
 \begin{verbatim}
 require(deSolve)
 \end{verbatim}
-  At each time \code{t}, \code{ode} will call function \code{model}, with
-  the current values of the state variables and the parameter values.
 
-  The output is stored in a data.frame, called \code{out}.
+At each time \code{t}, \code{ode} will call function \code{model}, with
+the current values of the state variables and the parameter values.
+
+ The output is stored in a data.frame, called \code{out}.
+
 \begin{verbatim}
 out   <- as.data.frame(ode(state,times,model,parms))
 \end{verbatim}
+
 <<echo=FALSE>>=
-model <- function(t,state,pars)
-{
-with (as.list(c(state,pars)),
-{
- dA <- r*(x-A)-k*A*B
- dB <- r*(y-B)+k*A*B
- return (list(c(dA,dB)))
- }
-     )
+model <- function(t, state, pars) {
+  with (as.list(c(state, pars)), {
+    dA <- r * (x - A) - k * A * B
+    dB <- r * (y - B) + k * A * B
+    return (list(c(dA, dB)))
+  })
 }
-times <- seq(0,300,1)
-state <- c(A=1,B=1)
-parms <- c(x =1, y = 0.1, k = 0.05, r = 0.05)
-out   <- as.data.frame(ode(state,times,model,parms))
+times <- seq(0, 300, 1)
+state <- c(A = 1, B = 1)
+parms <- c(x = 1, y = 0.1, k = 0.05, r = 0.05)
+out   <- as.data.frame(ode(state, times, model, parms))
 @
-  All we need to do now is to plot the model output. Before we do so, we
-  have a look at data.frame out:
+
+All we need to do now is to plot the model output. Before we do so, we
+have a look at data.frame out:
+
 <<>>=
 head(out)
 @
-  The data are arranged in three columns: first the time, then the
-  concentrations of A and B. As out is a data frame we can extract the
-  data using their names (\code{out$time}, \code{out$A}, \code{out$B}).
 
-  Before plotting the model output, the range of concentrations of
-  substances A and B is estimated; this is used to set the limits of
-  the y-axis (\code{ylim}).
+The data are arranged in three columns: first the time, then the
+concentrations of A and B. As out is a data frame we can extract the
+data using their names (\code{out$time}, \code{out$A}, \code{out$B}).
 
-  \R-function \code{plot} creates a new plot; \code{lines} adds a line
-  to this plot; \code{lty} selects a line type; \code{lwd=2} makes the
-  lines twice as thick as the default.  Finally a \code{legend} is added.
+Before plotting the model output, the range of concentrations of
+substances A and B is estimated; this is used to set the limits of
+the y-axis (\code{ylim}).
+
+\R-function \code{plot} creates a new plot; \code{lines} adds a line
+to this plot; \code{lty} selects a line type; \code{lwd = 2} makes the
+lines twice as thick as the default.  Finally a \code{legend} is added.
+
 \begin{verbatim}
 ylim   <- range(c(out$A,out$B))
 plot(out$time,out$A,xlab="time",ylab="concentration",
@@ -2264,6 +2355,7 @@ plot(out$time,out$A,xlab="time",ylab="concentration",
 lines(out$time,out$B,lwd=2,lty=2)
 legend("topright",legend=c("A","B"),lwd=2,lty=c(1,2))
 \end{verbatim}
+
 <<ode,include=FALSE,echo=FALSE>>=
 ylim   <- range(c(out$A,out$B))
 plot(out$time,out$A,xlab="time",ylab="concentration",
@@ -2271,6 +2363,7 @@ plot(out$time,out$A,xlab="time",ylab="concentration",
 lines(out$time,out$B,lwd=2,lty=2)
 legend("topright",legend=c("A","B"),lwd=2,lty=c(1,2))
 @
+
 \setkeys{Gin}{width=0.4\textwidth}
 \begin{figure}
 \begin{center}
@@ -2281,10 +2374,13 @@ legend("topright",legend=c("A","B"),lwd=2,lty=c(1,2))
 \caption{ode model - see text for R-code}
 \label{fig:smooth}
 \end{figure}
+
 \subsection{Exercises}
-\subsubsection{Lotka-volterra model}
-  \begin{itemize}
-    \item	Write a script file that solves the following system of ODEs
+
+\subsubsection{Lotka-Volterra model}
+
+\begin{itemize}
+    \item Write a script file that solves the following system of ODEs
       \footnote{ The Lotka-Volterra models are a famous type of models that
       either describe predator-prey interactions or competitive interactions
       between two species.
@@ -2297,57 +2393,56 @@ legend("topright",legend=c("A","B"),lwd=2,lty=c(1,2))
     \end{array}
   \]
 
-      for initial values x=300,y=10 and parameter values: a=0.05, K=500,
-      b=0.0002, g=0.8, e=0.03
-    \item	Make three plots, one for x and one for y as a function of time,
-      and one plot expressing y as a function of x (this is called a
+      for initial values $x=300,y=10$ and parameter values: $a=0.05, K=500,
+      b=0.0002, g=0.8, e=0.03$.
+    \item Make three plots, one for $x$ and one for $y$ as a function of time,
+      and one plot expressing $y$ as a function of $x$ (this is called a
       phase-plane plot).  Arrange these plots in 2 rows and 2 columns.
-    \item	Now run the model with other initial values (x=200, y=50); add
-      the (x,y) trajectories to the phase-plane plot
+    \item Now run the model with other initial values ($x=200, y=50$); add
+      the $(x,y)$ trajectories to the phase-plane plot.
   \end{itemize}
 
 \subsubsection{Butterfly}
-  The Lorenz equations \citep{Lorenz63} were the first chaotic system
-  of differential equations to be discovered. They are three differential
-  equations that were derived to represent idealized behavior of the
-  earth’s atmosphere.
-  \[
-    \begin{array}{l}
-     \frac{{dx}}{{dt}} =  - \frac{8}{3} \cdot x + y \cdot z \\
-     \frac{{dy}}{{dt}} =  - 10 \cdot (y - z) \\
-     \frac{{dz}}{{dt}} =  - x \cdot y + 28y - z \\
-    \end{array}
-  \]
 
-  \begin{itemize}
-    \item	It takes about 10 lines of R-code to generate the solutions
-      and plot them.
-    \item	Function \code{scatterplot3d} from the package scatterplot3d
-      generates 3-D scatterplots. Can you recreate the following
-      "butterfly" ? Use as initial conditions x=y=z=1; create output for
-      a time sequence ranging from 0 to 100, and with a time step of 0.005.
-  \end{itemize}
+The Lorenz equations \citep{Lorenz63} were the first chaotic system
+of differential equations to be discovered. They are three differential
+equations that were derived to represent idealized behavior of the
+earth’s atmosphere.
+
+\[
+  \begin{array}{l}
+    \frac{{dx}}{{dt}} =  - \frac{8}{3} \cdot x + y \cdot z \\
+    \frac{{dy}}{{dt}} =  - 10 \cdot (y - z) \\
+    \frac{{dz}}{{dt}} =  - x \cdot y + 28y - z \\
+  \end{array}
+\]
+
+\begin{itemize}
+  \item It takes about 10 lines of R-code to generate the solutions
+    and plot them.
+  \item Function \code{scatterplot3d} from the package scatterplot3d
+    generates 3-D scatterplots. Can you recreate the following
+    ``butterfly'' ? Use as initial conditions $x=y=z=1$; create output for
+    a time sequence ranging from 0 to 100, and with a time step of 0.005.
+\end{itemize}
 
 \begin{center}
 <<fig=TRUE,echo=FALSE>>=
 require(scatterplot3d)
-model<-function(t,state,parameters)
-  {
-  with(as.list(c(state)),{
+model <- function(t, state, parameters) {
+  with(as.list(c(state)), {
+    dx     <- -8/3 * x + y * z
+    dy     <- -10 * (y - z)
+    dz     <- -x * y + 28 * y - z
+    list(c(dx,dy,dz))
+  })
+}  # end of model
 
-    dx     <- -8/3*x+y*z
-    dy     <- -10*(y-z)
-    dz     <- -x*y+28*y-z
-
-    list(c(dx,dy,dz))            })
-
- }  # end of model
-
-state <-c(x=1, y=1, z=1)
-times <-seq(0,100,0.005)
-out   <-as.data.frame(lsoda(state,times,model,0))
-scatterplot3d(out$x,out$y,out$z,type="l",
-        main="Lorenz butterfly",ylab="",grid=FALSE,box=FALSE)
+state <- c(x = 1, y = 1, z = 1)
+times <- seq(0, 100, 0.005)
+out   <- as.data.frame(lsoda(state, times, model, 0))
+scatterplot3d(out$x, out$y, out$z, type = "l",
+      main = "Lorenz butterfly", ylab = "", grid = FALSE, box = FALSE)
 @
 \end{center}
 
@@ -2355,23 +2450,27 @@ scatterplot3d(out$x,out$y,out$z,type="l",
 \section{Finally}
 
 \subsection{The questions}
-  These lecture notes have been generated with LaTeX and making use of
-  R-package \pkg{Sweave} \citep{Leisch02}, which allows to merge LaTeX
-  with R-code.
 
-  If you do not like the layout a PDF version ("ScientificComputing.pdf")
-  made with WORD (Microsoft) can be found in the /inst/lecture subdirectory
-  of package \pkg{marelacTeaching}.
+These lecture notes have been generated with LaTeX and making use of
+R-package \pkg{Sweave} \citep{Leisch02}, which allows to merge LaTeX
+with R-code.
+
+If you do not like the layout a PDF version (``ScientificComputing.pdf'')
+made with WORD (Microsoft) can be found in the /inst/lecture subdirectory
+of package \pkg{marelacTeaching}.
 
 \subsection{The answers}
-  The answers to the questions in this course are present as an R-vignette
-  in package "marelacTeaching".
-  From within R, type:
+
+The answers to the questions in this course are present as an R-vignette
+in package \pkg{marelacTeaching}.
+From within R, type:
+
 \begin{verbatim}
 > vignette("Answers")
 \end{verbatim}
-  Or, you can find the file "Answers.pdf" in the /inst/doc subdirectory
-  of package "marelacTeaching".
+
+Or, you can find the file ``Answers.pdf'' in the /inst/doc subdirectory
+of package \pkg{marelacTeaching}.
 
 
 \bibliography{vignettes}

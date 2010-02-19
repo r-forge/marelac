@@ -91,7 +91,7 @@ June 2009
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% R/Sweave specific LaTeX commands.
 %% need no \usepackage{Sweave}
-%\VignetteIndexEntry{Using R for Scientific Computing - Lecture notes: questions}
+%\VignetteIndexEntry{Using R for Scientific Computing - Lecture notes: Questions}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin of the document
 \begin{document}
@@ -100,16 +100,16 @@ June 2009
 <<preliminaries,echo=FALSE,results=hide>>=
 library(marelac)
 library(marelacTeaching)
-options(prompt = ">")
+options(prompt = "> ")
 options(width=70)
 @
 
 \maketitle
 
 \section{Introduction}
-\subsection{The R-software}
+\subsection[The R software]{The \proglang{R} software}
 
-\subsubsection{Installing R}
+\subsubsection[Installing R]{Installing \proglang{R}}
 
 \proglang{R} is downloadable from the following web site:
 \url{http://www.r-project.org/} Choose the precompiled binary
@@ -140,14 +140,14 @@ then all other packages will be automatically installed as well.
 I prefer to run \R from within the Tinn-R editor, which is available
 for Windows and can be
 downloaded from URL \url{http://sourceforge.net/projects/tinn-r} and
-\url{http://www.sciviews.org/Tinn-R}. This editor provides R-sensitive syntax
+\url{http://www.sciviews.org/Tinn-R}. This editor provides \proglang{R}~sensitive syntax
 and help. Download the latest Tinn-R setup file and install it.
 From within the Tinn-R program, you launch \R via the menu (\code{R/start
 preferred Rgui}).
 
-\subsection{Quick overview of R}
+\subsection[Quick overview of R]{Quick overview of \proglang{R}}
 
-R-code is highly readable, once you realise that:
+\proglang{R}~code is highly readable, once you realise that:
 
 \begin{itemize}
   \item \code{<-} is the assignment operator.
@@ -188,10 +188,10 @@ There are two ways in which to work with R.
 > source ("filename.R")
 \end{verbatim}
 %
-  \item by opening the file, copying the R-script to the clipboard
-    (ctrl-C) and pasting it (ctrl-V) into the R-console window
+  \item by opening the file, copying the \proglang{R}~script to the clipboard
+    (ctrl-C) and pasting it (ctrl-V) into the \proglang{R}~console window
   \item If you do not use the tinn-R editor, the file is opened
-    as an R-script from within the \R console.
+    as an \proglang{R}~script from within the \R console.
     After selecting the script, and pressing the "send" button
     the statements are executed and the cursor moved to the next line.
   \item If you do use the Tinn-R editor,
@@ -223,9 +223,9 @@ is \R output, as written in the console window
 is an \R statement in a script file (it lacks the prompt).
 
 A screen capture of a typical Tinn-R session, with the Tinn-R editor
-(upper window) and the R-console (lower window) is given below.
+(upper window) and the \proglang{R}~console (lower window) is given below.
 A script file is opened in the Tinn-R editor. Note the context-sensitive
-syntax (green=comments, blue= reserved words, rose = R-parameters).
+syntax (green=comments, blue= reserved words, rose = \proglang{R}~parameters).
 Several lines of \proglang{R}-code have been selected (blue area) and sent to the
 \proglang{R}-console, which has produced the graphics window that floats
 independently from the other windows.
@@ -304,7 +304,7 @@ will give a list of available demonstrations in the main software.
 
 will demonstrate some simple graphical capabilities.
 
-\subsubsection{	Small things to remember}
+\subsubsection{Small things to remember}
 
 \begin{itemize}
   \item Pathnames in \R are written with forward slashes ("/") ,
@@ -342,10 +342,10 @@ A <- 3 + cos(pi)
    These errors are very difficult to trace, so it is best to avoid them.
 \end{itemize}
 
-\subsubsection{Exercises: Using R as a calculator}
+\subsubsection[Exercises: Using R as a calculator]{Exercises: Using \proglang{R} as a calculator}
 
 It is very convenient to use \R as a powerful calculator. This can best
-be done from within the R-console.
+be done from within the \proglang{R}~console.
 
 \begin{enumerate}
   \item Use the console to calculate the value of:
@@ -360,12 +360,12 @@ be done from within the R-console.
     functions. typing \code{?"+"} will open a help file with the common
     arithmetic operators.
 
-  \item Now write the R-statements in a script file, using the Tinn-R
+  \item Now write the \proglang{R}~statements in a script file, using the Tinn-R
     editor. Try the various ways in which to submit the statements to \R.
 \end{enumerate}
 \clearpage
 
-\section{R-variables}
+\section[R variables]{\proglang{R}~variables}
 
 \R calculates as easily with vectors, matrices and arrays as with single
 numbers.
@@ -433,13 +433,13 @@ Apart from integers, real and complex numbers, \R also recognizes infinity
 Vectors can be created in many ways:
 
 \begin{itemize}
-  \item Using R-function \code{vector},
+  \item Using \proglang{R}~function \code{vector},
   \item The function \code{c()} combines numbers into a vector
     \footnote{This is perhaps THE most important function in R},
   \item The operator "\code{:}" creates a sequence of values, each
     1 larger (or smaller) than the previous one,
-  \item A more general sequence can be generated by R-function \code{seq},
-  \item The same quantity is repeated using R-function \code{rep}.
+  \item A more general sequence can be generated by \proglang{R}~function \code{seq},
+  \item The same quantity is repeated using \proglang{R}~function \code{rep}.
 \end{itemize}
 
 For instance, the commands:
@@ -452,7 +452,7 @@ seq(0, 2*pi, pi/2 )
 
 will all create a vector, consisting of: $0, \pi,\ldots 2*\pi$.
 
-Note that R-function \code{seq} takes as input (amongst others)
+Note that \proglang{R}~function \code{seq} takes as input (amongst others)
 parameters \code{from}, \code{to} and \code{by} ($2^{nd}$ example).
 If the order is kept, they not be specified by name ($3^{rd}$ example).
 
@@ -510,8 +510,8 @@ names(fruit)
 Matrices can also be created in several ways:
 
 \begin{itemize}
-  \item By means of R-function \code{matrix},
-  \item By means of R-function \code{diag} which constructs a diagonal matrix,
+  \item By means of \proglang{R}~function \code{matrix},
+  \item By means of \proglang{R}~function \code{diag} which constructs a diagonal matrix,
   \item The functions \code{cbind} and \code{rbind} add columns and
     rows to an existing matrix, or to another vector.
 \end{itemize}
@@ -541,7 +541,7 @@ this can easily be overruled, using parameter \code{byrow}:
 (M <- matrix(nrow = 4, ncol = 3, byrow = TRUE, data = 1:12))
 @
 
-The unity matrix (I) is created using R-function diag:
+The unity matrix (I) is created using \proglang{R}~function diag:
 
 <<>>=
 diag(1, nrow = 2)
@@ -854,23 +854,23 @@ to use \R as a mathematical tool.  Although this has been implemented
 in a consistent way in \R, it is not simple for novice users!
 Practice is the best teacher, so you will get plenty of exercise.
 
-Most of the exercises can be answered with one single \R-statement.
+Most of the exercises can be answered with one single \proglang{R}~statement.
 However, as these statement smay be quite complicated, it is often
 simpler to first break them up into smaller parts, after which they
 are merged into one.
 
-\subsubsection{Vectors, sequences.}
+\subsubsection{Vectors, sequences}
 
 \begin{itemize}
-  \item	Use R-function \code{mean} to estimate the mean of two numbers,
+  \item	Use \proglang{R}~function \code{mean} to estimate the mean of two numbers,
     9 and 17. (you may notice that this is not as simple as you might think!).
   \item Vector V
   \begin{itemize}
     \item	Create a vector, called V, with even numbers, between 16 and 56.
-      Do not use loops. (tip: use R-function  \code{seq} )
+      Do not use loops. (tip: use \proglang{R}~function  \code{seq} )
     \item	Display this vector
     \item	What is the sum of all elements of V? Do not use loops; there
-      exists an R-function that does this; the name of this function
+      exists an \proglang{R}~function that does this; the name of this function
       is trivial.
     \item	Display the first 4 elements of V
     \item	Calculate the product of the first 4 elements of V
@@ -898,11 +898,11 @@ are merged into one.
     \item	Create a vector, U, with 100 random numbers, uniformly
       distributed between -1 and 1.
 
-    tip: R-statement \code{runif} generates uniformly distributed
+    tip: \proglang{R}~statement \code{runif} generates uniformly distributed
       random numbers; use \code{?runif} to see how it works.
     \item	Check the range of U; all values should be within -1 and +1.
 
-    tip: there exists an R-function to do that-its name is trivial.
+    tip: there exists an \proglang{R}~function to do that-its name is trivial.
     \item	Calculate the sum and the product of the elements of U
     \item	How many elements of U are positive?
     \item	Zero all negative values of U.
@@ -932,7 +932,7 @@ are merged into one.
 \subsubsection{Matrices}
 
 \begin{itemize}
-  \item	Use \R-function \code{matrix} to create a matrix with the
+  \item	Use \proglang{R}~function \code{matrix} to create a matrix with the
     following contents:
     \[
       \left[ {\begin{array}{*{20}c}
@@ -942,7 +942,7 @@ are merged into one.
     \]
 
   \item	display it to the screen
-  \item	Use \R-function \code{matrix} to create a matrix called "A":
+  \item	Use \proglang{R}~function \code{matrix} to create a matrix called "A":
     \[
       \left[ {\begin{array}{*{20}c}
        1 & {1/2} & {1/3}  \\
@@ -1001,7 +1001,7 @@ this file, it can be found in the \pkg{marelacTeaching} package
 directory.  Within R, type:
 %
 %\begin{verbatim}
-  browseURL(paste(system.file(package="marelacTeaching"), "/lecture/",
+  browseURL(paste(system.file(package="marelacTeaching"), "/doc/lecture/",
   sep="")).
 %\end{verbatim}
 }
@@ -1031,7 +1031,7 @@ Ddo not forget that \R requires ``/'' where windows uses ``$\backslash$''.
 
 Make a script file in which you write the next steps; submit each line
 to \R to check its correctness.  Read the comma-delimited file, using
-R-command \code{read.csv}. Type \code{?read.csv} if you need help.
+\proglang{R}~command \code{read.csv}. Type \code{?read.csv} if you need help.
 
 Specify that the first row is the heading (\code{header=TRUE}) and the
 first column contains the rownames (\code{row.names=1}).
@@ -1109,14 +1109,14 @@ The rest is up to you:
 \end{itemize}
 \clearpage
 
-\section{R functions}
+\section[R functions]{\proglang{R} functions}
 
 One of the strengths of \R is that one can make user-defined functions
-that add to \R-s built-in functions.
+that add to \proglang{R}~s built-in functions.
 
 \subsection{Function definition}
 
-Typically, complex functions are written in \R-script files, which are
+Typically, complex functions are written in \proglang{R}~script files, which are
 then submitted to \R. For instance,
 
 <<echo=FALSE,results=hide>>=
@@ -1314,7 +1314,7 @@ For more information about if constructs and loops, type
 > ?Control
 \end{verbatim}
 
-\subsection{R- packages}
+\subsection[R packages]{\proglang{R}~ packages}
 
 A package in \R is a file containing many functions that perform certain
 related tasks.
@@ -1332,7 +1332,7 @@ a package and we obtain a list with its contents by the following commands:
 
 \subsection{Exercises}
 
-\subsubsection{R-function sphere}
+\subsubsection[R function sphere]{\proglang{R}~function sphere}
 
 Extend the \code{Sphere} function with the circumference of the sphere
 at the place of maximal radius.
@@ -1340,7 +1340,7 @@ The formula for estimating the circumference of a circle with radius r
 is: $2\cdot \pi \cdot r$.
 What is the circumference of the earth near the equator?
 
-\subsubsection{An R-function to estimate saturated oxygen concentrations}
+\subsubsection[An R function to estimate saturated oxygen concentrations]{An \proglang{R}~function to estimate saturated oxygen concentrations}
 
 The saturated oxygen concentration in water (\chem{\mu mol kg^{-1}}), as function of
 temperature (T), and salinity (S) can be calculated by:
@@ -1374,7 +1374,7 @@ with $F_1= F_2 =1$
 Tasks:
 \begin{itemize}
   \item	Compute the first 50 Fibonacci numbers; store the results in
-    a vector (use R-command \code{vector} to create it). You have to
+    a vector (use \proglang{R}~command \code{vector} to create it). You have to
      use a loop here
   \item	For large n, the ratio $F_n/F_{n-1}$ approaches the
     "golden mean": $(1 + \sqrt 5 )/2$
@@ -1396,7 +1396,7 @@ Tasks:
   \item	The column names of div are: "N", "N0", "N1", "N2", "Ninf", "ESS"
 
     The row names of matrix div are the station names (= the column names
-    of Nemaspec). Tip: Use R-command \code{colnames()}, \code{rownames()}
+    of Nemaspec). Tip: Use \proglang{R}~command \code{colnames()}, \code{rownames()}
   \item	Now loop over all columns of data frame Nemaspec, estimate the
     diversity indices and put the results in the correct row of matrix div:
 %
@@ -1428,7 +1428,7 @@ If the procedure is repeated often enough, the mean value should converge
 to the expected number of species, ESS(100);
 this is the rarefaction method of \citep{Sanders68}.
 
-You may need the following \R-functions:
+You may need the following \proglang{R}~functions:
 \begin{itemize}
   \item	\code{round} (converting reals to integers),
   \item	\code{cumsum} (take a cumulative sum),
@@ -1454,7 +1454,7 @@ we will not deal with the subject here.
 Statistics is used just to show you how to use efficiently use \R,
 in cases where you have no clue where to begin!
 
-\subsection{Using R in four steps}
+\subsection[Using R in four steps]{Using \proglang{R} in four steps}
 
 Suppose you want to perform a hierarchic clustering and plot the
 dendrogram of a multivariate data set.
@@ -1541,7 +1541,7 @@ R distinguishes between:
     \item	\code{image}, \code{contour}, \code{filled.contour},...
       (2-D surface plots)
     \item	\code{persp}, \code{scatterplot3d},...			(3-D plots)
-      \footnote{scatterplot3d is in \R-package \pkg{scatterplot3d} which
+      \footnote{scatterplot3d is in \proglang{R}~package \pkg{scatterplot3d} which
       has to be loaded first}.
   \end{itemize}
 
@@ -1605,7 +1605,7 @@ plot(x=cos(a),y=sin(a))
 <<f1>>
 @
 \end{center}
-\caption{Simple figure with \code{plot} - see text for R-code}
+\caption{Simple figure with \code{plot} - see text for \proglang{R}~code}
 \label{fig:f1}
 \end{figure}
 
@@ -1665,7 +1665,7 @@ for (i in 1:10) text(x=0,y=i/10-0.025,labels=11-i,font=2)
     archer is mimicked by the standard deviation.
     The more experienced, the closer the arrows will be to the centre,
     i.e. the lower the standard deviation.
-  \item	R-statement \code{rnorm} generates normally distributed numbers;
+  \item	\proglang{R}~statement \code{rnorm} generates normally distributed numbers;
     we need 20 of them, arranged as a matrix with 2 columns.
 %
 \begin{verbatim}
@@ -1715,13 +1715,13 @@ legend("topright",legend=c("A","B"),pch=16,
 <<f2g>>
 @
 \end{center}
-\caption{Figure with several low-level objects - see text for R-code}
+\caption{Figure with several low-level objects - see text for \proglang{R}~code}
 \label{fig:f2}
 \end{figure}
 
 \subsection{X-Y plots; conditional plotting}
 
-As a more sophisticated demonstration of the use of symbols in R-graphs,
+As a more sophisticated demonstration of the use of symbols in \proglang{R}~graphs,
 we work on a biological example, from the \R data set called "Orange".
 This data set contains the circumference (in mm, at breast height) measured
 at different ages for five orange trees.
@@ -1751,7 +1751,7 @@ which is due to the fact that the five trees did not grow at the same rate.
 <<f3>>
 @
 \end{center}
-\caption{Simple plot of the \code{orange} dataset - see text for R-code}
+\caption{Simple plot of the \code{orange} dataset - see text for \proglang{R}~code}
 \label{fig:f3}
 \end{figure}
 
@@ -1764,7 +1764,7 @@ Factors play a very important part in the statistical applications of R;
 for our application, it suffices to know that the factors are integers,
 starting from 1.
 
-In the R-statement below, we simply use different symbols (\code{pch})
+In the \proglang{R}~statement below, we simply use different symbols (\code{pch})
 and colors (\code{col}) for each tree: \code{pch=(15:20)[Orange$Tree]}
 means that, depending on the value of \code{Orange$Tree} (i.e. the tree
 number), the symbol (\code{pch})
@@ -1829,7 +1829,7 @@ contour(Bathymetry$x,Bathymetry$y,Bathymetry$z,add=TRUE)
 <<bat>>
 @
 \end{center}
-\caption{Image plot of ocean bathymetry - see text for R-code}
+\caption{Image plot of ocean bathymetry - see text for \proglang{R}~code}
 \label{fig:f1}
 \end{figure}
 
@@ -1856,7 +1856,7 @@ legend("bottomleft",c("sin","cos"),text.col=c("blue","red"),lty=1:2)
 <<mat>>
 @
 \end{center}
-\caption{Plotting a mathematical function - see text for R-code}
+\caption{Plotting a mathematical function - see text for \proglang{R}~code}
 \label{fig:fmat}
 \end{figure}
 
@@ -1867,7 +1867,7 @@ in blue (\code{col}), and for x values ranging between 0 and 2 (\code{from},
 \code{to}), adding a main title (\code{main}) and x- and y-axis labels
 (\code{xlab}, \code{ylab}) ($1^{st}$ sentence).
 
-The $2^{nd}$ R-sentence adds the function $y=cos(3\cdot \pi \cdot x)$,
+The $2^{nd}$ \proglang{R}~sentence adds the function $y=cos(3\cdot \pi \cdot x)$,
 as a red (\code{col}) dashed line (\code{lty}).
 Note the use of parameter \code{add=TRUE}, as by default curve creates
 a new plot.
@@ -1896,7 +1896,7 @@ There are several ways in which to arrange multiple figures on a plot.
 > par(mfrow=c(2,2))
 > for ( i in 1:4) curve(sin(i*pi*x),0,1,main=i)
 \end{verbatim}
-    \item	R-function \code{layout} allows much more complex plot arrangements.
+    \item	\proglang{R}~function \code{layout} allows much more complex plot arrangements.
   \end{enumerate}
 
 \subsection{Exercises}
@@ -2005,7 +2005,7 @@ Tasks:
 \section{Matrix algebra}
 
 Matrix algebra is very simple in \proglang{R}. Practically everything is possible!
-Here are the most important R-functions that operate on matrices:
+Here are the most important \proglang{R}~functions that operate on matrices:
 
   \begin{itemize}
     \item	\%*\% 		Matrix multiplication
@@ -2039,7 +2039,7 @@ solve(A,B)
 @
 
 Finally, the eigenvalues and eigenvectors of A are estimated using
-R-function \code{eigen}.  This function returns a list that contains
+\proglang{R}~function \code{eigen}.  This function returns a list that contains
 both the eigenvalues (\code{$values}) and the eigenvectors
 (\code{$vectors}), (the columns).
 
@@ -2052,7 +2052,7 @@ eigen(A)
 \subsubsection{Matrix algebra exercise 1}
 
 \begin{itemize}
-    \item	Use R-function \code{matrix} to create the matrices called
+    \item	Use \proglang{R}~function \code{matrix} to create the matrices called
       \code{A} and \code{B}:
 
       $ A = \left[ {\begin{array}{*{20}c}
@@ -2108,7 +2108,7 @@ eigen(A)
 \end{verbatim}
 \item You will first need to rewrite this problem in the form: Ax=B,
    where A contains the coefficients, x the unknowns, and B the right-hand
-   side values. Then you solve the system, using R-function \code{solve}
+   side values. Then you solve the system, using \proglang{R}~function \code{solve}
 \item	Check the results (i.e. is Ax = B ?)
 \end{itemize}
 \clearpage
@@ -2135,7 +2135,7 @@ abline(h = 0, lty = 2)
 
 This figure shows that there indeed exists a value $x$, for which $y = 0$.
 
-Now R-function \code{uniroot} can be used to locate this value.
+Now \proglang{R}~function \code{uniroot} can be used to locate this value.
 
 Functions that seek a root from a nonlinear equation generally work
 ``iteratively'', i.e. they move closer and closer to the root in
@@ -2185,7 +2185,7 @@ points(rr$root,0,pch=16,cex=2)
 @
 \end{center}
 \caption{Function drawn with \code{curve} and the root of the function
-  plotted - see text for R-code}
+  plotted - see text for \proglang{R}~code}
 \label{fig:f1}
 \end{figure}
 
@@ -2309,7 +2309,7 @@ another (equivalent) way to write the relationships between the DIC species:
 
 $pCO_2$ relates to $[CO_2]$ through Henrys constant, Kh, which can also be
 estimated as a function of salinity, temperature and pressure, using
-R-package \pkg{seacarb}:
+\proglang{R}~package \pkg{seacarb}:
 
 \[
 pCO_2  = \frac{{[CO_2 ]}}{{Kh}}
@@ -2369,7 +2369,7 @@ legend("bottomleft", lty = c(1, NA, 2), pch = c(NA, 1, NA),
 <<smooth>>
 @
 \end{center}
-\caption{smoothing and interpolation - see text for R-code}
+\caption{smoothing and interpolation - see text for \proglang{R}~code}
 \label{fig:smooth}
 \end{figure}
 
@@ -2403,7 +2403,7 @@ year<- seq(1900, 1980, by = 10)
 pop <- c(76.1, 92.4, 106.5, 123.1, 132.6, 152.3, 180.7, 204.9, 226.5)
 @
 
-The simplest method for non-linear curve fitting is by using R-function
+The simplest method for non-linear curve fitting is by using \proglang{R}~function
 \code{nls}.
 
 This functions requires as input the formula (\code{y ~ f(x, parameters)})
@@ -2429,7 +2429,7 @@ summary(fit)
 @
 
 The values of the coefficients themselves are retrieved using
-R-function \code{coef}.
+\proglang{R}~function \code{coef}.
 
 <<>>=
 (cc<-coef(fit))
@@ -2472,7 +2472,7 @@ pp <- c(0.,1,3,4,6,8,10,11,10,9,8)
   \begin{itemize}
     \item	First plot primary production (pp) versus light  (ll). Use
       large symbols.
-    \item	Then use R-function \code{nls} to fit the model to the data
+    \item	Then use \proglang{R}~function \code{nls} to fit the model to the data
     \item	Add the best-fit line to the graph. (note: use \code{coef} to
       retrieve the best parameter values).
   \end{itemize}
@@ -2503,7 +2503,7 @@ pp <- c(0.,1,3,4,6,8,10,11,10,9,8)
   change of the state variables (\code{dA} and \code{dB}) and returns those
   as a list.
 
-  The R-statement \code{with (as.list (c(state,pars)),{ }} ensures that
+  The \proglang{R}~statement \code{with (as.list (c(state,pars)),{ }} ensures that
   the state variables and parameters can be addressed by their names.
 \begin{verbatim}
 model <- function(t, state, pars) {
@@ -2529,7 +2529,7 @@ parms <- c(x = 1, y = 0.1, k = 0.05, r = 0.05)
 \end{verbatim}
 
 The model can now be solved. To do so, we use \R’s integration routine
-\code{ode}; which can be found in \R-package \pkg{deSolve}. This package
+\code{ode}; which can be found in \proglang{R}~package \pkg{deSolve}. This package
 is loaded first.
 
 \begin{verbatim}
@@ -2574,7 +2574,7 @@ Before plotting the model output, the range of concentrations of
 substances A and B is estimated; this is used to set the limits of
 the y-axis (\code{ylim}).
 
-\R-function \code{plot} creates a new plot; \code{lines} adds a line
+\proglang{R}~function \code{plot} creates a new plot; \code{lines} adds a line
 to this plot; \code{lty} selects a line type; \code{lwd = 2} makes the
 lines twice as thick as the default.  Finally a \code{legend} is added.
 
@@ -2601,7 +2601,7 @@ legend("topright",legend=c("A","B"),lwd=2,lty=c(1,2))
 <<ode>>
 @
 \end{center}
-\caption{ode model - see text for R-code}
+\caption{ode model - see text for \proglang{R}~code}
 \label{fig:smooth}
 \end{figure}
 
@@ -2648,7 +2648,7 @@ earth’s atmosphere.
 \]
 
 \begin{itemize}
-  \item It takes about 10 lines of R-code to generate the solutions
+  \item It takes about 10 lines of \proglang{R}~code to generate the solutions
     and plot them.
   \item Function \code{scatterplot3d} from the package scatterplot3d
     generates 3-D scatterplots. Can you recreate the following
@@ -2682,16 +2682,16 @@ scatterplot3d(out$x, out$y, out$z, type = "l",
 \subsection{The questions}
 
 These lecture notes have been generated with LaTeX and making use of
-R-package \pkg{Sweave} \citep{Leisch02}, which allows to merge LaTeX
-with R-code.
+\proglang{R}~package \pkg{Sweave} \citep{Leisch02}, which allows to merge LaTeX
+with \proglang{R}~code.
 
 If you do not like the layout a PDF version (``ScientificComputing.pdf'')
-made with WORD (Microsoft) can be found in the /inst/lecture subdirectory
+made with WORD (Microsoft) can be found in the \code{/doc/lecture} subdirectory
 of package \pkg{marelacTeaching}.
 
 \subsection{The answers}
 
-The answers to the questions in this course are present as an R-vignette
+The answers to the questions in this course are present as an \proglang{R}~vignette
 in package \pkg{marelacTeaching}.
 From within R, type:
 
@@ -2699,7 +2699,7 @@ From within R, type:
 > vignette("Answers")
 \end{verbatim}
 
-Or, you can find the file ``Answers.pdf'' in the /inst/doc subdirectory
+Or, you can find the file ``Answers.pdf'' in the \code{/doc} subdirectory
 of package \pkg{marelacTeaching}.
 
 

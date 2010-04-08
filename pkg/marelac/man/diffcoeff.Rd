@@ -41,7 +41,7 @@
 }
 
 \examples{
-diffcoeff(S = 15, t = 15)/(1e4*3600*24)       # cm2/day
+diffcoeff(S = 15, t = 15)*1e4*3600*24         # cm2/day
 diffcoeff(t = 10, species = "O2")             # m2/s
 difftemp <- diffcoeff(t = 0:30)[,1:13]
 matplot(0:30, difftemp, xlab = "temperature", ylab = "m2/s",

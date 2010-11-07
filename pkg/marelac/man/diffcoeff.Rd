@@ -9,16 +9,16 @@
   Based on Chapter 4 in Boudreau (1997)
 }
 \usage{diffcoeff(S = 35, t = 25, P = 1.013253,
-      species=c("H2O","O2","CO2","H2","CH4","DMS",
-      "He","Ne","Ar","Kr","Xe","Rn",
-      "N2","H2S","NH3","NO","N2O","CO","SO2",
-      "OH","F","Cl","Br","I",
-      "HCO3","CO3","H2PO4","HPO4","PO4",
-      "HS","HSO3","SO3","HSO4","SO4","IO3","NO2","NO3",
-      "H","Li","Na","K","Cs","Ag","NH4",
-      "Ca","Mg","Fe","Mn","Ba","Be","Cd","Co",
-      "Cu","Hg","Ni","Sr","Pb","Ra","Zn","Al","Ce","La","Pu",
-      "H3PO4","BOH3","BOH4","H4SiO4"))
+      species = c("H2O", "O2", "CO2", "H2", "CH4", "DMS",
+      "He", "Ne", "Ar", "Kr", "Xe", "Rn",
+      "N2", "H2S", "NH3", "NO", "N2O", "CO", "SO2",
+      "OH", "F", "Cl", "Br", "I",
+      "HCO3", "CO3", "H2PO4", "HPO4", "PO4",
+      "HS", "HSO3", "SO3", "HSO4", "SO4", "IO3", "NO2", "NO3",
+      "H", "Li", "Na", "K", "Cs","Ag","NH4",
+      "Ca", "Mg", "Fe", "Mn", "Ba", "Be", "Cd", "Co",
+      "Cu", "Hg", "Ni", "Sr", "Pb", "Ra", "Zn", "Al", "Ce",
+      "La", "Pu", "H3PO4", "BOH3", "BOH4", "H4SiO4"))
 }
 \arguments{
   \item{S }{Salinity, -,

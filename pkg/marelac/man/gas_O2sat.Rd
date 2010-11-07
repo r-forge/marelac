@@ -68,17 +68,17 @@ S. 283-285.
   consideration of pressure.}
 
 \examples{
-  gas_O2sat(S=0, t = 20)              # fresh water, Weiss formula
-  gas_O2sat(S=0, t=20, method="APHA") # fresh water, APHA formula
+gas_O2sat(S = 0, t = 20)                  # fresh water, Weiss formula
+gas_O2sat(S = 0, t = 20, method = "APHA") # fresh water, APHA formula
 
-  ## compare this with
-  gas_satconc(S=0, t=20, species = "O2") * molweight("O2") / 1000
+## compare this with
+gas_satconc(S = 0, t = 20, species = "O2") * molweight("O2") / 1000
 
-  T <- seq(0, 30, 0.1)
-  plot(T, gas_O2sat(t = T, method = "APHA"), type = "l", ylim = c(0, 15), lwd = 2)
-  lines(T, gas_O2sat(S = 0, t = T, method = "Weiss"),
-    col = "yellow", lwd = 2, lty = "dashed")
-  lines(T, gas_O2sat(S = 35, t = T, method = "Weiss"), col = "red", lwd = 2)
+T <- seq(0, 30, 0.1)
+plot(T, gas_O2sat(t = T, method = "APHA"), type = "l", ylim = c(0, 15), lwd = 2)
+lines(T, gas_O2sat(S = 0, t = T, method = "Weiss"),
+      col = "yellow", lwd = 2, lty = "dashed")
+lines(T, gas_O2sat(S = 35, t = T, method = "Weiss"), col = "red", lwd = 2)
 }
 \keyword{ misc }
 

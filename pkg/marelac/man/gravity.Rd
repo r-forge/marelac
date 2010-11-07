@@ -5,7 +5,7 @@
   Computes the gravity, based on latitude.
 }
 \usage{
-gravity(lat = 0, method=c("Moritz","UNESCO"))
+gravity(lat = 0, method = c("Moritz", "UNESCO"))
 }
 \arguments{
   \item{lat }{latitude (-90 - +90).}

@@ -6,7 +6,7 @@
   to constant, in situ temperature, kg/g
 }
 \usage{
-sw_beta(S = 35, t = 25, p = P-1.013253, P=1.013253)
+sw_beta(S = 35, t = 25, p = P-1.013253, P = 1.013253)
 }
 \arguments{
   \item{S }{Absolute salinity (g/kg),}
@@ -20,7 +20,7 @@ sw_beta(S = 35, t = 25, p = P-1.013253, P=1.013253)
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-sw_beta(35.7,25.5,102.3) #0.000725729797838666
+sw_beta(35.7, 25.5, 102.3)    #0.000725729797838666
 }
 \references{
   Feistel R, 2008. A Gibbs function for seawater thermodynamics for -6 to

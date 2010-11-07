@@ -6,7 +6,7 @@
   in seawater, as a function of salinity.
 }
 \usage{
-sw_conserv(S=35)
+sw_conserv(S = 35)
 }
 \arguments{
   \item{S }{Practical salinity, (-).}
@@ -16,7 +16,7 @@ sw_conserv(S=35)
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-data.frame(salinity=1:35,sw_conserv(1:35))
+data.frame(salinity = 1:35, sw_conserv(1:35) )
 }
 \references{
   Millero FJ, 1995. Thermodynamics of the carbon dioxide system in

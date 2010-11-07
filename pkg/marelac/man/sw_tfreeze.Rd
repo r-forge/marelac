@@ -8,7 +8,7 @@
   Valid for salinity 4-40
 }
 \usage{
-sw_tfreeze(S=35, p = P-1.013253, P=1.013253 )
+sw_tfreeze(S=35, p = P-1.013253, P = 1.013253 )
 }
 \arguments{
   \item{S }{practical salinity, -,

@@ -5,7 +5,7 @@
   Computes the seawater specific enthalpy, J/kg
 }
 \usage{
-sw_enthalpy(S = 35, t = 25, p = P-1.013253, P=1.013253)
+sw_enthalpy(S = 35, t = 25, p = P-1.013253, P = 1.013253)
 }
 \arguments{
   \item{S }{Absolute salinity (g/kg),}

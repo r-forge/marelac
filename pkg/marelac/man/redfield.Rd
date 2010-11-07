@@ -7,7 +7,8 @@
   Redfield ratio.
 }
 \usage{
-redfield(q, species, method = c("mol", "mass"), ratio = c(C=106, H=263, O=110, N=16, P=1))
+redfield(q, species, method = c("mol", "mass"), 
+         ratio = c(C=106, H=263, O=110, N=16, P=1))
 }
 \arguments{
   \item{q}{amount of substance of that element (in mol or mass units),}
@@ -74,13 +75,14 @@ x <- redfield(1, "P", "mass")
 x / sum(x)
 
 ## with alternative elemental composition
-x <- redfield(1, "P", "mass", ratio=c(C=106, H=180, O=45, N=16, P=1))
+x <- redfield(1, "P", "mass", 
+              ratio = c(C = 106, H = 180, O = 45, N = 16, P = 1))
 x / sum(x)
 
 ## rule of thumb for fresh mass (in mg) formed by 1 microgram P
 redfield(1, "P", "mass")$C * 2 * 10 / 1000
 sum(redfield(1, "P", "mass",
-  ratio=c(C=106, H=180, O=45, N=16, P=1))) * 10 / 1000
+  ratio = c(C = 106, H = 180, O = 45, N = 16, P = 1))) * 10 / 1000
 
 }
 \keyword{ misc}

@@ -5,7 +5,7 @@
   Computes the seawater isothermal compressibility, 1/Pa
 }
 \usage{
-sw_kappa_t(S = 35, t = 25, p = P-1.013253, P=1.013253)
+sw_kappa_t(S = 35, t = 25, p = P-1.013253, P = 1.013253)
 }
 \arguments{
   \item{S }{Absolute salinity (g/kg),}
@@ -19,7 +19,7 @@ sw_kappa_t(S = 35, t = 25, p = P-1.013253, P=1.013253)
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-sw_kappa_t(35.7,25.5,102.3) #4.10403794615135e-6
+sw_kappa_t(35.7, 25.5, 102.3) #4.10403794615135e-6
 }
 \references{
   Feistel R, 2008. A Gibbs function for seawater thermodynamics for -6 to

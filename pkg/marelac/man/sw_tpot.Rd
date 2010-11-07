@@ -8,7 +8,7 @@
   It is the temperature an element of seawater would have if raised
   adiabatically with no change of salinity, to atmospheric pressure.
 }
-\usage{sw_tpot(S = 35, t = 25, p, pref=0)}
+\usage{sw_tpot(S = 35, t = 25, p, pref = 0)}
 \arguments{
   \item{t }{temperature, \eqn{^\circ}{degrees }C,
   }
@@ -28,10 +28,10 @@
 sw_tpot(S = 40, t = 40:45, p = 1000)
 
 ## check values
-sw_tpot(S = 25, t = 40, p = 0)     #40
-sw_tpot(S = 25, t = 40, p = 100)   #36.6921
+sw_tpot(S = 25, t = 40, p = 0)      #40
+sw_tpot(S = 25, t = 40, p = 100)    #36.6921
 sw_tpot(S = 25, t = 10, p = 1000)   #8.4684
-sw_tpot(S = 25, t = 0, p = 100)   #-0.0265
+sw_tpot(S = 25, t = 0, p = 100)     #-0.0265
 
 sw_tpot(S = 40, t = 40, p = 1000)  #36.89073
 }

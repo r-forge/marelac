@@ -12,7 +12,7 @@
   surroundings.
 }
 \usage{
-sw_adtgrad(S = 35, t = 25, p = P-1.013253, P=1.013253 )
+sw_adtgrad(S = 35, t = 25, p = P-1.013253, P = 1.013253 )
 }
 \arguments{
   \item{S }{Practical salinity (-),}

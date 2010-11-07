@@ -7,7 +7,7 @@
   polynomial.
 }
 \usage{
-sw_depth(p = P-1.013253, P=1.013253, lat = 0)
+sw_depth(p = P-1.013253, P = 1.013253, lat = 0)
 }
 \arguments{
   \item{p }{gauge or applied pressure, pressure referenced against the local
@@ -29,9 +29,9 @@ sw_depth(p = 1000, lat = 30:40)
 
 ## Check values
 sw_depth(p = 1000, lat = 30)     #9712.65
-sw_depth(p = 50,  lat = 30)       #496.00
-sw_depth(p = 50,  lat = 60)       #494.69
-sw_depth(p = 500, lat = 60)       #4895.60
+sw_depth(p = 50,   lat = 30)     #496.00
+sw_depth(p = 50,   lat = 60)     #494.69
+sw_depth(p = 500,  lat = 60)     #4895.60
 
 }
 \references{

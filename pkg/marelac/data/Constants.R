@@ -4,7 +4,7 @@ Constants <- list(
 g  = c(9.8,"m/s2","gravity acceleration"),
 SB = c(5.6697e-8,"W/m^2/K^4","Stefan-Boltzmann constant"),
 gasCt1 = c(0.08205784,"L*atm/K/mol","ideal gas constant"),
-gasCt2 = c(8.314472,"m3*Pa/K/mol","ideal gas constant"),
+gasCt2 = c(8.31447215,"m3*Pa/K/mol","ideal gas constant"),
 gasCt3 = c(83.1451,"cm3*bar/K/mol","ideal gas constant"),
 E=c(1.60217653e-19,"C","Elementary charge"),
 F=c(96485.3,"C/mol","charge per mol of electrons"),

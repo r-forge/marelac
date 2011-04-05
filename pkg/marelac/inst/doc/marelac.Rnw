@@ -801,7 +801,7 @@ but there is still discussion about the average of O and H.
 C_{106}H_{175}O_{42}N_{16}P_{1}$ for marine plankton and similarly
 \citet{Hedges2002}, who used NMR analysis, found an elemental
 composition with much less hydrogen and oxygen ($\rm
-C_{106}H_{175-180}O_{35-40}N_{15–20}S_{0.3-0.5}$) than in the original
+C_{106}H_{175-180}O_{35-40}N_{15-20}S_{0.3-0.5}$) than in the original
 formula.
 
 Function \code{redfield} can be used to simplify conversions between

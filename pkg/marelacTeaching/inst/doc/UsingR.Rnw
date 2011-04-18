@@ -323,11 +323,9 @@ setwd("C:/R code/")
 A <- 3 + cos(pi)
     - sqrt(5)
 @
-
-   then A will get the value ($3+cos(\pi)$) and \R will print the value
-   of ($–\sqrt(5)$).
-   In contrast, in the next lines:
-
+      then A will get the value ($3+cos(\pi)$) and \R will print the value
+      of ($- \sqrt(5)$).
+      In contrast, in the next lines:
 \begin{verbatim}
 > 3 + cos(pi) -
 >     sqrt(5)
@@ -1353,16 +1351,15 @@ A= -173.9894 + 25559.07/T + 146.4813* loge(T/100) -22.204*T/100 + S *
 and T is temperature in Kelvin (Tkelvin = Tcelsius + 273.15).
 
   Tasks:
-
-\begin{itemize}
-  \item	Make a function that implements this formula; the default
-    values for temperature and salinity are 20$^{\circ}$C and 35
-    respectively.
-  \item	What is the saturated oxygen concentration at the default
-    conditions? (A: 225.2346)
-  \item	Estimate the saturated oxygen concentration for a range of
-    temperatures from 0 to 30°C, and salinity 35. (Tip: no need to use loops).
-\end{itemize}
+  \begin{itemize}
+    \item	Make a function that implements this formula; the default
+      values for temperature and salinity are 20$^{\circ}$C and 35
+      respectively.
+    \item	What is the saturated oxygen concentration at the default
+      conditions? (A: 225.2346)
+    \item	Estimate the saturated oxygen concentration for a range of
+      temperatures from 0 to 30$^o$C, and salinity 35. (Tip: no need to use loops).
+  \end{itemize}
 
 \subsubsection{Loops}
 
@@ -1512,8 +1509,8 @@ Try:
 > demo(persp)
 \end{verbatim}
 
-to obtain a display of R’s simple (1-D, x-y), image-like (2-D) and
-perspective (3-D) capabilities.
+  to obtain a display of R s simple (1-D, x-y), image-like (2-D) and
+  perspective (3-D) capabilities.
 
 Graphics are plotted in the figure window which floats independently from
 the other windows. If not already present, it is launched by writing
@@ -1557,12 +1554,10 @@ R distinguishes between:
   \item	graphical parameters that control the appearance of.
   \begin{itemize}
     \item plotting objects:
-
       \code{cex} (size of text and symbols), \code{col} (colors),
       \code{font}, \code{las} (axis label orientation), \code{lty}
       (line type), \code{lwd} (line width), \code{pch} (the type of points),…
     \item	graphic window:
-
       \code{mar} (the size of the margins), \code{mfrow} (the number of
       figures on a row), \code{mfcol} (number figures on a column),…
   \end{itemize}
@@ -2527,11 +2522,9 @@ times <- seq(0, 300, 1)
 state <- c(A = 1, B = 1)
 parms <- c(x = 1, y = 0.1, k = 0.05, r = 0.05)
 \end{verbatim}
-
-The model can now be solved. To do so, we use \R’s integration routine
-\code{ode}; which can be found in \proglang{R}~package \pkg{deSolve}. This package
-is loaded first.
-
+  The model can now be solved. To do so, we use \R s integration routine
+  \code{ode}; which can be found in \R-package \pkg{deSolve}. This package
+  is loaded first.
 \begin{verbatim}
 require(deSolve)
 \end{verbatim}
@@ -2633,19 +2626,17 @@ legend("topright",legend=c("A","B"),lwd=2,lty=c(1,2))
   \end{itemize}
 
 \subsubsection{Butterfly}
-
-The Lorenz equations \citep{Lorenz63} were the first chaotic system
-of differential equations to be discovered. They are three differential
-equations that were derived to represent idealized behavior of the
-earth’s atmosphere.
-
-\[
-  \begin{array}{l}
-    \frac{{dx}}{{dt}} =  - \frac{8}{3} \cdot x + y \cdot z \\
-    \frac{{dy}}{{dt}} =  - 10 \cdot (y - z) \\
-    \frac{{dz}}{{dt}} =  - x \cdot y + 28y - z \\
-  \end{array}
-\]
+  The Lorenz equations \citep{Lorenz63} were the first chaotic system
+  of differential equations to be discovered. They are three differential
+  equations that were derived to represent idealized behavior of the
+  earths atmosphere.
+  \[
+    \begin{array}{l}
+     \frac{{dx}}{{dt}} =  - \frac{8}{3} \cdot x + y \cdot z \\
+     \frac{{dy}}{{dt}} =  - 10 \cdot (y - z) \\
+     \frac{{dz}}{{dt}} =  - x \cdot y + 28y - z \\
+    \end{array}
+  \]
 
 \begin{itemize}
   \item It takes about 10 lines of \proglang{R}~code to generate the solutions

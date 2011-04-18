@@ -163,10 +163,10 @@ W100<-W[W<100] ; length(W100)
 length(W[W<100])
 @
   \begin{itemize}
-    \item	Create a sequence that contains the values (1,1/2,1/3,1/4,…,1/10)
+    \item	Create a sequence that contains the values (1,1/2,1/3,1/4,$\ldots$,1/10)
     \item	Compute the square root of each element
     \item	Compute the square ($^2$) of each element
-    \item	Create a sequence with values (0/1,1/2,2/3,3/4,…,9/10)
+    \item	Create a sequence with values (0/1,1/2,2/3,3/4,$\ldots$,9/10)
   \end{itemize}
 <<>>=
 1/1:10
@@ -345,7 +345,7 @@ Sphere(6371)
 \large \emph{Chapter 4.4.2}
 
 \normalsize
-  The saturated oxygen concentration in water ($µmol kg^{-1}$), as
+  The saturated oxygen concentration in water ($\mu mol kg^{-1}$), as
   function of temperature (T), and salinity (S) can be calculated by:
   $SatOx = e^A$       where :
   A= -173.9894 + 25559.07/T + 146.4813* loge(T/100) -22.204*T/100 + S *
@@ -531,7 +531,7 @@ par(mfrow=c(1,1))
     \item	Plot the population density curve as a thick line, using the
       US parameter values.
     \item	Add the measured population values as points. Finish the graph
-      with titles, labels etc…
+      with titles, labels etc$\ldots$
   \end{itemize}
 <<label=graph, include=FALSE>>=
 par(mfrow=c(2,2))
@@ -647,8 +647,8 @@ mtext(outer=TRUE,side=3,line=-2,"Iris data set",cex=1.5)
     \item Take the inverse of A and the transpose of A.
     \item	Multiply A with B.
     \item	Estimate the eigenvalues and eigenvectors of A.
-    \item	For a matrix A, x is an eigenvector, and ? the eigenvalue of
-      a matrix A, if Ax =?x. Test it!
+    \item	For a matrix A, x is an eigenvector, and $\mu$ the eigenvalue of
+      a matrix A, if Ax =$\mu$x. Test it!
   \end{itemize}
 <<>>=
 A <- matrix(nrow=3, data=c(1,6,-2,2,4,1,3,1,-1))
@@ -764,7 +764,7 @@ plot(1:100,res)
 \normalsize
   \begin{itemize}
     \item Estimate the pH at equilibrium with alkalinity 2300
-      $µmol kg^{-1}$ and the current pCO2 of 360 ppm.
+      $\mu mol kg^{-1}$ and the current pCO2 of 360 ppm.
     \item Use package seacarb to estimate the dissociation constants
       and Henry's constants at temperature $20^{\circ}C$, salinity 0,
       and pressure 0.
@@ -813,7 +813,7 @@ plot(pco2seq,pHseq,type="l",lwd=2,main="Effect of pCO2 on pH")
 \Large \textbf{Chapter 9 - interpolating, smoothing, curve fitting}
 
 \large \emph{Chapter 9.1 interpolating wind data}
-  Wind velocities are: 5,6,7,9,4,6,3,7,9 at time 0, 3, …24 o'clock respectively.
+  Wind velocities are: 5,6,7,9,4,6,3,7,9 at time 0, 3, $\ldots$, 24 o'clock respectively.
   \begin{itemize}
     \item	Interpolate the three-hourly measurements to hourly measurements.
     \item	Make a plot of the interpolated values
@@ -852,7 +852,7 @@ plot(approx(t3,wind3,xout=3:24),type="b" ,xlab="time",ylab="wind speed")
   \!\lower0.7ex\hbox{${Iopt}$}} + 1}}
   \]
 
-  where I is light and pmax, ? and Iopt are parameters.
+  where I is light and pmax, $\beta$ and Iopt are parameters.
 
   Add the best-fit line to the graph. (note: use coef to retrieve the best
   parameter values).
@@ -860,7 +860,7 @@ plot(approx(t3,wind3,xout=3:24),type="b" ,xlab="time",ylab="wind speed")
 <<label=pp, include=FALSE>>=
 ll <- c(0.,1,10,20,40,80,120,160,300,480,700)
 pp <- c(0.,1,3,4,6,8,10,11,10,9,8)
-plot(ll,pp,xlab= expression("light, µEinst"~ m^{-2}~s^{-1}),
+plot(ll,pp,xlab= expression("light, microEinst"~ m^{-2}~s^{-1}),
      ylab="production",pch=15,cex=1.5)
 
 fit<-nls(pp ~pmax*2*(1+b)*(ll/iopt)/

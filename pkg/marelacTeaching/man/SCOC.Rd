@@ -2,17 +2,22 @@
 \docType{data}
 \alias{SCOC}
 \title{a Sediment Community Oxygen Consumption (SCOC) dataset}
-\description{This literature dataset, compiled by Andersson et al. (2004) contains 584 measurements
-of sediment community oxygen consumption rates, as a function of water depth, and performed in deep-water sediments, either by in situ incubations or via modelling of oxygen microprofiles.
-
-It is used in the book to demonstrate how one can obtain order-of-magnitude estimates
-of model parameters (i.c. sediment oxygen consumption rate, a measure of deposition flux) by
-performing log-log regression with water depth.}
+\description{
+  This literature dataset, compiled by Andersson et al. (2004) 
+  contains 584 measurements of sediment community oxygen consumption rates, 
+  as a function of water depth, and performed in deep-water sediments, 
+  either by in situ incubations or via modelling of oxygen microprofiles.
+}
 \usage{SCOC}
-\format{a dataframe with 584 rows, and with following columns:
-\cr Depth.m, the water depth at which the measurement was performed.
-\cr SCOC.mmol/m2/d, the oxygen consumption rate of the sediment, [mmolO2/m2/d]}
+\format{
+a dataframe with 584 rows, and with following columns:
+
+  Depth.m, the water depth at which the measurement was performed.
+
+  SCOC.mmol/m2/d, the oxygen consumption rate of the sediment, [mmolO2/m2/d]
+}
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+
 \examples{plot(SCOC[,1],SCOC[,2],log="xy",xlab="water depth, m",ylab="" ,
      main="SCOC, mmol O2/m2/d",pch=16,xaxt="n",yaxt="n",cex.main=1)
 

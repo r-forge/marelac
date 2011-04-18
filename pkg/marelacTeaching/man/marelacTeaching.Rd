@@ -19,10 +19,10 @@
 }
 \details{
   \tabular{ll}{
-    Package: \tab marelac\cr
+    Package: \tab marelacTeaching\cr
     Type: \tab Package\cr
     Version: \tab 1.1\cr
-    Date: \tab 2009-10-15\cr
+    Date: \tab 2009-11-11\cr
     License: \tab GNU Public License 2 or above\cr
   }
 

@@ -1556,10 +1556,10 @@ R distinguishes between:
     \item plotting objects:
       \code{cex} (size of text and symbols), \code{col} (colors),
       \code{font}, \code{las} (axis label orientation), \code{lty}
-      (line type), \code{lwd} (line width), \code{pch} (the type of points),…
+      (line type), \code{lwd} (line width), \code{pch} (the type of points), $\ldots$
     \item	graphic window:
       \code{mar} (the size of the margins), \code{mfrow} (the number of
-      figures on a row), \code{mfcol} (number figures on a column),…
+      figures on a row), \code{mfcol} (number figures on a column),$\ldots$
   \end{itemize}
 \end{enumerate}
 

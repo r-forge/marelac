@@ -9,7 +9,7 @@
 
 sw_sfac <- local({
 
-  dsal <- read.table("gsw_data.dat")
+  dsal <- read.table("sw_sfac.txt")
   dsal[dsal=="NaN"] <- -99
 
   is1 <- 92 + 44
@@ -24,4 +24,5 @@ sw_sfac <- local({
     del_sa = array(dim=c(45, 44, 91), data=dsal[ii:(ii+45*44*91-1), 1])
   )
 })
+
 

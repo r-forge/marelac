@@ -58,14 +58,14 @@ A <- data.frame(cbind( t = Temp,
             O2  = gas_satconc(t = Temp, species = "O2"),
             CO2 = gas_satconc(t = Temp, species = "CO2"),
             Ar  = gas_satconc(t = Temp, species = "Ar")))
-format(A,digits = 4)
+format(A, digits = 4)
 ## table values
 ## at  0 dg C: 635.6   359.1  23.37  17.44
 ## at 20 dg C: 425.7   230.5  11.61  11.29
 ## note the deviations for CO2 (20dg)!
 
 ## saturated concentrations in micromol/m3, at 1 atm.
-AA <- data.frame(cbind( t = Temp,
+AA <- data.frame(cbind(t = Temp,
             N2O = gas_satconc(t = Temp, species = "N2O")*1000,
             Ne  = gas_satconc(t = Temp, species = "Ne" )*1000,
             Kr  = gas_satconc(t = Temp, species = "Kr" )*1000,
@@ -89,7 +89,7 @@ format(AA, digits = 4)
 
   who cite:
 
-  for he and Ne: Weiss R, 1971. Solubility of helium and neon in water
+  for He and Ne: Weiss R, 1971. Solubility of helium and neon in water
   and seawater. Journ. Chem. Eng. Data 16, 235-241.
 
   N2, O2 and Ar: Weiss R, 1970. The solubility of nitrogen, oxygen, and

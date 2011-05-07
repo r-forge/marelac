@@ -18,7 +18,7 @@ gas_satconc(S = 35, t = 25, P = 1.013253,
   \item{species }{character vector with gasses whose saturated concentration
     should be estimated.
   }
-  \item{atm }{the number of moles of the gas per unit mole of air in the
+  \item{atm }{The number of moles of the gas per unit mole of air in the
     atmosphere, the "mixing ratio".  When present, this overrules the
     \code{species} argument. When unspecified, the value from \code{atmComp}
     for the \code{species} is taken.

@@ -34,13 +34,12 @@ gas_transfer(t = 25, u10 = 1, species = c("He", "Ne", "N2", "O2", "Ar",
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-%% thpe: check this example. Was already broken before vectorizing functions
-%% - added species = "O2" (otherwise it was nonsense)
-%% - but the ylim seems to be wrong, here it is m/s but in Wanninkhof it is cm/hr
-%% -Wanninkhof uses CO2 and not O2, I suggest to change this
+%% Check measurement units!
+%% - hre it is m/s but in Wanninkhof it is cm/hr
+%% - Note also that Wanninkhof uses CO2 and not O2, I suggest to change this
 useq <- 0:15
 plot(useq, gas_transfer(u10 = useq, species = "O2"), type = "l", lwd = 2, xlab = "u10, m/s",
-     ylab = "m/s", main = "O2 gas transfer velocity", ylim = c(0,75))
+     ylab = "m/s", main = "O2 gas transfer velocity", , ylim = c(0, 0.0003))
 lines(useq, gas_transfer(u10 = useq, species = "O2", method = "Nightingale"), lwd = 2, lty = 2)
 lines(useq, gas_transfer(u10 = useq, species = "O2", method = "Wanninkhof1"), lwd = 2, lty = 3)
 lines(useq, gas_transfer(u10 = useq, species = "O2", method = "Wanninkhof2"), lwd = 2, lty = 4)

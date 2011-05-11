@@ -10,6 +10,10 @@ gas_transfer <- function (t = 25, u10 = 1, species = c("He", "Ne", "N2",
 
   method  <- match.arg(method)
   species <- match.arg(species, several.ok = TRUE)
+  
+  if (! checkVecLength(list(t, u10)))
+    warning("Arguments 't' and 'u10' should have the same length or length 1.")    
+
   #Schmidt <- gas_schmidt(t = t, species = species)
   S600 <- Schmidt/600  
  

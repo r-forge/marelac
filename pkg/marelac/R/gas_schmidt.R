@@ -33,7 +33,7 @@ gas_schmidt1 <- function (t = 25, species = c("He", "Ne", "N2", "O2", "Ar",
 ## ThPe: now define the user-visible vectorized version
 gas_schmidt <- function (t = 25, species = c("He", "Ne", "N2", "O2", "Ar",
         "Kr", "Rn", "CH4","CO2", "N2O", "CCl2F2", "CCL3F", "SF6", "CCl4")) {
-
+        
   if ((length(t) == 1)) {
     ## return vector for species OR temperatures
     ret <- gas_schmidt1(t, species)

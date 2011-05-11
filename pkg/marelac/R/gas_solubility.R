@@ -50,6 +50,9 @@ rownames(.marelac$VolumeSolubCoeff) <-
 gas_solubility <- function (S = 35, t = 25, species = c("He", "Ne", "N2", "O2",
   "Ar", "Kr", "Rn", "CH4", "CO2", "N2O", "CCl2F2", "CCl3F", "SF6", "CCl4")) {
 
+  if (! checkVecLength(list(S, t)))
+    warning("Arguments 'S' and 't' should have the same length or length 1.")    
+
   if (any (S < 0)) stop ("Salinity should be >= 0")
   K <-  t + 273.15
   Sbc <- .marelac$SolubCoeff[species,]
@@ -66,8 +69,7 @@ gas_solubility <- function (S = 35, t = 25, species = c("He", "Ne", "N2", "O2",
   }
 
   colnames(SA) <- species
-  ## ThPe -> KS:
-  ## ToDo??: convert matrix to a vector if one of the dimensions is "1"?
-  # if (min(dim(SA)) == 1) SA <- as.vector(SA)
+  ## convert matrix to a vector if one of the dimensions is "1"
+  if (min(dim(SA)) == 1) SA <- as.vector(SA)
   SA
 }

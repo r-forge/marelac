@@ -15,6 +15,8 @@ gas_O2sat <- function(S = 35, t = 25, masl = 0,
       warning("Salinity value ignored by this method!")
   if (any(masl != 0) & (method != "Paul"))
       warning("Sea level height ignored by this method;\n please use gas_satconc with argument P.")
+  if (! checkVecLength(list(S, t, masl)))
+      warning("Arguments 'S' and 't' should have the same length or length 1.")
 
   ret <- switch(method,
     ## American Public Health Association

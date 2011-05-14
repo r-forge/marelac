@@ -52,6 +52,8 @@
   Filip Meysman
   
   Thomas Petzoldt
+  
+  with contributions from Lorenz Meire
 }
 \references{
   
@@ -115,7 +117,8 @@ for atmospheric gasses:
 
 \code{\link{gas_satconc}}, \code{\link{gas_O2sat}},
 \code{\link{gas_schmidt}}, \code{\link{gas_solubility}}, \code{\link{gas_transfer}},
-\code{\link{atmComp}}, \code{\link{vapor}}
+\code{\link{atmComp}}, \code{\link{vapor}}, \code{\link{air_spechum}},
+\code{\link{air_density}}
 
 conversions:
 

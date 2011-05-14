@@ -27,6 +27,8 @@ gas_schmidt1 <- function (t = 25, species = c("He", "Ne", "N2", "O2", "Ar",
   species <- match.arg(species, several.ok = TRUE)
   Sc <- .marelac$SchmidtCoeff[species,]
   schmidt <- Sc$A - Sc$B * t + Sc$C * t*t - Sc$D * t*t*t
+  schmidt <- t(matrix (nrow = length(species), data = schmidt))
+  colnames(schmidt) <- species
   schmidt
 }
 

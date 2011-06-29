@@ -95,7 +95,7 @@ format(AA, digits = 4)
   N2, O2 and Ar: Weiss R, 1970. The solubility of nitrogen, oxygen, and
   argon in water and seawater. Deep-Sea Res. 17, 721-35.
 
-  Kr: Weiss R and Kyser TK, 1978. Silubility of Krypton in water
+  Kr: Weiss R and Kyser TK, 1978. Solubility of Krypton in water
   and seawater. Journ. Chem. Eng. Data 23, 69-72.
 
   Rn: Hackbusch 1979. Eine Methode zur Bestimmung der Diffusions-,

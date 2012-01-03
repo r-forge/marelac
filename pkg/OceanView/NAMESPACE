@@ -1,0 +1,5 @@
+useDynLib(OceanView)
+
+export(db2cross)
+export(quiver, flowpath, Image, mapxy, Image.array, 
+       quiver.array, mapsigmatoz, vectorplot)

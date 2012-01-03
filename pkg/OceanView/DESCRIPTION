@@ -1,0 +1,10 @@
+Package: OceanView
+Version: 1.0
+Title: Visualisation of Ocean Data and Model Output.
+Author: Karline Soetaert <k.soetaert@nioo.knaw.nl>
+Maintainer: Karline Soetaert <k.soetaert@nioo.knaw.nl>
+Depends: shape, R (>= 2.01)
+Description: Functions for viewing 3-D (oceanic) data.
+License: GPL (>=3.0)
+LazyData: yes
+

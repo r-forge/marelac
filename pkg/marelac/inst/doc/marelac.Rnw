@@ -33,7 +33,7 @@
 
 
 \author{Karline Soetaert\\
-NIOO-CEME\\
+NIOZ-Yerseke\\
 The Netherlands
 \And
 Thomas Petzoldt\\
@@ -41,7 +41,7 @@ Technische Universit\"at Dresden\\
 Germany
 \And
 Filip Meysman\\
-NIOO-CEME\\
+NIOZ-Yerseke\\
 The Netherlands
 }
 
@@ -61,7 +61,7 @@ The Netherlands
   Royal Netherlands Institute of Sea Research (NIOZ)\\
   4401 NT Yerseke, Netherlands\\
   E-mail: \email{karline.soetaert@nioz.nl}\\
-  URL: \url{http://www.nioo.knaw.nl/users/ksoetaert}\\
+  URL: \url{http://http://www.nioz.nl/}\\
   \\
   Thomas Petzoldt\\
   Institut f\"ur Hydrobiologie\\

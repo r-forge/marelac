@@ -37,7 +37,7 @@ data(Nitrate3D)
   The "objectively analyzed climatology" has been used to extract these data.
 }
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{

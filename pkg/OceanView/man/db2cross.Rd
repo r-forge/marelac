@@ -31,7 +31,7 @@ db2cross (input, row = 1, col = 2, value = 3) }
   \item{z }{ the crosstab, a \code{matrix}} 
 }
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{

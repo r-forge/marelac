@@ -22,7 +22,7 @@ gas_solubility(S = 35, t = 25,
   The solubility, mmol/m3/bar.
 }
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 \examples{
 gas_solubility(t = 1:20,S = 35, species = "CO2")

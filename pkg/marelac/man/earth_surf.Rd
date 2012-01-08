@@ -17,7 +17,7 @@ earth_surf(lat = 0, lon = 0)
 \value{
   Surface of the grid cell, in \eqn{m^2}{m2}.
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 \examples{
 
  earth_surf(seq(0, 90, by = 15))

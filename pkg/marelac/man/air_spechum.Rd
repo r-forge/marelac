@@ -14,8 +14,8 @@
 \value{
   The specific humidity, in kg/kg.
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>,
- Lorenz Meire <l.meire@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>,
+ Lorenz Meire <lorenz.meire@nioz.nl>}
 \examples{
 air_spechum(t = 25, rh = 50)*1000     # 9.7778
 plot(0:30, air_spechum(t = 0:30), xlab = "Temperature, dgC", ylab = "kg/kg")

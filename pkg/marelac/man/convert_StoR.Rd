@@ -31,7 +31,7 @@ convert_StoR(S = 35, t = 25, p = max(0, P-1.013253), P = 1.013253)
   1000 is 1.888091.
 }
 
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 \examples{
 convert_StoR(S = 40, t = 40, p = 1000)
 

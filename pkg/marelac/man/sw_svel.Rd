@@ -30,7 +30,8 @@ sw_svel(S = 35, t = 25, p = P-1.013253, P = 1.013253,
   Sound velocity for S = 40, t = 40, p = 1000 is 1731.995 using UNESCO
   polynomial.
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 sw_svel(t = 40, S = 40, p = 10:20, method = "UNESCO")
 

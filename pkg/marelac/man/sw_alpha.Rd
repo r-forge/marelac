@@ -18,7 +18,8 @@ sw_alpha(S = 35, t = 25, p = P-1.013253, P = 1.013253)
 \value{
   Thermal expansion coefficient, 1/K.
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 sw_alpha(35.7, 25.5, 102.3)#0.000309837839319264
 }

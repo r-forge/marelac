@@ -12,8 +12,8 @@
   The vapor pressure of water, in hecto Pascal; valid for temperature of
    [-50,100] dgC.
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>,
- Lorenz Meire <l.meire@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>,
+ Lorenz Meire <lorenz.meire@nioz.nl>}
 \examples{
 vapor.hPa(t = 25)
 plot(0:30, vapor.hPa(t = 0:30), xlab = "Temperature, dgC", ylab = "hPa")

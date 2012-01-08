@@ -27,7 +27,8 @@ sw_gibbs(S = 35, t = 25, p = P-1.013253,
 \value{
    The Gibbs function, J/kg, or its derivative
 }
-\author{Karline Soetaert < k.soetaert@nioo.knaw.nl > }
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 # table 22 Feistel 2008
 sw_gibbs(0, 0, 0)                             #= 101.34274

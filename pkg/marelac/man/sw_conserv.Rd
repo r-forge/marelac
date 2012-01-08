@@ -14,7 +14,8 @@ sw_conserv(S = 35)
 \value{
   A data frame with the concentrations in micromol/kg.
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 data.frame(salinity = 1:35, sw_conserv(1:35) )
 }

@@ -22,7 +22,8 @@ viscosity(S = 35, t = 25, P = 1.013253)
 \value{
   Shear visocisity in centipoise.
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 plot(0:30, viscosity(t = 0:30, S = 35, P = 1),
       xlab = "temperature", ylab = "g/m/s",

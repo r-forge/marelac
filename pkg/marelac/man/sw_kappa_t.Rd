@@ -17,7 +17,8 @@ sw_kappa_t(S = 35, t = 25, p = P-1.013253, P = 1.013253)
 \value{
   isothermal compressibility, 1/Pa.
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 sw_kappa_t(35.7, 25.5, 102.3) #4.10403794615135e-6
 }

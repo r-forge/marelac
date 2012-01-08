@@ -58,10 +58,9 @@ The Netherlands
 %% in the following format:
 \Address{
   Karline Soetaert\\
-  Centre for Estuarine and Marine Ecology (CEME)\\
-  Netherlands Institute of Ecology (NIOO)\\
+  Royal Netherlands Institute of Sea Research (NIOZ)\\
   4401 NT Yerseke, Netherlands\\
-  E-mail: \email{k.soetaert@nioo.knaw.nl}\\
+  E-mail: \email{karline.soetaert@nioz.nl}\\
   URL: \url{http://www.nioo.knaw.nl/users/ksoetaert}\\
   \\
   Thomas Petzoldt\\
@@ -72,10 +71,9 @@ The Netherlands
   URL: \url{http://tu-dresden.de/Members/thomas.petzoldt/}\\
   \\
   Filip Meysman\\
-  Centre for Estuarine and Marine Ecology (CEME)\\
-  Netherlands Institute of Ecology (NIOO)\\
+  Royal Netherlands Institute of Sea Research (NIOZ)\\
   4401 NT Yerseke, Netherlands\\
-  E-mail: \email{f.meysman@nioo.knaw.nl}
+  E-mail: \email{filip.meysman@nioz.nl}
 }
 
 

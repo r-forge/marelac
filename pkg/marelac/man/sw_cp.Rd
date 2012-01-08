@@ -23,7 +23,8 @@ sw_cp(S = 35, t = 25, p = P-1.013253, P = 1.013253,
 \value{
   Heat capacity, in \eqn{J kg^{-1} dgC^{-1}}
 }
-\author{Karline Soetaert < k.soetaert@nioo.knaw.nl > }
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 sw_cp(S = 40, t = 40, p = 1000, method="UNESCO")  # 3849.5
 

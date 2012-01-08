@@ -23,7 +23,8 @@
 \value{
   Temperature, \eqn{^\circ}{degrees }C.
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 sw_tpot(S = 40, t = 40:45, p = 1000)
 

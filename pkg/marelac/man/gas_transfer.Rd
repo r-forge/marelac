@@ -32,7 +32,8 @@ gas_transfer(t = 25, u10 = 1, species = c("He", "Ne", "N2", "O2", "Ar",
 \value{
   The gas transfer velocity, for seawater, in \eqn{m s^{-1}}{m/s}.
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 %% Check measurement units!
 %% - hre it is m/s but in Wanninkhof it is cm/hr

@@ -17,7 +17,8 @@ sw_kappa(S = 35, t = 25, p = P-1.013253, P = 1.013253)
 \value{
   Isentropic compressibility, 1/bar
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 sw_kappa(35.7, 25.5, 102.3) #4.03386268546478e-6
 }

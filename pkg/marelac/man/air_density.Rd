@@ -13,8 +13,8 @@
 \value{
   The air density, in kg/m3
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>,
- Lorenz Meire <l.meire@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>,
+ Lorenz Meire <lorenz.meire@nioz.nl>}
 \examples{
 air_density(t = 25) # 1.183894
 plot(0:30, air_density(t = 0:30), xlab = "Temperature, dgC", ylab = "kg/m3")

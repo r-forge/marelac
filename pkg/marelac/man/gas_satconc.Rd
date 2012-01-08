@@ -27,7 +27,8 @@ gas_satconc(S = 35, t = 25, P = 1.013253,
 \value{
    The saturated concentration of the gas in \eqn{mmol m^{-3}}{mmol/m3}.
 }
-\author{Karline Soetaert < k.soetaert@nioo.knaw.nl > }
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 gas_satconc(species = "O2")
 Temp <- seq(from = 0, to = 30, by = 0.1)

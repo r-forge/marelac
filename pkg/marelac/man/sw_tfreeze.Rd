@@ -22,7 +22,8 @@ sw_tfreeze(S=35, p = P-1.013253, P = 1.013253 )
 \value{
   Temperature, \eqn{^\circ}{degrees }C
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 sw_tfreeze(S = 40,p = 50)
 

@@ -77,7 +77,7 @@ the latitude is needed. If \code{lat} is \code{NULL} then the \code{Global}
 regression will be used.
 }
 
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 
 \examples{
 # check values: should be 35.7

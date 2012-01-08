@@ -17,7 +17,7 @@
     \item{z}{the height (m).}
   }
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 \examples{
 par(mar = c(2,2,2,2))
 image(Bathymetry$x, Bathymetry$y, Bathymetry$z, col = femmecol(100),

@@ -31,7 +31,8 @@
 \value{
   volume of the gas, liter
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl> }
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 #molecular volume of an ideal gas.
 molvol(species = "ideal", P = 1, t = 0)    # 22.710 980

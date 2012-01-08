@@ -23,7 +23,8 @@
       Nanoflagellate, Dinoflagellate, Ciliate, Rotifer, Meroplankton, Copepod.}
   }
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 plot(Zoogrowth$Volume,Zoogrowth$Mumax,log="xy",
       xlab="zooplankton volume, micrometer ^ 3",

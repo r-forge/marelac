@@ -15,7 +15,8 @@ the world at 1 dg intervals.
     \item{z}{the height (m).}
   }
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{
 
 par(mar=c(2,2,2,2))

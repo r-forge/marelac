@@ -16,8 +16,7 @@ a dataframe with 584 rows, and with following columns:
 
   SCOC.mmol/m2/d, the oxygen consumption rate of the sediment, [mmolO2/m2/d]
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
-
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 \examples{plot(SCOC[,1],SCOC[,2],log="xy",xlab="water depth, m",ylab="" ,
      main="SCOC, mmol O2/m2/d",pch=16,xaxt="n",yaxt="n",cex.main=1)
 

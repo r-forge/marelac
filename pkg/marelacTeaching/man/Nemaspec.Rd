@@ -21,7 +21,8 @@ Nematodes are small free-living worms (<1mm long), generally very abundant in al
 
 Species are called "Genus spname"; as most species are undescribed, they are
 called "Genus M1", "Genus M2", etc... }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
+
 \examples{head(Nemaspec)
 # select densities of species present in M160b
 st160b<-data.frame(Nemaspec$SPECIES,dens=Nemaspec$M160b)

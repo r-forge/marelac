@@ -39,10 +39,10 @@
 
 
 \author{Karline Soetaert\\
-Centre for Estuarine and Marine Ecology\\
-Netherlands Institute of Ecology\\
+Royal Institute of Sea Research (NIOZ)\\
+Yerseke\\
 The Netherlands\\
-June 2009
+Januari 2012
 }
 
 \Plainauthor{Karline Soetaert}
@@ -85,7 +85,7 @@ June 2009
   Netherlands Institute of Ecology (NIOO)\\
   4401 NT Yerseke, Netherlands
   E-mail: \email{karline.soetaert@nioz.nl}\\
-  URL: \url{http://www.nioo.knaw.nl/users/ksoetaert}\\
+  URL: \url{http://www.nioz.nl/}\\
 }
 
 

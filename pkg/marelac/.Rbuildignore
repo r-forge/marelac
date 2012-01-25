@@ -1,4 +1,8 @@
 inst/doc/Rplots.pdf
 inst/doc/.*\.blg
+inst/doc/.*\.jpeg
 inst/doc/.*\.log 
+inst/doc/jss.bst
+inst/doc/jss.cls
+
 

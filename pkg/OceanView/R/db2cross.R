@@ -24,8 +24,8 @@ db2cross <- function(input, row = 1, col = 2, value = 3) {
   nc = length(cols)
   out <- .Fortran("crosstab",t(IN),as.integer(nrow(input)),
              as.integer(1),as.integer(2), as.integer(3),
-             as.double(cols), as.double(rows), nr = nr, nc = nc, 
-             cross = matrix(nr = nr, nc = nc, data = as.double(0.)),
+             as.double(cols), as.double(rows), nrow = nr, ncol = nc, 
+             cross = matrix(nrow = nr, ncol = nc, data = as.double(0.)),
              package = "kaso")  
   list(x=rows, y= cols, z = out$cross)             
 }

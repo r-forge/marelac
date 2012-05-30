@@ -35,9 +35,6 @@
   \item{\dots}{additional arguments passed to the plotting methods. 
     }
 }
-\details{
-
-}
 
 \value{
  none

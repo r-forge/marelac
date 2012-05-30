@@ -14,7 +14,7 @@
 }
 \usage{
   Image(z, col = femmecol(100), add.contour = FALSE, 
-                   legend = TRUE, resfac = 1, NAcol = NULL, ...) 
+                   legend = TRUE, resfac = 1, NAcol = NULL, key.title = NULL, ...) 
   Image.array(z, margin = c(1,2), subset, ask = NULL, ...) 
 }
 
@@ -33,6 +33,8 @@
     resolution. If \code{resfac} equals \code{3} then for each adjacent pair of 
     x- and y-values, z will be interpolated to two intermediary points. 
     This uses simple linear interpolation.  
+    }
+  \item{key.title }{Add a title to the legend (color key).
     }
   \item{margin }{a vector giving the subscripts which the image 
     function will be applied over. For instance, \code{c(1, 2)},

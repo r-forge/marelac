@@ -75,7 +75,7 @@ splitpardots <- function(dots) {
 ## Legend on right hand side of plot
 ## =============================================================================
 
-drawlegend <- function (parleg, col, zlim) {
+drawlegend <- function (parleg, col, zlim, key.title) {
   Plt <- par(plt = parleg)
   PP <- par()
   par(new = TRUE)
@@ -88,8 +88,13 @@ drawlegend <- function (parleg, col, zlim) {
   iz <- matrix(iy, nrow = 1, ncol = length(iy))
 
   image(ix, iy, iz, xaxt = "n", yaxt = "n", xlab = "",
-        ylab = "", col = col)
-
+        ylab = "", col = col #, 
+        #main=key.title      # would make key title too big 
+  )
+  
+  cex <- par("cex")
+  mtext(key.title, 3, line = 1, cex = cex)
+  
   do.call("axis", list(side = 4, mgp = c(3, 1, 0), las = 2))
 
   par(plt = Plt)

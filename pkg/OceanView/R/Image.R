@@ -9,8 +9,8 @@
 #Image.matrix <- function(...) Image.matrix(...)
 
 Image <- function (z, col = femmecol(100), add.contour = FALSE, 
-                   legend = TRUE, resfac = 1, NAcol = NULL, ...) {
-
+                   legend = TRUE, resfac = 1, NAcol = NULL, key.title= NULL, ...) {
+  
   if (legend) {
     parplt <- par("plt") - c(0, 0.08, 0, 0)
     parleg <- c(parplt[2] + 0.02, parplt[2] + 0.05, parplt[3], parplt[4])
@@ -102,7 +102,7 @@ Image <- function (z, col = femmecol(100), add.contour = FALSE,
        if (!is.null(dots[["y"]])) dotcont$y <- dots[["y"]]
        do.call("contour", c(list(z = z, add = TRUE), dotcont))
      }  
-     if(legend) drawlegend(parleg, LegendCol, LegendZlim) 
+     if(legend) drawlegend(parleg, LegendCol, LegendZlim, key.title) 
 }
 
 ## =============================================================================

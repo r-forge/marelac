@@ -96,6 +96,7 @@ drawlegend <- function (parleg, col, zlim, key.title) {
   mtext(key.title, 3, line = 1, cex = cex)
   
   do.call("axis", list(side = 4, mgp = c(3, 1, 0), las = 2))
+  box() # thpe: to avoid different thicknes of axis and surrounding box
 
   par(plt = Plt)
   par(usr = usr)

@@ -78,7 +78,7 @@
 ##  EXAMPLE 1: 
 ## =======================================================================
   Image(volcano, x = 1:nrow(volcano), y = 1:ncol(volcano))
-  points(50, 30, pch = "+", cex = 5)
+  points(50, 30, pch = 3, cex = 5, lwd = 3)
   abline(v = seq(10, 80, by = 10))
   abline(h = seq(10, 60, by = 10))
 

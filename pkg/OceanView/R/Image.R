@@ -148,8 +148,23 @@ Image.array <- function (z, margin = c(1, 2), subset, ask = NULL, ...) {
       on.exit(devAskNewPage(oask))
   }
 
-  if (is.null(ldots$main)) title <- isub
-  else title <- rep(ldots$main, length.out = length(isub))
+  if (is.null(ldots$main)) {
+    title <- isub
+  } else {
+    title <- rep(ldots$main, length.out = np)
+  }
+  
+  ## allow multiple titles for color key legend
+  if (is.null(Ldots$key.title)) {
+    key.title <- ""
+  } else {
+    key.title <- Ldots$key.title
+  }
+  if (np %% (length(key.title)) != 0) 
+   warning("length of key.title is not a multiple of elements in 'z'")
+  
+  ## make key.title same length as nz
+  key.title <- rep(key.title, length.out = np)
   i1 <- 1
   for (i in isub) {
     if (index == 1) 
@@ -163,6 +178,7 @@ Image.array <- function (z, margin = c(1, 2), subset, ask = NULL, ...) {
 
     LL <- c(list(z = zz), Ldots)
     LL$main <- title[i1]
+    LL$key.title <- key.title[i]
     i1 <- i1+1
     do.call(Image, LL)
 #    Image(z = zz,  ...)# extractdots(Ldots, i))) 
@@ -188,7 +204,7 @@ Image.list <- function (z, ...) {
     if (any(dim(z[[i]]) - D1 != 0))
       stop("elements of 'z' should have the same dimension, check element", i)
   
-# Set the mfrow!
+   ## Set the mfrow!
    nc <- min(ceiling(sqrt(nz)), 3)
    nr <- min(ceiling(nz/nc), 3)
    mfrow <- c(nr, nc)
@@ -198,10 +214,25 @@ Image.list <- function (z, ...) {
    if (!is.null(Ldots$main)) {
      main <- rep(Ldots$main, length.out = nz)
      Ldots$main <- NULL
-   } else main <- 1:nz
+   } else 
+     main <- 1:nz
+   
+  ## allow multiple titles for color key legend
+  if (is.null(Ldots$key.title)) {
+    key.title <- ""
+  } else {
+    key.title <- Ldots$key.title
+  }
+  if (nz %% (length(key.title)) != 0) 
+   warning("length of key.title is not a multiple of elements in 'z'")
+
+   ## make key.title same length as nz
+   key.title <- rep(key.title, length.out = nz)
+
    if (classz == "matrix")  {
      for (i in 1:nz) {
       Ldots$main <- main[i]
+      Ldots$key.title <- key.title[i]
       LL <- c(list(z = z[[i]]), Ldots)
       do.call(Image, LL)
      }  

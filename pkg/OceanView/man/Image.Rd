@@ -1,6 +1,7 @@
 \name{Image}
 \alias{Image}
 \alias{Image.array}
+\alias{Image.list}
 \title{
  Improved image plot for 2-D data and for 3-D data
 }
@@ -15,7 +16,8 @@
 \usage{
   Image(z, col = femmecol(100), add.contour = FALSE, 
                    legend = TRUE, resfac = 1, NAcol = NULL, key.title = NULL, ...) 
-  Image.array(z, margin = c(1,2), subset, ask = NULL, ...) 
+  Image.array(z, margin = c(1,2), subset, ask = NULL, ...)
+  Image.list(z, ...)
 }
 
 \arguments{
@@ -34,7 +36,8 @@
     x- and y-values, z will be interpolated to two intermediary points. 
     This uses simple linear interpolation.  
     }
-  \item{key.title }{Add a title to the legend (color key).
+  \item{key.title }{Add a title to the legend (color key). It can be
+    a vector for \code{Image.list} and  \code{Image.list}.
     }
   \item{margin }{a vector giving the subscripts which the image 
     function will be applied over. For instance, \code{c(1, 2)},
@@ -57,7 +60,10 @@
   \code{Image} is an extension to the default \link{image} plot that has
   the possibility to add a legend and contourlines, and to increase the 
   resolution, in order to make smoother images. It also uses a different color
-  scheme and can deal with decreasing x- and y-values.
+  scheme and can deal with decreasing x- and
+  y-values. \code{Image.array} and \code{Image.list} are versions that
+  accept a 3 dimensional array resp. a list as their first argument to
+  produce multiple plots.
 }
 
 \value{

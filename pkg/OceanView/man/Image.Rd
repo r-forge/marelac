@@ -37,7 +37,7 @@
     This uses simple linear interpolation.  
     }
   \item{key.title }{Add a title to the legend (color key). It can be
-    a vector for \code{Image.list} and  \code{Image.list}.
+    a vector for \code{Image.array} and \code{Image.list}.
     }
   \item{margin }{a vector giving the subscripts which the image 
     function will be applied over. For instance, \code{c(1, 2)},

@@ -185,10 +185,12 @@
  dx <- dy <- 1
  v <-   (volcano[-1, ] - volcano[-nrow(volcano), ] )/dx
  u <- - (volcano[, -1] - volcano[ ,-ncol(volcano)] )/dy
- quiver(u = u, v = v, add = TRUE, by = 3)
+ quiver(x = 1:nrow(u), y = 1:ncol(v), 
+        u = u, v = v, add = TRUE, by = 3)
  
- flowpath(u = u, v = v, add = TRUE, lwd = 2, col = "grey", 
-          startx = 0.4, starty = 0.2)
+ flowpath(x = 1:nrow(u), y = 1:ncol(v), numarr = 10,
+          u = u, v = v, add = TRUE, lwd = 2, col = "grey", 
+          startx = 20, starty = 30)
 
 }
 \keyword{ hplot }

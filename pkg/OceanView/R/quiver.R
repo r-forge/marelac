@@ -7,6 +7,11 @@
 
 checkinput <- function(u, v, x = NULL, y = NULL, scale = 1, by = 1) {
   
+  if (is.null(x)) 
+     x <- 1:nrow(u)
+  if (is.null(y)) 
+     y <- 1:ncol(v)
+
   if (is.array(x)) {
     if (length(dim(x)) ==1) 
      x <- matrix(ncol = ncol(u), nrow = length(x), data = x)
@@ -28,6 +33,9 @@ checkinput <- function(u, v, x = NULL, y = NULL, scale = 1, by = 1) {
      y <- matrix(nrow = nrow(v), ncol = length(y), data = y, byrow = TRUE)
   }
 
+  
+  
+  
   div <- dim(u) - dim(v)
   
 # u and v may have a dimension 1 different, if they are defined on the edges.       
@@ -136,22 +144,8 @@ quiver <- function(u, v, x = NULL, y = NULL,           #   pol = NULL,
   if (is.null(dm$xlab)) dm$xlab <- "x"
   if (is.null(dm$ylab)) dm$ylab <- "y"
 
-#  if (!add & !is.null(NAcol)) { 
-#     zz <- t(u)
-#     zz[!is.na(zz)] <- 1
-#     zz[MM$isna] <- 0
-#     dm$x <- NULL
-#     dm$y <- NULL       
-#     LL <- c(alist(z = zz, x = x[1,], y = y[,1], legend = FALSE), dm)
-#     do.call(Image , LL) 
-#  } else  
   if (!add) do.call("matplot", c(alist(rbind(x, xto), rbind(y, yto)), 
                      type = "n",dm))
-#  if (! is.null(pol)) {
-#      mh <- min (y[1 ,])
-#      polygon(rbind(c(x[1, 1], mh), cbind(x[1, ], y[1,]), c(x[1, ncol(x)], mh)), 
-#           col = "grey", border = NA)
-#  }                   
 
   if (is.null(dp$arr.type))  dp$arr.type <- "triangle"  
   if (is.null(dp$arr.lwd))   dp$arr.lwd <- 1
@@ -239,6 +233,11 @@ quiver.array <- function (u, v, margin = c(1, 2), subset, ask = NULL, ...) {
 flowpath <- function (u, v, x = NULL, y = NULL, startx = NULL, starty = NULL,
                        scale = 1, plot = TRUE, add = FALSE, 
                        numarr = 0, arr.length = 0.2, maxstep = 1000, ...) {
+
+  if (is.null(x)) 
+     x <- seq(0, 1, length.out = nrow(u))
+  if (is.null(y)) 
+     y <- seq(0, 1, length.out = ncol(v))
 
   MM <- checkinput(u, v, x, y, scale, by = 1) 
   

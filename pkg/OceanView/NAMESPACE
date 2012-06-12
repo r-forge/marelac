@@ -1,5 +1,9 @@
 useDynLib(OceanView)
 
+S3method("Image", "default")
+S3method("Image", "matrix")
+S3method("Image", "array")
+S3method("Image", "list")
 export(db2cross)
-export(quiver, flowpath, Image, mapxy, Image.array, Image.list, 
+export(quiver, flowpath, mapxy, transectxy, Image, ImageOcean, 
        quiver.array, mapsigmatoz, vectorplot)

@@ -20,7 +20,7 @@
 
   \link{mapxy}, to remap a matrix (higher or lower resolution)
 
-  \link{Nitrate3D}, loin, lat, depth values of nitrate from the 
+  \link{Oxsat3D}, lon, lat, depth values of nitrate from the 
   NODC World Ocean Atlas 2005.
   
   \link{quiver}, \link{quiver.array}, for plotting velocity fields

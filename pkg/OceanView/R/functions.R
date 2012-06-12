@@ -3,6 +3,22 @@
 ## General utility functions
 ## =============================================================================
 ## =============================================================================
+ImageOcean <- function(...) {
+  dots <- list(...)
+  if (is.null(dots$xlab)) 
+    dots$xlab  <- "latitude"
+  if (is.null(dots$ylab)) 
+    dots$ylab  <- "longitude"
+  if (is.null(dots$zlab)) 
+    dots$zlab  <- "depth, m"
+  if (is.null(dots$NAcol)) 
+    dots$NAcol  <- "black"
+  zz       <- Bathymetry$z
+  zz[zz>0] <- NA
+
+  
+  do.call("Image", c(alist(zz, x = Bathymetry$x, y = Bathymetry$y), dots))
+}
 
 
 ## =============================================================================
@@ -75,7 +91,7 @@ splitpardots <- function(dots) {
 ## Legend on right hand side of plot
 ## =============================================================================
 
-drawlegend <- function (parleg, col, zlim, key.title) {
+drawlegend <- function (parleg, col, zlim, zlab = NULL, cex.zlab = NULL) {
   Plt <- par(plt = parleg)
   PP <- par()
   par(new = TRUE)
@@ -86,16 +102,13 @@ drawlegend <- function (parleg, col, zlim, key.title) {
   binwidth <- (maxz - minz)/64
   iy <- seq(minz + binwidth/2, maxz - binwidth/2, by = binwidth)
   iz <- matrix(iy, nrow = 1, ncol = length(iy))
-
+  if (! is.numeric(cex.zlab)) cex.zlab <- 1.
   image(ix, iy, iz, xaxt = "n", yaxt = "n", xlab = "",
-        ylab = "", col = col #, 
-        #main=key.title      # would make key title too big 
-  )
+        ylab = "", col = col, main = zlab, cex.main = cex.zlab)
+#  cex <- par("cex")
+#  mtext(key.title, 3, line = 1, cex = cex)
   
-  cex <- par("cex")
-  mtext(key.title, 3, line = 1, cex = cex)
-  
-  do.call("axis", list(side = 4, mgp = c(3, 1, 0), las = 2))
+  do.call("axis", list(side = 4, mgp = c(3, 1, 0), las = 2, cex.axis = cex.zlab))
   box() # thpe: to avoid different thicknes of axis and surrounding box
 
   par(plt = Plt)

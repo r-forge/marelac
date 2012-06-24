@@ -3,7 +3,7 @@ Version: 1.0
 Title: Visualisation of Ocean Data and Model Output.
 Author: Karline Soetaert <karline.soetaert@nioz.nl>
 Maintainer: Karline Soetaert <karline.soetaert@nioz.nl>
-Depends: shape, marelac, R (>= 2.10)
+Depends: shape, marelac, akima, R (>= 2.10)
 Description: Functions for viewing 3-D (oceanic) data.
 License: GPL (>=3.0)
 LazyData: yes

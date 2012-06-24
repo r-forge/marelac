@@ -4,6 +4,12 @@ S3method("Image", "default")
 S3method("Image", "matrix")
 S3method("Image", "array")
 S3method("Image", "list")
+
+S3method("quiver", "default")
+S3method("quiver", "matrix")
+S3method("quiver", "array")
+
 export(db2cross)
 export(quiver, flowpath, mapxy, transectxy, Image, ImageOcean, 
-       quiver.array, mapsigmatoz, vectorplot)
+       mapsigma, vectorplot)
+export(Mplot, Msplit, Mcommon, scatterplot)

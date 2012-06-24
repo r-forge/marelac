@@ -6,9 +6,9 @@
 ImageOcean <- function(...) {
   dots <- list(...)
   if (is.null(dots$xlab)) 
-    dots$xlab  <- "latitude"
+    dots$xlab  <- "longitude"
   if (is.null(dots$ylab)) 
-    dots$ylab  <- "longitude"
+    dots$ylab  <- "latitude"
   if (is.null(dots$zlab)) 
     dots$zlab  <- "depth, m"
   if (is.null(dots$NAcol)) 

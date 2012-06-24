@@ -98,7 +98,9 @@
 ## =======================================================================
 ##  EXAMPLE 1: 
 ## =======================================================================
-  Image(volcano, x = 1:nrow(volcano), y = 1:ncol(volcano), 
+  nr <- nrow(volcano)
+  nc <- ncol(volcano)
+  Image(volcano, x = 1:nr, y = 1:nc, 
         main = "volcano", zlab = "height, m")
   points(50, 30, pch = 3, cex = 5, lwd = 3)
   abline(v = seq(10, 80, by = 10))
@@ -112,8 +114,8 @@
         main = "surface oxygen saturation data 2005", NAcol = "black", 
         zlab = c("","","\%"))
 
-## -----------------------------------------------------------------------
-  # images at first 9 depths
+# -----------------------------------------------------------------------
+# images at first 9 depths
   
   pm <- par("mfrow")
   Image(z = Oxsat3D$val[ , ,1:9], 
@@ -125,12 +127,12 @@
         mfrow = c(3, 3))
   par(mfrow = pm)
 
-## -----------------------------------------------------------------------
-  # images at latitude - depth section
+# -----------------------------------------------------------------------
+# images at latitude - depth section
 
   pm <- par("mfrow")
-  Image(z = Oxsat3D$val[,  Oxsat3D$lat > - 5 & Oxsat3D$lat < 5, ], 
-        x = Oxsat3D$lon, y = Oxsat3D$depth,
+  z <- Oxsat3D$val[,  Oxsat3D$lat > - 5 & Oxsat3D$lat < 5, ]
+  Image(z = z, x = Oxsat3D$lon, y = Oxsat3D$depth,
         margin = c(1, 3), NAcol = "black", 
         resfac = 3, ylim = c(5000, 0))
   # show position of transects 
@@ -144,22 +146,22 @@
 ##  EXAMPLE 3: list of matrices
 ## =======================================================================
 
-  volcano2 <- log(volcano)
-  Image(list(volcano, volcano2), 
-        x = 1:nrow(volcano), y = 1:ncol(volcano), 
+  listvolcano <- list(volcano = volcano, logvolcano = log(volcano)) 
+  Image(listvolcano, x = 1:nr, y = 1:nc, 
         main = c("volcano", "log(volcano)"), 
         zlab = list("height, m", "log(m)"),
         zlim = list(c(80, 200), c(4.4, 5.5)))
 
-\dontrun{
 ## =======================================================================
 ##  EXAMPLE 4: list of arrays
 ## =======================================================================
+
+\dontrun{
 # crude conversion from oxsat to oxygen 
-  Oxygen <- Oxsat3D$val/100 * 360
+  listoxygen <- list(Oxsat3D$val, Oxsat3D$val/100 * 360)
   
   pm <- par("mfrow")
-  Image(z = list(Oxsat3D$val, Oxygen), 
+  Image(z = listoxygen, 
         x = Oxsat3D$lon, y = Oxsat3D$lat,
         margin = c(1, 2), NAcol = "black", 
         main = c("Oxygen saturation ", " Oxygen concentration"),

@@ -54,8 +54,8 @@ data(Oxsat3D)
 # plot depth profiles; input is an array
   lon <- Oxsat3D$lon
   Image (z = Oxsat3D$val, margin = c(2, 3), x = Oxsat3D$lat, 
-         y = Oxsat3D$depth, subset = (lon > 19 & lon < 22),
-         ylim = c(5500, 0), NAcol = "black")
+         y = Oxsat3D$depth, subset = (lon > 18 & lon < 23),
+         ylim = c(5500, 0), NAcol = "black", zlim = c(0, 110))
 
 }
 

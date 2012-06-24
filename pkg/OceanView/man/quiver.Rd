@@ -1,22 +1,25 @@
 \name{quiver}
 \alias{quiver}
+\alias{quiver.matrix}
 \alias{quiver.array}
 \alias{flowpath}
 \title{
   Plots velocitys as arrows or as trajectory plots.
 }
 \description{
-  Functions \code{quiver} and \code{quiver.array} display 
-  velocity vectors as arrows.
+  Functions \code{quiver} displays velocity vectors as arrows.
   
   Function \code{flowpath} displays the flow paths of particles, based on 
   velocity vectors.
   
 }
 \usage{
-  quiver(u, v, x = NULL, y = NULL, scale = 1, 
+  quiver(u, ...)
+
+  \method{quiver}{matrix}(u, v, x = NULL, y = NULL, scale = 1, 
          arr.max = 0.2, arr.min = 0, by = NULL, add = FALSE, ...) 
-  quiver.array(u, v, margin = c(1, 2), subset, ask = NULL, ...)
+
+  \method{quiver}{array} (u, v, margin = c(1, 2), subset, ask = NULL, ...)
                     
   flowpath(u, v, x = NULL, y = NULL, startx = NULL, starty = NULL,
            scale = 1, plot = TRUE, add = FALSE, 
@@ -116,7 +119,7 @@
 ## =======================================================================
 ##  EXAMPLE 1: 
 ## =======================================================================
- pm <- par("mar")
+ pm <- par("mfrow")
  par(mfrow = c(2, 2))
 
 # generate arrows
@@ -177,14 +180,49 @@
            lwd = 2, col = "orange")
 
 ## =======================================================================
-##  EXAMPLE 4: 
+##  EXAMPLE 4: quiver of an array.. 
 ## =======================================================================
- Image(volcano, add.contour = TRUE)
+ 
+ x <- y <- 1:20
+ u2 <- outer (x, y, function (x, y) sin(2*pi*y/10))
+ v2 <- outer (x, y, function (x, y) sin(2*pi*x/10))
+
+# merge u, u2 and v, v2 to create an "array"
+ U <- array(dim = c(dim(u2), 2), data = c(u, u2), 
+            dimnames = c("x", "y", "times"))
+ V <- array(dim = c(dim(v2), 2), data = c(v, v2), 
+            dimnames = c("x", "y", "times"))
+
+ quiver(u = U, v = V, x = x, y = y, main = c("time 1", "time 2"))
+
+# quiver over x and time, for a subset of y-values:
+ quiver(u = U, v = V, x = x, y = 1:2, 
+        margin = c(1, 3), main = paste("y ", y), 
+        subset = y < 10)
+
+\dontrun{
+ quiver(u = U, v = V, x = x, y = y, ask = TRUE, 
+        mfrow = c(1,1))
+
+ quiver(u = U, v = V, x = x, y = 1:2, ask = TRUE, 
+        margin = c(1, 3), main = paste("y ", y),
+        mfrow = c(1,1))
+
+}
+
+## =======================================================================
+##  EXAMPLE 5: 
+## =======================================================================
+ par(mfrow = c(1, 1))
+
+ Image(x = 1:nrow(volcano), y = 1:ncol(volcano), 
+       volcano, add.contour = TRUE)
 
 # Assume these are streamfunctions, we calculate the velocity field as:
  dx <- dy <- 1
  v <-   (volcano[-1, ] - volcano[-nrow(volcano), ] )/dx
  u <- - (volcano[, -1] - volcano[ ,-ncol(volcano)] )/dy
+
  quiver(x = 1:nrow(u), y = 1:ncol(v), 
         u = u, v = v, add = TRUE, by = 3)
  
@@ -192,6 +230,7 @@
           u = u, v = v, add = TRUE, lwd = 2, col = "grey", 
           startx = 20, starty = 30)
 
+ par(mfrow = pm)
 }
 \keyword{ hplot }
 

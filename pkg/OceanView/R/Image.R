@@ -10,6 +10,8 @@ Image.matrix <- function (z, col = femmecol(100), add.contour = FALSE,
                    legend = TRUE, resfac = 1, NAcol = NULL, 
                    zlab = NULL, cex.zlab = par("cex.axis"), ...) {
 
+  if (length(col) == 1)
+    if(is.na(col)) legend <- FALSE
   if (legend) {
     parplt <- par("plt") - c(0, 0.08, 0, 0)
     parleg <- c(parplt[2] + 0.02, parplt[2] + 0.05, parplt[3], parplt[4])
@@ -48,7 +50,7 @@ Image.matrix <- function (z, col = femmecol(100), add.contour = FALSE,
 
        XX <- unique(sort(XX))
        YY <- unique(sort(YY))
-       z <- mapxy(z, x = x, y = y, xto = XX, yto = YY)
+       z <- mapxy(z, x = x, y = y, xto = XX, yto = YY)$z
        dots[["x"]] <- XX
        dots[["y"]] <- YY
     }
@@ -106,7 +108,8 @@ Image.matrix <- function (z, col = femmecol(100), add.contour = FALSE,
        if (!is.null(dots[["y"]])) dotcont$y <- dots[["y"]]
        do.call("contour", c(list(z = z, add = TRUE), dotcont))
      }  
-     if(legend) drawlegend(parleg, LegendCol, LegendZlim, zlab, cex.zlab) 
+     if (legend ) 
+       drawlegend(parleg, LegendCol, LegendZlim, zlab, cex.zlab) 
 }
 
 ## =============================================================================

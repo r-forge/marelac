@@ -8,9 +8,9 @@
 checkinput <- function(u, v, x = NULL, y = NULL, scale = 1, by = 1) {
   
   if (is.null(x)) 
-     x <- 1:nrow(u)
+     x <- seq(0, 1, length.out = nrow(u))
   if (is.null(y)) 
-     y <- 1:ncol(v)
+     y <- seq(0, 1, length.out = ncol(v))
 
   if (is.array(x)) {
     if (length(dim(x)) ==1) 
@@ -115,10 +115,11 @@ checkinput <- function(u, v, x = NULL, y = NULL, scale = 1, by = 1) {
 ## from http://tolstoy.newcastle.edu.au/R/help/01c/2711.html
 ## Robin Hankin Tue 20 Nov 2001 - 13:10:28 EST
 ## =============================================================================
-
-quiver <- function(u, v, x = NULL, y = NULL,           #   pol = NULL,
+quiver <- function(u, ...) UseMethod ("quiver")
+quiver.default <- function (u, ...) quiver.matrix(u, ...)
+quiver.matrix  <- function(u, v, x = NULL, y = NULL,           #   pol = NULL,
                     scale = 1, arr.max = 0.2, arr.min = 0, 
-                    by = NULL, add = FALSE,  ...)  {
+                    by = NULL, add = FALSE, ...)  {
 # ------------------------------------------------------------------------------
 # check input
 # ------------------------------------------------------------------------------
@@ -137,6 +138,8 @@ quiver <- function(u, v, x = NULL, y = NULL,           #   pol = NULL,
   dp <- dotlist$points
   NAcol <- dp$NAcol
   dp$NAcol <- NULL
+  # 
+
   # transpose dp elements that are matrices
   dp <- lapply(dp, FUN = function(x) if (is.matrix(x)) t(x[MM$ix, MM$iy]) else x)
   dm <- dotlist$main

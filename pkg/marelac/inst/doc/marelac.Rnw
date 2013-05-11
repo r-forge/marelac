@@ -154,13 +154,12 @@ Data set \code{Bathymetry} from the \pkg{marelac} package can be used
 to generate the bathymetry (and hypsometry) of the world oceans (and
 land) (Fig.\ref{fig:f1}):
 
-<<label=bat,include=FALSE>>=
+\begin{verbatim}
 require(marelac)
 image(Bathymetry$x, Bathymetry$y, Bathymetry$z, col = femmecol(100),
       asp = TRUE, xlab = "", ylab = "")
 contour(Bathymetry$x, Bathymetry$y, Bathymetry$z, add = TRUE)
-@
-
+\end{verbatim}
 \setkeys{Gin}{width=0.8\textwidth}
 \begin{figure}
 \begin{center}

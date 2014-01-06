@@ -8,7 +8,7 @@
   Based on data that give the surface distance per 1 dg change in lat/lon
   from \url{http://en.wikipedia.org/wiki/Latitude}
   
-  \code{aerth_surf} calculates the distance between two (lat, lon) points
+  \code{earth_dist} calculates the distance between two (lat, lon) points
 }
 \usage{
 earth_surf(lat = 0, lon = 0)

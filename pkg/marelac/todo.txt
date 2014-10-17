@@ -1,0 +1,9 @@
+fix example warning
+
+> contour(P, Temp, Val, xlab = "pressure", ylab = "temperature",
++         main = "molvol", nlevel = 20, log = "x")
+Warning in axis(side = side, at = at, labels = labels, ...) :
+  "log" is not a graphical parameter
+
+
+Possible reason: ... passed not only down to contour, also to axis

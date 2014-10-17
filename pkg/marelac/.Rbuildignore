@@ -1,7 +1,13 @@
+todo.txt
 inst/doc/Rplots.pdf
 inst/doc/.*\.blg
 inst/doc/.*\.log 
 inst/doc/jss.bst
 inst/doc/jss.cls
+## --resave-data
+data/.*\.R$
+data/.*\.txt
+
+
 
 

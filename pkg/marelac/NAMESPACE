@@ -1,4 +1,7 @@
 useDynLib(marelac)
+
+import("seacarb", "shape")
+
 #physical
 export(gravity,coriolis,viscosity,diffcoeff,vapor,vapor.hPa,ssd2rad,
        air_density, air_spechum)

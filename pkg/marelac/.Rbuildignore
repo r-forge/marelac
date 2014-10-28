@@ -7,7 +7,7 @@ inst/doc/jss.cls
 ## --resave-data
 data/.*\.R$
 data/.*\.txt
-
+work
 
 
 

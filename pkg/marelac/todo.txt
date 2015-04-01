@@ -6,4 +6,7 @@ Warning in axis(side = side, at = at, labels = labels, ...) :
   "log" is not a graphical parameter
 
 
-Possible reason: ... passed not only down to contour, also to axis
+thpe: solved.
+-------------
+
+

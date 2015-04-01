@@ -43,9 +43,45 @@ echo $contents; } ?>
 
 <!-- end of project description -->
 
-<p> No content added. </p>
+<h1>Packages</h1>
 
-<p> The <strong>project summary page</strong> you can find <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>here</strong></a>. </p>
+<h2>marelac: Tools for Aquatic Sciences</h2>
+
+<p>Datasets, constants, conversion factors, utilities for MArine,
+Riverine, Estuarine, LAcustrine and Coastal science.</p>
+
+<p>The package contains among others:</p>
+
+<ol>
+
+<li> chemical and physical constants and datasets, e.g. atomic
+weights, gas constants, the earths bathymetry;
+
+<li> conversion factors (e.g. gram to mol to liter, barometric units,
+temperature, salinity),</li>
+
+<li> physical functions, e.g. to estimate concentrations of
+conservative substances, gas transfer and diffusion coefficients, the
+Coriolis force and gravity,</li>
+
+<li>thermophysical properties of the seawater, as from the UNESCO
+polynomial or from the more recent derivation based on a Gibbs
+function.</li>
+
+</ol>
+
+<h2>marelacTeaching</h2>
+
+<ul>
+<li> includes lecture notes "Using R for scientific computing" for the novice non-statistician R-user. 
+</ul>
+
+<h2>Links</h2>
+
+<ul>
+<li> <a href="http://cran.r-project.org/web/packages/marelac/"><strong>Package description on CRAN</strong></a>. </p>
+<li> <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>Project summary page on R-Forge</strong></a>. </p>
+</ul>
 
 </body>
 </html>

@@ -36,12 +36,6 @@
   of the selected chemical species.
 }
 
-\details{
-  Arguments salinity, temperature or pressure can be vectors. In order to avoid 
-  confusion, S, t and P must have either same length or length 1. More flexible 
-  combinationsare of course possible with \code{\link{expand.grid}}
-
-}
 
 \author{Filip Meysman <filip.meysman@nioz.nl>,
   Karline Soetaert <karline.soetaert@nioz.nl>
@@ -158,6 +152,10 @@ diffsaltemp <- diffcoeff(S = rep(c(1, 35), each = 20),
   \eqn{H_4SiO_4} : Wollast and Garrels (1971) found D(H4SiO4) at 25 deg
   C and 36.1 ppt S.  Assume that this value can be scaled by the
   Stokes-Einstein relationship to any other temperature.
+
+  Arguments salinity, temperature or pressure can be vectors. In order to avoid 
+  confusion, S, t and P must have either same length or length 1. More flexible 
+  combinationsare of course possible with \code{\link{expand.grid}}
   
 }
 \seealso{

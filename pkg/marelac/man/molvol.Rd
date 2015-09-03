@@ -59,11 +59,11 @@ molvol(P = 1:5, species = "O2")
 P    <- seq(1, 100, by = 1)
 Temp <- seq(-5, 40, by = 1)
 
-Val <- outer(X = P, Y = Temp, 
+Val <- outer(X = P, Y = Temp,
       FUN = function(X, Y) molvol(P = X,  t = Y, species = "O2"))
 contour(P, Temp, Val, xlab = "pressure", ylab = "temperature",
         main = "molvol", nlevel = 20, log = "x", axes = FALSE)
-axis(1); axis(2); box()        
+axis(1); axis(2); box()
 
 }
 
@@ -84,9 +84,9 @@ axis(1); axis(2); box()
 
   Weast RC (Ed.) 1972. Handbook of Chemistry and Physics (53rd Edn.),
   Cleveland:Chemical Rubber Co.
-  
+
   as found in:
-  \url{http://en.wikipedia.org/wiki/Van\_der\_Waals\_constants\_(data_page)}
+  \url{http://en.wikipedia.org/wiki/Van_der_Waals_constants_(data_page)}
 }
 
 \keyword{utilities}

@@ -6,6 +6,7 @@ Author: Karline Soetaert <karline.soetaert@nioz.nl>,
         Filip Meysman <filip.meysman@nioz.nl>
 Maintainer: Karline Soetaert <karline.soetaert@nioz.nl>
 Depends: R (>= 2.10), shape, seacarb
+Imports: stats
 Description: Datasets, constants, conversion factors, utilities for MArine, Riverine,
              Estuarine, LAcustrine and Coastal science. 
              The package contains among others: (1) chemical and

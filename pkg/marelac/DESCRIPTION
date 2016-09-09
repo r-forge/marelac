@@ -7,8 +7,8 @@ Author: Karline Soetaert <karline.soetaert@nioz.nl>,
 Maintainer: Karline Soetaert <karline.soetaert@nioz.nl>
 Depends: R (>= 2.10), shape, seacarb
 Imports: stats
-Description: Datasets, constants, conversion factors, utilities for MArine, Riverine,
-             Estuarine, LAcustrine and Coastal science. 
+Description: Datasets, constants, conversion factors, and utilities for 'MArine', 'Riverine',
+             'Estuarine', 'LAcustrine' and 'Coastal' science. 
              The package contains among others: (1) chemical and
              physical constants and datasets, e.g. atomic weights, gas
              constants, the earths bathymetry; (2) conversion factors

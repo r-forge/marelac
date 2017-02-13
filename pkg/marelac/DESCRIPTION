@@ -21,4 +21,3 @@ Description: Datasets, constants, conversion factors, and utilities for 'MArine'
              recent derivation based on a Gibbs function.
 License: GPL (>= 2)  
 LazyData: yes
-Packaged: Sat Sep  20 2008; KarlineS

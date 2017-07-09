@@ -1,5 +1,5 @@
 \documentclass[article,nojss]{jss}
-\DeclareGraphicsExtensions{.pdf,.eps}
+\DeclareGraphicsExtensions{.pdf,.eps,.png}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Add-on packages and fonts
 \usepackage{graphicx}
@@ -1810,7 +1810,7 @@ For example, the data set \code{Bathymetry} from the \pkg{marelac}
 package can be used to generate the bathymetry (and hypsometry) of the
 world oceans (and land):
 
-<<label=bat,include=FALSE>>=
+<<label=bat,include=FALSE,png = TRUE, pdf = FALSE>>=
 require(marelac)
 image(Bathymetry$x,Bathymetry$y,Bathymetry$z,col=femmecol(100),
       asp=TRUE,xlab="",ylab="")
@@ -1820,7 +1820,7 @@ contour(Bathymetry$x,Bathymetry$y,Bathymetry$z,add=TRUE)
 \setkeys{Gin}{width=0.8\textwidth}
 \begin{figure}
 \begin{center}
-<<label=batfig,fig=TRUE,echo=FALSE>>=
+<<label=batfig,fig=TRUE, echo=FALSE>>=
 <<bat>>
 @
 \end{center}

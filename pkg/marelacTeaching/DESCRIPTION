@@ -1,5 +1,5 @@
 Package: marelacTeaching
-Version: 1.1.1
+Version: 1.1.2
 Title: Datasets and tutorials for use in aquatic sciences
 Author: Karline Soetaert <karline.soetaert@nioz.nl>,
         Filip Meysman <filip.meysman@nioz.nl>
@@ -8,4 +8,3 @@ Depends: R (>= 2.01), marelac, deSolve, rootSolve, scatterplot3d
 Description: Datasets and tutorials for use in the MArine, Riverine, Estuarine, LAcustrine and Coastal sciences
 License: GPL (>= 2)
 LazyData: yes
-Packaged: Sat Sep  20 2008; KarlineS

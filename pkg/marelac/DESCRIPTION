@@ -1,9 +1,16 @@
 Package: marelac
 Version: 2.1.6
 Title: Tools for Aquatic Sciences
-Author: Karline Soetaert <karline.soetaert@nioz.nl>,
-        Thomas Petzoldt <thomas.petzoldt@tu-dresden.de>,
-        Filip Meysman <filip.meysman@nioz.nl>
+Authors@R: c(person("Karline","Soetaert", role = c("aut", "cre"), 
+                     email = "karline.soetaert@nioz.nl"),
+             person("Thomas","Petzoldt", role = c("aut"),
+                     email = "thomas.petzoldt@tu-dresden.de"),
+             person("Meysman","Filip", role = c("cph")),
+             person("Meire", "Lorenz", role = "cph"))
+Author: Karline Soetaert [aut, cre],  
+        Thomas Petzoldt [aut],  
+        Filip Meysman [cph], 
+        Lorenz Meire [cph]
 Maintainer: Karline Soetaert <karline.soetaert@nioz.nl>
 Depends: R (>= 2.10), shape, seacarb
 Imports: stats

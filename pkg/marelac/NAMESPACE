@@ -2,6 +2,7 @@ useDynLib(marelac)
 
 import("seacarb", "shape")
 importFrom("stats", "approx", "uniroot")
+importFrom("seacarb", "rho")
 
 #physical
 export(gravity, coriolis, viscosity, diffcoeff, vapor, vapor.hPa, ssd2rad,

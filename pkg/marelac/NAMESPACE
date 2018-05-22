@@ -1,4 +1,4 @@
-useDynLib(marelac)
+useDynLib(marelac, .registration = TRUE)
 
 import("seacarb", "shape")
 importFrom("stats", "approx", "uniroot")

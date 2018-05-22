@@ -41,19 +41,17 @@
   \tabular{ll}{
     Package: \tab marelac\cr
     Type: \tab Package\cr
-    Version: \tab 2.1.4\cr
-    Date: \tab 2014-10-29\cr
+    Version: \tab 2.1.7\cr
     License: \tab GNU Public License 2 or above\cr
   }
 }
 \author{
   Karline Soetaert (Maintainer)
 
-  Filip Meysman
-  
   Thomas Petzoldt
   
-  with contributions from Lorenz Meire
+  with contributions from Lorenz Meire and Filip Meysman
+
 }
 \references{
   

@@ -1,12 +1,12 @@
 Package: marelac
-Version: 2.1.6
+Version: 2.1.7
 Title: Tools for Aquatic Sciences
 Authors@R: c(person("Karline","Soetaert", role = c("aut", "cre"), 
                      email = "karline.soetaert@nioz.nl"),
              person("Thomas","Petzoldt", role = c("aut"),
                      email = "thomas.petzoldt@tu-dresden.de"),
-             person("Meysman","Filip", role = c("cph")),
-             person("Meire", "Lorenz", role = "cph"))
+             person("Filip", "Meysman",role = "cph"),
+             person("Lorenz", "Meire", role = "cph"))
 Author: Karline Soetaert [aut, cre],  
         Thomas Petzoldt [aut],  
         Filip Meysman [cph], 

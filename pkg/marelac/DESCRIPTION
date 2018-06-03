@@ -1,5 +1,5 @@
 Package: marelac
-Version: 2.1.7
+Version: 2.1.8
 Title: Tools for Aquatic Sciences
 Authors@R: c(person("Karline","Soetaert", role = c("aut", "cre"), 
                      email = "karline.soetaert@nioz.nl"),

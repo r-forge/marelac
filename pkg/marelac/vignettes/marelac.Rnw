@@ -39,13 +39,9 @@ The Netherlands
 Thomas Petzoldt\\
 Technische Universit\"at Dresden\\
 Germany
-\And
-Filip Meysman\\
-NIOZ-Yerseke\\
-The Netherlands
 }
 
-\Plainauthor{Karline Soetaert, Thomas Petzoldt and Filip Meysman}
+\Plainauthor{Karline Soetaert and Thomas Petzoldt}
 
 \Abstract{
   \R{ }package \m \citep{marelac} contains chemical and physical
@@ -68,12 +64,7 @@ The Netherlands
   Technische Universit\"at Dresden\\
   01062 Dresden, Germany\\
   E-mail: \email{thomas.petzoldt@tu-dresden.de}\\
-  URL: \url{http://tu-dresden.de/Members/thomas.petzoldt/}\\
-  \\
-  Filip Meysman\\
-  Royal Netherlands Institute of Sea Research (NIOZ)\\
-  4401 NT Yerseke, Netherlands\\
-  E-mail: \email{filip.meysman@nioz.nl}
+  URL: \url{http://tu-dresden.de/Members/thomas.petzoldt/}
 }
 
 
